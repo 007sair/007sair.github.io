@@ -28,7 +28,7 @@ Author:             展新(pizner@gmail.com)
 @font-face {
     font-family: "FontAwesome";
     src: url('font/fontawesome-webfont.eot');
-    src: url('font/fontawesome-webfont.eot?#iefix') format('eot'), 
+    src: url('font/fontawesome-webfont.eot?#iefix') format('eot'),  
          url('font/fontawesome-webfont.woff') format('woff'), 
          url('font/fontawesome-webfont.ttf') format('truetype'), 
          url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
@@ -42,7 +42,7 @@ html { color: #1F0909; background: #f3f2ee; -webkit-text-size-adjust: 100%; -ms-
 body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, group, menu, nav, section { margin: 0; padding: 0; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 audio, canvas, video { display: inline-block;  }
-body, button, input, select, textarea { font: 500 14px/1.8 'PT Serif', 'Hiragino Sans GB', sans-serif; }
+body, button, input, select, textarea { font: 500 14px/1.8 '"Lucida Console"', 'Hiragino Sans GB', sans-serif; }
 table { border-collapse: collapse; border-spacing: 0; width: 100%; }
 th { text-align: inherit; }
 fieldset, img { border: 0; }
@@ -99,6 +99,7 @@ img::-moz-selection	{background: rgba(127, 191, 17, 0.2); width: 100%; }
     font-style: normal;
     display: inline-block;
     text-decoration: inherit;
+    font-size: 24px;
 }
 a [class^="icon-"], a [class*=" icon-"] {
     display: inline-block;
@@ -463,22 +464,22 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 *************************/
 .lotus { width: 720px; padding: 1em 0 0em 0; margin: 0 auto; }
 .index { padding: 1em 0 0 0;}
-.index h3 { border-bottom: none; }
+.index h3 { border-bottom: none; font-weight: bold; }
 .lotus-nav {
-	width: 58px;
+	width: 64px;
 	height: 100%;
 	background: #474747;
 	background: -moz-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
-    background: -webkit-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
-    background: -ms-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
-    background: linear-gradient( to 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
+  background: -webkit-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
+  background: -ms-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
+  background: linear-gradient( to 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
 	border-right: 1px solid #212121;
 	position: fixed;
 	left: 0;
 	top: 0;
 }
-.lotus-nav ul { list-style: none; width: 58px; margin: 0 0; border-bottom: 1px solid #313131; }
-.lotus-nav ul li { height: 42px; display: block; font-size: 20px; line-height: 42px; text-align: center; border-top: 1px solid #313131; overflow: hidden; }
+.lotus-nav ul { list-style: none; width: 100%; margin: 0 0; border-bottom: 1px solid #313131; }
+.lotus-nav ul li { height: 54px; display: block; font-size: 20px; line-height: 54px; text-align: center; border-top: 1px solid #313131; overflow: hidden; }
 .lotus-nav ul .home { margin-bottom: 3.8em; border-top: 0; }
 .lotus-nav ul li a { color: #ffffff; display: block; cursor: pointer; }
 .lotus-nav ul li a:hover, .lotus-nav ul .current a { text-decoration: none; 
@@ -669,6 +670,9 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .lotus-meta {
     color: #a8a8a8;
 }
+.article-block{
+  padding: 0 0 1em 0;
+}
 
 /*************************
  * violet logo
@@ -707,7 +711,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .violet-site h1, .violet-site h1 a { font-family: "Times New Roman",Times,serif; font-size: 32px; font-weight: normal; color: #525252; margin-bottom: 0;}
 .violet-site h1 a:hover { color: #323232; text-decoration: none; }
 .violet-site h1 span { display: inline; padding: 0px 5px 0 3px; position: relative; line-height: 12px; font-size: 10px; font-family: Verdana,Arial,Helvetica,sans-serif; color: #525252; background: #d8d8d8; border-radius: 7px 0px 7px 0; top: -23px; left: 5px; font-weight: 600;}
-.violet-site h2 { padding-top: 2px;  font-size: 14px; line-height: 14px; border-top: 1px solid #313131; }
+.violet-site h2 { padding-top: 5px;  font-size: 14px; line-height: 14px; border-top: 1px solid #313131; }
 /*************************
  * iLight
 *************************/
@@ -754,6 +758,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
         width: 1024px;
     }
     .lotus-post {
+      /*
         -moz-column-count: 2;
         -moz-column-gap: 3em;
         -moz-column-rule: #c8c8c8 1px dotted;
@@ -763,6 +768,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
         column-count: 2;
         column-gap: 3em;
         column-rule: #c8c8c8 1px dotted;
+      */
     }
 }
 
