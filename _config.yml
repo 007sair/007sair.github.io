@@ -80,3 +80,9 @@ page:
 
 author:
   name: Chan
+
+#多说评论
+comments :
+    provider : duoshuo
+    duoshuo : 
+      short_name : sair
