@@ -13,6 +13,8 @@ category: "sublime"
 - Shift+右键 方形区域选择
 - Ctrl+左键 可选不连续代码
 
+<!-- more -->
+
 ####文本操作
 
 - Ctrl+K,U 改为大写

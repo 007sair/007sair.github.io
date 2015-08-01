@@ -15,7 +15,13 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
 {% for rpost in paginator.posts limit:5 %}
     <div class="article-block">
         <h3><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h3>
-        <p itemprop="description">{{ rpost.description }}</p>
+        <!-- <p itemprop="description">{{ rpost.description }}</p> -->
+        {% if rpost.content contains "<!-- more -->" %}
+            {{ rpost.content | split:"<!-- more -->" | first %}}
+            <h4><a href='{{ rpost.url }}' title='Read more...'>+ Read more</a></h4>
+        {% else %}
+            {{ rpost.content | strip_html | truncatewords:100 }}
+        {% endif %}
     </div>
 {% endfor %}
 </article>
@@ -42,3 +48,10 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </ul>
     </article>
 </section>
+
+<h4>分类列表</h4>  
+<hr>  
+{% for category in site.categories %}  
+<li class="category_list_item"><a href="/showCategory.html?categoryName={{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})  
+</li>  
+{% endfor %}  
