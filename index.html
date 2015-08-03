@@ -16,6 +16,7 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     <div class="article-block">
         <h3><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h3>
         <!-- <p itemprop="description">{{ rpost.description }}</p> -->
+        <p>{{ rpost.date | date: "%B %e, %Y"  }}</p>
         {% if rpost.content contains "<!-- more -->" %}
             {{ rpost.content | split:"<!-- more -->" | first %}}
             <h4><a href='{{ rpost.url }}' title='Read more...'>+ Read more</a></h4>
@@ -49,9 +50,11 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </article>
 </section>
 
+<!-- 分类功能，暂时隐藏
 <h4>分类列表</h4>  
 <hr>  
 {% for category in site.categories %}  
 <li class="category_list_item"><a href="/showCategory.html?categoryName={{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})  
 </li>  
 {% endfor %}  
+-->
