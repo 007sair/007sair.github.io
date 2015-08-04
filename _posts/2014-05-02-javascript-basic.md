@@ -40,10 +40,8 @@ var nodesArr = Array.prototype.slice.call(document.querySelectorAll("div"));
     // 得到一个由 div 元素组成的“真正的”数组
     var argsArr = Array.prototype.slice.call(arguments);
     // changes arguments to "true" array
-    // 把 arguments 转换成一个“真正的”数组
-    你还可以使用一次简单的 slice 调用来克隆一个数组：
-    var clone = myArray.slice(0); // naive clone
-                                  // 浅克隆
+    // 把 arguments 转换成一个“真正的”数组 你还可以使用一次简单的 slice 调用来克隆一个数组：
+    var clone = myArray.slice(0); // naive clone // 浅克隆
 ```
 （译注：这里的参数 0 也可以省略，我估计 undefined 被 slice 方法自动转换为 0 了吧。）<br>
 Array.prototype.slice 绝对是 JavaScript 世界中的一玫珍宝，但 JavaScript 初学者们显然还没有意识到它的全部潜力。

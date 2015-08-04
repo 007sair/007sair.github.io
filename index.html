@@ -50,11 +50,10 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </article>
 </section>
 
-<!-- 分类功能，暂时隐藏
 <h4>分类列表</h4>  
 <hr>  
 {% for category in site.categories %}  
-<li class="category_list_item"><a href="/showCategory.html?categoryName={{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})  
+<li class="category_list_item">
+    <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
 </li>  
-{% endfor %}  
--->
+{% endfor %}
