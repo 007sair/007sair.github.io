@@ -42,7 +42,7 @@ html { color: #1F0909; background: #f3f2ee; -webkit-text-size-adjust: 100%; -ms-
 body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, group, menu, nav, section { margin: 0; padding: 0; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 audio, canvas, video { display: inline-block;  }
-body, button, input, select, textarea { font: 500 14px/1.8 '"Lucida Console"', 'Hiragino Sans GB', sans-serif; }
+body, button, input, select, textarea { font: 500 14px/1.8 "\5FAE\8F6F\96C5\9ED1", 'Hiragino Sans GB', sans-serif; }
 table { border-collapse: collapse; border-spacing: 0; width: 100%; }
 th { text-align: inherit; }
 fieldset, img { border: 0; }
@@ -62,15 +62,15 @@ sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: t
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-a { color: #065588; font-size:  100%; }
+a { color: #1982D1; font-size:  100%; }
 a:hover { text-decoration: underline; }
 
 ins, a { text-decoration: none; }
 u, .lotus-u { text-decoration: underline; }
 mark { background: #FFFB99; }
-pre, code { font-family: "Courier New", Courier, monospace; overflow-x: auto; vertical-align: middle; }
-pre { font-size: 12px; border: 1px solid #d8d8d8; border-left-width: 0.4em;  background: #fff; padding: 10px; }
-code { color: #4d4d4d; background: rgba(214, 214, 214, 0.5); padding: 0 0.2em; border: 1px solid #bdbdbd; border-radius: 2px 2px; vertical-align:top;}
+pre, code { font-family: "Lucida Console", Consolas, Monaco; overflow-x: auto; vertical-align: middle; }
+pre { margin-top: 1em; font-size: 12px; border-left: 0.4em solid #ddd; background: #F9F9F9; padding: 10px; line-height: 1.4; word-wrap:break-word; overflow:hidden;}
+code { color: #4d4d4d; background: rgba(214, 214, 214, 0.5); border: 1px solid #bdbdbd; border-radius: 2px 2px; vertical-align:top;}
 small { font-size: 12px; color: #888; }
 
 ::selection 	 	{background: rgba(0, 0, 0, 0.1);}
@@ -430,15 +430,14 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 
 .lotus h1, .lotus h2, .lotus h3, .lotus h4, .lotus h5, .lotus h6,
-.lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { margin-bottom: 0.4em; line-height: 1.5;}
-.lotus h1, .lotus-h1 { font-size: 1.8em; }
-.lotus h2, .lotus-h2 { font-size: 1.6em; }
+.lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { line-height: 1.5;}
+.lotus h1, .lotus-h1 { font-size: 2.2em; }
+.lotus h2, .lotus-h2 { font-size: 1.8em; }
 .lotus h3, .lotus-h3 { font-size: 1.4em; border-bottom: 1px dotted #d8d8d8; margin-top: 1.4em;}
-.index h3 { margin-top: 0; }
-.lotus h4, .lotus-h4 { font-size: 1.2em; }
+.lotus h4, .lotus-h4 { font-size: 1.2em; font-weight: bold; }
 .lotus h5, .lotus h6, .lotus-h5, .lotus-h6 { font-size: 1em; }
 .lotus .lotus-break { line-height:  18px; font-size: 14px; font-style: italic; font-weight: 400; border-bottom: 1px dotted #e8e8e8; color: #898989; }
-.lotus .lotus-pagetit { padding-bottom: 0.5em; margin-bottom: 0.5em; border-bottom: 1px solid #C5C5C5; }
+.lotus .lotus-pagetit { /* padding-bottom: 0.5em; margin-bottom: 0.5em; border-bottom: 1px solid #C5C5C5; */ }
 .lotus .lotus-tagline { color: #888; font-size: 13px; margin: 0 0 1.2em; font-weight: 400; }
 .lotus .lotus-tagline .lotus-tagline-catg { margin-left: 1em; }
 .lotus ul, .lotus-ul { margin-left: 1.3em; list-style: disc; }
@@ -462,11 +461,10 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 /*************************
  * lotus layout
 *************************/
-.lotus { /*width: 720px;*/ padding: 1em 0 0em 0; margin: 0 auto;}
-.index { padding: 1em 0 0 0;}
+.lotus { /*width: 720px; padding: 1em 0 0em 0;*/ margin: 0 auto;}
 .index h3 { border-bottom: none; font-weight: bold; }
 .lotus-nav {
-	width: 64px;
+	width: 90px;
 	height: 100%;
 	background: #474747;
 	background: -moz-linear-gradient( 180deg, #292929 0%, #404040 8%, #474747 14%, #474747 100%);
@@ -494,8 +492,16 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 	border-bottom: 1px solid #d0d0d0;
 }
 .lotus-article {
-	margin: 2em 0 2em 0;
-	border-bottom: 1px dotted #c8c8c8;
+	margin: 3em 0 2em 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+.category{
+  float: right;
+  margin-left: 1.5em;
+  padding: 1.5em 2em;
+  background-color: #fff;
+  width: 200px;
 }
 .lotus-date { color: #a0a0a0; }
 .lotus-double {
@@ -514,7 +520,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 	margin-left: 1.5em;
 }
 .lotus-breadcrub {
-	padding-bottom: 1em;
+	/* padding-bottom: 1em; */
 }
 .lotus-archives {
 	margin-top: 1.5em;
@@ -648,6 +654,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 	margin-top: 2em;
 }
 .lotus-footer {
+  clear: both;
 	margin-top: 3em;
 }
 .lotus-footer-link a {
@@ -673,8 +680,16 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .lotus-meta {
     color: #a8a8a8;
 }
-.article-block{
-  padding: 0 0 1em 0;
+.rpost{
+  margin-bottom: 2em;
+  padding: 1.5em 2em;
+  background-color: #fff;
+}
+.rpost .aside{
+  font-size: 12px;
+}
+.archives-year{
+  font-size: 1.5em;
 }
 
 /*************************
@@ -721,7 +736,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .iLight { color: #080808; background: #FEFEFE; }
 .iLight .lotus-nav {
     background: #f1f1ed;
-	background: -moz-linear-gradient( 180deg, #e3e3e3 0%, #f1f1ed 8%, #f1f1ed 14%, #f1f1ed 100%);
+	  background: -moz-linear-gradient( 180deg, #e3e3e3 0%, #f1f1ed 8%, #f1f1ed 14%, #f1f1ed 100%);
     background: -webkit-linear-gradient( 180deg, #e3e3e3 0%, #f1f1ed 8%, #f1f1ed 14%, #f1f1ed 100%);
     background: -ms-linear-gradient( 180deg, #e3e3e3 0%, #f1f1ed 8%, #f1f1ed 14%, #f1f1ed 100%);
     background: linear-gradient( to 180deg, #e3e3e3 0%, #f1f1ed 8%, #f1f1ed 14%, #f1f1ed 100%);

@@ -118,7 +118,7 @@ $(document).ready(function() {
     iLotus.goTop = {
         nodeName: "J-backTop",
         scrollHeight: "100",
-        linkBottom: "120px",
+        linkBottom: "60px",
         linkRight: 30,
         linkWidth: 32,
         contentWidth: 720,
@@ -147,13 +147,14 @@ $(document).ready(function() {
         _changeRight: function() {
             var that = this, right;
             if(jQuery(window).width() > 1440) {
-                right = parseInt((jQuery(window).width() - that.contenBigtWidth + 1)/2 - that.linkWidth - that.linkRight, 10);
+                //right = parseInt((jQuery(window).width() - that.contenBigtWidth + 1)/2 - that.linkWidth - that.linkRight, 10);
+                right = 10;
             } else {
 
                 right = parseInt((jQuery(window).width() - that.contentWidth + 1)/2 - that.linkWidth - that.linkRight, 10);
             }
             if( right < 20 ) {
-                right = 20;
+                right = 10;
             }
             return right;
         },

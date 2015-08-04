@@ -5,21 +5,40 @@ description: 这是 Chan 的博客，它是基于 Jekyll 搭建起来的。在�
 keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html, javascript, wordpress, logo, design, geek
 ---
 
+<!-- 
 <section class="lotus-logo fn-clear">
     <hgroup class="violet-site">
         <h1><a href="/" >{{ site.title }}</a></h1>
         <h2>{{ site.subTitle }}</h2>
-    </hgroup><!-- //violet-site -->
+    </hgroup>//violet-site
+</section> 
+-->
+<section class="category">
+	<h4>分类列表</h4>  
+	{% for category in site.categories %}
+	<li class="category_list_item">
+	    <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
+	</li>  
+	{% endfor %}
 </section>
 <article class="lotus-article">
 {% for rpost in paginator.posts limit:5 %}
-    <div class="article-block">
-        <h3><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h3>
-        <!-- <p itemprop="description">{{ rpost.description }}</p> -->
-        <p>{{ rpost.date | date: "%B %e, %Y"  }}</p>
+    <div class="rpost">
+        <h2><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
+        <p class="aside">
+        	{{ rpost.date | date: "%B %e, %Y"  }} &nbsp;&nbsp; 
+        	Tag：
+        	{% if rpost.category %}
+        		<a href="/categories.html#{{ rpost.category }}-ref" target="_blank">{{ rpost.category }}</a>
+        	{% elseif rpost.categories %}
+        		{% for item in rpost.categories %}
+        			<a href="/categories.html#{{ item }}-ref" target="_blank">{{ item }}</a>
+        		{% endfor %}
+        	{% endif %}
+        </p>
         {% if rpost.content contains "<!-- more -->" %}
             {{ rpost.content | split:"<!-- more -->" | first %}}
-            <h4><a href='{{ rpost.url }}' title='Read more...'>+ Read more</a></h4>
+            <a href='{{ rpost.url }}' title='Read more...'>Read more »</a>
         {% else %}
             {{ rpost.content | strip_html | truncatewords:100 }}
         {% endif %}
@@ -49,11 +68,3 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </ul>
     </article>
 </section>
-
-<h4>分类列表</h4>  
-<hr>  
-{% for category in site.categories %}  
-<li class="category_list_item">
-    <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
-</li>  
-{% endfor %}

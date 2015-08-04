@@ -5,43 +5,44 @@ description: 这是 PIZn 的又一个博客，它是基于 Jekyll 搭建起来�
 keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, html, javascript, wordpress, logo, design, geek
 ---
 
-<p class="lotus-breadcrub">
-    <a href="/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
-    <span> &gt; </span>
-    {{ page.title }}
-</p>
+<div class="lotus-article rpost">
 
-<h1 class="lotus-pagetit">Archives</h1>
-<article id="archives">
+    <p class="lotus-breadcrub">
+        <a href="/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
+        <span> &gt; </span>
+        {{ page.title }}
+    </p>
 
-{% for post in site.posts  %}
-  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-  {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    <h1 class="lotus-pagetit">Archives</h1>
 
-  {% if forloop.first %}
-    <ul>
-        <li><span>{{this_year}} &nbsp;</span>
-            <ul>
-  {% endif %}
+    <article id="archives">
+    {% for post in site.posts  %}
+      {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
-                <li>{{ post.date | date: "%B %e" }} : <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+      {% if forloop.first %}
+        <ul>
+            <li><span class="archives-year">{{this_year}} &nbsp;</span>
+                <ul>
+      {% endif %}
 
-  {% if forloop.last %}
-            </ul>
-        </li>
-    </ul>
-  {% else %}
-    {% if this_year != next_year %}
-            </ul>
-        </li>
-    </ul>
-    <ul>
-          <li><span>{{next_year}} &nbsp;</span>
-            <ul>
-    {% endif %}
-  {% endif %}
+                    <li>{{ post.date | date: "%B %e" }} » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 
+      {% if forloop.last %}
+                </ul>
+            </li>
+        </ul>
+      {% else %}
+        {% if this_year != next_year %}
+                </ul>
+            </li>
+        </ul>
+        <ul>
+              <li><span class="archives-year">{{next_year}} &nbsp;</span>
+                <ul>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </article>
 
-{% endfor %}
-
-</article>
+</div>
