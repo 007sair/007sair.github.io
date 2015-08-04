@@ -30,7 +30,7 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
         	Tag：
         	{% if rpost.category %}
         		<a href="/categories.html#{{ rpost.category }}-ref" target="_blank">{{ rpost.category }}</a>
-        	{% elseif rpost.categories %}
+        	{% else %}
         		{% for item in rpost.categories %}
         			<a href="/categories.html#{{ item }}-ref" target="_blank">{{ item }}</a>
         		{% endfor %}
