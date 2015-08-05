@@ -9,7 +9,7 @@ categories: [css, 前端]
 ####1、css重置
 现在基本都用：<a href="http://necolas.github.io/normalize.css/" target="_blank">http://necolas.github.io/normalize.css/</a>
 
-####2、Clearfix
+####2、clearfix
 
 ```css
 .clearfix:before, .container:after { content: ""; display: table; }

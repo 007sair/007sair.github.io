@@ -4,6 +4,7 @@ destination:  ./_site
 plugins:      ./_plugins
 layouts:      ./_layouts
 paginate:     8
+paginate_path: "page:num"
 
 # Handling Reading
 safe:         false
@@ -50,21 +51,21 @@ nav:
     url: /index.html
     icon: icon-home
     class: home
-  - text: 分类
+  - text: 标签
     url: /categories.html
     icon: icon-tags
     class: none
-  - text: 文章归档
+  - text: 归档
     url: /archives.html
     icon: icon-bookmark
+    class: none
+  - text: Link
+    url: /links.html
+    icon: icon-link
     class: none
   - text: 关于我
     url: /contact.html
     icon: icon-user
-    class: none
-  - text: 博客源代码
-    url: https://github.com/007sair
-    icon: icon-github-sign
     class: none
 
 page:

@@ -25,8 +25,7 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
 {% for rpost in paginator.posts limit:5 %}
     <div class="rpost">
         <h2><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
-        <p class="aside">
-        	{{ rpost.date | date: "%B %e, %Y"  }} &nbsp;&nbsp; 
+        <p class="lotus-meta">Publish: {{ rpost.date | date: "%B %e, %Y"  }} &nbsp;&nbsp; 
         	Tag：
         	{% if rpost.category %}
         		<a href="/categories.html#{{ rpost.category }}-ref" target="_blank">{{ rpost.category }}</a>
@@ -45,6 +44,23 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </div>
 {% endfor %}
 </article>
+<!-- page -->
+{% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">上一页</a>
+{% endif %}
+{% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="active">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+{% endfor %}
+{% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
+{% endif %}
+<!-- /page -->
 <section class="lotus-double fn-clear">
     <article class="article article-first">
     <h3>最新文章</h3>

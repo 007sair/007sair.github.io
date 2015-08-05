@@ -10,7 +10,15 @@ layout: default
         {{ page.title }}
     </p>
     <h1 class="lotus-pagetit">{{ page.title }}</h1>
-    <p class="lotus-meta">Publish: <time class="date" pubdate="{{ page.date  | date: "%B %e, %Y" }}">{{ page.date | date: "%B %e, %Y" }}</time></p>
+    <p class="lotus-meta">Publish: <time class="date" pubdate="{{ page.date  | date: "%B %e, %Y" }}">{{ page.date | date: "%B %e, %Y" }}</time>&nbsp;&nbsp;
+            Tag：
+            {% if page.category %}
+                <a href="/categories.html#{{ rpost.category }}-ref" target="_blank">{{ page.category }}</a>
+            {% else %}
+                {% for item in page.categories %}
+                    <a href="/categories.html#{{ item }}-ref" target="_blank">{{ item }}</a>
+                {% endfor %}
+            {% endif %}</p>
     <article  itemscope itemtype="http://schema.org/Article" class="lotus-post">
     {{ content }}
     </article>

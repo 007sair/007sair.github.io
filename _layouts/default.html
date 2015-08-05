@@ -24,6 +24,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" class="home blog lotus index">
 
     <nav class="lotus-nav">
+    	<div class="logo">
+    		<a href="/index.html" title="logo"><img src="/static/images/logo.jpg" alt=""></a>
+    		<p>chan's blog</p>
+    	</div>
         <ul>
             {% for link in site.nav %}
 	            {% assign active = nil %}
@@ -32,11 +36,11 @@
 	                {% assign active = 'current' %}
 	            {% endif %}
 	            {% if link.class == 'home' %}
-	                {% assign homeClass = 'home ' %}
+	                {% assign homeClass = ' ' %}
 	            {% endif %}
 	            <li class="{{ homeClass }}{{ active }}">
 	                <a href="{{ link.url }}" rel="bookmark" title="{{link.text}}">
-	                    <i class="{{ link.icon }}"></i>
+	                    <i class="{{ link.icon }}"></i>{{ link.text }}
 	                </a>
 	                {{ indicator }}
 	            </li>

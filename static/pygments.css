@@ -4,7 +4,7 @@
 .k { color: #0000aa } /* Keyword */
 .cm { color: #aaaaaa; font-style: italic } /* Comment.Multiline */
 .cp { color: #4c8317 } /* Comment.Preproc */
-.c1 { color: #aaaaaa; font-style: italic } /* Comment.Single */
+.c1 { color: #aaaaaa;} /* Comment.Single */
 .cs { color: #0000aa; font-style: italic } /* Comment.Special */
 .gd { color: #aa0000 } /* Generic.Deleted */
 .ge { font-style: italic } /* Generic.Emph */

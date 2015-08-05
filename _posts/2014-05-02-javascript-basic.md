@@ -36,12 +36,12 @@ str.replace(/david/gi, "Darren"); // "Darren will always be an Arsenal fan, whic
 
 ```js
 var nodesArr = Array.prototype.slice.call(document.querySelectorAll("div"));
-    // "true" array of DIVs
-    // 得到一个由 div 元素组成的“真正的”数组
-    var argsArr = Array.prototype.slice.call(arguments);
-    // changes arguments to "true" array
-    // 把 arguments 转换成一个“真正的”数组 你还可以使用一次简单的 slice 调用来克隆一个数组：
-    var clone = myArray.slice(0); // naive clone // 浅克隆
+// "true" array of DIVs
+// 得到一个由 div 元素组成的“真正的”数组
+var argsArr = Array.prototype.slice.call(arguments);
+// changes arguments to "true" array
+// 把 arguments 转换成一个“真正的”数组 你还可以使用一次简单的 slice 调用来克隆一个数组：
+var clone = myArray.slice(0); // naive clone // 浅克隆
 ```
 （译注：这里的参数 0 也可以省略，我估计 undefined 被 slice 方法自动转换为 0 了吧。）<br>
 Array.prototype.slice 绝对是 JavaScript 世界中的一玫珍宝，但 JavaScript 初学者们显然还没有意识到它的全部潜力。
@@ -66,11 +66,11 @@ Array.prototype.slice 绝对是 JavaScript 世界中的一玫珍宝，但 JavaSc
     // 实现增序排列：前者的 age 小于后者  
     return obj1.age - obj2.age;  
 }); 
-    // Returns: 
-    // [ 
-    //    { name: "Theo Walcott", age: 24 }, 
-    //    { name: "Bacary Sagna", age: 28  }, 
-    //    { name: "Robin Van PurseStrings", age: 30 } 
+// Returns: 
+// [ 
+//    { name: "Theo Walcott", age: 24 }, 
+//    { name: "Bacary Sagna", age: 28  }, 
+//    { name: "Robin Van PurseStrings", age: 30 } 
 // ] 
 ```
 你不仅可以对简单类型的数组项进行排序，可以通过属性来排序对象。如果哪天服务器端发来一段 JSON 数据，而且其中的对象需要排序，你可别忘了这一招！
@@ -137,8 +137,8 @@ $("a.trigger").on("click", function(e) {
 ```
 （译注：不知道哪个类库有这个方法，估计其作用相当于 return false; 吧。语法看起来像 jQuery，但 jQuery 并没有这个方法，而且 jQuery 是支持 e.preventDefault 和 e.stopPropagation 方法的。）
 
-　　这个懒方法有一个问题，它不仅阻止了浏览器的默认动作，同时也阻止了事件继续冒泡。这意味着元素上绑定的其它事件监听器将不会被触发，因为它们根本就不知道有事件发生。此时不妨使用 preventDefault 吧！
+这个懒方法有一个问题，它不仅阻止了浏览器的默认动作，同时也阻止了事件继续冒泡。这意味着元素上绑定的其它事件监听器将不会被触发，因为它们根本就不知道有事件发生。此时不妨使用 preventDefault 吧！
 
-　　JavaScript 老鸟们看到这篇文章可能会说“我早知道了”，但说不定什么时候，他们就会在某一点上栽跟头。提醒大家留意 JavaScript 中的各种小细节，失之毫厘谬以千里啊！
+JavaScript 老鸟们看到这篇文章可能会说“我早知道了”，但说不定什么时候，他们就会在某一点上栽跟头。提醒大家留意 JavaScript 中的各种小细节，失之毫厘谬以千里啊！
 
 
