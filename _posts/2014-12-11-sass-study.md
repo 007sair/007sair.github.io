@@ -9,8 +9,7 @@ category: "sass"
 
 ###变量
 
-**命名：** `$`
-
+**命名：** `$`	<br>
 **规则：**
 
 - 作用域：作用域同js，想调用局部变量可使用 `!global` 
@@ -31,7 +30,6 @@ p {
 	color: $primaryColor; //编译后#eeccff
 }
 ```
-
 <!-- more -->
 
 ###数学计算
@@ -50,15 +48,9 @@ $fontDiff: (14px/16px);
 $container-width: 100% - 20px;
 ```
 
-###函数
-
-[函数列表](http://sass-lang.com/documentation/Sass/Script/Functions.html)
-
 ###嵌套
 
-sass写法：
-
-引用父选择器可以通过 `&` 符合实现：
+sass写法：引用父选择器可以通过 `&` 符合实现：
 
 ```scss
 a.myAnchor {
@@ -242,6 +234,8 @@ DEMO:
 ```
 
 ###函数
+
+<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" title="函数列表">函数列表</a>
 
 在Sass中，函数指令类似于混合宏，它们会通过@return指令返回值而不是返回样式。这可以降低代码中的重复率并提高可读性。
 

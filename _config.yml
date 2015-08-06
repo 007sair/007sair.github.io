@@ -3,7 +3,7 @@ source:       .
 destination:  ./_site
 plugins:      ./_plugins
 layouts:      ./_layouts
-paginate:     8
+paginate:     5
 paginate_path: "page:num"
 
 # Handling Reading

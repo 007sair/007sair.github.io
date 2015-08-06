@@ -1059,7 +1059,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .lotus h4, .lotus-h4 {
   font-size: 1.2em;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 0.5em; }
 
 .lotus h5, .lotus h6, .lotus-h5, .lotus-h6 {
   font-size: 1em; }

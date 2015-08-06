@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 每位设计师都应该拥有的CSS代码片段
+title: 有用的CSS代码片段
 description: 面对每年如此多的 新趋势 ,保持行业的领先是个很困难问题. 网站设计者和前端工程师都已经全面的使用 CSS3 properties, 决定这些的是 浏览器支持 和新的特性. 但是还是有些优秀的CSS2代码片段和CSS3一起运行中.
 keywords: css
 categories: [css, 前端]
@@ -14,11 +14,8 @@ categories: [css, 前端]
 ```css
 .clearfix:before, .container:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
- 
-/* IE 6/7 */
-.clearfix { zoom: 1; }
+.clearfix { zoom: 1; }  /* IE 6/7 */
 ```
-
 <!-- more -->
 
 ####3、CSS 块引用模版
@@ -801,7 +798,7 @@ a:hover, .glow {
 
 <br>
 
-转自：[http://www.oschina.net/translate/css-snippets-for-designers](http://www.oschina.net/translate/css-snippets-for-designers)
+转自：<a href="http://www.oschina.net/translate/css-snippets-for-designers" target="_blank" title="">http://www.oschina.net/translate/css-snippets-for-designers</a>
 
 **参考链接：** <br>
-参考1：[http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers](http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers) <br>
+参考1：<a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank" title="">http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers</a>
