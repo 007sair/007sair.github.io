@@ -98,3 +98,6 @@
 }
 
 
+@function percent($self, $screen:1903){
+	@return ($self / $screen) * 100%;
+}

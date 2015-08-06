@@ -11,16 +11,8 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
         <h1><a href="/" >{{ site.title }}</a></h1>
         <h2>{{ site.subTitle }}</h2>
     </hgroup>//violet-site
-</section> 
--->
-<section class="category">
-	<h4>分类列表</h4>  
-	{% for category in site.categories %}
-	<li class="category_list_item">
-	    <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
-	</li>  
-	{% endfor %}
 </section>
+-->
 <article class="lotus-article">
 {% for rpost in paginator.posts limit:5 %}
     <div class="rpost">
@@ -63,6 +55,14 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
     </div>
     <!-- /page -->
 </article>
+<section class="category">
+    <h4>分类列表</h4>  
+    {% for category in site.categories %}
+    <li class="category_list_item">
+        <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
+    </li>  
+    {% endfor %}
+</section>
 <section class="lotus-double fn-clear">
     <article class="article article-first">
     <h3>最新文章</h3>
