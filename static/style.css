@@ -1051,7 +1051,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.2em; }
 
 .lotus h2, .lotus-h2 {
-  font-size: 1.8em; }
+  font-size: 2em; }
 
 .lotus h3, .lotus-h3 {
   font-size: 1.4em;
@@ -1226,7 +1226,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #d0d0d0; }
 
 .lotus-article {
-  margin: 3em 0 0 0;
+  margin: 2em 0 0 0;
   overflow: hidden;
   *zoom: 1;
   min-height: 600px; }
@@ -1925,5 +1925,10 @@ pre.prettyprint {
 .categories a:hover {
   background-color: #F3F2EE;
   text-decoration: none; }
+
+.page {
+  padding-bottom: 1em;
+  text-align: center;
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */

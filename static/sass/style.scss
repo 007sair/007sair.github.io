@@ -434,7 +434,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .lotus h1, .lotus h2, .lotus h3, .lotus h4, .lotus h5, .lotus h6,
 .lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { line-height: 1.5;}
 .lotus h1, .lotus-h1 { font-size: 2.2em; }
-.lotus h2, .lotus-h2 { font-size: 1.8em; }
+.lotus h2, .lotus-h2 { font-size: 2em; }
 .lotus h3, .lotus-h3 { font-size: 1.4em; border-bottom: 1px dotted #d8d8d8;}
 .lotus h4, .lotus-h4 { font-size: 1.2em; font-weight: bold; }
 .lotus h5, .lotus h6, .lotus-h5, .lotus-h6 { font-size: 1em; }
@@ -496,7 +496,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
   border-bottom: 1px solid #d0d0d0;
 }
 .lotus-article {
-  margin: 3em 0 0 0;
+  margin: 2em 0 0 0;
   overflow: hidden;
   *zoom: 1;
   min-height: 600px;
@@ -991,3 +991,9 @@ pre.prettyprint{
 .categories{ overflow: hidden; *zoom: 1;}
 .categories a{ float: left; margin: 5px 10px 0 0; padding: 0 8px; border-radius: 3px; list-style: none; font-size: 14px; background-color: #ddd; color: #555;}
 .categories a:hover{ background-color: #F3F2EE; text-decoration: none;}
+
+.page{
+	padding-bottom: 1em;
+	text-align: center;
+	font-size: 16px;
+}
