@@ -10,17 +10,19 @@ keywords: Chan blog,Categories
         <span> &gt; </span>
         {{ page.title | replace: page.title,'标签' }}
     </p>
+    <hr>
 	<div class="article">
-	    <h3 class="title">{{ page.title | replace: page.title,'Tags' }} </h3>
-	    <p class="categories">
-	    {% assign categories_list = site.categories %}
-	    {% for category in categories_list %}
-	    	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
-	            {{ category[0] | join: "/" }}<em>({{ category | last | size }})</em>
-	        </a>
-	    {% endfor %}
+		<div class="tags">
+			<h3 class="title">{{ page.title | replace: page.title,'Tags' }} </h3>
+		    <p class="categories">
+		    {% assign categories_list = site.categories %}
+		    {% for category in categories_list %}
+		    	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
+		            {{ category[0] | join: "/" }}<em>({{ category | last | size }})</em>
+		        </a>
+		    {% endfor %}
+		</div>
 	    </p>
-
 		<div class="article">
 		{% for category in site.categories %} 
 			<ul>

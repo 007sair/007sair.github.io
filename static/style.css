@@ -1057,6 +1057,9 @@ nav {
   background-color: #fff;
   width: 220px; }
 
+.tags {
+  margin-bottom: 2em; }
+
 /* makes the font 33% larger relative to the icon container */
 .icon-large:before {
   vertical-align: top;

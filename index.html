@@ -5,16 +5,8 @@ description: 这是 Chan 的博客，它是基于 Jekyll 搭建起来的。在�
 keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html, javascript, wordpress, logo, design, geek
 ---
 
-<!-- 
-<section class="lotus-logo fn-clear">
-    <hgroup class="violet-site">
-        <h1><a href="/" >{{ site.title }}</a></h1>
-        <h2>{{ site.subTitle }}</h2>
-    </hgroup>//violet-site
-</section>
--->
 <article class="lotus-article">
-{% for rpost in paginator.posts limit:5 %}
+{% for rpost in paginator.posts limit:8 %}
     <div class="rpost">
         <h2><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
         <p class="lotus-meta">Publish: {{ rpost.date | date: "%B %e, %Y"  }} &nbsp;&nbsp; 
