@@ -51,13 +51,13 @@ nav:
     url: /index.html
     icon: icon-home
     class: home
-  - text: 标签
-    url: /categories.html
-    icon: icon-tags
-    class: none
   - text: 归档
     url: /archives.html
     icon: icon-bookmark
+    class: none
+  - text: 标签
+    url: /categories.html
+    icon: icon-tags
     class: none
   - text: Link
     url: /links.html

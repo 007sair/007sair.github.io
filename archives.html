@@ -21,23 +21,23 @@ keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, h
 	      {% if forloop.first %}
 	        <ul>
 	            <li>
-	            	<span class="archives-year">{{this_year}} &nbsp;</span>
+	            	<span class="archives-year">{{ this_year }}</span>
 	                <ul>
 	      {% endif %}
-	                    <li>{{ post.date | date: "%b %0e" }} » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-	      {% if forloop.last %}
+	                    <li>{{ post.date | date: "%Y-%m-%d" }} » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	      	{% if forloop.last %}
 	                </ul>
 	            </li>
 	        </ul>
-	      {% else %}
-	        {% if this_year != next_year %}
+	      	{% else %}
+	      	{% if this_year != next_year %}
 	                </ul>
 	            </li>
 	        </ul>
 	        <ul>
 	              <li><span class="archives-year">{{next_year}} &nbsp;</span>
-	                <ul>
-	        {% endif %}
+	        <ul>
+	      	{% endif %}
 	      {% endif %}
 	    {% endfor %}
     </article>

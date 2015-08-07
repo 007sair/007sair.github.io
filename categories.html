@@ -11,7 +11,7 @@ keywords: Chan blog,Categories
         {{ page.title | replace: page.title,'标签' }}
     </p>
 	<div class="article">
-	    <h3 class="title">{{ page.title | replace: page.title,'Tags' }}</h3>
+	    <h3 class="title">{{ page.title | replace: page.title,'Tags' }} </h3>
 	    <p class="categories">
 	    {% assign categories_list = site.categories %}
 	    {% for category in categories_list %}
@@ -31,7 +31,7 @@ keywords: Chan blog,Categories
 					    {% for node in pages_list %}
 					    	{% if node.title != null %}
 					        	{% if group == null or group == node.group %}
-					            	<li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+					            	<li>{{ node.date | date: "%Y-%m-%d" }} » <a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
 					        	{% endif %}
 					     	{% endif %}
 					    {% endfor %}
