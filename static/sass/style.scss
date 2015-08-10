@@ -166,9 +166,9 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .lotus h1, .lotus h2, .lotus h3, .lotus h4, .lotus h5, .lotus h6,
 .lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { line-height: 1.5;}
 .lotus h1, .lotus-h1 { font-size: 2.2em; }
-.lotus h2, .lotus-h2 { font-size: 2em; }
-.lotus h3, .lotus-h3 { font-size: 1.4em; border-bottom: 1px dotted #d8d8d8;}
-.lotus h4, .lotus-h4 { font-size: 1.2em; font-weight: bold; margin-bottom: 0.5em; }
+.lotus h2, .lotus-h2 { font-size: 1.9em; }
+.lotus h3, .lotus-h3 { font-size: 1.6em; border-bottom: 1px dotted #d8d8d8;}
+.lotus h4, .lotus-h4 { font-size: 1.3em; font-weight: bold; margin-bottom: 0.5em; }
 .lotus h5, .lotus h6, .lotus-h5, .lotus-h6 { font-size: 1em; }
 .lotus .lotus-break { line-height:  18px; font-size: 14px; font-style: italic; font-weight: 400; border-bottom: 1px dotted #e8e8e8; color: #898989; }
 .lotus .lotus-pagetit { /* padding-bottom: 0.5em; margin-bottom: 0.5em; border-bottom: 1px solid #C5C5C5; */ }
@@ -694,10 +694,6 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
     .atv{color:#080}
     .dec,.var{color:#606}
     .fun{color:red}
-}
-pre code {
-    background: none;
-    border: none;
 }
 pre.prettyprint{
     font-family: Monaco,Menlo,Consolas,"Courier New",monospace;

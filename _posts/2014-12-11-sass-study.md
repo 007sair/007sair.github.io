@@ -17,6 +17,8 @@ category: "sass"
 
 DEMO:
 
+<!-- more -->
+
 ```scss
 $primaryColor: #eeccff;
 $firstValue: 62.5%;
@@ -30,7 +32,6 @@ p {
 	color: $primaryColor; //编译后#eeccff
 }
 ```
-<!-- more -->
 
 ###数学计算
 
@@ -266,4 +267,5 @@ $margin: 1%;
 }
 ```
 
-**[演示demo](http://sassmeister.com/gist/0a041d0fb2d72758c280)**
+**<a href="http://sassmeister.com/gist/0a041d0fb2d72758c280" target="_blank" title="">演示demo</a>**
+

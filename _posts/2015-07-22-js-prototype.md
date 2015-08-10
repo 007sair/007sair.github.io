@@ -7,9 +7,11 @@ category: "javascript"
 ---
 
 
-##普通对象与函数对象
+###普通对象与函数对象
 
 对象分普通对象和函数对象，Object、Function是js自带的函数对象。
+
+<!-- more -->
 
 ```js
 function f1(){};
@@ -30,11 +32,9 @@ console.log(typeof f2); //function
 console.log(typeof f3); //function 
 ```
 
-<!-- more -->
-
 以上例子说明：**凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。** <br>
 
-##原型对象
+###原型对象
 
 在js中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性。其中函数对象的一个属性就是原型对象 prototype。
 
@@ -65,7 +65,7 @@ var temp1 = new Function ();
 Function.prototype = temp1;
 ```
 
-##原型与构造函数
+###原型与构造函数
 
 Js所有的函数都有一个prototype属性，这个属性引用了一个对象，即原型对象，也简称原型。这个函数包括构造函数和普通函数，我们讲的更多是构造函数的原型，但是也不能否定普通函数也有原型。譬如普通函数：
 
@@ -85,7 +85,7 @@ function A(x){
 var obj = new A(1);
 ```
 
-##new
+###new
 
 new 也就是实例化对象。分如下几步
 
@@ -116,7 +116,7 @@ A.prototype.say=function(){alert("Hi")};
 
 那所有的A的对象都具有了say方法，这个原型对象的say方法是唯一的副本给大家共享的，而不是每一个对象都有关于say方法的一个副本。
 
-##原型链
+###原型链
 
 原型链的基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。
 
@@ -151,7 +151,7 @@ console.log(Person.prototype.__proto__ === Object.prototype) //true
 console.log(Object.prototype.__proto__) //null
 ```
 
-##instanceof
+###instanceof
 
 demo:
 
@@ -167,7 +167,7 @@ new Object() instanceof Array  //false
 原理：右侧函数的prototype属性是否出现在左侧对象的原型链上。即：左侧的原型链上是否有右侧的原型。
 
 
-##实现继承的方式
+###实现继承的方式
 
 ```js
 function Person(){

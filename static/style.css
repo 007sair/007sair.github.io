@@ -16,7 +16,7 @@ audio, canvas, video {
   display: inline-block; }
 
 body, button, input, select, textarea {
-  font: 500 14px/1.8 "Helvetica Neue",Helvetica,Arial,sans-serif; }
+  font: 500 14px/1.8 "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif; }
 
 table {
   border-collapse: collapse;
@@ -107,13 +107,13 @@ mark {
   background: #FFFB99; }
 
 pre, code {
-  font-family: "Lucida Console", Consolas, Monaco;
+  font-family: Consolas,Menlo,Monaco,"Courier New",monospace;
   overflow-x: auto;
   vertical-align: middle; }
 
 pre {
   margin-top: 1em;
-  font-size: 12px;
+  font-size: 13px;
   border-left: 0.4em solid #ddd;
   background: #F9F9F9;
   padding: 10px;
@@ -122,11 +122,16 @@ pre {
   overflow: hidden; }
 
 code {
+  padding: 3px;
   color: #4d4d4d;
   background: rgba(214, 214, 214, 0.5);
-  border: 1px solid #bdbdbd;
   border-radius: 2px 2px;
   vertical-align: top; }
+
+pre code {
+  padding: 0;
+  background: none;
+  border: none; }
 
 small {
   font-size: 12px;
@@ -1125,14 +1130,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.2em; }
 
 .lotus h2, .lotus-h2 {
-  font-size: 2em; }
+  font-size: 1.9em; }
 
 .lotus h3, .lotus-h3 {
-  font-size: 1.4em;
+  font-size: 1.6em;
   border-bottom: 1px dotted #d8d8d8; }
 
 .lotus h4, .lotus-h4 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 0.5em; }
 
@@ -1896,10 +1901,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .fun {
     color: red; } }
-pre code {
-  background: none;
-  border: none; }
-
 pre.prettyprint {
   font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
   background: rgba(255, 255, 255, 0.5);
