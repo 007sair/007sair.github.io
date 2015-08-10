@@ -110,6 +110,21 @@ nav{
 .tags{
 	margin-bottom: 2em;
 }
+.page{
+	a, span{
+		@include inline-block(none);
+		@include radius(3px);
+		margin: 0 3px;
+		padding: 0 12px;
+		height: 32px;
+		line-height: 32px;
+		background: #fff;
+		color: #555;
+	}
+	.active{
+		background: none;
+	}
+}
 
 /* makes the font 33% larger relative to the icon container */
 .icon-large:before {

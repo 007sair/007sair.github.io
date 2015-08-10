@@ -9,7 +9,6 @@ category: "sublime"
 > 收集一些常用的sublime插件，具体使用方式请到<a href="https://packagecontrol.io/" target="_blank" title="">Package Control</a>自行查找。
 
 ###常用插件
-------------------
 
 **SublimeCodeIntel**  
     代码自动提示，若报错可<a href="http://blog.csdn.net/shuifa2008/article/details/9340011" target="_blank" title="">关闭错误提示</a>
@@ -79,7 +78,6 @@ category: "sublime"
 
 
 ###JS模板插件：
-------------------
 
 **javaScriptSnippets**     
     自动补全js代码，下拉提示及触发格式自行查阅插件包内的snippet
@@ -91,7 +89,6 @@ category: "sublime"
     Alt+C     自动补全callback函数     使用tab依次切换编辑文本块
 
 ###JS插件:
-------------------
 
 **AdvancedNewFile**     
     Ctrl+Alt+N     快速创建文件
