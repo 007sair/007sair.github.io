@@ -38,7 +38,7 @@ console.log(typeof f3); //function
 
 在js中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性。其中函数对象的一个属性就是原型对象 `prototype`。
 
-注：普通对象没有`prototype`,但有`__proto__`属性。
+**注：**普通对象没有`prototype`,但有`__proto__`属性(可以在chrome中查看该属性，但最后不要依赖使用此属性)。
 
 原型对象其实就是普通对象（`Function.prototype`除外,它是函数对象，但它很特殊，他没有`prototype`属性（前面说道函数对象都有`prototype`属性））。看下面的例子：
 
@@ -85,12 +85,12 @@ function A(x){
 var obj = new A(1);
 ```
 
-###new
+####new
 
-`new` 也就是实例化对象。分如下几步：
+`new` 也就是实例化对象，过程可以分如下几步：
 
 1. 创建`obj`对象，`obj = new Object()`;
-2. 将`obj`的内部`__proto__`指向构造他的函数A的`prototype`，同时，`obj.constructor === A.prototype.constructor`(这个是永远成立的，即使`A.prototype`不再指向原来的A原型，也就是说：**类的实例对象的`constructor`属性永远指向"构造函数"的`prototype.constructor`**)，从而使得`obj.constructor.prototype`指向`A.prototype`（`obj.constructor.prototype===A.prototype`，当`A.prototype`改变时则不成立，下文有遇到）。`obj.constructor.prototype`与的内部`_proto_`是两码事，实例化对象时用的是`_proto_`，`obj`是没有`prototype`属性的，但是有内部的`__proto__`，通过`__proto__`来取得原型链上的原型属性和原型方法，FireFox公开了`__proto__`，可以在FireFox中`alert(obj.__proto__)`；
+2. 将`obj`的内部`__proto__`指向构造它的函数`A`的`prototype`，同时，`obj.constructor === A.prototype.constructor`(这个是永远成立的，即使`A.prototype`不再指向原来的A原型，也就是说：**类的实例对象的`constructor`属性永远指向"构造函数"的`prototype.constructor`**)，从而使得`obj.constructor.prototype`指向`A.prototype`（`obj.constructor.prototype===A.prototype`，当`A.prototype`改变时则不成立，下文有遇到）。`obj.constructor.prototype`与的内部`_proto_`是两码事，实例化对象时用的是`_proto_`，`obj`是没有`prototype`属性的，但是有内部的`__proto__`，通过`__proto__`来取得原型链上的原型属性和原型方法，FireFox公开了`__proto__`，可以在FireFox中`alert(obj.__proto__)`；
 3. 将`obj`作为`this`去调用构造函数A，从而设置成员（即对象属性和对象方法）并初始化。
 
 当这3步完成，这个`obj`对象就与构造函数`A`再无联系，这个时候即使构造函数`A`再加任何成员，都不再影响已经实例化的`obj`对象了。此时，`obj`对象具有了`x`属性，同时具有了构造函数`A`的原型对象的所有成员，当然，此时该原型对象是没有成员的。
@@ -106,12 +106,12 @@ for(o in A.prototype) {
 alert("member: " + num);//alert出原型所有成员个数。
 ```
 
-但是，一旦定义了原型属性或原型方法，则所有通过该构造函数实例化出来的所有对象，都继承了这些原型属性和原型方法，这是通过内部的`__proto__`链来实现的。
-
-譬如
+但是，一旦定义了原型属性或原型方法，则所有通过该构造函数实例化出来的所有对象，都继承了这些原型属性和原型方法，这是通过内部的`__proto__`链来实现的。譬如：
 
 ```js
-A.prototype.say=function(){alert("Hi")};
+A.prototype.say = function(){
+    alert("Hi")
+};
 ```
 
 那所有的`A`的对象都具有了`say`方法，这个原型对象的`say`方法是唯一的副本给大家共享的，而不是每一个对象都有关于`say`方法的一个副本。
