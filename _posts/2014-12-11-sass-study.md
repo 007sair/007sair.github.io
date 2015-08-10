@@ -15,11 +15,10 @@ category: "sass"
 - 作用域：作用域同js，想调用局部变量可使用 `!global` 
 - 默认值：变量没有设置具体值时，使用 `!default`
 
-DEMO:
-
 <!-- more -->
 
 ```scss
+//demo
 $primaryColor: #eeccff;
 $firstValue: 62.5%;
 $firstValue: 24px !default;
@@ -39,15 +38,15 @@ p {
 
 1. 因为 `/` 符号用来简写CSS字体属性，比如font: 14px/16px，所以如果你想在非变量值上使用除法操作符，那么你需要使用括号包裹它们：
 
-```scss
-$fontDiff: (14px/16px);
-```
+	```scss
+	$fontDiff: (14px/16px);
+	```
 
 2. 第二，不可以混合使用值的单位：
 
-```scss
-$container-width: 100% - 20px;
-```
+	```scss
+	$container-width: 100% - 20px;
+	```
 
 ###嵌套
 
@@ -84,14 +83,16 @@ a.myAnchor {
 
 **@import**
 
-```scss
-@import "grids.scss";
-```
-or
+语法格式如下：
 
 ```scss
-@import "grids";
+@import "reset.scss";
+//or
+@import "reset";
 ```
+
+引用的scss文件会被自动编译成对应的css文件。如：`reset.scss`会被自动编译成 `reset.css`，解决这个问题可以给`reset.scss`文件名重命名为：`_reset.scss`。<br>
+当然，`import`的引用里不需要加`_`。
 
 ###扩展、占位符
 
@@ -115,7 +116,7 @@ or
 }
 ```
 
-> 请注意，这么做并不会从.input复制样式到.error-input中。
+**请注意：**这么做并不会从.input复制样式到.error-input中。
 
 编译后如下：
 
@@ -138,7 +139,7 @@ body {
 }
 ```
 
-如果我们想声明的扩展来自尚未实现的样式集，那该如何做呢？占位符选择器就可以解决这个问题。
+如果我们想声明的扩展来自尚未实现的样式集，那该如何做呢？占位符选择器就可以解决这个问题。<br>
 声明占位符选择器需要在目标类名上前缀一个%符号。只有当扩展它的元素被渲染时，占位符选择器才会被编译输出。
 
 ```scss
@@ -204,9 +205,8 @@ body {
 因为我们期待字符串参数被目标函数使用，所以使用了Sass的插值语法，#{}。当你传递变量到这个括号中时，变量会像字符串一样输出而不是进行某种逻辑运算。
 这个例子中另一个生疏的地方是@content指令。当你使用的混合宏后接被大括号包裹的样式，那么被包裹样式就可以通过@content指令加以使用。
 
-DEMO:
-
 ```scss
+//demo
 @mixin media($queryString){
 	@media #{$queryString} {
 		@content;
@@ -236,7 +236,7 @@ DEMO:
 
 ###函数
 
-<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" title="函数列表">函数列表</a>
+官方列表：<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" title="函数列表">函数列表</a>
 
 在Sass中，函数指令类似于混合宏，它们会通过@return指令返回值而不是返回样式。这可以降低代码中的重复率并提高可读性。
 

@@ -87,7 +87,7 @@ var obj = new A(1);
 
 ###new
 
-new 也就是实例化对象。分如下几步
+new 也就是实例化对象。分如下几步：
 
 1. 创建obj对象，obj = new Object();
 2. 将obj的内部__proto__指向构造他的函数A的prototype，同时，obj.constructor === A.prototype.constructor(这个是永远成立的，即使A.prototype不再指向原来的A原型，也就是说：**类的实例对象的constructor属性永远指向"构造函数"的prototype.constructor**)，从而使得obj.constructor.prototype指向A.prototype（obj.constructor.prototype===A.prototype，当A.prototype改变时则不成立，下文有遇到）。obj.constructor.prototype与的内部_proto_是两码事，实例化对象时用的是_proto_，obj是没有prototype属性的，但是有内部的__proto__，通过__proto__来取得原型链上的原型属性和原型方法，FireFox公开了__proto__，可以在FireFox中alert（obj.__proto__）；
@@ -153,9 +153,8 @@ console.log(Object.prototype.__proto__) //null
 
 ###instanceof
 
-demo:
-
 ```js
+//demo
 [1,2] instanceof Array  //true
 new Object() instanceof Array  //false
 
@@ -171,10 +170,10 @@ new Object() instanceof Array  //false
 
 ```js
 function Person(){
-
+	//...
 }
 function Student(){
-
+	//...
 }
 
 Student.prototype = Person.prototype;	//不可以这样继承，改变Student的同时，也会改变Person，因为他们是引用

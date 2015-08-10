@@ -11,7 +11,7 @@ th { text-align: inherit; }
 fieldset, img { border: 0; }
 img { -ms-interpolation-mode: bicubic; }
 iframe { display: block; }
-blockquote { padding: 0.5em 1em 0.1em 1em; margin-bottom: 1em; background: rgba(214, 214, 214, 0.5); border-width: 1px 1px 1px 0.4em; border-color:#d8d8d8 #d8d8d8 #d8d8d8 #d0d0d0; border-style: solid; vertical-align: middle; border-radius: 0px 2px 2px 0; }
+blockquote { padding: 0.5em 1em 0.1em 1em; margin-bottom: 1em; border-left: 0.4em solid #ddd; vertical-align: middle; border-radius: 0px 2px 2px 0; background: #f9f9f9;}
 blockquote blockquote { padding: 0 1em 0 1em; margin-left: 2em; border-width: 1px 1px 1px 0.4em; border-style: solid; border-color: rgba(120, 120, 120, 0.1); }
 acronym, abbr { border-bottom: 1px dotted; font-variant: normal; }
 abbr { cursor: help; }
@@ -30,9 +30,9 @@ ins, a { text-decoration: none; }
 u, .lotus-u { text-decoration: underline; }
 mark { background: #FFFB99; }
 pre, code { font-family: Consolas,Menlo,Monaco,"Courier New",monospace; overflow-x: auto; vertical-align: middle; }
-pre { margin-top: 1em; font-size: 13px; border-left: 0.4em solid #ddd; background: #F9F9F9; padding: 10px; line-height: 1.5; word-wrap:break-word; overflow:hidden;}
-code { padding: 3px; color: #4d4d4d; background: rgba(214, 214, 214, 0.5); border-radius: 2px 2px; vertical-align:top;}
-pre code{ padding: 0; background: none; border: none;}
+pre { margin-top: 1em; font-size: 13px; background: #F9F9F9; padding: 10px; line-height: 1.5; word-wrap:break-word; overflow:hidden;}
+code { margin: 0 2px; padding: 1px 4px; color: #4d4d4d; background: rgba(214, 214, 214, 0.5); border-radius: 2px 2px; vertical-align:top;}
+pre code{ margin: 0; padding: 0; background: none; border: none;}
 small { font-size: 12px; color: #888; }
 ::selection     {background: rgba(0, 0, 0, 0.1);}
 ::-moz-selection  {background: rgba(0, 0, 0, 0.1);}
