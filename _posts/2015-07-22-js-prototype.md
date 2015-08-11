@@ -90,7 +90,7 @@ var obj = new A(1);
 `new` 也就是实例化对象，过程可以分如下几步：
 
 1. 创建`obj`对象，`obj = new Object()`;
-2. 将`obj`的内部`__proto__`指向构造它的函数`A`的`prototype`，同时，`obj.constructor === A.prototype.constructor`(这个是永远成立的，即使`A.prototype`不再指向原来的A原型，也就是说：**类的实例对象的`constructor`属性永远指向"构造函数"的`prototype.constructor`**)，从而使得`obj.constructor.prototype`指向`A.prototype`（`obj.constructor.prototype===A.prototype`，当`A.prototype`改变时则不成立，下文有遇到）。`obj.constructor.prototype`与的内部`_proto_`是两码事，实例化对象时用的是`_proto_`，`obj`是没有`prototype`属性的，但是有内部的`__proto__`，通过`__proto__`来取得原型链上的原型属性和原型方法，FireFox公开了`__proto__`，可以在FireFox中`alert(obj.__proto__)`；
+2. 将`obj`的内部`__proto__`指向构造它的函数`A`的`prototype`，同时，`obj.constructor === A.prototype.constructor`(这个是永远成立的，即使`A.prototype`不再指向原来的A原型，也就是说：**类的实例对象的`constructor`属性永远指向"构造函数"的`prototype.constructor`**)，从而使得`obj.constructor.prototype`指向`A.prototype`（`obj.constructor.prototype===A.prototype`，当`A.prototype`改变时则不成立，下文有遇到）。`obj.constructor.prototype`与的内部`_proto_`是两码事，实例化对象时用的是`_proto_`，`obj`是没有`prototype`属性的，但是有内部的`__proto__`，通过`__proto__`来取得原型链上的原型属性和原型方法，chrome暴露了`__proto__`，可以在chrome中`alert(obj.__proto__)`；
 3. 将`obj`作为`this`去调用构造函数A，从而设置成员（即对象属性和对象方法）并初始化。
 
 当这3步完成，这个`obj`对象就与构造函数`A`再无联系，这个时候即使构造函数`A`再加任何成员，都不再影响已经实例化的`obj`对象了。此时，`obj`对象具有了`x`属性，同时具有了构造函数`A`的原型对象的所有成员，当然，此时该原型对象是没有成员的。
@@ -166,7 +166,10 @@ new Object() instanceof Array  //false
 原理：右侧函数的`prototype`属性是否出现在左侧对象的原型链上。即：左侧的原型链上是否有右侧的原型。
 
 
-###实现继承的方式
+###继承
+
+因为ECMAscript的发明者为了简化这门语言，同时又保持继承性，采用了链式继承的方法。 <br>
+由构造函数创建的每个实例都有个`__proto__`属性，它指向构造函数的`prototype`。那么构造函数的`prototype`上定义的属性和方法都会被instance所继承.
 
 ```js
 function Person(){
@@ -196,3 +199,11 @@ if(!Object.create){
 }
 
 ```
+
+####参考文章：
+
+- <a rel="nofollow" href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" title="">JavaScript探秘：强大的原型和原型链</a>
+- <a rel="nofollow" href="http://www.jb51.net/article/30750.htm" target="_blank" title="">js原型链看图说明</a>
+- <a rel="nofollow" href="http://blog.jobbole.com/9648/" target="_blank">理解javascript原型</a>
+- <a rel="nofollow" href="http://developer.51cto.com/art/200907/134913.htm" target="_blank">javascript类和继承:constructor</a>
+- <a rel="nofollow" href="http://www.nowamagic.net/librarys/veda/detail/1642" target="_blank">javascript探秘:构造函数</a>

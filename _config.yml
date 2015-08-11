@@ -88,3 +88,6 @@ comments :
     duoshuo : 
       short_name : sair
 
+#统计
+analytics :
+    provider : custom

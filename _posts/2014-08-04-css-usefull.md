@@ -802,4 +802,4 @@ a:hover, .glow {
 
 ####参考文献：
 
-- 参考1：<a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank" title="">30 Useful CSS Snippets for Developers</a>
+- <a rel="nofollow" href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank" title="">30 Useful CSS Snippets for Developers</a>

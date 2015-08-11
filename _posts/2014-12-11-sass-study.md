@@ -267,5 +267,5 @@ $margin: 1%;
 }
 ```
 
-**<a href="http://sassmeister.com/gist/0a041d0fb2d72758c280" target="_blank" title="">演示demo</a>**
+**<a rel="nofollow" href="http://sassmeister.com/gist/0a041d0fb2d72758c280" target="_blank" title="">演示demo</a>**
 
