@@ -6,13 +6,13 @@ keywords: javascript，对象，上下文，作用域，函数，context
 category: "javascript"
 ---
 
-> 转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>
-
 本文尝试阐述Javascript中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
 
 ###Execution context
 
 执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（global context），全局上下文取决于执行环境，如Node中的global和Browser中的window：
+
+<!-- more -->
 
 <img src="/static/images/img/js-global-context.jpg" style="width:600px;" alt="">
 
@@ -184,9 +184,10 @@ Js是一门很有趣的语言，由于它的很多特性是针对HTML中DOM的�
 
 写这篇总结的原因是我在Github上分享的<a href="https://github.com/coodict/javascript-in-one-pic" target="_blank">Learn javascript in one picture</a>，刚开始有人质疑这只能算是一张语法表（syntax cheat sheet），根本不会涉及更深层的闭包、作用域等内容，但是出乎意料的是这个项目竟然获得3000多个star，所以不能虎头蛇尾，以上。
 
+> 转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>
 
 ####References <br>
 
-- <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" title="">Understanding Scope and Context in JavaScript</a>
-- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" title="">this - JavaScript | MDN</a>
-- <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" title="">闭包 - JavaScript | MDN</a>
+- <a rel="nofollow" href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" title="">Understanding Scope and Context in JavaScript</a>
+- <a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" title="">this - JavaScript | MDN</a>
+- <a rel="nofollow" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" title="">闭包 - JavaScript | MDN</a>

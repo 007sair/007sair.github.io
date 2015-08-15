@@ -6,13 +6,13 @@ keywords: javascript, 原型，原型链，对象，继承
 category: "javascript"
 ---
 
-> 转自：<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript原型链</a>
-
 昨天翻微信订阅号，无意间看到这篇关于原型和原型链的文章，觉得其中有很多值得学习的地方，整理如下：
 
 本文尝试阐述Js中原型（prototype）、原型链（prototype chain）等概念及其作用机制。上一篇文章（<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>）介绍了Js中变量作用域的相关概念，实际上关注的一个核心问题是：“在执行当前这行代码时Js解释器可以获取哪些变量”，而原型与原型链实际上还是关于这一问题。
 
 我们知道，在Js中一切皆为对象（Object），但是Js中并没有类（class）；Js是基于原型（prototype-based）来实现的面向对象（OOP）的编程范式的，但并不是所有的对象都拥有`prototype`这一属性：
+
+<!-- more -->
 
 ```js
 var a = {};  
@@ -145,8 +145,10 @@ o.__proto__.__proto__ === Object.prototype; //=> true
 o.__proto__.__proto__ === Function;  //=> false  
 ```
 
+> 转自：<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript原型链</a>
+
 ###参考：
 
-- <a href="http://pivotallabs.com/javascript-constructors-prototypes-and-the-new-keyword/" target="_blank" title="">JavaScript constructors, prototypes, and the new keyword</a>
-- <a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" title="">Javascript 面向对象编程</a>
-- <a href="http://book.douban.com/subject/7157249/" target="_blank" title="">Professional JavaScript for Web Developers</a>
+- <a rel="nofollow" href="http://pivotallabs.com/javascript-constructors-prototypes-and-the-new-keyword/" target="_blank" title="">JavaScript constructors, prototypes, and the new keyword</a>
+- <a rel="nofollow" href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" title="">Javascript 面向对象编程</a>
+- <a rel="nofollow" href="http://book.douban.com/subject/7157249/" target="_blank" title="">Professional JavaScript for Web Developers</a>

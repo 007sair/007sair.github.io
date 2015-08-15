@@ -6,8 +6,6 @@ keywords: css
 category: "css"
 ---
 
-> 转自：<a href="http://www.oschina.net/translate/css-snippets-for-designers" target="_blank" title="">每位设计师都应该拥有的50个CSS代码片段</a>
-
 ####1、css重置
 现在基本都用：<a href="http://necolas.github.io/normalize.css/" target="_blank">http://necolas.github.io/normalize.css/</a>
 
@@ -799,6 +797,8 @@ a:hover, .glow {
 
 
 <br>
+
+> 转自：<a href="http://www.oschina.net/translate/css-snippets-for-designers" target="_blank" title="">每位设计师都应该拥有的50个CSS代码片段</a>
 
 ####参考文献：
 
