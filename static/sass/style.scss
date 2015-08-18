@@ -740,3 +740,32 @@ pre.prettyprint{
 #comments{
 	margin-right: 23em;
 }
+.anchorList{
+	position: absolute;
+	top: 2em;
+	right: 0;
+	margin: 0 2em 0 1.5em;
+	padding: 1.5em 2em;
+	width: 220px;
+	background: #fff;
+	h3{
+		margin-bottom: 5px;
+		font-size: 16px;
+	}
+	li{
+		margin-left: 1.3em;
+		list-style-type: disc;
+		ul{
+			margin-left: 0;
+		}
+		a{
+			color: #008E59;
+		}
+		&.active{
+			background: #f6f6f6;
+			a{
+				color: #333;
+			}
+		}
+	}
+}
