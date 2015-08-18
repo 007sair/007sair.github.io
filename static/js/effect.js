@@ -26,6 +26,12 @@ $(function(){
 
     });
 
+    if ($('.lotus-post h3').length === 0) {
+        $('.lotus-post h4').each(function(index, el) {
+            $('.anchorList').children('ul').append('<li><a>' + $(this).html() + '</a></li>');
+        });
+    };
+
     $('.lotus-post h3').each(function(index, el) {
 
         $('.anchorList').children('ul').append('<li><a>' + $(el).html() + '</a></li><li style="list-style-type:none"><ul></ul></li>');

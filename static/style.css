@@ -960,7 +960,7 @@ pre.prettyprint { font-family: Monaco,Menlo,Consolas,"Courier New",monospace; ba
 
 #comments { margin-right: 23em; }
 
-.anchorList { position: absolute; top: 2em; right: 0; margin: 0 2em 0 1.5em; padding: 1.5em 2em; width: 220px; background: #fff; }
+.anchorList { position: absolute; top: 2em; right: 0; margin: 0 2em 0 1.5em; padding: 1.5em 2em; width: 220px; max-height: 90%; overflow-y: auto; background: #fff; }
 .anchorList h3 { margin-bottom: 5px; font-size: 16px; }
 .anchorList li { margin-left: 1.3em; list-style-type: disc; }
 .anchorList li ul { margin-left: 0; }
