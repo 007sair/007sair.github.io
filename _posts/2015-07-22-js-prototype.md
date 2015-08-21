@@ -7,7 +7,7 @@ category: "javascript"
 ---
 
 
-###普通对象与函数对象
+###对象
 
 对象分普通对象和函数对象，`Object`、`Function`是js自带的函数对象。
 
@@ -20,7 +20,7 @@ var f3 = new Function('str','console.log(str)');
 
 var o3 = new f1();
 var o1 = {};
-var o2 =new Object();
+var o2 = new Object();
 
 console.log(typeof Object); //function
 console.log(typeof Function); //function
@@ -32,91 +32,84 @@ console.log(typeof f2); //function
 console.log(typeof f3); //function 
 ```
 
-以上例子说明：**凡是通过 `new Function()` 创建的对象都是函数对象，其他的都是普通对象。** <br>
+以上例子说明：**凡是通过 `new Function()` 创建的对象都是函数对象，其他的都是普通对象。** `Function`、`Object` 也都是通过`new Function()`创建的。
 
-###原型对象
+###原型
 
-在js中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性。其中函数对象的一个属性就是原型对象 `prototype`。
+js中所有的_函数_都有一个`prototype`属性，这个属性引用了一个对象，即原型对象，也简称原型。<br>
+这个_函数_包括构造函数和普通函数，我们讲的更多是构造函数的原型，但是也不能否定普通函数也有原型。
 
-**注：**普通对象没有`prototype`,但有`__proto__`属性(可以在chrome中查看该属性，但最后不要依赖使用此属性)。
+**注：**普通对象没有`prototype`，但有`__proto__`属性（可以在chrome中查看该属性，但最后不要依赖使用此属性）。
 
-原型对象其实就是普通对象（`Function.prototype`除外,它是函数对象，但它很特殊，他没有`prototype`属性（前面说道函数对象都有`prototype`属性））。看下面的例子：
-
-```js
-function f1(){};
-console.log(f1.prototype) //f1{}
-console.log(typeof f1. prototype) //Object
-console.log(typeof Function.prototype) // Function，这个特殊
-console.log(typeof Object.prototype) // Object
-console.log(typeof Function.prototype.prototype) //undefined
-```
-
-从这句 `console.log(f1.prototype) //f1 {}` 的输出就结果可以看出，`f1.prototype`就是f1的一个实例对象。就是在f1创建的时候,创建了一个它的实例对象并赋值给它的`prototype`，基本过程如下：
+譬如普通函数：
 
 ```js
-var temp = new f1();
-f1. prototype = temp;
-```
-
-所以，`Function.prototype`为什么是函数对象就迎刃而解了，上文提到凡是`new Function()`产生的对象都是函数对象，所以`temp1`是函数对象。
-
-```js
-var temp1 = new Function ();
-Function.prototype = temp1;
-```
-
-###原型与构造函数
-
-Js所有的函数都有一个`prototype`属性，这个属性引用了一个对象，即原型对象，也简称原型。这个函数包括构造函数和普通函数，我们讲的更多是构造函数的原型，但是也不能否定普通函数也有原型。譬如普通函数：
-
-```js
-function F(){
-	//...
+function f(){
+    //...
 }
-alert(F.prototype instanceof Object) //true
+alert(f.prototype instanceof Object) //true
 ```
 
-构造函数，也即构造对象。首先了解下通过构造函数实例化对象的过程。
+构造函数，也叫构造对象。首先了解下通过构造函数实例化对象的过程。
 
 ```js
 function A(x){
     this.x=x;
 }
-var obj = new A(1);
+var a = new A(1);
 ```
 
 ####new
 
-`new` 也就是实例化对象，过程可以分如下几步：
+`new`也就是实例化对象，过程有如下几步：
 
-1. 创建`obj`对象，`obj = new Object()`;
-2. 将`obj`的内部`__proto__`指向构造它的函数`A`的`prototype`，同时，`obj.constructor === A.prototype.constructor`(这个是永远成立的，即使`A.prototype`不再指向原来的A原型，也就是说：**类的实例对象的`constructor`属性永远指向"构造函数"的`prototype.constructor`**)，从而使得`obj.constructor.prototype`指向`A.prototype`（`obj.constructor.prototype===A.prototype`，当`A.prototype`改变时则不成立，下文有遇到）。`obj.constructor.prototype`与的内部`_proto_`是两码事，实例化对象时用的是`_proto_`，`obj`是没有`prototype`属性的，但是有内部的`__proto__`，通过`__proto__`来取得原型链上的原型属性和原型方法，chrome暴露了`__proto__`，可以在chrome中`alert(obj.__proto__)`；
-3. 将`obj`作为`this`去调用构造函数A，从而设置成员（即对象属性和对象方法）并初始化。
+1. 创建对象`a`；
+2. 将`a`内部的`__proto__`对象的引用指向`a`的构造函数`A`的原型对象（`A.prototype`）。
+3. 将`a`作为`this`去调用构造函数A，从而设置`a`的属性和方法并初始化。
 
-当这3步完成，这个`obj`对象就与构造函数`A`再无联系，这个时候即使构造函数`A`再加任何成员，都不再影响已经实例化的`obj`对象了。此时，`obj`对象具有了`x`属性，同时具有了构造函数`A`的原型对象的所有成员，当然，此时该原型对象是没有成员的。
+当这3步完成，这个`a`对象就与构造函数`A`再无联系，这个时候即使构造函数`A`再加任何成员，都不再影响已经实例化的`a`对象了。<br>
+此时，`a`对象具有了`x`属性，同时具有了构造函数`A`的原型对象的所有成员，当然，此时该原型对象是没有成员的。
 
 **原型对象初始是空的**，也就是没有一个成员（即原型属性和原型方法）。可以通过如下方法验证原型对象具有多少成员。
 
 ```js
-var num=0;
-for(o in A.prototype) {
-    alert(o);//alert出原型属性名字
-    num++;
+function A(name){
+    this.name = name;
 }
-alert("member: " + num);//alert出原型所有成员个数。
-```
 
-但是，一旦定义了原型属性或原型方法，则所有通过该构造函数实例化出来的所有对象，都继承了这些原型属性和原型方法，这是通过内部的`__proto__`链来实现的。譬如：
+var num = 0;
 
-```js
 A.prototype.say = function(){
     alert("Hi")
 };
+
+for(i in A.prototype){
+    console.log(i);  //say
+    num++;
+}
+
+console.log("member: " + num); // 1
 ```
 
-那所有的`A`的对象都具有了`say`方法，这个原型对象的`say`方法是唯一的副本给大家共享的，而不是每一个对象都有关于`say`方法的一个副本。
+解释了什么是原型对象，我们再来看看它的作用是什么，先看一段代码：
+
+```js
+function Person(name){
+    this.name = name;
+}
+Person.prototype.getName = function(){
+    return this.name;
+}
+var o = new Person('chan');
+o.getName(); // chan
+```
+
+可以看到，通过给`Person.prototype`设置一个方法`getName`，实例后的对象`o`也会继承这个方法。具体怎么实现的继承，需讲到下面的原型链。
+
 
 ###原型链
+
+js在创建对象（无论是普通对象还是函数对象）的时候，都有一个叫做`__proto__`的内置属性，用于指向创建它的函数对象的原型对象`prototype`。
 
 原型链的基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。
 
@@ -124,22 +117,22 @@ A.prototype.say = function(){
 
 每个构造函数都有一个原型对象，原型对象包含一个指向构造函数的指针（`prototype`），而实例则包含一个指向原型对象的内部指针（`__proto__`）。
 
-js在创建对象（无论是普通对象还是函数对象）的时候，都有一个叫做`__proto__`的内置属性，用于指向创建它的函数对象的原型对象 `prototype`。以下面的例子为例：
+以下面的例子为例：
 
 ```js
 function Person(name){
-	this.name = name
-};
-Person.prototype.getName = function(){
-	return this.name; 
+    this.name = name;
 }
-var zjh = new Person(‘zhangjiahao’);
-zjh.getName(); //zhangjiahao
+Person.prototype.getName = function(){
+    return this.name;
+}
+var o = new Person('chan');
+o.getName(); // chan
 
-console.log(zjh.__proto__ === Person.prototype) //true
+console.log(o.__proto__ === Person.prototype) //true
 ```
 
-`Person.prototype`对象也有`__proto__`属性，它指向创建它的函数对象（`Object`）的 `prototype`
+`Person.prototype`对象也有`__proto__`属性，它指向创建它的函数对象（`Object`）的 `prototype`：
 
 ```js
 console.log(Person.prototype.__proto__ === Object.prototype) //true
@@ -151,7 +144,25 @@ console.log(Person.prototype.__proto__ === Object.prototype) //true
 console.log(Object.prototype.__proto__) //null
 ```
 
-###instanceof
+原型链如下图：
+
+<img src="/static/images/img/js-prototype-lian.jpg" alt="">
+
+#####疑点解释：
+
+```js
+Object.__proto__ === Function.prototype // true     Object是函数对象，是通过new Function()创建，所以Object.__proto__指向Function.prototype。
+
+Function.__proto__ === Function.prototype // true   Function 也是对象函数，也是通过new Function()创建，所以Function.__proto__指向Function.prototype。
+
+Function.prototype.__proto__ === Object.prototype //true   Function.prototype是个函数对象，理论上他的__proto__应该指向 Function.prototype，就是他自己，自己指向自己，没有意义。
+```
+
+js一切皆为对象，原型链的最顶层为null，即`Object.prototype.__proto__ === null`
+
+
+
+####instanceof
 
 ```js
 //demo
@@ -164,6 +175,16 @@ new Object() instanceof Array  //false
 左侧一般是一个对象，右侧一定是个函数对象，不是函数对象会报错。
 
 原理：右侧函数的`prototype`属性是否出现在左侧对象的原型链上。即：左侧的原型链上是否有右侧的原型。
+
+####constructor
+
+原型对象`prototype`中都有预定义的`constructor`，用来指向它的构造函数。
+
+```js
+o.prototype.constructor === Person //true
+Function.prototype.constructor === Function //true
+Object.prototype.constructor === Object //true
+```
 
 
 ###继承
@@ -200,7 +221,7 @@ if(!Object.create){
 
 ```
 
-####参考文章：
+#####参考文章
 
 - <a rel="nofollow" href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" title="">JavaScript探秘：强大的原型和原型链</a>
 - <a rel="nofollow" href="http://www.jb51.net/article/30750.htm" target="_blank" title="">js原型链看图说明</a>

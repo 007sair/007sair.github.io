@@ -617,7 +617,7 @@ nav ul li [class^="icon-"] { display: inline-block; vertical-align: -3px; margin
 nav .text { font-size: 16px; }
 
 .lotus-article { margin: 2em 23em 0 0; overflow: hidden; *zoom: 1; min-height: 600px; }
-.lotus-article .lotus-post { margin-top: 2em; }
+.lotus-article .lotus-post { margin-top: 2em; word-break: break-all; }
 
 .category { position: absolute; top: 0; right: 0; margin: 2em 2em 0 1.5em; padding: 1.5em 2em; background-color: #fff; width: 220px; }
 
@@ -645,7 +645,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before { te
 
 .lotus blockquote p { margin-bottom: 0.4em; }
 
-h1, h2, h3, h4, h5, h6 { font-weight: 500; font-weight: 700\9; color: #333; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700\9; color: #333; }
 
 .lotus h1, .lotus h2, .lotus h3, .lotus h4, .lotus h5, .lotus h6, .lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { line-height: 1.5; }
 
@@ -787,6 +787,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; font-weight: 700\9; color: #333; }
 
 .archives-year { font-size: 1.5em; }
 
+.anchorList.anchorListFix { position: fixed; top: 0; }
+
 /************************* violet logo
 *************************/
 .violet-logo { float: left; position: relative; width: 66px; height: 66px; margin: 20px 0 12px 0px; -moz-border-radius: 33px 33px; -webkit-border-radius: 33px 33px; -o-border-radius: 33px 33px; border-radius: 33px 33px; }
@@ -895,7 +897,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; font-weight: 700\9; color: #333; }
   nav ul li { text-align: center; }
   nav ul li [class^="icon-"] { margin: 0; }
   .lotus-article { margin: 1em 1.5em 0 0; }
-  .category { position: static; margin: 0 1.5em 1em 0; width: auto; } }
+  .category { position: static; margin: 0 1.5em 1em 0; width: auto; }
+  .anchorList, .anchorList.anchorListFix { position: static !important; display: none; } }
 @media only screen and (min-width: 320px) and (max-width: 767px) { nav { width: 100%; height: auto; }
   nav .logo { display: none; }
   nav .text { display: none; }
@@ -910,7 +913,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; font-weight: 700\9; color: #333; }
   .lotus table th, .lotus table td, .lotus-table th, .lotus-table td { padding: 2px 0; text-align: center; vertical-align: middle; }
   .lotus-double .article-first { width: 100%; border-right: none; border-bottom: 1px dotted #C8C8C8; }
   .lotus-double .article-last { width: 100%; margin-left: 0; margin-top: 2em; }
-  .lotus-breadcrub { padding-top: 10px; } }
+  .lotus-breadcrub { padding-top: 10px; }
+  .anchorList, .anchorList.anchorListFix { position: static !important; display: none; } }
 /* for print */
 @media print { .lotus-nav { display: none; } }
 /** for post img */
@@ -962,9 +966,9 @@ pre.prettyprint { font-family: Monaco,Menlo,Consolas,"Courier New",monospace; ba
 
 .anchorList { position: absolute; top: 2em; right: 0; margin: 0 2em 0 1.5em; padding: 1.5em 2em; width: 220px; max-height: 90%; overflow-y: auto; background: #fff; }
 .anchorList h3 { margin-bottom: 5px; font-size: 16px; }
-.anchorList li { margin-left: 1.3em; list-style-type: disc; }
+.anchorList li { margin-left: 1.3em; list-style-type: disc; line-height: 1.5; }
 .anchorList li ul { margin-left: 0; }
-.anchorList li a { color: #008E59; }
+.anchorList li a { display: block; padding: 3px 0; color: #008E59; }
 .anchorList li.active { background: #f6f6f6; }
 .anchorList li.active a { color: #333; }
 

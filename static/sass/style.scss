@@ -96,6 +96,7 @@ nav{
 	min-height: 600px;
 	.lotus-post{
 		margin-top: 2em;
+		word-break: break-all;
 	}
 }
 .category{
@@ -180,7 +181,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 //     top: 14px;
 // }
 
-h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
+h1, h2, h3, h4, h5, h6{ font-weight: 700\9; color:#333; }
 
 .lotus h1, .lotus h2, .lotus h3, .lotus h4, .lotus h5, .lotus h6,
 .lotus-h1, .lotus-h2, .lotus-h3, .lotus-h4, .lotus-h5, .lotus-h6 { line-height: 1.5;}
@@ -423,6 +424,10 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 .archives-year{
   font-size: 1.5em;
 }
+.anchorList.anchorListFix{
+	position: fixed;
+	top: 0;
+}
 
 /*************************
  * violet logo
@@ -545,6 +550,10 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 		margin: 0 1.5em 1em 0;
 		width: auto;
 	}
+	.anchorList,.anchorList.anchorListFix{
+		position: static !important;
+		display: none;
+	}
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 	nav{
@@ -605,6 +614,10 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; font-weight: 700\9; color:#333; }
 	    margin-top: 2em;
 	}
 	.lotus-breadcrub { padding-top: 10px;}
+	.anchorList,.anchorList.anchorListFix{
+		position: static !important;
+		display: none;
+	}
 }
 /*
  * for print
@@ -757,10 +770,13 @@ pre.prettyprint{
 	li{
 		margin-left: 1.3em;
 		list-style-type: disc;
+		line-height: 1.5;
 		ul{
 			margin-left: 0;
 		}
 		a{
+			display: block;
+			padding: 3px 0;
 			color: #008E59;
 		}
 		&.active{

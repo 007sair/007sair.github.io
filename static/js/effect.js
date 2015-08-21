@@ -5,15 +5,9 @@ $(function(){
     $(window).scroll(function() {
         var curTop = $(window).scrollTop();
         if (curTop > srcTop) {
-            $('.anchorList').css({
-                'position': 'fixed',
-                'top': '0'
-            });
+            $('.anchorList').addClass("anchorListFix")
         } else {
-            $('.anchorList').css({
-                'position': 'absolute',
-                'top': '2em'
-            });
+            $('.anchorList').removeClass("anchorListFix")
         }
         /*
         for (var i = 0; i < arrPos.length; i++) {
