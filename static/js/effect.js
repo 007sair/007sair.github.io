@@ -9,33 +9,24 @@ $(function(){
         } else {
             $('.anchorList').removeClass("anchorListFix")
         }
-        /*
-        for (var i = 0; i < arrPos.length; i++) {
-            if (curTop > arrPos[i]) {
-                $('.anchorList li').removeClass('active');
-                $('.anchorList a').eq(i).parent().addClass("active");
-            };
-        };
-        */
-
     });
 
     if ($('.lotus-post h3').length === 0) {
         $('.lotus-post h4').each(function(index, el) {
-            $('.anchorList').children('ul').append('<li><a>' + $(this).html() + '</a></li>');
+            $('.anchorList').children('ul').append('<li><a>' + $(this).text() + '</a></li>');
         });
     };
 
     $('.lotus-post h3').each(function(index, el) {
 
-        $('.anchorList').children('ul').append('<li><a>' + $(el).html() + '</a></li><li style="list-style-type:none"><ul></ul></li>');
+        $('.anchorList').children('ul').append('<li><a>' + $(el).text() + '</a></li><li style="list-style-type:none"><ul></ul></li>');
 
         var $tags = $(this).nextUntil('h3');
 
         $tags.each(function(i, el) {
             var $h4 = $(this)[0].tagName.toLowerCase();
             if ($h4 === 'h4') {
-                $('.anchorList').find('li[style] ul').eq(index).append('<li><a href="">' + $(this).html() + '</a></li>')
+                $('.anchorList').find('li[style] ul').eq(index).append('<li><a href="">' + $(this).text() + '</a></li>')
                 //console.log($(this), i, index)
             };
         });
@@ -61,4 +52,4 @@ $(function(){
         arrPos.push($(this).offset().top);
     });
 
-})
+});
