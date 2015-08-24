@@ -6,61 +6,123 @@
 @import 'common';
 @import 'css3';
 
-.lotus p, .lotus pre, .lotus ul, .lotus ol, .lotus dl, .lotus form, .lotus hr, .lotus table,
-.lotus-p, .lotus-pre, .lotus-ul, .lotus-ol, .lotus-dl, .lotus-form, .lotus-hr, .lotus-table { 
-	margin-bottom: 1em; 
-	vertical-align: middle; 
+/* 保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
+.typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
+  margin-bottom: 1.2em
 }
 
-blockquote{
-	p{
-		&:before{
-			margin-right: 5px;
-			content: "“";
-			font-size: 40px;
-			line-height: 18px;
-			position: relative;
-			color: #c8c8c8;
-			overflow: hidden;
-			top: 15px;
-		}
-		&:after{
-			margin-left: 5px;
-			content: "”";
-			font-size: 38px;
-			line-height: 18px;
-			position: relative;
-			color: #c8c8c8;
-			overflow: hidden;
-			top: 20px;
-		}
-	}
+h1, h2, h3, h4, h5, h6 {
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font-weight: 100;
+  color: #000;
+  line-height: 1.35;
 }
-h1, h2, h3, h4, h5, h6{ color:#333; }
 
-h1{
-	font-size: 2.2em;
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
+.typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
+	margin-top: 1.2em;
+	margin-bottom: 0.6em;
+	line-height: 1.35;
 }
-h2{
-	font-size: 1.9em;
+
+.typo h1, .typo-h1 {
+	margin: 0.3em 0 0.15em 0;
+	font-size: 2em;
 }
-h3{
-	font-size: 1.6em;
+
+.typo h2, .typo-h2 {
+  font-size: 1.8em;
 }
-h4{
-	font-size: 1.3em;
+
+.typo h3, .typo-h3 {
+  font-size: 1.6em;
+}
+
+.typo h4, .typo-h4 {
+  font-size: 1.4em;
+}
+
+.typo h5, .typo h6, .typo-h5, .typo-h6 {
+  font-size: 1.2em;
+}
+
+/* 在文章中，应该还原 ul 和 ol 的样式 */
+.typo ul, .typo-ul {
+  margin-left: 1.3em;
+  list-style: disc;
+}
+
+.typo ol, .typo-ol {
+  list-style: decimal;
+  margin-left: 1.9em;
+}
+
+.typo li ul, .typo li ol, .typo-ul ul, .typo-ul ol, .typo-ol ul, .typo-ol ol {
+  margin-bottom: 0.8em;
+  margin-left: 2em;
+}
+
+.typo li ul, .typo-ul ul, .typo-ol ul {
+  list-style: circle;
+}
+
+/* 同 ul/ol，在文章中应用 table 基本格式 */
+.typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #666;
+}
+
+.typo table th, .typo-table th {
+  background: #fbfbfb;
+}
+
+.typo table thead th, .typo-table thead th {
+  background: #f1f1f1;
+}
+
+.typo table caption {
+  border-bottom: none;
+}
+
+/* 去除 webkit 中 input 和 textarea 的默认样式  */
+.typo-input, .typo-textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.typo-em, .typo em, legend, caption {
+  color: #000;
+  font-weight: inherit;
+}
+
+/* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
+.typo-em {
+  position: relative;
+}
+
+.typo-em:after {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・";
+}
+
+/* Responsive images */
+.typo img {
+  max-width: 100%;
 }
 
 body{
-	margin: 0 0 0 percent(214);
+	margin: 0 0 0 percent(224);
 }
 
 .lotus{
-	h3{
-		margin-bottom: 0.5em;
-		padding: 0.3em 0;
-		border-bottom: 1px dotted #ccc;
-	}
 	ol{
 		list-style: decimal; 
 		margin-left: 2em; 
@@ -164,39 +226,22 @@ nav{
 		font-size: 16px;
 	}
 }
+
 .lotus-article {
-	margin: 2em 23em 0 0;
+	margin: 2em 25em 0 0;
 	overflow: hidden;
 	*zoom: 1;
 	min-height: 600px;
 	.lotus-post{
 		margin-top: 2em;
 		word-break: break-all;
-		ul{
-			padding-left: 2em;
-		}
-		li{
-			list-style-type: disc;
-		}
 	}
-}
-.rpost{
-	margin-bottom: 1.2em;
-	padding: 1em 2em;
-	background-color: #fff;
 }
 
-.block-category{
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 2em 2em 0 0;
-	padding: 1.5em 2em;
+.rpost{
+	margin-bottom: 1.2em;
+	padding: 2em 3em;
 	background-color: #fff;
-	width: 220px;
-	ul{
-		margin-left: 2px;
-	}
 }
 
 .breadcrub { 
@@ -206,7 +251,9 @@ nav{
 
 .page-home{
 	.rpost{
+		padding: 1.5em 3em;
 		h2{
+			margin: 5px 0;
 			font-weight: normal;
 		}
 	}
@@ -214,6 +261,10 @@ nav{
 
 //正文页
 .page-post{
+	.meta{
+		padding-bottom: 1em;
+		border-bottom: 3px double #eee;
+	}
 	table{
 		th, td{
 			border: 1px solid #d0d0d0; 
@@ -227,6 +278,7 @@ nav{
 		}
 	}
 }
+
 //归档
 .page-archives{
 	.tit-year{
@@ -257,27 +309,44 @@ nav{
 		}
 	}
 }
-//正文目录
-.block-catalog{
+
+//右侧悬浮
+.block-category, .block-catalog{
 	position: absolute;
 	top: 2em;
 	right: 0;
-	margin: 0 2em 0 1.5em;
+	margin: 0 2em 0 0;
 	padding: 1.5em 2em;
-	width: 220px;
-	max-height: 90%;
+	background-color: #fff;
+	width: 18em;
+}
+
+//分类列表
+.block-category{
+	ul{
+		margin-left: 2px;
+	}
+}
+
+//正文目录
+.block-catalog{
+	max-height: 81%;
 	overflow-y: auto;
 	background: #fff;
 	h3{
-		margin-bottom: 5px;
-		font-size: 16px;
+		margin-bottom: 0.5em;
+		font-size: 1.2em;
 	}
 	li{
 		margin-left: 1.3em;
 		list-style-type: disc;
 		line-height: 1.5;
+		font-size: 14px;
 		ul{
 			margin-left: 0;
+			li{
+				list-style: circle;
+			}
 		}
 		a{
 			display: block;
@@ -296,6 +365,8 @@ nav{
 		top: 0;
 	}
 }
+
+//首页翻页
 .homePage{
 	text-align: center;
 	a, span{
@@ -313,6 +384,7 @@ nav{
 	}
 }
 
+//回到顶部
 .backTop {
 	color: #474747;
 	opacity: 0.5;
@@ -388,4 +460,8 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 footer {
   clear: both;
   margin-top: 3em;
+}
+
+#comments{
+	margin: 2em 25em 0 0;
 }

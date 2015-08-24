@@ -145,6 +145,8 @@ o.__proto__.__proto__ === Object.prototype; //=> true
 o.__proto__.__proto__ === Function;  //=> false  
 ```
 
+<br>
+
 > 转自：<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript原型链</a>
 
 

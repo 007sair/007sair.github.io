@@ -6,7 +6,7 @@ keywords: javascript，对象，上下文，作用域，函数，context
 category: "javascript"
 ---
 
-本文尝试阐述Javascript中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
+本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
 
 ###Execution context
 
@@ -184,9 +184,9 @@ Js是一门很有趣的语言，由于它的很多特性是针对HTML中DOM的�
 
 写这篇总结的原因是我在Github上分享的<a href="https://github.com/coodict/javascript-in-one-pic" target="_blank">Learn javascript in one picture</a>，刚开始有人质疑这只能算是一张语法表（syntax cheat sheet），根本不会涉及更深层的闭包、作用域等内容，但是出乎意料的是这个项目竟然获得3000多个star，所以不能虎头蛇尾，以上。
 
-> 转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>
-
 <br>
+
+> 转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>
 
 #####参考：
 
