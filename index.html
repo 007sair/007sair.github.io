@@ -23,8 +23,8 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
             {{ rpost.content | split:"<!-- more -->" | first %}}
             <a href='{{ rpost.url }}' title='Read more...'>Read more »</a>
         {% else %}
-            {{ rpost.content | strip_html | truncatewords: 50 }}
-            <p><a href='{{ rpost.url }}' title='Read more...'>Read more »</a></p>
+            <p>{{ rpost.content | strip_html | truncatewords: 50 }}</p>
+            <div><a href='{{ rpost.url }}' title='Read more...'>Read more »</a></div>
         {% endif %}
     </div>
 {% endfor %}
