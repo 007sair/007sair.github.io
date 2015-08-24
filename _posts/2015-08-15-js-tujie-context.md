@@ -186,7 +186,9 @@ Js是一门很有趣的语言，由于它的很多特性是针对HTML中DOM的�
 
 > 转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a>
 
-####References <br>
+<br>
+
+#####参考：
 
 - <a rel="nofollow" href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" title="">Understanding Scope and Context in JavaScript</a>
 - <a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" title="">this - JavaScript | MDN</a>
