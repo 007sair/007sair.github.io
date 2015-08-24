@@ -4,30 +4,30 @@ title: Categories
 keywords: Chan blog,Categories
 ---
 
-<div class="lotus-article rpost">
-	<p class="lotus-breadcrub">
+<div class="lotus-article rpost page-category">
+	<p class="breadcrub">
         <a href="/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
         <span> &gt; </span>
         {{ page.title | replace: page.title,'标签' }}
     </p>
     <hr>
 	<div class="article">
-		<div class="tags">
-			<h3 class="title">{{ page.title | replace: page.title,'Tags' }} </h3>
-		    <p class="categories">
-		    {% assign categories_list = site.categories %}
-		    {% for category in categories_list %}
-		    	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
-		            {{ category[0] | join: "/" }}<em>({{ category | last | size }})</em>
-		        </a>
-		    {% endfor %}
+		<div class="block-tag">
+			<h4 class="title">{{ page.title | replace: page.title,'Tags' }} </h4>
+			<p>
+				{% assign categories_list = site.categories %}
+			    {% for category in categories_list %}
+			    	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
+			            {{ category[0] | join: "/" }}<em>({{ category | last | size }})</em>
+			        </a>
+			    {% endfor %}
+			</p>
 		</div>
-	    </p>
 		<div class="article">
 		{% for category in site.categories %} 
 			<ul>
 				<li>
-					<h3 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h3>
+					<h4 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h4>
 					<ul>
 					    {% assign pages_list = category[1] %}  
 					    {% for node in pages_list %}

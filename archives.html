@@ -5,41 +5,37 @@ description: 这是 PIZn 的又一个博客，它是基于 Jekyll 搭建起来�
 keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, html, javascript, wordpress, logo, design, geek
 ---
 
-<div class="lotus-article rpost">
+<div class="lotus-article rpost page-archives">
 
-    <p class="lotus-breadcrub">
+    <p class="breadcrub">
         <a href="/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
         <span> &gt; </span>
         {{ page.title }}
     </p>
 	<hr>
-    <article id="archives">
-	    {% for post in site.posts  %}
-	      {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-	      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-
-	      {% if forloop.first %}
-	        <ul>
-	            <li>
-	            	<span class="archives-year">{{ this_year }}</span>
-	                <ul>
-	      {% endif %}
-	                    <li>{{ post.date | date: "%Y-%m-%d" }}&nbsp;&raquo;  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-	      	{% if forloop.last %}
-	                </ul>
-	            </li>
-	        </ul>
-	      	{% else %}
-	      	{% if this_year != next_year %}
-	                </ul>
-	            </li>
-	        </ul>
-	        <ul>
-	              <li><span class="archives-year">{{next_year}} &nbsp;</span>
-	        <ul>
-	      	{% endif %}
-	      {% endif %}
-	    {% endfor %}
+    <article>
+		{% for post in site.posts  %}
+			{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+			{% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+			{% if forloop.first %}
+			<ul>
+				<li>
+					<h4 class="tit-year">{{ this_year }}</h4>
+					<ul>
+			{% endif %}
+						<li>{{ post.date | date: "%Y-%m-%d" }}&nbsp;&raquo;  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+			{% if forloop.last %}
+			{% else %}
+			{% if this_year != next_year %}
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li><h4 class="tit-year">{{next_year}} &nbsp;</h4>
+			<ul>
+			{% endif %}
+			{% endif %}
+		{% endfor %}
     </article>
 
 </div>

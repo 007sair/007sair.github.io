@@ -10,7 +10,7 @@ $(document).ready(function() {
     iLotus.goTop = {
         nodeName: "J-backTop",
         scrollHeight: "100",
-        linkBottom: "60px",
+        linkBottom: "40px",
         linkRight: 30,
         linkWidth: 32,
         contentWidth: 720,
@@ -52,7 +52,7 @@ $(document).ready(function() {
         },
         run: function() {
             var that = this, 
-            	topLink = $('<a id="' + that.nodeName + '" href="#" class="lotus-backtop"><i class="icon-circle-arrow-up"></i></a>');
+            	topLink = $('<a id="' + that.nodeName + '" href="#" class="backTop"><i class="icon-circle-arrow-up"></i></a>');
             topLink.appendTo($('body'));
             topLink.css({
                 'display': 'none',
