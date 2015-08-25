@@ -1,24 +1,6 @@
 //--------------------
 // style font
 //--------------------
-@font-face {
-  font-family: 'PT Serif';
-  font-style: normal;
-  font-weight: 700;
-  src: local('PT Serif Bold'), local('PTSerif-Bold'), url(font/PTSerifBold.woff) format('woff');
-}
-@font-face {
-  font-family: 'PT Serif';
-  font-style: italic;
-  font-weight: 400;
-  src: local('PT Serif Italic'), local('PTSerif-Italic'), url(font/PTSerifItalic.woff) format('woff');
-}
-@font-face {
-  font-family: 'PT Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: local('PT Serif'), local('PTSerif-Regular'), url(font/PTSerif.woff) format('woff');
-}
 
 @font-face {
     font-family: "FontAwesome";

@@ -3,19 +3,19 @@
 //------------------
 @import "prefixer";
 
-// px to rem
-// @param  {[number]} $px      		 [px] 640的设计稿尺寸
+//px to rem
+//@param  {[number]} $px      		 [px] 640的设计稿尺寸
 @function toREM($px){
 	@return $px/40 + rem;
 }
 
-// css3
+//css3
 @mixin radius($radius) {
 	@include prefixer(border-radius, $radius);
 }
 
-@mixin shadow($x, $y, $blur, $color) {
-	@include prefixer(box-shadow, $x $y $blur $color);
+@mixin shadow($values) {
+	@include prefixer(box-shadow, $values);
 }
 
 @mixin box-sizing($type){
@@ -39,32 +39,35 @@
     background-image: linear-gradient($from, $to);
 }
 
-// 垂直居中 绝对定位版 css3
-// @param  {[string]} $direction      [both] 上下左右都设置,[horizontal] 左右居中,[vertical] 上下居中
-@mixin center-translate($direction: both) {
+//弹性布局
+@mixin flexbox{
+	display: -webkit-box;           // OLD - iOS 6-, Safari 3.1-6 //老版本语法: Safari,  iOS, Android browser, older WebKit browsers.
+	display: -moz-box;              // OLD - Firefox 19- (doesn't work very well) //老版本语法: Firefox (buggy) 
+	display: -ms-flexbox;           // TWEENER - IE 10 //混合版本语法: IE 10
+	display: -webkit-flex;          // NEW - Chrome //新版本语法： Chrome 21+
+	display: flex;                  // NEW, Spec - Opera 12.1, Firefox 20+ //新版本语法： Opera 12.1, Firefox 22+
+}
+
+//垂直居中 绝对定位版 css3
+//@param  {[string]} $direction      [both] 上下左右都设置,[horizontal] 左右居中,[vertical] 上下居中
+@mixin transCenter($direction: both) {
 	position: absolute;
 	@if $direction == both {
 		top: 50%;
 		left: 50%;
-		-webkit-transform: translate3d(-50%, -50%, 0);
-		-moz-transform: translate3d(-50%, -50%, 0);
-		transform: translate3d(-50%, -50%, 0);
+		@include prefixer(transform, translate3d(-50%, -50%, 0));
 	}
 	@else if $direction == horizontal {
 		left: 50%;
-		-webkit-transform: translate3d(-50%, 0, 0);
-		-moz-transform: translate3d(-50%, 0, 0);
-		transform: translate3d(-50%, 0, 0);
+		@include prefixer(transform, translate3d(-50%, 0, 0));
 	}
 	@else if $direction == vertical {
 		top: 50%;
-		-webkit-transform: translate3d(0, -50%, 0);
-		-moz-transform: translate3d(0, -50%, 0);
-		transform: translate3d(0, -50%, 0);
+		@include prefixer(transform, translate3d(0, -50%, 0));
 	}
 }
 
-// ellipsis 测试版
+//ellipsis 测试版
 @mixin ellipsis($line: 1, $substract: 0) {
     @if $line == 1 {
         white-space: nowrap;
@@ -77,16 +80,6 @@
     }
     overflow: hidden;
 }
-
-// 弹性布局
-@mixin flexbox{
-	display: -webkit-box;           // OLD - iOS 6-, Safari 3.1-6 //老版本语法: Safari,  iOS, Android browser, older WebKit browsers.
-	display: -moz-box;              // OLD - Firefox 19- (doesn't work very well) //老版本语法: Firefox (buggy) 
-	display: -ms-flexbox;           // TWEENER - IE 10 //混合版本语法: IE 10
-	display: -webkit-flex;          // NEW - Chrome //新版本语法： Chrome 21+
-	display: flex;                  // NEW, Spec - Opera 12.1, Firefox 20+ //新版本语法： Opera 12.1, Firefox 22+
-}
-
 
 
 //[boxCenter 元素垂直水平居中]
