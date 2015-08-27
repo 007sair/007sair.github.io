@@ -18,7 +18,7 @@ category: "css"
 ```
 <!-- more -->
 
-####3、CSS 块引用模版
+####3、css块引用模版
 
 ```css
 blockquote {

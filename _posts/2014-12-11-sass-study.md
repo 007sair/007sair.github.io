@@ -7,7 +7,7 @@ category: "sass"
 ---
 
 
-###变量
+##一、变量
 
 ####命名： `$`
 
@@ -39,8 +39,8 @@ p {
 
 ```scss
 //scss
-$out : margin;
-$in  : padding;
+$out: margin;
+$in: padding;
 .#{$out}-div{
 	#{$out}-top : 10px;
 }
@@ -59,7 +59,7 @@ $in  : padding;
 ```
 
 
-###引用
+##二、引用
 
 ####@import
 
@@ -75,7 +75,7 @@ $in  : padding;
 当然，`import`的引用里不需要加`_`。
 
 
-###注释
+##三、注释
 
 sass共有两种注释和一种特殊注释：
 
@@ -84,7 +84,7 @@ sass共有两种注释和一种特殊注释：
 - `/*! ... */` 这种注释多了个感叹号，表示为_重要注释_，即使是压缩模式，也会保留这行注释，通常用于声明版权信息。
 
 
-###嵌套
+##四、嵌套
 
 ####选择器嵌套
 
@@ -177,7 +177,7 @@ a.myAnchor:visited {
 > Inception Rule：选择器深度不要超过四层。——thesassway
 
 
-###继承
+##五、继承
 
 ####@extend
 
@@ -200,7 +200,7 @@ a.myAnchor:visited {
 }
 ```
 
-**请注意：**这么做并不会从.input复制样式到.error-input中。
+**请注意：**这么做并不会从`.input`复制样式到`.error-input`中。
 
 编译后如下：
 
@@ -265,7 +265,7 @@ body {
 ```
 
 
-###混合 <br>
+##六、混合
 
 sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号开始，多个参数以逗号分开，也可以给参数设置默认值。声明的`@mixin`通过`@include`来调用。
 
@@ -414,7 +414,7 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 > __PS：__ `@mixin`通过`@include`调用后解析出来的样式是以拷贝形式存在的，而下面的继承则是以联合声明的方式存在的，所以从3.2.0版本以后，建议传递参数的用`@mixin`，而非传递参数类的使用下面的继承`%`。
 
 
-###函数
+##七、函数
 
 官方列表：<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" title="函数列表">sass function</a>
 
@@ -461,7 +461,7 @@ body {
 - <a rel="nofollow" href="http://www.w3cplus.com/preprocessor/sass-other-function.html">Sass基础——Sass函数</a>
 
 
-###运算
+##八、运算
 
 sass可以使用各种算式进行值的计算：
 
@@ -603,7 +603,7 @@ div{
  - 乘法：两方相同单位，报错；一方有单位，结果输出该单位；两方都无单位，输出无单位。
 
 
-###控制语句
+##九、控制语句
 
 ####@if
 

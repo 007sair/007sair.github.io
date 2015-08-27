@@ -65,22 +65,22 @@ typeof(o2);     //=> 'object'
 typeof(Object); //=> 'function'  
 ```
 
-###2. prototype VS __proto__
+###2. prototype VS [[proto]]
 
 清楚了上面的概念之后再来看prototype：
 
-> Each function has two properties: `length` and `prototype`
+> Each function has two properties： `length` and `prototype`
 
-prototype和length是每一个函数类型自带的两个属性，而其它非函数类型并没有（开头的例子已经说明），这一点之所以比较容易被忽略或误解，是因为所有类型的构造函数本身也是函数，所以它们自带了prototype属性：
+`prototype`和`length`是每一个函数类型自带的两个属性，而其它非函数类型并没有（开头的例子已经说明），这一点之所以比较容易被忽略或误解，是因为所有类型的构造函数本身也是函数，所以它们自带了`prototype`属性：
 
 ```js
-// Node
-console.log(Object.prototype);  //=> {}  
-console.log(Function.prototype);//=> [Function: Empty]  
-console.log(String.prototype);  //=> [String: '']  
+//Node
+console.log(Object.prototype);      //=> Object {}
+console.log(Function.prototype);    //=> function Empty()
+console.log(String.prototype);      //=> String {length: 0, [[PrimitiveValue]]: ""}
 ```
 
-除了`prototype`之外，Js中的所有对象（`undefined`、`null`等特殊情况除外）都有一个内置的`[[Prototype]]`属性，指向它“父类”的`prototype`，这个内置属性在ECMA标准中并没有给出明确的获取方式，但是许多Js的实现（如Node、大部分浏览器等）都提供了一个`__proto__`属性来指代这一`[[Prototype]]`，我们通过下面的例子来说明实例中的`__proto__`是如何指向构造函数的`prototype`的：
+除了`prototype`之外，Js中的所有对象（`undefined`、`null`等特殊情况除外）都有一个内置的`__proto__`属性，指向它“父类”的`prototype`，这个内置属性在ECMA标准中并没有给出明确的获取方式，但是许多Js的实现（如Node、大部分浏览器等）都提供了一个`__proto__`属性来指代这一`[[Prototype]]`，我们通过下面的例子来说明实例中的`__proto__`是如何指向构造函数的`prototype`的：
 
 ```js
 var Person = function(){};  
@@ -130,7 +130,7 @@ o.__proto__.__proto__.__proto__ === null;   //=> true
 
 从上面的例子和图解可以看出，prototype对象也有__proto__属性，向上追溯一直到null。
 
-new关键词的作用就是完成上图所示实例与父类原型之间关系的串接，并创建一个新的对象；instanceof关键词的作用也可以从上图中看出，实际上就是判断__proto__（以及__proto__.__proto__...）所指向是否父类的原型：
+`new`关键词的作用就是完成上图所示实例与父类原型之间关系的串接，并创建一个新的对象；`instanceof`关键词的作用也可以从上图中看出，实际上就是判断`__proto__`（以及`__proto__.__proto__...`）所指向是否父类的原型：
 
 ```js
 var Obj = function(){};  
@@ -140,9 +140,9 @@ o instanceof Obj; //=> true
 o instanceof Object; //=> true  
 o instanceof Function; //=> false
 
-o.__proto__ === Obj.prototype; //=> true  
+o.__proto__ === Obj.prototype;              //=> true  
 o.__proto__.__proto__ === Object.prototype; //=> true  
-o.__proto__.__proto__ === Function;  //=> false  
+o.__proto__.__proto__ === Function;         //=> false  
 ```
 
 <br>
@@ -150,7 +150,7 @@ o.__proto__.__proto__ === Function;  //=> false
 > 转自：<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript原型链</a>
 
 
-#####参考：
+<h5>参考：</h5>
 
 - <a rel="nofollow" href="http://pivotallabs.com/javascript-constructors-prototypes-and-the-new-keyword/" target="_blank" title="">JavaScript constructors, prototypes, and the new keyword</a>
 - <a rel="nofollow" href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" title="">Javascript 面向对象编程</a>
