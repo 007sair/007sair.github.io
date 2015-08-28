@@ -13,13 +13,13 @@ $(function(){
 
     if ($('.lotus-post h3').length === 0) {
         $('.lotus-post h4').each(function(index, el) {
-            $('.block-catalog').children('ul').append('<li><a>' + $(this).text() + '</a></li>');
+            $('.block-catalog .conter').children('ul').append('<li><a>' + $(this).text() + '</a></li>');
         });
     };
 
     $('.lotus-post h3').each(function(index, el) {
 
-        $('.block-catalog').children('ul').append('<li><a>' + $(el).text() + '</a></li><li style="list-style-type:none"><ul></ul></li>');
+        $('.block-catalog .conter').children('ul').append('<li><a>' + $(el).text() + '</a></li><li style="list-style-type:none"><ul></ul></li>');
 
         var $tags = $(this).nextUntil('h3');
 

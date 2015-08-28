@@ -50,14 +50,16 @@ keywords: Chan, GitHub, Jekyll, Blog, Works, Archives, Quotes, Violet, css, html
 </article>
 
 <section class="block-category">
-    <h3>分类列表</h3>  
-    <ul>
-        {% for category in site.categories %}
-        <li class="category_list_item">
-            <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
-        </li>  
-        {% endfor %}
-    </ul>
+    <div class="conter">
+        <h3>分类列表</h3>
+        <ul>
+            {% for category in site.categories %}
+            <li class="category_list_item">
+                <a href="/categories.html#{{ category | first }}-ref" target="_blank">{{ category | first }}</a> ({{ category | last | size }})  
+            </li>  
+            {% endfor %}
+        </ul>
+    </div>
 </section>
 
 <script>
