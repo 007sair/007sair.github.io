@@ -6,20 +6,31 @@
 @import 'css3';
 @import 'common';
 @import 'typo';
+@import 'media';
 
 body{
-	padding: 1.5em 19em 0 10%;
+	padding: 1.5em 20.5% 0 10%;
+	@include mediaQuery($max, '1023px'){
+		padding: 1.5em 0 0 10%;
+	};
+	@include mediaQuery($max, '640px'){
+		margin-top: 4em;
+		padding: 0 0 0 0;
+	};
 }
 
 //主体部分
 .lotus-article {
-	margin: 0 3.5% 0 2.5%;
+	margin: 0 0 0 2.5%;
 	overflow: hidden;
 	*zoom: 1;
 	min-height: 600px;
 	.lotus-post{
 		margin-top: 2em;
 		word-break: break-all;
+	}
+	@include mediaQuery($max, '1023px'){
+		margin: 0 2.5%;
 	}
 }
 
@@ -29,9 +40,14 @@ body{
 	top: 1.5em;
 	right: 1.5%;
 	background: #fff;
-	width: 19em;
+	width: 18%;
 	.conter{
 		padding: 1.5em 2em;
+	}
+	@include mediaQuery($max, '1023px'){
+		position: static;
+		margin: 1em 3.5% 0 2.5%;
+		width: auto;
 	}
 }
 
@@ -81,6 +97,7 @@ nav{
 	height: 100%;
 	background: #474747;
 	border-right: 1px solid #212121;
+	z-index: 5;
 	.logo{
 		padding: 2.5em 0; 
 		text-align: center; 
@@ -90,6 +107,12 @@ nav{
 			@include radius(50%);
 			width: 40%; 
 			min-width: 40px;
+		}
+		p{
+			// 导航text
+			@include mediaQuery($max, '1023px'){
+				display: none;
+			}
 		}
 	}
 	ul{
@@ -126,12 +149,33 @@ nav{
 			}
 		}
 	}
+	@include mediaQuery($max, '640px'){
+		width: 100%;
+		height: auto;
+		text-align: center;
+		.logo{
+			display: none;
+		}
+		ul{
+			li{
+				display: inline-block;
+				vertical-align: top;
+				min-width: 4em;
+				span{
+					display: none !important;
+				}
+			}
+		}
+	}
 }
 
 .rpost{
 	margin-bottom: 1.2em;
 	padding: 2em 3em;
 	background-color: #fff;
+	@include mediaQuery($max, '640px'){
+		padding: 1em 1em !important;
+	};
 }
 
 .breadcrub { 
@@ -335,10 +379,14 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 }
 
 footer {
-  clear: both;
-  margin-top: 3em;
+	margin-left: 2.5%;
+	clear: both;
+	margin-top: 3em;
 }
 
 #comments{
 	margin: 2em 25em 0 0;
+	@include mediaQuery($max, '1023px'){
+		margin: 2em 2% 0 2%;
+	}
 }
