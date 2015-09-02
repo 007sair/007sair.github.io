@@ -29,91 +29,19 @@
 $screens : 212px, 319px, 359px, 383px, 399px, 414px, 423px, 479px, 539px, 639px, 640px;
 @each $width in $screens {
 	@media screen and ( min-width: $width){
-		// @include htmlFont(conver2px($width));
+		 @include htmlFont(conver2px($width));
 	}
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px){
 	// 兼容iphone5
-	// @include htmlFont(20px);
+	 @include htmlFont(20px);
 }
 @media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){
 	// 兼容iphone 6
-	// @include htmlFont(23.4375px);
+	@include htmlFont(23.4375px);
 }
 @media (device-width:414px) and (-webkit-min-device-pixel-ratio:3.0){
 	// 兼容iphone6 plus
-	//@include htmlFont(25.875px);
+	@include htmlFont(25.875px);
 }
-
-
-
-// ==================================================
-// $Variables
-// ==================================================
-// Supports 
-// @media min-width
-// @media max-width
-// @media min-width and max-width
-
-$viewport-increment: 0.1px; // customize to suite
-
-// Desktop
-$desktop: 1024px; // customize to suite
-$pre-desktop: $desktop - $viewport-increment;
-
-// Tablet
-$tablet: 768px; // customize to suite
-$pre-tablet: $tablet - $viewport-increment;
-
-// Palm
-$palm: 640px; // customize to suite
-$post-palm: $palm + $viewport-increment;
-
-// Constraints
-$min: min-width;
-$max: max-width;
-
-
-// ==================================================
-// $Media Query @Mixin
-// ==================================================
-
-@mixin mediaQuery($constraint, $viewport1, $viewport2: null) {
-	@if $constraint == $min {
-		@media screen and ($min: $viewport1) {
-			@content;
-		}
-	} @else if $constraint == $max {
-		@media screen and ($max: $viewport1) {
-			@content;
-		}
-	} @else {
-		@media screen and ($min: $viewport1) and ($max: $viewport2) {
-			@content;
-		}
-	}
-}
-
-// ==================================================
-// The Implementation!
-// ==================================================
-
-
-//p {
-//  @include mediaQuery($max, $palm) {
-//    font-size: 75%;
-//  }
-
-//  @include mediaQuery(null, $post-palm, $pre-tablet) {
-//    font-size: 87.5%;
-//  }
- 
-//  @include mediaQuery($min, $tablet) {
-//    font-size: 100%;
-//  }
-  
-//  @include mediaQuery($min, $desktop) {
-//    font-size: 108.75%;
-//  }
-//}

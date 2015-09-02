@@ -18,7 +18,7 @@ keywords: Chan blog,Categories
 				{% assign categories_list = site.categories %}
 			    {% for category in categories_list %}
 			    	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
-			            {{ category[0] | join: "/" }}<em>({{ category | last | size }})</em>
+			            {{ category[0] | join: "/" }}<em>{{ category | last | size }}</em>
 			        </a>
 			    {% endfor %}
 			</p>

@@ -1,27 +1,38 @@
 @charset "utf-8";
+// ==================================================
+// Global Variables
+// ==================================================
+$color-green: #1abc9c ;
+$font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 
-@import 'reset';
-@import 'font';
-@import 'mixin';
-@import 'css3';
-@import 'common';
-@import 'typo';
-@import 'media';
 
+// ==================================================
+// Imports
+// ==================================================
+@import 'reset.scss';
+@import 'font.scss';
+@import 'mixin.scss';
+@import 'css3.scss';
+@import 'typo.scss';
+@import 'common.scss';
+
+
+// ==================================================
+// Page Styles
+// ==================================================
 body{
-	padding: 1.5em 20.5% 0 10%;
+	padding: 1.5em 20.5% 0 11.5%;
 	@include mediaQuery($max, '1023px'){
-		padding: 1.5em 0 0 10%;
+		padding: 1.5em 1.5% 0 11.5%;
 	};
 	@include mediaQuery($max, '640px'){
-		margin-top: 4em;
-		padding: 0 0 0 0;
+		padding: 5em 0.5em 0 0.5em;
+		font-size: .85em;
 	};
 }
 
-//主体部分
+// 中间部分
 .lotus-article {
-	margin: 0 0 0 2.5%;
 	overflow: hidden;
 	*zoom: 1;
 	min-height: 600px;
@@ -29,12 +40,9 @@ body{
 		margin-top: 2em;
 		word-break: break-all;
 	}
-	@include mediaQuery($max, '1023px'){
-		margin: 0 2.5%;
-	}
 }
 
-//右侧悬浮
+// 右侧悬浮
 .block-category, .block-catalog{
 	position: absolute;
 	top: 1.5em;
@@ -44,9 +52,12 @@ body{
 	.conter{
 		padding: 1.5em 2em;
 	}
+	h3{
+		padding-bottom: 0.5em;
+	}
 	@include mediaQuery($max, '1023px'){
 		position: static;
-		margin: 1em 3.5% 0 2.5%;
+		margin: 1em 0 0 0;
 		width: auto;
 	}
 }
@@ -109,7 +120,6 @@ nav{
 			min-width: 40px;
 		}
 		p{
-			// 导航text
 			@include mediaQuery($max, '1023px'){
 				display: none;
 			}
@@ -126,6 +136,7 @@ nav{
 			overflow: hidden;
 			a{
 				display: block;
+				padding: 0 5px;
 				color: #fff;  
 				cursor: pointer;
 				span{
@@ -160,7 +171,8 @@ nav{
 			li{
 				display: inline-block;
 				vertical-align: top;
-				min-width: 4em;
+				min-width: 15%;
+				border-top: none;
 				span{
 					display: none !important;
 				}
@@ -193,7 +205,7 @@ nav{
 	}
 }
 
-//正文页
+// 正文页
 .page-post{
 	.meta{
 		padding-bottom: 1em;
@@ -213,14 +225,14 @@ nav{
 	}
 }
 
-//归档
+// 归档
 .page-archives{
 	.tit-year{
 		font-size: 1.5em;
 	}
 }
 
-//标签页
+// 标签页
 .page-category{
 	.block-tag{
 		margin-bottom: 2em;
@@ -230,13 +242,20 @@ nav{
 			a{
 				float: left; 
 				margin: 5px 10px 0 0; 
-				padding: 0 8px; 
-				border-radius: 3px; 
+				padding: 3px 10px; 
+				border-radius: 2px; 
 				font-size: 14px; 
 				background-color: #ddd; 
 				color: #555;
+				em{
+					font-size: 12px;
+					position: relative;
+					top: -5px;
+					left: 2px;
+					color: darken(#f00,10%);
+				}
 				&:hover{
-					background-color: #F3F2EE; 
+					background: lighten(#ddd, 5%);
 					text-decoration: none;
 				}
 			}
@@ -244,14 +263,14 @@ nav{
 	}
 }
 
-//分类列表
+// 分类列表
 .block-category{
 	ul{
 		margin-left: 2px;
 	}
 }
 
-//正文目录
+// 正文目录
 .block-catalog{
 	max-height: 81%;
 	overflow-y: auto;
@@ -288,7 +307,7 @@ nav{
 	}
 }
 
-//首页翻页
+// 首页翻页
 .homePage{
 	text-align: center;
 	a, span{
@@ -306,7 +325,7 @@ nav{
 	}
 }
 
-//回到顶部
+// 回到顶部
 .backTop {
 	color: #474747;
 	opacity: 0.5;
@@ -321,7 +340,7 @@ nav{
 	}
 }
 
-//icons
+// icons
 .btn [class^="icon-"], .btn [class*=" icon-"] {
     line-height: .9em;
 }
@@ -345,20 +364,9 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 
 
 
-//-----------------
-//media
-//-----------------
-@media only screen and (min-width: 1025px) and (max-width: 1439px)  {
-
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px)  {
-	
-}
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-	
-}
-
-
+// -----------------
+// media
+// -----------------
 @media print {
 	.lotus-nav {
 		display: none;
@@ -378,15 +386,17 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 	.fun{color:red}
 }
 
-footer {
-	margin-left: 2.5%;
-	clear: both;
-	margin-top: 3em;
-}
-
+// 多说评论
 #comments{
 	margin: 2em 25em 0 0;
 	@include mediaQuery($max, '1023px'){
 		margin: 2em 2% 0 2%;
 	}
+}
+
+footer {
+	padding: 0.5em 0;
+	clear: both;
+	margin-top: 3em;
+	line-height: 1.5;
 }
