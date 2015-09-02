@@ -157,6 +157,22 @@ nav{
 			    vertical-align: -3px;
 			    width: 1.25em;
 			    text-align: center;
+			    // icons
+			    &.icon-home:before{
+			    	@extend %icon-home:before;
+			    }
+			    &.icon-bookmark:before{
+			    	@extend %icon-bookmark:before;
+			    }
+			    &.icon-tags:before{
+			    	@extend %icon-tags:before;
+			    }
+			    &.icon-link:before{
+			    	@extend %icon-link:before;
+			    }
+			    &.icon-user:before{
+			    	@extend %icon-user:before;
+			    }
 			}
 		}
 	}
