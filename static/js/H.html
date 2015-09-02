@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>Examples</title>
+<link rel="stylesheet" href="">
+</head>
+<body><h3>333333333333</h3>
+    
+    <h4>444444444444444</h4><h2>2222222222222</h2>
+    <h5>5555555555555555</h5>
+    <h2>2222222222222</h2>
+    <h2>2222222222222</h2>
+    <h5>5555555555555555</h5>
+    <h2>22222222222222222</h2>
+    <h4>444444444444</h4>
+    <h2>2222222222222</h2>
+    
+
+	<ul class="tree">
+		
+	</ul>
+
+
+<script src="http://file01.miyabaobei.com/resources/scripts/jquery-1.8.2.min.js"></script>
+<script>
+$(function(){
+	var tags = [];
+	min = 99;
+	min2 = 99;
+	$('h2,h3,h4,h5,h6').each(function(index, el) {
+		var tag = $(this).get(0).tagName.toLowerCase();
+		tagNum = tag.substring(1,2);
+		tags.push(tagNum);
+		if(tagNum < min) {
+			min = tagNum;
+		}
+		if(tagNum < min2 && tagNum > min) {
+			min2 = tagNum;
+		}
+	});
+	alert(min);
+	alert(min2);
+
+
+
+	/*var tags = [];
+
+	$('h2,h3,h4,h5,h6').each(function(index, el) {
+		var tag = $(this).get(0).tagName.toLowerCase();
+		tags.push(tag.substring(1,2));
+	});
+
+	console.log(tags);
+
+	function getMinMin(tags){
+
+		var last = [];
+
+		function getArrMin(arr){
+			var temp = [];
+			var min = Math.min.apply(null, arr);
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] == min) {
+					temp[i] = min;
+				}else{
+					temp[i] = '';
+				}
+			};
+			return temp;
+		}
+
+		function removeMin(arr){
+			var temp = [];
+			var min = Math.min.apply(null, arr);
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] == min) {
+					arr.splice(i,1,'10');
+				}
+			};
+			return temp = arr;
+		}
+
+		var arr1 = getArrMin(tags);
+
+		removeMin(tags);
+
+		var arr2 = getArrMin(tags);
+
+		removeMin(removeMin(tags));
+
+		for (var i = 0; i < arr1.length; i++) {
+			if (arr1[i] == '') {
+				arr1[i] = arr2[i];
+			};
+		};
+
+		for (var i = 0; i < arr1.length; i++) {
+			if (arr1[i] !== '') {
+				last.push(arr1[i]);
+			};
+		};
+
+		return last;
+	}
+
+	var tree = getMinMin(tags);
+
+	var t1 = Math.min.apply(null, tree);
+
+	for (var i = 0; i < tree.length; i++) {
+		if (tree[i] == t1) {
+			$('.tree').append('<li>'+tree[i]+'</li>');
+		}else{
+			$('.tree').append('<li><ul><li>'+tree[i]+'</li></ul></li>')
+		}
+	};*/
+
+});
+</script>
+</body>
+</html>
