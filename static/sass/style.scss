@@ -356,6 +356,18 @@ nav{
 	}
 }
 
+.tree{
+	font-size: 14px;
+	list-style-type: square;
+	li{
+		list-style-type: disc;
+		font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif;
+		&.sub{ 
+			margin-left: 2.5em;
+		}
+	}
+}
+
 // icons
 .btn [class^="icon-"], .btn [class*=" icon-"] {
     line-height: .9em;
