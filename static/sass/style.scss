@@ -435,15 +435,17 @@ ul.flex{
 	@include flexbox;
 	margin: 0;
 	list-style: none;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
+	-webkit-flex-flow: row wrap;
+	-webkit-flex-direction: row;
+	-webkit-flex-wrap: wrap;
 	li{
 		@include flexboxKids();
 		min-width: 30%;
 		text-align: center;
 		@for $i from 1 to 6{
 			&:nth-child(#{$i}){
-				background: darken(#f00, $i * 4%);
+				background: darken(#ff0, $i * 4%);
 			}
 		}
 	}
