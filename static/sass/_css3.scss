@@ -50,6 +50,15 @@
 	display: flex;                  // NEW, Spec - Opera 12.1, Firefox 20+ //新版本语法： Opera 12.1, Firefox 22+
 }
 
+// 弹性布局子元素
+@mixin flexboxKids($num:1){
+	-webkit-box-flex: $num;            // OLD - iOS 6-, Safari 3.1-6
+	-moz-box-flex: $num;               // OLD - Firefox 19-
+	-webkit-flex: $num;                // Chrome
+	-ms-flex: $num;                    // IE 10
+	flex: $num;                        // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
 // 垂直居中 绝对定位版 css3
 // @param  {[string]} $direction      [both] 上下左右都设置,[horizontal] 左右居中,[vertical] 上下居中
 @mixin transCenter($direction: both) {
@@ -98,15 +107,6 @@
 	}
 }
 
-
-// 弹性布局子元素
-@mixin flexboxKids($num:1){
-	-webkit-box-flex: $num;            // OLD - iOS 6-, Safari 3.1-6
-	-moz-box-flex: $num;               // OLD - Firefox 19-
-	-webkit-flex: $num;                // Chrome
-	-ms-flex: $num;                    // IE 10
-	flex: $num;                        // NEW, Spec - Opera 12.1, Firefox 20+
-}
 
 // -------------------------------------
 // [ellipsis 测试版]

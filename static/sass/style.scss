@@ -428,3 +428,22 @@ footer {
 	margin-top: 3em;
 	line-height: 1.5;
 }
+
+
+// test flex
+ul.flex{
+	@include flexbox;
+	margin: 0;
+	list-style: none;
+	flex-flow: row wrap;
+	li{
+		@include flexboxKids();
+		min-width: 30%;
+		text-align: center;
+		@for $i from 1 to 6{
+			&:nth-child(#{$i}){
+				background: darken(#ff0, $i * 4%);
+			}
+		}
+	}
+}
