@@ -428,22 +428,3 @@ footer {
 	margin-top: 3em;
 	line-height: 1.5;
 }
-
-
-// test flex
-ul.flex{
-	display: flex;
-	-webkit-display: flex;
-	margin: 0;
-	list-style: none;
-	-webkit-flex-wrap: wrap;
-	li{
-		min-width: 30%;
-		text-align: center;
-		@for $i from 1 to 6{
-			&:nth-child(#{$i}){
-				background: darken(#f0f, $i * 4%);
-			}
-		}
-	}
-}
