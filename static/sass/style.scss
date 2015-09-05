@@ -435,6 +435,7 @@ ul.flex{
 	@include flexbox;
 	margin: 0;
 	list-style: none;
+	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	li{
 		@include flexboxKids();
@@ -442,7 +443,7 @@ ul.flex{
 		text-align: center;
 		@for $i from 1 to 6{
 			&:nth-child(#{$i}){
-				background: darken(#ff0, $i * 4%);
+				background: darken(#f00, $i * 4%);
 			}
 		}
 	}
