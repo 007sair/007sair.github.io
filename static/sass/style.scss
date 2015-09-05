@@ -439,13 +439,14 @@ ul.flex{
 	-webkit-flex-flow: row wrap;
 	-webkit-flex-direction: row;
 	-webkit-flex-wrap: wrap;
+	width: 260px;
 	li{
 		@include flexboxKids();
 		min-width: 30%;
 		text-align: center;
 		@for $i from 1 to 6{
 			&:nth-child(#{$i}){
-				background: darken(#ff0, $i * 4%);
+				background: darken(#f00, $i * 4%);
 			}
 		}
 	}
