@@ -436,13 +436,8 @@ ul.flex{
 	-webkit-display: flex;
 	margin: 0;
 	list-style: none;
-	flex-flow: row wrap;
-	-webkit-flex-flow: row wrap;
-	-webkit-flex-direction: row;
 	-webkit-flex-wrap: wrap;
 	li{
-		flex: 1;
-		-webkit-flex: 1;
 		min-width: 30%;
 		text-align: center;
 		@for $i from 1 to 6{
