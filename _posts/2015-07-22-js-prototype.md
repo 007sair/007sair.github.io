@@ -1,7 +1,7 @@
 ---
 layout: post
-title: js 对象、原型、继承
-description: js 对象、原型、继承
+title: js 对象、原型、继承详解
+description: js 对象、原型、继承介绍
 keywords: js，对象，原型，原型链，构造函数，继承
 category: "javascript"
 ---

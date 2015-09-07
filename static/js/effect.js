@@ -40,8 +40,8 @@ $(function(){
         $(this).attr('id','anchor'+index);
     });
 
-    tree.sort();
     tree = unique(tree);
+    tree.sort();
 
     $(H).each(function(index, val) {
         var tag = $(this)[0].tagName;
