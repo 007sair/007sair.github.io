@@ -223,7 +223,7 @@ if(!Object.create){
 
 <br>
 
-#####参考文章
+__参考自：__
 
 - <a rel="nofollow" href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" title="">JavaScript探秘：强大的原型和原型链</a>
 - <a rel="nofollow" href="http://www.jb51.net/article/30750.htm" target="_blank" title="">js原型链看图说明</a>

@@ -150,7 +150,7 @@ o.__proto__.__proto__ === Function;         //=> false
 > 转自：<a href="http://blog.rainy.im/2015/07/20/prototype-chain-in-js/" target="_blank" title="">图解Javascript原型链</a>
 
 
-<h5>参考：</h5>
+__参考自：__
 
 - <a rel="nofollow" href="http://pivotallabs.com/javascript-constructors-prototypes-and-the-new-keyword/" target="_blank" title="">JavaScript constructors, prototypes, and the new keyword</a>
 - <a rel="nofollow" href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" title="">Javascript 面向对象编程</a>

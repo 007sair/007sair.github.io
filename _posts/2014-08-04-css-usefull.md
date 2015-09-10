@@ -800,6 +800,7 @@ a:hover, .glow {
 
 > 转自：<a href="http://www.oschina.net/translate/css-snippets-for-designers" target="_blank" title="">每位设计师都应该拥有的50个CSS代码片段</a>
 
-####参考文献：
+
+__参考自：__
 
 - <a rel="nofollow" href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank" title="">30 Useful CSS Snippets for Developers</a>

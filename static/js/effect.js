@@ -45,12 +45,13 @@ $(function(){
 
     $(H).each(function(index, val) {
         var tag = $(this)[0].tagName;
+        var text = $(this).text().replace("：","");
         switch(tag){
             case tree[0] :
-                $('.tree').append('<li><a href="#anchor'+index+'">' + $(this).html() + '</a></li>');
+                $('.tree').append('<li><a href="#anchor'+index+'">' + text + '</a></li>');
                 break;
             case tree[1] :                
-                $('.tree').append('<li class="sub"><a href="#anchor'+index+'">' + $(this).html() + '</a></li>');
+                $('.tree').append('<li class="sub"><a href="#anchor'+index+'">' + text + '</a></li>');
                 break;
         }
     });

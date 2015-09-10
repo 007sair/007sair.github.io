@@ -354,6 +354,9 @@ nav{
 			font-size: 48px;
 		}
 	}
+	.icon-circle-arrow-up:before { 
+		@extend %icon-circle-arrow-up:before;
+	}
 }
 
 .tree{
