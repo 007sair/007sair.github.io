@@ -296,6 +296,7 @@ nav{
 	}
 	li{
 		margin-left: 1.3em;
+		padding: 3px 0;
 		list-style-type: disc;
 		line-height: 1.5;
 		font-size: 14px;
@@ -306,8 +307,6 @@ nav{
 			}
 		}
 		a{
-			display: block;
-			padding: 3px 0;
 			color: #008E59;
 		}
 		&.active{
@@ -366,7 +365,8 @@ nav{
 		list-style-type: disc;
 		font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif;
 		&.sub{ 
-			margin-left: 2.5em;
+			margin-left: 3.3em;
+			list-style-type: circle;
 		}
 	}
 }
