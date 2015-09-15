@@ -9,12 +9,12 @@ $font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sa
 // ==================================================
 // Imports
 // ==================================================
-@import 'reset.scss';
-@import 'font.scss';
-@import 'mixin.scss';
-@import 'css3.scss';
-@import 'typo.scss';
-@import 'common.scss';
+@import 'reset';
+@import 'font';
+@import 'mixin';
+@import 'css3';
+@import 'typo';
+@import 'common';
 
 
 // ==================================================
@@ -206,7 +206,8 @@ nav{
 	};
 }
 
-.breadcrub { 
+// 面包屑
+.breadcrub{ 
 	font-size: 14px; 
 	color: #898989; 
 }
@@ -341,7 +342,7 @@ nav{
 }
 
 // 回到顶部
-.backTop {
+.backTop{
 	color: #474747;
 	opacity: 0.5;
 	&:hover{
@@ -371,34 +372,12 @@ nav{
 	}
 }
 
-// icons
-.btn [class^="icon-"], .btn [class*=" icon-"] {
-    line-height: .9em;
-}
-li [class^="icon-"], li [class*=" icon-"] {
-    
-}
-li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
-    width: 1.875em;
-}
-li[class^="icon-"], li[class*=" icon-"] {
-    margin-left: 0;
-    list-style-type: none;
-}
-li[class^="icon-"]:before, li[class*=" icon-"]:before {
-    text-indent: -2em;
-    text-align: center;
-}
-li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
-    text-indent: -1.3333333333333333em;
-}
-
 
 
 // -----------------
 // media
 // -----------------
-@media print {
+@media print{
 	.lotus-nav {
 		display: none;
 	}
@@ -425,7 +404,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 	}
 }
 
-footer {
+footer{
 	padding: 0.5em 0;
 	clear: both;
 	margin-top: 3em;
