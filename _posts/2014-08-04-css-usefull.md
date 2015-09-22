@@ -7,7 +7,7 @@ category: "css"
 ---
 
 ####1、css重置
-现在基本都用：<a href="http://necolas.github.io/normalize.css/" target="_blank">http://necolas.github.io/normalize.css/</a>
+<a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a>与传统的css Reset的区别：<a href="http://jerryzou.com/posts/aboutNormalizeCss/" target="_blank">http://jerryzou.com/posts/aboutNormalizeCss/</a>
 
 ####2、clearfix
 
