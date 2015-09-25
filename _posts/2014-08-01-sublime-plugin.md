@@ -6,7 +6,7 @@ keywords: sublime, plugin，插件
 category: "sublime"
 ---
 
-> 收集一些常用的sublime插件，具体使用方式请到<a href="https://packagecontrol.io/" target="_blank" title="">Package Control</a>自行查找。
+> 收集一些常用的sublime插件，具体使用方式请到 <a href="https://packagecontrol.io/" target="_blank" title="">Package Control</a> 自行查找。
 
 ##常用插件
 
@@ -25,7 +25,7 @@ category: "sublime"
     Ctrl+Alt+K     查看快捷键冲突
 
 **DocBlockr**     
-    /** -> Tab     自动补全注释
+    自动补全注释，使用方法：`/**` -> `Tab`
 
 **AutoFileName**     
     文件路径自动提示，已知会影响下拉提示（装此插件后，已自定义的函数不提示了）
@@ -33,11 +33,13 @@ category: "sublime"
 **Alignment**     
     等号对齐，在Preferences -> package settings -> Alignment -> Settings User添加冒号对齐。
     
-    {
-         "align_indent": false,
-         "alignment_chars": ["=", ":"],
-         "alignment_space_chars": ["=", ":"]
-    }
+```json
+{
+     "align_indent": false,
+     "alignment_chars": ["=", ":"],
+     "alignment_space_chars": ["=", ":"]
+}
+```
 
 **Clipboard History**     
     保存复制粘贴历史记录
@@ -63,15 +65,17 @@ category: "sublime"
     sass格式化     Ctrl+Shift+P -> sassbeautify
 
 **Autoprefixer**     
-    Ctrl+Alt+Shift+P     自动增加前缀 ，需先安装<a href="https://nodejs.org/" target="_blank" title="">nodejs</a>
+    Ctrl+Alt+Shift+P     自动增加前缀 ，依赖 <a href="https://nodejs.org/" target="_blank" title="">nodejs</a>
     
-    //browserslist
-    {
-        "browsers": ["last 1 version", "> 10%", "> 5% in US", "ie 8", "ie 7"]
-    }
-    [
-        { "keys": ["alt+ctrl+shift+p"], "command": "autoprefixer" }
-    ]
+```json
+//browserslist
+{
+    "browsers": ["last 1 version", "> 10%", "> 5% in US", "ie 8", "ie 7"]
+}
+[
+    { "keys": ["alt+ctrl+shift+p"], "command": "autoprefixer" }
+]
+```
 
 **MarkdownEditing**     
     模板工具，将Markdown.sublime-settings中的`color_scheme` 替换 “设置-用户”中的color_scheme
