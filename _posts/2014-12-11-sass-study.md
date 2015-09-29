@@ -9,7 +9,7 @@ category: "sass"
 
 ##一、变量
 
-####命名： `$`
+变量通过`$`命名，属性和值中间用`:`赋值。
 
 ####规则：
 
@@ -23,12 +23,12 @@ category: "sass"
 $primaryColor: #eeccff;
 $firstValue: 62.5%;
 $firstValue: 24px !default;
-body {
+body{
 	$primaryColor: #ccc;
 	background: $primaryColor; //编译后#ccc
 	font-size: $firstValue; //编译后62.5%;
 }
-p {
+p{
 	color: $primaryColor; //编译后#eeccff
 }
 ```
@@ -49,10 +49,10 @@ $in: padding;
 }
 
 //css
-.margin-div {
+.margin-div{
 	margin-top: 10px;
 }
-.padding-div {
+.padding-div{
 	padding-top: 10px;
 }
 
@@ -107,69 +107,74 @@ div h1{
 ```scss
 //scss
 div{
-	border: { //注意border后面的冒号
+	border:{ //注意border后面的冒号
 		color: #ccc;
 		style: solid;
 	}
 }
 
 //css
-div {
+div{
 	border-color: #ccc;
 	border-style: solid;
 }
 
 ```
 
+#####&
+
 引用父选择器可以通过 `&` 符合实现：
 
 ```scss
 //scss
-a.myAnchor {
+a.myAnchor{
 	color: blue;
-	&:hover {
+	&:hover{
 		text-decoration: underline;
 	}
-	&:visited {
+	&:visited{
 		color: purple;
 	}
 }
 
 //css
-a.myAnchor {
+a.myAnchor{
   color: blue;
 }
-a.myAnchor:hover {
+a.myAnchor:hover{
   text-decoration: underline;
 }
-a.myAnchor:visited {
+a.myAnchor:visited{
   color: purple;
 }
 ```
+
+#####@at-root
+
 离开嵌套回到顶层（根级）选择器，那么我们可以使用 `@at-root` 指令
 
 ```scss
 //scss
-.first-component {
-	.text { font-size: 1.4rem; }
-	.button { font-size: 1.7rem; }
-	@at-root .second-component {
-		.text { font-size: 1.2rem; }
-		.button { font-size: 1.4rem; }
+.first-component{
+	.text{ font-size: 1.4rem; }
+	.button{ font-size: 1.7rem; }
+	@at-root .second-component{
+		.text{ font-size: 1.2rem; }
+		.button{ font-size: 1.4rem; }
 	}
 }
 
 //css
-.first-component .text {
+.first-component .text{
   font-size: 1.4rem;
 }
-.first-component .button {
+.first-component .button{
   font-size: 1.7rem;
 }
-.second-component .text {
+.second-component .text{
   font-size: 1.2rem;
 }
-.second-component .button {
+.second-component .button{
   font-size: 1.4rem;
 }
 ```
@@ -185,7 +190,7 @@ a.myAnchor:visited {
 
 ```scss
 //scss
-.input {
+.input{
 	border-radius: 3px;
 	border: 4px solid #ddd;
 	color: #555;
@@ -194,7 +199,7 @@ a.myAnchor:visited {
 	display: inline-block;
 	outline: 0;
 }
-.error-input {
+.error-input{
 	@extend .input;
 	border:4px solid #e74c3c;
 }
@@ -206,7 +211,7 @@ a.myAnchor:visited {
 
 ```css
 /*css*/
-.input, .error-input {
+.input, .error-input{
 	border-radius: 3px;
 	border: 4px solid #ddd;
 	color: #555;
@@ -215,10 +220,10 @@ a.myAnchor:visited {
 	display: inline-block;
 	outline: 0;
 }
-.error-input {
+.error-input{
 	border: 4px solid #e74c3c;
 }
-body {
+body{
 	text-align: center;
 	padding-top: 100px;
 }
@@ -230,7 +235,7 @@ body {
 
 ```scss
 //scss
-%mod-input {
+%mod-input{
 	border-radius: 3px;
 	color: #555;
 	font-size: 17px;
@@ -238,17 +243,17 @@ body {
 	display: inline-block;
 	outline: 0;
 }
-.input {
+.input{
 	@extend %mod-input;
 	border: 4px solid #ddd;
 }
-.input-error {
+.input-error{
 	@extend %mod-input;
 	border:4px solid #e74c3c;
 }
 
 //css
-.input, .input-error {
+.input, .input-error{
 	border-radius: 3px;
 	color: #555;
 	font-size: 17px;
@@ -256,10 +261,10 @@ body {
 	display: inline-block;
 	outline: 0;
 }
-.input {
+.input{
 	border: 4px solid #ddd;
 }
-.input-error {
+.input-error{
 	border: 4px solid #e74c3c;
 }
 ```
@@ -273,7 +278,7 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 
 ```scss
 //scss
-@mixin center-block {
+@mixin center-block{
     margin-left:auto;
     margin-right:auto;
 }
@@ -292,7 +297,7 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 
 ```scss
 //scss
-@mixin opacity($opacity:50) {
+@mixin opacity($opacity:50){
 	opacity: $opacity / 100;
 	filter: alpha(opacity=$opacity);
 }
@@ -325,12 +330,12 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 }
 
 //css
-.imgtext-h li {
+.imgtext-h li{
     border-bottom: 1px solid #cccccc;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.imgtext-h--product li {
+.imgtext-h--product li{
     border-bottom: 1px dashed #cccccc;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -344,7 +349,7 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 ```scss
 //scss
 //box-shadow可以有多组值，所以在变量参数后面添加...
-@mixin box-shadow($shadow...) {
+@mixin box-shadow($shadow...){
 	-webkit-box-shadow:$shadow;
 	box-shadow:$shadow;
 }
@@ -375,7 +380,7 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 
 ```scss
 @mixin media($queryString){
-	@media #{$queryString} {
+	@media #{$queryString}{
 		@content;
 	}
 }
@@ -387,11 +392,11 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 ```scss
 //scss
 @mixin media($queryString){
-	@media #{$queryString} {
+	@media #{$queryString}{
 		@content;
 	}
 }
-.container {
+.container{
 	width: 900px;
 	@include media("(max-width: 767px)"){
 		width: 100%;
@@ -399,11 +404,11 @@ sass中使用`@mixin`声明混合，可以传递参数，参数名以`$`符号�
 }
 
 //css
-.container {
+.container{
 	width: 900px;
 }
-@media (max-width: 767px) {
-	.container {
+@media (max-width: 767px){
+	.container{
 		width: 100%;
 	}
 }
@@ -426,7 +431,7 @@ $baseFontSize:      10px !default;
 $gray:              #ccc !default;        
 
 // pixels to rems 
-@function pxToRem($px) {
+@function pxToRem($px){
 	@return $px / $baseFontSize * 1rem;
 }
 
@@ -440,16 +445,14 @@ body{
 }
 
 //css
-body {
+body{
 	font-size: 10px;
 	color: #e6e6e6;
 }
-
-.test {
+.test{
 	font-size: 1.6rem;
 	color: #b3b3b3;
 }
-
 ```
 
 **<a rel="nofollow" href="http://sassmeister.com/gist/0a041d0fb2d72758c280" target="_blank" title="">演示demo</a>**
@@ -468,14 +471,14 @@ sass可以使用各种算式进行值的计算：
 ```scss
 //scss
 $num : 2;
-body {
+body{
 	margin: (14px/2);
 	top: 50px + 100px;
 	right: $num * 10%;
 }
 
 //css
-body {
+body{
 	margin: 7px;
 	top: 150px;
 	right: 20%;
@@ -493,7 +496,7 @@ p{
 }
 
 //css
-p {
+p{
 	text-decoration: line-through;
 }
 ```
@@ -502,13 +505,13 @@ p {
 
 ```scss
 //scss
-p:before {
+p:before{
 	content: "Foo " + Bar;
 	font-family: sans- + "serif";
 }
 
 //css
-p:before {
+p:before{
 	content: "Foo Bar";
 	font-family: sans-serif;
 }
@@ -518,12 +521,12 @@ p:before {
 
 ```scss
 //scss
-p {
+p{
 	margin: 3px + 4px auto;
 }
 
 //css
-p {
+p{
 	margin: 7px auto;
 }
 ```
@@ -533,12 +536,12 @@ p {
 ```scss
 //scss
 $w  : 10;
-p:before {
+p:before{
 	content: "I ate #{5 + $w} pies!";
 }
 
 //css
-p:before {
+p:before{
 	content: "I ate 15 pies!";
 }
 ```
@@ -553,7 +556,7 @@ p:before {
 
 ```scss
 //scss
-p {
+p{
 	font: 10px/8px;             // 纯 CSS 不会运算
 	$width: 1000px;
 	width: $width/2;            // 使用变量，执行运算
@@ -563,7 +566,7 @@ p {
 }
 
 //css
-p {
+p{
 	font: 10px/8px;
 	width: 500px;
 	width: 1;
@@ -581,7 +584,7 @@ p {
 //scss
 $w : 7px;
 $h : 10px;
-p:before {
+p:before{
 	width: $h-$w; // 报错：Undefined variable: "$h-".
 }
 ```
@@ -611,9 +614,9 @@ div{
 
 ```scss
 //inline-block
-@mixin inline-block($lte7:true) {
+@mixin inline-block($lte7:true){
 	display: inline-block;
-	@if $lte7 {	
+	@if $lte7{	
 		*display: inline;*zoom:1;
 	}
 }
@@ -625,12 +628,12 @@ div{
 }
 
 //css
-.div1 {
+.div1{
   display: inline-block;
   *display: inline;
   *zoom: 1;
 }
-.div2 {
+.div2{
   display: inline-block;
 }
 ```
@@ -642,44 +645,45 @@ div{
 ```scss
 //scss
 $fontBold: true;
-.title {
+.title{
 	font-weight: if($fontBold, bold, normal);
 }
 
 //css
-.title {
+.title{
 	font-weight: bold;
 }
 ```
 
 
-####@for
+####@for <br>
+
 
 语法：`@for $i from start through end` 或 `@for $i from start to end`，`$i`表示要循环的变量，`start`为起始值，`end`为结束值。<br>
 唯一区别为`through`表示包含结束值，`to`则表示不包含结束值。
 
 ```scss
 //scss
-@for $i from 1 through 5 {
+@for $i from 1 through 5{
 	.div#{$i}{
 		background: url(images/bg#{$i}.jpg);
 	}
 }
 
 //css
-.div1 {
+.div1{
   background: url(images/bg1.jpg);
 }
-.div2 {
+.div2{
   background: url(images/bg2.jpg);
 }
-.div3 {
+.div3{
   background: url(images/bg3.jpg);
 }
-.div4 {
+.div4{
   background: url(images/bg4.jpg);
 }
-.div5 {
+.div5{
   background: url(images/bg5.jpg);
 }
 ```
@@ -703,19 +707,19 @@ $icons : tag, name, cut, tel, num;
 }
 
 //css
-.icon-tag {
+.icon-tag{
   background-img: url(images/icon-tag.png);
 }
-.icon-name {
+.icon-name{
   background-img: url(images/icon-name.png);
 }
-.icon-cut {
+.icon-cut{
   background-img: url(images/icon-cut.png);
 }
-.icon-tel {
+.icon-tel{
   background-img: url(images/icon-tel.png);
 }
-.icon-num {
+.icon-num{
   background-img: url(images/icon-num.png);
 }
 ```
@@ -729,27 +733,27 @@ $sprite: puma sea-slug egret salamander !default;
 %sprite-animal{
 	background: url('/images/animal.png') no-repeat;
 }
-@each $animal in $sprite {
-    .#{$animal}-icon {
+@each $animal in $sprite{
+    .#{$animal}-icon{
         @extend %sprite-animal;     
         background-position:0 -(index($sprite,$animal)*30px);
     }
 }
 
 //css
-.puma-icon, .sea-slug-icon, .egret-icon, .salamander-icon {
+.puma-icon, .sea-slug-icon, .egret-icon, .salamander-icon{
 	background: url("/images/animal.png") no-repeat;
 }
-.puma-icon {
+.puma-icon{
 	background-position: -30px;
 }
-.sea-slug-icon {
+.sea-slug-icon{
 	background-position: -60px;
 }
-.egret-icon {
+.egret-icon{
 	background-position: -90px;
 }
-.salamander-icon {
+.salamander-icon{
 	background-position: -120px;
 }
 ```
@@ -761,26 +765,26 @@ $sprite: puma sea-slug egret salamander !default;
 ```scss
 //scss
 $i: 6;
-@while $i > 0 {
-	.item-#{$i} { width: 2em * $i; }
+@while $i > 0{
+	.item-#{$i}{ width: 2em * $i; }
 	$i: $i - 2;
 }
 
 //css
-.item-6 {
+.item-6{
   width: 12em;
 }
-.item-4 {
+.item-4{
   width: 8em;
 }
-.item-2 {
+.item-2{
   width: 4em;
 }
 ```
 
 <br>
 
-####sass相关工具推荐
+####sass相关工具推荐 <br>
 
 - <a rel="nofollow" href="http://sassmeister.com/" target="_blank">sass在线编译</a>
 - <a rel="nofollow" href="http://koala-app.com/index-zh.html" target="_blank">sass可视化编译工具: Koala</a>
