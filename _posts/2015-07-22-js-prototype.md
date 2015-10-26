@@ -225,6 +225,7 @@ if(!Object.create){
 
 __参考自：__
 
+- <a rel="nofollow" href="http://www.108js.com/article/article1/10201.html?id=1092" target="_blank" title="">JS原型与原型链终极详解</a>
 - <a rel="nofollow" href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" title="">JavaScript探秘：强大的原型和原型链</a>
 - <a rel="nofollow" href="http://www.jb51.net/article/30750.htm" target="_blank" title="">js原型链看图说明</a>
 - <a rel="nofollow" href="http://blog.jobbole.com/9648/" target="_blank">理解javascript原型</a>
