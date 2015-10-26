@@ -655,7 +655,6 @@ $fontBold: true;
 }
 ```
 
-
 ####@for <br>
 
 
@@ -693,7 +692,8 @@ $fontBold: true;
 - @for $i from 1 through 5，through表示包含5
 - @for $i from 1 to 5， 	to则反之
 
-####@each
+
+<h4>@each</h4>
 
 语法：`@each $i in a, b, c`，具体实现看如下demo：
 
