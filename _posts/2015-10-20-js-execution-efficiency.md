@@ -1,16 +1,21 @@
 ---
 layout: post
-title: Javascript自身执行效率
-description: Javascript自身执行效率
+title: Javascript执行效率小结
+description: Javascript执行效率小结
 keywords: javascript, 优化, 效率
 category: "javascript"
 ---
 
-> Javascript中的作用域链、闭包、原型继承、eval等特性，在提供各种神奇功能的同时也带来了各种效率问题，用之不慎就会导致执行效率低下。
+
+Javascript是一门非常灵活的语言，我们可以随心所欲的书写各种风格的代码，不同风格的代码也必然也会导致执行效率的差异，开发过程中零零散散地接触到许多提高代码性能的方法，整理一下平时比较常见并且容易规避的问题
 
 <!-- more -->
 
-##1、全局导入
+##JS自身执行效率
+
+Javascript中的作用域链、闭包、原型继承、eval等特性，在提供各种神奇功能的同时也带来了各种效率问题，用之不慎就会导致执行效率低下。
+
+###1、全局导入
 
 我们在编码过程中多多少少会使用到一些全局变量（window,document,自定义全局变量等等），了解javascript作用域链的人都知道，在局部作用域中访问全局变量需要一层一层遍历整个作用域链直至顶级作用域，而局部变量的访问效率则会更快更高，因此在局部作用域中高频率使用一些全局对象时可以将其导入到局部作用域中，例如：
 
@@ -29,13 +34,13 @@ function(){
 }
 ```
 
-##2、eval以及类eval问题
+###2、eval以及类eval问题
 
 我们都知道eval可以将一段字符串当做js代码来执行处理，据说使用eval执行的代码比不使用eval的代码慢100倍以上（具体效率我没有测试，有兴趣同学可以测试一下）
 
 JavaScript 代码在执行前会进行类似“预编译”的操作：首先会创建一个当前执行环境下的活动对象，并将那些用 var 申明的变量设置为活动对象的属性，但是此时这些变量的赋值都是 undefined，并将那些以 function 定义的函数也添加为活动对象的属性，而且它们的值正是函数的定义。但是，如果你使用了eval，则eval中的代码（实际上为字符串）无法预先识别其上下文，无法被提前解析和优化，即无法进行预编译的操作。所以，其性能也会大幅度降低
 
-其实现在大家一般都很少会用eval了，这里我想说的是两个类eval的场景(new Function{},setTimeout,setInterver)
+其实现在大家一般都很少会用eval了，这里我想说的是两个类eval的场景(`new Function{}`,`setTimeout`,`setInterver`)
 
 ```js
 setTimtout("alert(1)",1000);
@@ -47,7 +52,7 @@ setInterver("alert(1)",1000);
 
 上述几种类型代码执行效率都会比较低，因此建议直接传入匿名方法、或者方法的引用给setTimeout方法。
 
-##3、闭包结束后释放掉不再被引用的变量
+###3、闭包结束后释放掉不再被引用的变量
 
 ```js
 var f = (function(){
@@ -81,7 +86,7 @@ var f = (function(){
 })()
 ```
 
-##Js操作dom的效率
+##JS操作dom的效率
 
 在web开发过程中，前端执行效率的瓶颈往往都是在dom操作上面，dom操作是一件很耗性能的事情，如何才能在dom操作过程中尽量节约性能呢？
 
@@ -208,7 +213,5 @@ $("div").delegate("button","click",function(){
 
 
 Tips：事件委托还有一个好处就是，即使在事件绑定之后动态添加的元素上触发的事件同样可以监听到哦，这样就不用在每次动态加入元素到页面后都为其绑定事件了
-
-暂时先总结到这。
 
 转自：[http://www.cnblogs.com/gewei/archive/2013/03/29/2988180.html](http://www.cnblogs.com/gewei/archive/2013/03/29/2988180.html)
