@@ -313,7 +313,7 @@
 			curnum = (curnum < 0) ? th.currentPage : th.getTrueIndex(curnum);
 			if (curnum<0) curnum = 0;
 			th.li.eq(curnum).addClass('active').siblings().removeClass('active');
-			th.scrollNav(curnum, 200);
+			th.scrollNav(curnum, 0);
 		},
 		isWrap: function(){
 			var ww = this.elem.find('ul').width();
