@@ -174,8 +174,8 @@ pre, code, pre tt {
 }
 
 pre {
-	background-color: rgba(128,128,128,0.05);
-	padding: 10px 20px;
+	background-color: rgba(128,128,128,0.1);
+	padding: 10px;
 	display: block;
 	-webkit-overflow-scrolling: touch;
 	word-wrap:break-word; 
@@ -186,7 +186,7 @@ code {
 	margin: 0 2px; 
 	padding: 1px 4px; 
 	color: #4d4d4d; 
-	background-color: rgba(128,128,128,0.05); 
+	background-color: rgba(128,128,128,0.1); 
 	border-radius: 2px; 
 }
 
