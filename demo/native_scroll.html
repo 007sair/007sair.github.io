@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>Examples</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #eee;
+}
+ul, li{
+	list-style: none;
+}
+img{
+	max-width: 100%;
+}
+
+.box{
+	padding: 10px;
+
+	display: -webkit-box;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.box::-webkit-scrollbar {
+	/* 隐藏横向滚动条 */
+	display: none;
+}
+.box:after{
+	/* 写最后间隔的小技巧 */
+	display: inline-block;
+	content: '';
+	width: 10px;
+}
+.box li{
+	margin: 0 3px;
+	width: 30%;
+}
+</style>
+</head>
+<body>
+    <ul class="box">
+    	<li><img src="https://unsplash.it/200/200/?random=1" alt=""></li>
+    	<li><img src="https://unsplash.it/200/200/?random=2" alt=""></li>
+    	<li><img src="https://unsplash.it/200/200/?random=3" alt=""></li>
+    	<li><img src="https://unsplash.it/200/200/?random=4" alt=""></li>
+    	<li><img src="https://unsplash.it/200/200/?random=5" alt=""></li>
+    </ul>
+</body>
+</html>
