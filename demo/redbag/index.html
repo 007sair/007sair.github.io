@@ -1,0 +1,409 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>红包</title>
+<link rel="stylesheet" href="css/css.css">
+<script>
+(function(a,d){var b=a.documentElement,e="orientationchange"in window?"orientationchange":"resize",c=function(){var a=b.clientWidth;a&&(b.style.fontSize=640<=a?"40px":a/320*20+"px")};a.addEventListener&&(d.addEventListener(e,c,!1),a.addEventListener("DOMContentLoaded",c,!1))})(document,window);
+</script>
+</head>
+<body>
+
+<div class="wrapper">
+	
+	<!-- 开始抢红包 -->
+	<section class="page page-1 animateIn" id="page-1">
+
+		<div class="head">
+			<div class="back-cloud animated"></div>
+			<div class="big-title animated"></div>
+		</div>
+
+		<div class="boundbag animated">
+			<div class="say"></div>
+			<div class="btnbox">
+				<input type="button" value="" class="btn" id="btnStep-1">
+			</div>
+		</div>
+
+		<!-- 次数用完 - 去分享 -->
+		<div class="redbag gameEnd-1 hide">
+			<div class="title"></div>
+			<i class="star star-1"></i>
+			<i class="star star-2"></i>
+			<i class="star star-3"></i>
+			<div class="person"></div>
+			<p class="text">分享给好友，每天可以再得3次机会哦~</p>
+			<div class="btnbox">
+				<a href="javascript:;" class="btn"></a>
+			</div>
+		</div>
+
+		<!-- 次数用完 - 分享后全部用完 -->
+		<div class="redbag gameEnd-2  hide">
+			<div class="title"></div>
+			<i class="star star-1"></i>
+			<i class="star star-2"></i>
+			<i class="star star-3"></i>
+			<div class="person"></div>
+			<p class="text">今天的次数都用光啦~</p>
+			<div class="btnbox">
+				<a href="javascript:;" class="btn"></a>
+			</div>
+		</div>
+		
+		<p class="tips">
+			※红包无使用限制，六一活动期间全场通用哦~ <br>你值得拥有！
+		</p>
+		
+		
+
+	</section>
+
+	<!-- 选择难度 -->
+	<section class="page page-2 animateOut hide" id="page-2" data-checked="false">
+		<div class="cloud animated"></div>
+		<div class="redbag animated">
+			<div class="title"></div>
+			<div class="level level-baby" data-level="1">
+				<div class="border">
+					<p></p>
+					<i class="animate animate-baby"></i>
+				</div>
+			</div>
+			<div class="level level-mom" data-level="2">
+				<div class="border">
+					<p></p>
+					<i class="animate animate-mom"></i>
+				</div>
+			</div>
+			<div class="level level-hulk" data-level="3">
+				<div class="border">
+					<p></p>
+					<i class="animate animate-hulk"></i>
+				</div>
+			</div>
+			<div class="btnbox">
+				<input type="button" value="" class="btn" id="btnStep-2">
+			</div>
+		</div>
+	</section>
+
+	<!-- 开始游戏 -->
+	<section class="page page-3 animateOut hide" id="page-3">
+		<div class="cloud animated"></div>
+		<div class="redbag animated">
+			<div class="title"></div>
+			<div class="pp">
+				<i class="animate animate-self"></i>
+				<i class="animate animate-opponent animate-baby"></i>
+			</div>
+			<div class="countdown" id="countdown">15</div>
+			<div class="progress" id="progress">
+				<div class="progress-text">0%</div>
+				<div class="progress-bar">
+					<div class="progress-text">0%</div>
+				</div>
+			</div>
+			<div class="text"></div>
+			<div class="btnbox">
+				<input type="button" class="btn" id="btn-play">
+			</div>
+		</div>
+		<div id="secondsdown"><span></span></div>
+	</section>
+
+	<!-- 过关 -->
+	<section class="page page-4 animateOut hide" id="page-4">
+		<div class="cloud animated"></div>
+		<div class="result-success animated">
+			<span class="num num-10"></span>
+		</div>
+		<div class="btnbox">
+			<a href="javascript:;" class="btn btn-again animated"></a>
+			<a href="#share" class="btn btn-share animated"></a>
+		</div>
+	</section>
+	
+	<!-- 失败 -->
+	<section class="page page-5 animateOut hide" id="page-5">
+		<div class="cloud animated"></div>
+		<div class="result-fail animated">
+			<span class="num num-10"></span>
+		</div>
+		<div class="btnbox">
+			<a href="javascript:;" class="btn btn-again animated"></a>
+			<a href="javascript:;" class="btn btn-share animated"></a>
+		</div>
+	</section>
+
+</div>
+
+<!-- loading -->
+<div id="loader" class="animateOut hide">
+	<svg class="spinner" width="2rem" height="2rem" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+	   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+	</svg>
+</div>
+
+
+
+<script src="js/zepto.js"></script>
+<script>
+$(function(){
+
+	var $page_1 = $('#page-1'),
+		$page_2 = $('#page-2'),
+		$page_3 = $('#page-3'),
+		$page_4 = $('#page-4'),
+		$page_5 = $('#page-5');
+
+	var oEvent = {
+		start : "ontouchstart" in document ? 'touchstart' : 'mousedown',
+		end : "ontouchend" in document ? 'touchend' : 'mouseup'
+	};
+
+
+	function Game(){
+		this.level = 3;
+		this.speed = 4;
+		this.iPrev = 0;
+		this.iCur = 0;
+		this.time = 15;
+		this.isIng = false;
+		this.$progress = $('#progress');
+		this.$progressBar = this.$progress.find('.progress-bar');
+		this.$progressText = this.$progress.find('.progress-text');
+		this.$cd_text = $('#countdown');
+		this.$opponent = $('.animate-opponent');
+		this.$loader = $('#loader');
+
+		this.timer = {
+			ready : null,
+			sub: null,
+			play: null
+		};
+
+		this.init();
+	}
+
+	Game.prototype = {
+		constructor : Game,
+		init: function(){
+			this.bindEvent();
+		},
+		start: function(){
+			var _this = this;
+			this.isIng = true;
+
+			//执行15秒倒计时
+			this.timer.play = setInterval(function() {
+				_this.time--;
+				if (_this.time <= 0) {
+					_this.over();
+				} else {
+					_this.$cd_text.text(_this.time);
+				}
+			}, 1000);
+
+			this.subProgress();
+		},
+		over: function(){
+			var _this = this;
+
+			this.isIng = false;
+			clearInterval(_this.timer.sub);
+			clearInterval(_this.timer.play);
+			if (_this.iCur >= 100) {
+				console.log('过关')
+				_this.$cd_text.text('过关啦~ (∩_∩)').addClass('gameover');
+				$page_3.removeClass('animateIn').addClass('animateOut');
+				$page_4.removeClass('hide animateOut').addClass('animateIn');
+			}else{
+				console.log('失败')
+				_this.$cd_text.text('失败了，=_=').addClass('gameover');
+				$page_3.removeClass('animateIn').addClass('animateOut');
+				$page_5.removeClass('hide animateOut').addClass('animateIn');
+			}
+		},
+		addProgress: function(){
+			var _this = this;
+			_this.iCur += _this.speed;
+			if (_this.iCur >= 99.99) {
+				_this.iCur = 100;
+				_this.over();
+			};
+			_this.render();
+		},
+		subProgress: function(){
+			var _this = this;
+			_this.timer.sub = setInterval(function() {
+				if (_this.iCur <= 0) {
+					_this.iCur = 0;
+				}else if(_this.iCur >= 100){
+					_this.iCur = 100;
+					clearInterval(_this.timer.sub);
+				}else{
+					_this.iCur -= 0.5 * _this.level;
+				}
+				_this.render();
+			}, 60);
+		},
+		render: function(){
+			this.$progressBar.css('width', this.iCur + '%');
+		},
+		bindEvent: function(){
+			var _this = this;
+
+			//button
+			$('.btn').on(oEvent.start, function() {
+				$(this).addClass('active');
+				// return false;
+			}).on(oEvent.end, function() {
+				$(this).removeClass('active');
+			});
+			
+			$page_2.on(oEvent.end, '.level', function() {
+				$page_2.data('checked', true);
+				_this.level = $(this).data('level');
+				$(this).addClass('active').siblings().removeClass('active');
+				_this.$opponent.removeClass('animate-baby animate-mom animate-hulk');
+				_this.level == 1 && _this.$opponent.addClass('animate-baby');
+				_this.level == 2 && _this.$opponent.addClass('animate-mom');
+				_this.level == 3 && _this.$opponent.addClass('animate-hulk');
+			});
+
+			//马上开抢
+			$('#btnStep-1').on(oEvent.end, function() {
+				$page_1.removeClass('animateIn').addClass('animateOut');
+				_this.ajax(function(){
+					$page_2.removeClass('hide animateOut').addClass('animateIn');
+				})
+			});
+
+			//开始游戏
+			$('#btnStep-2').on(oEvent.end, function() {
+				if (!$page_2.data('checked')) {
+					alert('请选择难度 o(^▽^)o');
+					return false;
+				}
+				$page_2.removeClass('animateIn').addClass('animateOut');
+				$page_3.removeClass('hide animateOut').addClass('animateIn');
+				_this.ready();
+			});
+
+			//游戏中 -> “按”
+			$('#btn-play').on(oEvent.start, function() {
+				if (!_this.isIng) return false;
+				$(this).addClass('active');
+				_this.iPrev = _this.iCur;
+				return false;
+			}).on(oEvent.end, function() {
+				if (!_this.isIng) return false;
+				$(this).removeClass('active');
+				_this.addProgress();
+			});
+
+			//再玩一次
+			$('.btn-again').on(oEvent.end, function() {
+				var $curPage = $(this).parents('.page');
+				$curPage.removeClass('animateIn').addClass('animateOut');
+				setTimeout(function(){
+					$page_1.removeClass('hide animateOut').addClass('animateIn');
+				},1400)
+				_this.reset();
+			});
+
+		},
+		countUp: function(){
+			var _this = this;
+			var fps = 60;
+			var speed = 1000 / fps;
+			var timer = null;
+
+			timer = setInterval(function() {
+				_this.first++;
+				if (_this.first >= _this.iCur) {
+					_this.first = _this.iCur;
+					clearInterval(timer);
+				};
+				_this.$progressText.html(_this.first.toFixed(2) + '%');
+			}, speed)
+		},
+		ready: function(){
+			var _this = this;
+			var startNum = 3
+			var currentNum;
+			var $sd = $("#secondsdown");
+			var $sd_num = $sd.find('span');
+
+			$sd.addClass('show');
+
+			function addClassDelayed(jqObj, c, to) {
+				setTimeout(function() {
+					jqObj.addClass(c);
+				}, to);
+			}
+			function anim() {
+				addClassDelayed($sd_num, "puffer", 600);
+				if (currentNum <= 0) {
+					//321开始
+					clearInterval(_this.timer.ready);
+					$sd.removeClass('show');
+					_this.start();
+				} else {
+					currentNum--;
+					$sd_num.html(currentNum + 1).removeClass("puffer");
+				}
+			}
+
+			currentNum = startNum;
+			$sd_num.html(currentNum);
+			
+			_this.timer.ready = setInterval(function() {
+				anim();
+			}, 1000);
+
+			anim();
+		},
+		reset: function(){
+			this.level = 1;
+			this.time = 15;
+			this.iCur = 0;
+			this.$cd_text.removeClass('gameover').text(15);
+			this.render();
+			$page_2.data('checked', false).find('.level').removeClass('active');
+		},
+		loader: function(state){
+			var _this = this;
+			if(state){
+				//show
+				_this.$loader.removeClass('animateOut hide').addClass('animateIn');
+			}else{
+				//hide
+				_this.$loader.removeClass('animateIn').addClass('animateOut hide');
+			}
+		},
+		ajax: function(fn){
+			var _this = this;
+			_this.loader(true);
+			setTimeout(function() {
+				fn && fn();
+				_this.loader(false);
+			}, 2000)
+		}
+	};
+
+	new Game();
+
+});
+
+</script>
+</body>
+</html>
