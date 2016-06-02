@@ -6,12 +6,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection"content="telephone=no, email=no" />
-<title>Examples</title>
+<title>选项卡切换</title>
 <style>
 *{ margin: 0; padding: 0;}
-body{background: #000;}
+body{ background: #d2d2d2;}
 .wrapper{position: relative;max-width: 640px;margin: 0 auto;}
-
+pre{
+	padding: 8px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
 .tab-title{
 	/* flex */
@@ -56,20 +60,11 @@ body{background: #000;}
 	overflow: hidden;
 }
 
-.tab-container .slider{
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-}
-
-.tab-container .slider .box{
-	min-width: 100%;
-	width: 100%;
-
+.tab-container .box{
+	display: none;
 	padding: 50px 0;
 	text-align: center;
+	font-size: 36px;
 }
 
 .box-1{
@@ -80,6 +75,22 @@ body{background: #000;}
 }
 .box-3{
 	background: #ccc;
+}
+
+/**
+ * 需要动画时加这段css
+ */
+.tab-slider{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+.tab-slider .box{
+	display: block;
+	min-width: 100%;
+	width: 100%;
 }
 
 </style>
@@ -95,14 +106,26 @@ body{background: #000;}
 	</div>
 
 	<div class="tab-container">
-		<div class="slider">
-			<section class="box box-1">111</section>
-			<section class="box box-2">222</section>
-			<section class="box box-3">333</section>
-		</div>
+		<section class="box box-1" style="display:block;">111</section>
+		<section class="box box-2">222</section>
+		<section class="box box-3">333</section>
 	</div>
 
+<br>
+<h3>#用法：</h3>
+<pre>
+new MiaTab({
+  bar: 'tab-title',	//选项卡按钮的外层容器
+  box: 'tab-container',	//选项卡主体外层容器
+  hasLine: false, 	//是否有按钮下的红线,默认true
+  hasAnimate: false,	//是否有切换动画,默认true
+  log: false		//是否显示console的错误信息,,默认false
+});
+</pre>
+
 </div>
+
+
 
 
 <script src="zepto.min.js"></script>
@@ -125,8 +148,8 @@ $(function() {
 		this.$bar = $('.' + this.opt.bar);
 		this.$box = $('.' + this.opt.box);
 		this.iLen = this.$bar.children().length;
-		this.$slider = this.$box.children();
-		this.speed = this.opt.hasAnimate ? this.opt.speed || 250 : 0;
+		this.$boxChild = this.opt.hasAnimate ? this.$box.children().wrapAll('<div class="tab-slider">') : this.$box.children();
+		this.speed = this.opt.speed || 250;
 
 		this.init();
 	}
@@ -134,20 +157,27 @@ $(function() {
 	MiaTab.prototype = {
 		constructor: MiaTab,
 		init: function(){
-
 			this.opt.hasLine && this.addLine();
-			this.bindEvent();
 			this.log && this.getLog();
+			this.bindEvent();
 		},
 		swipe: function(index){
 			var _this = this;
 			_this.$bar.children().eq(index).addClass('cur').siblings().removeClass('cur');
-			_this.$i && _this.$i.animate({
-				translate3d: index * 100 + '%, 0, 0'
-			}, _this.speed, 'ease');
-			_this.$slider && _this.$slider.animate({
-				translate3d: -index * 100 + '%, 0, 0'
-			}, _this.speed, 'ease');
+			if (this.opt.hasAnimate) {
+				_this.$i && _this.$i.animate({
+					translate3d: index * 100 + '%, 0, 0'
+				}, _this.speed, 'ease');
+				_this.$boxChild && _this.$boxChild.css('display', 'block').animate({
+					translate3d: -index * 100 + '%, 0, 0'
+				}, _this.speed, 'ease');
+			}else{
+				_this.$i && _this.$i.css({
+					'-webkit-transform' : 'translate3d('+ index * 100 +'%, 0, 0)',
+					'transform' : 'translate3d('+ index * 100 +'%, 0, 0)'
+				});
+				_this.$boxChild && _this.$boxChild.eq(index).show().siblings().hide();
+			}
 		},
 		addLine: function(){
 			this.$i = $('<i></i>').appendTo(this.$bar);
@@ -171,9 +201,11 @@ $(function() {
 
 	}
 
-	var tab = new MiaTab({
+	new MiaTab({
 		bar: 'tab-title',
-		box: 'tab-container'
+		box: 'tab-container',
+		hasLine: true,
+		hasAnimate: true
 	});
 	
 })
