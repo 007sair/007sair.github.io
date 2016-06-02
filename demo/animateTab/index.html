@@ -145,7 +145,7 @@ $(function() {
 		this.$bar = $('.' + this.opt.bar);
 		this.$box = $('.' + this.opt.box);
 		this.iLen = this.$bar.children().length;
-		this.$boxChild = this.opt.hasAnimate ? this.$box.children().wrapAll('<div class="' + this.opt.slider + '">') : this.$box.children();
+		this.$boxChild = this.$box.children();
 		this.speed = this.opt.speed || 250;
 
 		this.init();
@@ -156,6 +156,10 @@ $(function() {
 		init: function(){
 			this.opt.hasLine && this.addLine();
 			this.bindEvent();
+
+			if (this.opt.hasAnimate) {
+				this.$boxChild = this.$boxChild.wrapAll('<div class="' + this.opt.slider + '">');
+			};
 		},
 		swipe: function(index){
 			var _this = this;
@@ -164,7 +168,7 @@ $(function() {
 				_this.$i && _this.$i.animate({
 					translate3d: index * 100 + '%, 0, 0'
 				}, _this.speed, 'ease');
-				_this.$boxChild && _this.$boxChild.css('display', 'block').animate({
+				_this.$box.children().animate({
 					translate3d: -index * 100 + '%, 0, 0'
 				}, _this.speed, 'ease');
 			}else{
