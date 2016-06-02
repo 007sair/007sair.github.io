@@ -116,8 +116,7 @@ new MiaTab({
   bar: 'tab-title',	//选项卡按钮的外层容器
   box: 'tab-container',	//选项卡主体外层容器
   hasLine: false, 	//是否有按钮下的红线,默认true
-  hasAnimate: false,	//是否有切换动画,默认true
-  log: false		//是否显示console的错误信息,,默认false
+  hasAnimate: false	//是否有切换动画,默认true
 });
 </pre>
 
@@ -138,7 +137,7 @@ $(function() {
 		this.defaults = {
 			hasLine : true,
 			hasAnimate: true,
-			log: false
+			slider: 'tab-slider'
 		};
 
 		this.opt = $.extend({}, this.defaults, opt);
@@ -146,7 +145,7 @@ $(function() {
 		this.$bar = $('.' + this.opt.bar);
 		this.$box = $('.' + this.opt.box);
 		this.iLen = this.$bar.children().length;
-		this.$boxChild = this.opt.hasAnimate ? this.$box.children().wrapAll('<div class="tab-slider">') : this.$box.children();
+		this.$boxChild = this.opt.hasAnimate ? this.$box.children().wrapAll('<div class="' + this.opt.slider + '">') : this.$box.children();
 		this.speed = this.opt.speed || 250;
 
 		this.init();
@@ -156,7 +155,6 @@ $(function() {
 		constructor: MiaTab,
 		init: function(){
 			this.opt.hasLine && this.addLine();
-			this.log && this.getLog();
 			this.bindEvent();
 		},
 		swipe: function(index){
@@ -191,12 +189,7 @@ $(function() {
 		},
 		toPercent: function(num){
 			return num.toFixed(4) * 100 + '%';
-		},
-		getLog: function(){
-			this.$bar.length < 1 && console.log('bar 输入错误');
-			this.$box.length < 1 && console.log('box 输入错误');
 		}
-
 	}
 
 	new MiaTab({
