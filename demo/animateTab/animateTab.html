@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>Examples</title>
+<style>
+*{ margin: 0; padding: 0;}
+body{background: #000;}
+.wrapper{position: relative;max-width: 640px;margin: 0 auto;}
+
+
+.tab-title{
+	/* flex */
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	position: relative;
+	background-color: #fff;
+}
+.tab-title span{
+	display: block;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.tab-title span.cur{
+	color: #ff4e88;
+}
+.tab-title i{
+	position: absolute;
+	width: 0; 
+	height: 2px; 
+	background-color: #ff4e88; 
+	left: 0; 
+	bottom: 0; 
+	-webkit-transition: all 250ms ease;
+	transition: all 250ms ease;
+}
+
+.tab-container{
+	width: 100%;
+	overflow: hidden;
+}
+
+.tab-container .slider{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.tab-container .slider .box{
+	min-width: 100%;
+	width: 100%;
+
+	padding: 50px 0;
+	text-align: center;
+}
+
+.box-1{
+	background: #aaa;
+}
+.box-2{
+	background: #bbb;
+}
+.box-3{
+	background: #ccc;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<div class="tab-title">
+		<span class="cur">选项卡1</span>
+		<span>选项卡2</span>
+		<span>选项卡3</span>
+	</div>
+
+	<div class="tab-container">
+		<div class="slider">
+			<section class="box box-1">111</section>
+			<section class="box box-2">222</section>
+			<section class="box box-3">333</section>
+		</div>
+	</div>
+
+</div>
+
+
+<script src="zepto.min.js"></script>
+<script>
+/**
+ * zepto 依赖引用模块：animate
+ */
+$(function() {
+
+	function MiaTab(opt){
+
+		this.defaults = {
+			hasLine : true,
+			hasAnimate: true,
+			log: false
+		};
+
+		this.opt = $.extend({}, this.defaults, opt);
+
+		this.$bar = $('.' + this.opt.bar);
+		this.$box = $('.' + this.opt.box);
+		this.iLen = this.$bar.children().length;
+		this.$slider = this.$box.children();
+		this.speed = this.opt.hasAnimate ? this.opt.speed || 250 : 0;
+
+		this.init();
+	}
+
+	MiaTab.prototype = {
+		constructor: MiaTab,
+		init: function(){
+
+			this.opt.hasLine && this.addLine();
+			this.bindEvent();
+			this.log && this.getLog();
+		},
+		swipe: function(index){
+			var _this = this;
+			_this.$bar.children().eq(index).addClass('cur').siblings().removeClass('cur');
+			_this.$i && _this.$i.animate({
+				translate3d: index * 100 + '%, 0, 0'
+			}, _this.speed, 'ease');
+			_this.$slider && _this.$slider.animate({
+				translate3d: -index * 100 + '%, 0, 0'
+			}, _this.speed, 'ease');
+		},
+		addLine: function(){
+			this.$i = $('<i></i>').appendTo(this.$bar);
+			this.$i.css('width', this.toPercent(1 / this.iLen));
+		},
+		bindEvent: function(){
+			var _this = this;
+			var click = "ontouchstart" in document ? 'tap' : 'click';
+			_this.$bar.children().on(click, function() {
+				var index = $(this).index();
+				_this.swipe(index);
+			});
+		},
+		toPercent: function(num){
+			return num.toFixed(4) * 100 + '%';
+		},
+		getLog: function(){
+			this.$bar.length < 1 && console.log('bar 输入错误');
+			this.$box.length < 1 && console.log('box 输入错误');
+		}
+
+	}
+
+	var tab = new MiaTab({
+		bar: 'tab-title',
+		box: 'tab-container'
+	});
+	
+})
+</script>
+
+</body>
+</html>
