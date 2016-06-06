@@ -11,6 +11,8 @@
 *{
 	margin: 0;
 	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 header{
 	height: 44px;
@@ -19,20 +21,28 @@ header{
 	text-align: center;
 	color: #fff;
 }
-.wrapper{
+.content{
 	height: 3000px;
+	border: 1px solid blue;
+	background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#FFFFFF), to(#fff), color-stop(0.5,#FF0000));
+}
+.banner{
+	height:50px;
+	line-height: 50px;
+	border: 1px solid #000;
+	text-align: center;
 }
 </style>
 </head>
 <body>
 
-<div style="height:50px;"></div>
+<div class="banner">Banner</div>
 
 <header>
 	Header
 </header>
 
-<div class="wrapper">
+<div class="content">
 	Content
 </div>
 
