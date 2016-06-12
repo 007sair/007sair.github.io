@@ -1,14 +1,17 @@
 /**
  * 功能：顶部导航，页面跳转
  * 用法：
- * 		HTML调用：
- * 			<nav class="m_nav">
- *				<div class="m_iscoll" id="navscroll">
- *					<ul><li><a href="加入跳转链接"><span>导航名</span></a></li></ul>
- *					<a href="javascript:;" class="openbtn"></a>
- *				</div>
- *			</nav>
- * 		外部调用：$('.m_nav').mnav();
+ * HTML调用：
+ *   <nav class="m_nav">
+ *    <div class="m_iscoll" id="navscroll">
+ *      <ul>
+ *        <li><a href="加入跳转链接"><span>导航名</span></a></li>
+ *      </ul>
+ *      <a href="javascript:;" class="openbtn"></a>
+ *    </div>
+ *  </nav>
+ * js调用：
+ *   $('.m_nav').mnav();
  */
 ;(function($, window, document, undefined) {
 

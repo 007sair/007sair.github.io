@@ -6,22 +6,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection"content="telephone=no, email=no" />
-<title>Examples</title>
+<title>new Anchor</title>
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/css.css">
 <style>
 .wrapper{ max-width: 640px; margin: 0 auto;}
-.wrapper section{ height: 1000px; font-size: 40px; text-align: center; overflow: hidden;}
-.wrapper section h3{ font-size: 16px; color: #000; display: block; margin: 5px 5px 0 5px; height: 40px; line-height: 40px; background: pink}
+.wrapper section{ height: 500px; font-size: 40px; text-align: center; overflow: hidden; border: 1px solid #000;}
+.wrapper section h3{ font-size: 16px; background: pink; display: block; margin: 5px 50px 0 50px; height: 40px; line-height: 40px;}
 .wrapper .banner{ height: 200px; border: 1px solid #000;}
-.block1{ background: #bbabff;}
-.block2{ background: #ff0;}
-.block3{ background: #97e269;}
-.block4{ background: #92a7ff;}
-.block5{ background: #fec66c;}
-.block6{ background: #9dd4fe;}
-.block7{ background: #d09b62;}
-.block8{ background: blue;}
 </style>
 </head>
 <body>
@@ -35,51 +27,52 @@
 	<nav class="m_nav">
 		<div class="m_iscoll" id="navscroll">
             <ul>
-            	<li><a href="#1" title=""><span>锚点1111</span></a></li>
-            	<li><a href="#2" title=""><span>锚点2222</span></a></li>
-            	<li><a href="demo_anchor.html"><span>当前</span></a></li>
-            	<li><a href="#3" title=""><span>锚点33333</span></a></li>
-            	<li><a href="#4" title=""><span>锚点44444</span></a></li>
+            	<li><a href="#1" title=""><span>11111</span></a></li>
+            	<li><a href="#2" title=""><span>22222</span></a></li>
+            	<li><a href="#"><span>当前</span></a></li>
+            	<li><a href="#3" title=""><span>33333</span></a></li>
+            	<li><a href="#4" title=""><span>4444</span></a></li>
             	<li><a href="http://www.baidu.com" title=""><span>百度</span></a></li>
-            	<li><a href="#5" title=""><span>锚点55555</span></a></li>
-            	<li><a href="#6" title=""><span>锚点66666</span></a></li>
-            	<li><a href="#8" title=""><span>锚点88888</span></a></li>
-            	<li><a href="#error" title=""><span>锚点error</span></a></li>
-            	<li><a href="#12" title=""><span>锚点121212</span></a></li>
+            	<li><a href="#5" title=""><span>5555</span></a></li>
+            	<li><a href="#6" title=""><span>6666</span></a></li>
+            	<li><a href="#7" title=""><span>7777</span></a></li>
+            	<li><a href="#8" title=""><span>8888</span></a></li>
+            	<li><a href="#error" title=""><span>error</span></a></li>
+            	<li><a href="#12" title=""><span>不存在的锚点</span></a></li>
             </ul>
             <a href="javascript:;" class="openbtn"></a>
         </div>
 	</nav>
 
-	<section class="block1" id="1">
+	<section class="block1 anchor" id="1">
 		<h3>这是标题</h3>
 		第一个模块
 	</section>	 
-	<section class="block2" id="2">
+	<section class="block2 anchor" id="2">
 		<h3>这是标题</h3>
 		第二个模块
 	</section>
-	<section class="block3" id="3">
+	<section class="block3 anchor" id="3">
 		<h3>这是标题</h3>
 		第三个模块
 	</section>
-	<section class="block4" id="4">
+	<section class="block4 anchor" id="4">
 		<h3>这是标题</h3>
 		第四个模块
 	</section>
-	<section class="block5" id="5">
+	<section class="block5 anchor" id="5">
 		<h3>这是标题</h3>
 		第五个模块
 	</section>
-	<section class="block6" id="6">
+	<section class="block6 anchor" id="6">
 		<h3>这是标题</h3>
 		第六个模块
 	</section>
-	<section class="block7" id="7">
+	<section class="block7 anchor" id="7">
 		<h3>这是标题</h3>
 		第七个模块
 	</section>
-	<section class="block8" id="8" style="height:300px;">
+	<section class="block8 anchor" id="8" style="height:200px;">
 		<h3>这是标题</h3>
 		第八个模块
 	</section>
@@ -96,9 +89,9 @@ FastClick.attach(document.body);
 <!-- lib end -->
 
 <!-- 内部跳转 begin -->
-<script src="js/topNav_anchor.js"></script>
+<script src="js/topNav_anchor_new.js"></script>
 <script>
-$('.m_nav').mnav();
+$('.m_nav').naver();
 </script>
 <!-- 内部跳转 end -->
 

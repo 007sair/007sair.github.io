@@ -20,13 +20,18 @@ header{
 	background-color: #ff4e88;
 	text-align: center;
 	color: #fff;
+	font-weight: bold;
 }
 .content{
+	padding: 20px 0;
+	font-weight: bold;
 	height: 3000px;
 	border: 1px solid blue;
 	background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#FFFFFF), to(#fff), color-stop(0.5,#FF0000));
+	text-align: center;
 }
 .banner{
+	font-weight: bold;
 	height:50px;
 	line-height: 50px;
 	border: 1px solid #000;
@@ -67,7 +72,6 @@ $(function(){
 		this.$ele = $(ele);
 		this.opts = $.extend({}, defaults, opts);
 		this.isFixed = 0;
-		this.ticking = false; // rAF 触发锁
 		this.init();
 	}
 
