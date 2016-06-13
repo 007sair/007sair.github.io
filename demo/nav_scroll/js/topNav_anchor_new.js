@@ -61,13 +61,16 @@
 	function Naver(ele, opt){
 		this.ele = ele;
 		this.eleChild = this.ele.find('#navscroll');
+		this.openbtn = this.ele.find('.openbtn');
 		this.opt = $.extend({}, defaults, opt);
 		this.isFixed = 0;
-		this.iHeight = this.ele.height();
 		this.$anchor = $('.' + this.opt.className);
-		this.arr_anchor_id = [];
-		this.arr_anchor_pos = [];
+		this.arr_anchorID = [];
+		this.arr_anchorPos = [];
 		this.trueAnchor = null;
+		this.activeLI = null;
+
+		this.arrPos = [];
 
 		this.init();
 	}
@@ -77,64 +80,39 @@
 		init: function(){
 			var _this = this;
 
-			//创建真实锚点数组
-			this.$anchor.each(function() {
-				_this.arr_anchor_id.push($(this).attr('id'));
-			});
-
 			window.myScroll = new IScroll('#' + this.eleChild.attr('id'), this.opt.iScrollJson);
 
-			this.defineData();
+			//创建真实锚点数组
+			this.$anchor.each(function() {
+				_this.arr_anchorID.push($(this).attr('id'));
+			});
+
+			if (this.isWrap()) {
+				this.openbtn.show();
+			};
+
+			this.setCustomData();
 			this.bindEvent();
-		},
-		defineData: function(){
-			var _this = this;
-
-			//定义导航的高度
-			this._H = this.ele.height();
-			//定义导航距顶部的top值
-			this.offTop = this.ele.offset().top;
-			//获取各锚点距顶部的top值
-			this.getPos();
-
-			//抽取关联anchor的导航并设置其data属性
-			var arr_trueAnchor = [];
-			this.eleChild.find('li').each(function(index, el) {
-				var hash = $(this).find('a').attr('href');
-				if (hash.indexOf('#') > -1 && _this.matchAnchor(hash)) {
-					//是锚点链接 && 在当前页面内匹配到锚点id
-					$(this).addClass('nav-anchor');
-				}
-				$(this).data('index', index);
-			});
-
-			this.trueAnchor = $('.nav-anchor');
-
-			this.trueAnchor.each(function(index, el) {
-				$(this).data('anchor', _this.arr_anchor_pos[index]);
-			});
 		},
 		bindEvent: function(){
 			var _this = this;
 
-			$.fn.setActive = function(){
-				$(this).addClass('active').siblings().removeClass('active');
-			};
-
-			var realfunc = _this.debounce(function() {
-				console.log('debounce');
-				_this.swipeNav(arguments[0]);
-			}, 30);
-
 			//绑定滚动
+			var realfunc = _this.debounce(function() {
+				// console.log('debounce');
+				var scrollTop = arguments[0] || 0;
+				_this.scrollStop(scrollTop);
+			}, 100);
+
 			$(window).scroll(function(){
-				console.log('scrolling')
+				// console.log('scrolling')
 				var scrollTop = $(this).scrollTop();
 				if (scrollTop > _this.offTop) {
 					_this.fixed();
 				} else {
+					_this.collapse();
 					_this.static();
-				}
+				}				
 				realfunc(scrollTop);
 			});
 
@@ -142,42 +120,125 @@
 			this.eleChild.on('click', 'li', function(index, el) {
 				//先点击选中
 				var $li = $(this),
-					dataAnchor = $li.data('anchor');
-				//判断是否是真实的anchor
-				if (typeof dataAnchor !== 'undefined') {
-					// console.log('true')
-					//能匹配到的锚点
-					var st = $(this).data('anchor');
-					setTimeout(function() {
-						_this.scrollYTo(0, st - _this.iHeight);
-						$li.setActive();
-					}, 50)
-				}else{
-					// console.log('false')
-					window.location.hash = '#';
-					$li.setActive();
-				}
+					sData = $li.data('anchors'),
+					dataAnchor = _this.getCustomData(sData).top;
 
-				// console.log($(this).find('a').attr('href'))
+				_this.activeLI = $li;
+
+				setTimeout(function() {
+					if (_this.ele.data('open') == 1) {
+						//如果展开，点击后就收起
+						_this.collapse();
+					}
+					_this.scrollYTo(0, dataAnchor - _this.iHeight + 2);
+					$li.addClass('active').siblings().removeClass('active');
+				}, 50);
+
 			});
 
+			//点击更多
+			this.openbtn.on('click', function() {
+				if (_this.ele.data('fixed') !== 1) {
+					$(window).scrollTop(_this.arr_anchorPos[0] - _this.iHeight + 2);
+				}
+				if (_this.ele.data('open') == 1) {
+					_this.collapse();
+				}else{
+					_this.expand();
+				}
+			});
+
+		},
+		setCustomData: function(){
+			//获取导航的高度
+			this.iHeight = this.ele.height();
+			//获取导航距顶部的top值
+			this.offTop = this.ele.offset().top;
+			//更新每个导航的data-anchors值
+			this.scrollStop();
+		},
+		getCustomData: function(str){  //传入字符串，输出对象
+			if (typeof str !== 'string') return false;
+			//这个对象存放锚点和锚点元素相关的数据
+			var anchorData = {
+				id: null,	//锚点元素ID
+				index: null,	//所有li的index
+				trueIndex: null,	//真实锚点li的index
+				top: null,	//每个锚点元素距顶部的绝对值
+				height: null 	//每个锚点元素的高度
+			};
+			var arr = str.split('|'),
+				i = -1;
+
+			for(var key in anchorData){
+				i++;
+				anchorData[key] = +arr[i]; //string to number
+			}
+
+			return anchorData;
+		},
+		scrollStop: function(scrollTop) {
+			var _this = this,
+				aIndex = -1;
+
+			var curTop = scrollTop + _this.iHeight,
+				floor = _this.getIndex(curTop, _this.arr_anchorPos),	//滚动到的楼层
+				curIndex;	//滚动到的锚点元素（范围为所有li的index位置）
+
+			//更新数据前先删除掉上次的数据
+			_this.arr_anchorPos = [];
+
+			this.eleChild.find('li').each(function(index, el) {
+				var $curLI = $(this),
+					hash = $(this).find('a').attr('href');
+
+				if (hash.indexOf('#') > -1 && _this.isAnchor(hash)) {  //是锚点链接 && 在当前页面内匹配到锚点id
+					//设置每个导航的data-anchors值
+					aIndex++;
+					var thisAnchor = _this.$anchor.eq(aIndex),
+						id = thisAnchor.attr('id'),
+						top = thisAnchor.offset().top,
+						height = thisAnchor.height();
+
+					$curLI.data('anchors', _this.arr2str([id, index, aIndex, top, height]));
+					// _this.arr_anchorID.push(id);
+					_this.arr_anchorPos.push(top);
+
+					//找到当前位置 显示对应的锚点状态
+					var data = $curLI.data('anchors'),
+						iLiIndex = _this.getCustomData(data).index,
+						iLiTrueIndex = _this.getCustomData(data).trueIndex;
+
+					if (floor === iLiTrueIndex) {
+						//上下滚动时切换选项卡
+						if (_this.activeLI) {
+							//解决锚点元素高度不够高时选项卡切换问题
+							if (scrollTop + _this.iHeight < _this.getCustomData(_this.activeLI.data('anchors')).top) {
+								$curLI = _this.activeLI;
+							}
+						}
+						$curLI.addClass('active').siblings().removeClass('active');				
+						curIndex = _this.getCustomData($curLI.data('anchors')).index;
+					};
+				}
+			});
+
+			window.myScroll.scrollToElement("li:nth-child(" + (curIndex+1) + ")", 200, true);
 		},
 		showPlace: function(){
 			//设置ele的占位
 			if (!this.$placeHolder) {
-				this.$placeHolder = $('<div style="height:'+ this._H +'px;">');
+				this.$placeHolder = $('<div style="height:'+ this.iHeight +'px;">');
 				this.ele.after(this.$placeHolder);
 			}else{
-				this.$placeHolder.show();
+				this.$placeHolder.css('display','block');
 			}
 		},
 		hidePlace: function(){
-			this.$placeHolder && this.$placeHolder.hide();
+			this.$placeHolder && this.$placeHolder.css('display','none');
 		},
 		fixed: function(){
-			if (this.isFixed !== 0) {
-				return false;
-			};
+			if (this.isFixed !== 0) return false;
 			this.showPlace();
 			this.ele.css({
 				position: 'fixed',
@@ -188,9 +249,7 @@
 			// console.log('fixed', this.isFixed);
 		},
 		static: function(){
-			if (this.isFixed == 0) {
-				return false;
-			};
+			if (this.isFixed == 0) return false;
 			this.hidePlace();
 			this.ele.css({
 				position: 'relative'
@@ -200,9 +259,9 @@
 			// console.log('static', this.isFixed);
 		},
 		scrollYTo: function(x, y){
+			if (typeof x === 'undefined' || typeof y === 'undefined') return false;
 			var rafID = null,
-				dis,
-				target = y;
+				dis;
 
 			function move() {
 				rafID = requestAnimationFrame(move);
@@ -210,34 +269,23 @@
 				if (dis <= 0 || st == 0) {
 					cancelAnimationFrame(rafID);
 				} else {
-					dis = (st - target) / 5.1;
+					dis = (st - y) / 9;
 				}
 				window.scrollTo(x, st - dis);
 			}
 			move();
 		},
-		swipeNav: function(scrollTop){
-			var _this = this,
-				curTop = scrollTop + _this.iHeight,
-				curIndex = _this.getIndex(curTop, _this.arr_anchor_pos);
-
-			_this.trueAnchor.eq(curIndex).addClass('active').siblings().removeClass('active');
-			//这里必须用所有li去寻找位数，不然会出现选中状态不在正中间的问题 先获取真实li的实际位置
-			var trueIndex = _this.trueAnchor.eq(curIndex).data('index');
-			// console.log(curIndex)
-			window.myScroll.scrollToElement("li:nth-child(" + (trueIndex+1) + ")", 200, true);
-		},
-		matchAnchor: function(hash){
+		isAnchor: function(hash){  //匹配传入的hash值能否在页面中找到对应的元素id
 			var _this = this;
 			if (this.$anchor.length < 0 || !hash) return false;
-			for (var i = 0, len = _this.arr_anchor_id.length; i < len; i++) {
-				if (hash === '#'+_this.arr_anchor_id[i]) {
+			for (var i = 0, len = _this.arr_anchorID.length; i < len; i++) {
+				if (hash === '#'+_this.arr_anchorID[i]) {
 					return true;
 				}
 			};
 			return false;
 		},
-		matchHeight: function(hash){
+		isOut: function(hash){
 			var baseHeight = $(window).height();
 			if ($(hash).height() >= baseHeight) {
 				return true;
@@ -245,16 +293,7 @@
 				return false;
 			}
 		},
-		getPos: function(){
-			//获取每个anchor距顶部的距离
-			var _this = this;
-			this.$anchor.each(function() {
-				_this.arr_anchor_id.push($(this).attr('id'));
-				_this.arr_anchor_pos.push($(this).offset().top);
-			});
-		},
-		getIndex: function(cur, arr){
-			//获取当前导航的curIndex状态
+		getIndex: function(cur, arr){  //获取当前导航的curIndex状态
 			var index = 0;
 			for (var i = 0, len = arr.length; i < len; i++) {
 				if (cur >= arr[i] && cur < arr[i+1]) {
@@ -263,7 +302,7 @@
 			};
 			return index;
 		},
-		debounce: function(func, wait, immediate) {
+		debounce: function(func, wait, immediate) { //防抖函数
 			var timeout;
 			return function() {
 				var context = this,
@@ -277,6 +316,33 @@
 				timeout = setTimeout(later, wait);
 				if (callNow) func.apply(context, args);
 			};
+		},
+		arr2str: function(arr) {
+			var str = '';
+			for (var i = 0, len = arr.length; i < len; i++) {
+				str += (i !== len - 1) ? arr[i] + '|' : arr[i];
+			};
+			return str;
+		},
+		isWrap: function(){  //选项卡个数是否超过一行
+			var ww = this.eleChild.find('ul').width(),
+				iW = this.openbtn.width();
+			if (ww - iW > $(window).width() || ww - iW > 640) {
+				return true;
+			}
+			return false;
+		},
+		expand: function(){
+			//展开
+			this.eleChild.addClass('m_open');
+			this.eleChild.find('ul').addClass('mnavtransno');
+			this.ele.data('open', 1);
+		},
+		collapse: function(){
+			//收起
+			this.eleChild.removeClass('m_open');
+			this.eleChild.find('ul').removeClass('mnavtransno');
+			this.ele.data('open', 0);
 		}
 
 	};
