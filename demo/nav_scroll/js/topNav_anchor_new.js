@@ -82,7 +82,7 @@
 
 			window.myScroll = new IScroll('#' + this.eleChild.attr('id'), this.opt.iScrollJson);
 
-			//创建真实锚点数组
+			//创建真实锚点元素的id数组
 			this.$anchor.each(function() {
 				_this.arr_anchorID.push($(this).attr('id'));
 			});
@@ -102,7 +102,7 @@
 				// console.log('debounce');
 				var scrollTop = arguments[0] || 0;
 				_this.scrollStop(scrollTop);
-			}, 100);
+			}, 80);
 
 			$(window).scroll(function(){
 				// console.log('scrolling')
@@ -125,14 +125,19 @@
 
 				_this.activeLI = $li;
 
+				$li.addClass('active').siblings().removeClass('active');
+
+				if (typeof dataAnchor === 'undefined') {
+					//错误的导航
+					return false;
+				};
 				setTimeout(function() {
 					if (_this.ele.data('open') == 1) {
 						//如果展开，点击后就收起
 						_this.collapse();
 					}
 					_this.scrollYTo(0, dataAnchor - _this.iHeight + 2);
-					$li.addClass('active').siblings().removeClass('active');
-				}, 50);
+				}, 30);
 
 			});
 
@@ -161,27 +166,26 @@
 			if (typeof str !== 'string') return false;
 			//这个对象存放锚点和锚点元素相关的数据
 			var anchorData = {
-				id: null,	//锚点元素ID
-				index: null,	//所有li的index
-				trueIndex: null,	//真实锚点li的index
-				top: null,	//每个锚点元素距顶部的绝对值
-				height: null 	//每个锚点元素的高度
+				id: null,			//锚点元素ID
+				index: null,		//所有li的index
+				trueIndex: null,	//正确锚点li的index
+				top: null,			//每个锚点元素距顶部的绝对值
+				height: null 		//每个锚点元素的高度
 			};
 			var arr = str.split('|'),
 				i = -1;
 
 			for(var key in anchorData){
 				i++;
-				anchorData[key] = +arr[i]; //string to number
+				anchorData[key] = +arr[i]; //+ string to number
 			}
 
 			return anchorData;
 		},
 		scrollStop: function(scrollTop) {
 			var _this = this,
-				aIndex = -1;
-
-			var curTop = scrollTop + _this.iHeight,
+				aIndex = -1,	//真实锚点位置,++后第一个为0
+				curTop = scrollTop + _this.iHeight,
 				floor = _this.getIndex(curTop, _this.arr_anchorPos),	//滚动到的楼层
 				curIndex;	//滚动到的锚点元素（范围为所有li的index位置）
 
@@ -194,22 +198,17 @@
 
 				if (hash.indexOf('#') > -1 && _this.isAnchor(hash)) {  //是锚点链接 && 在当前页面内匹配到锚点id
 					//设置每个导航的data-anchors值
-					aIndex++;
+					aIndex++; //为trueIndex 真实锚点位置
 					var thisAnchor = _this.$anchor.eq(aIndex),
 						id = thisAnchor.attr('id'),
 						top = thisAnchor.offset().top,
 						height = thisAnchor.height();
 
 					$curLI.data('anchors', _this.arr2str([id, index, aIndex, top, height]));
-					// _this.arr_anchorID.push(id);
 					_this.arr_anchorPos.push(top);
 
 					//找到当前位置 显示对应的锚点状态
-					var data = $curLI.data('anchors'),
-						iLiIndex = _this.getCustomData(data).index,
-						iLiTrueIndex = _this.getCustomData(data).trueIndex;
-
-					if (floor === iLiTrueIndex) {
+					if (floor === aIndex) {
 						//上下滚动时切换选项卡
 						if (_this.activeLI) {
 							//解决锚点元素高度不够高时选项卡切换问题
@@ -217,13 +216,16 @@
 								$curLI = _this.activeLI;
 							}
 						}
-						$curLI.addClass('active').siblings().removeClass('active');				
+						$curLI.addClass('active').siblings().removeClass('active');
 						curIndex = _this.getCustomData($curLI.data('anchors')).index;
 					};
 				}
 			});
 
 			window.myScroll.scrollToElement("li:nth-child(" + (curIndex+1) + ")", 200, true);
+
+			//reset选中状态
+			_this.activeLI = null;
 		},
 		showPlace: function(){
 			//设置ele的占位
