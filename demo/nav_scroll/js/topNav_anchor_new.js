@@ -173,7 +173,8 @@
 			fnScroll();
 
 			$(window).scroll(function(){
-				requestAnimationFrame(fnScroll);
+				// requestAnimationFrame(fnScroll);
+				fnScroll()
 			});
 
 			//锚点点击事件
