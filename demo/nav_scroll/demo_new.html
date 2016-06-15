@@ -14,6 +14,7 @@
 .wrapper section{ height: 500px; font-size: 40px; text-align: center; overflow: hidden; border: 1px solid #000;}
 .wrapper section h3{ font-size: 16px; background: pink; display: block; margin: 5px 50px 0 50px; height: 40px; line-height: 40px;}
 .wrapper .banner{ height: 200px; border: 1px solid #000;}
+.disable-event{pointer-events:none}
 </style>
 </head>
 <body>
@@ -28,12 +29,12 @@
 		<div class="m_iscoll" id="navscroll">
             <ul>
             	<li><a href="#1" title=""><span>11111</span></a></li>
-            	<li><a href="#2" title=""><span>22222</span></a></li>
-            	<li><a href="#"><span>当前</span></a></li>
+            	<li><a href="#5" title=""><span>55555555</span></a></li>
+            	<li><a href="#"><span>回到顶部</span></a></li>
             	<li><a href="#3" title=""><span>33333</span></a></li>
             	<li><a href="#4" title=""><span>4444</span></a></li>
             	<li><a href="http://www.baidu.com" title=""><span>百度</span></a></li>
-            	<li><a href="#5" title=""><span>5555</span></a></li>
+            	<li><a href="#2" title=""><span>22222</span></a></li>
             	<li><a href="#6" title=""><span>6666</span></a></li>
             	<li><a href="#7" title=""><span>7777</span></a></li>
             	<li><a href="#8" title=""><span>8888</span></a></li>
@@ -94,6 +95,12 @@ FastClick.attach(document.body);
 $('.m_nav').naver();
 </script>
 <!-- 内部跳转 end -->
+
+<script>
+setTimeout(function(){
+	$('.banner').height(400);
+},2000)	
+</script>
 
 </body>
 </html>
