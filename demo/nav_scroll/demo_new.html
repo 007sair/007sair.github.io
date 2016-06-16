@@ -28,18 +28,7 @@
 	<nav class="m_nav">
 		<div class="m_iscoll" id="navscroll">
             <ul>
-            	<li><a href="#1" title=""><span>11111</span></a></li>
-            	<li><a href="#2" title=""><span>22222</span></a></li>
-            	<li><a href="#"><span>回到顶部</span></a></li>
-            	<li><a href="#3" title=""><span>3333</span></a></li>
-            	<li><a href="#4" title=""><span>4444</span></a></li>
-            	<li><a href="http://www.baidu.com" title=""><span>百度</span></a></li>
-            	<li><a href="#5" title=""><span>5555</span></a></li>
-            	<li><a href="#6" title=""><span>6666</span></a></li>
-            	<li><a href="#7" title=""><span>7777</span></a></li>
-            	<li><a href="#8" title=""><span>8888</span></a></li>
-            	<li><a href="#error" title=""><span>error</span></a></li>
-            	<li><a href="#12" title=""><span>不存在的锚点</span></a></li>
+            	<!-- 代码在从数组中被打乱插入 -->
             </ul>
             <a href="javascript:;" class="openbtn"></a>
         </div>
@@ -85,6 +74,10 @@
 		<h3>这是标题</h3>
 		第八个模块
 	</section>
+	<section class="block9" id="9" style="height:1200px;display: none;">
+		<h3>这是标题</h3>
+		第9个模块
+	</section>
 </div>
 
 
@@ -100,7 +93,7 @@ FastClick.attach(document.body);
 <!-- 内部跳转 begin -->
 <script src="js/topNav_anchor_new.js?0615"></script>
 <script>
-$('.m_nav').mnav();
+
 </script>
 <!-- 内部跳转 end -->
 
@@ -108,6 +101,55 @@ $('.m_nav').mnav();
 setTimeout(function(){
 	// $('.banner').height(400);
 },2000)	
+</script>
+
+<script>
+$(function(){
+	//测试代码逻辑
+	var arr_html = [
+		'<li><a href="#1" title=""><span>11111</span></a></li>',
+		'<li><a href="#2" title=""><span>22222</span></a></li>',
+		'<li><a href="#3" title=""><span>3333</span></a></li>',
+		'<li><a href="#4" title=""><span>4444</span></a></li>',
+		'<li><a href="#5" title=""><span>55555</span></a></li>',
+		'<li><a href="#6" title=""><span>6666</span></a></li>',
+		'<li><a href="#7" title=""><span>7777</span></a></li>',
+		'<li><a href="#8" title=""><span>8888</span></a></li>',
+		'<li><a href="#"><span>回到顶部</span></a></li>',
+		'<li><a href="http://www.baidu.com" title=""><span>百度</span></a></li>',
+		'<li><a href="#error" title=""><span>error</span></a></li>',
+		'<li><a href="#12" title=""><span>不存在的锚点</span></a></li>'
+	];
+
+	function shuffle(aArr) {
+		var iLength = aArr.length,
+			i = iLength,
+			mTemp,
+			iRandom;
+		while (i--) {
+			if (i !== (iRandom = Math.floor(Math.random() * iLength))) {
+				mTemp = aArr[i];
+				aArr[i] = aArr[iRandom];
+				aArr[iRandom] = mTemp;
+			}
+		}
+		return aArr;
+	}
+
+	var shuffleArr = shuffle(arr_html);
+
+	var html = '';
+	for (var i = 0, len = shuffleArr.length; i < len; i++) {
+		html += shuffleArr[i];
+	};
+
+	$('#navscroll').find('ul').append(html);
+
+	//初始化上导航
+	$('.m_nav').mnav();
+
+})
+
 </script>
 
 </body>

@@ -5,13 +5,15 @@
  *   <nav class="m_nav">
  *    <div class="m_iscoll" id="navscroll">
  *      <ul>
- *        <li><a href="加入跳转链接"><span>导航名</span></a></li>
+ *        <li><a href="#1"><span>1</span></a></li>
+ *        <li><a href="#2"><span>2</span></a></li>
+ *        <li><a href="#3"><span>3</span></a></li>
  *      </ul>
  *      <a href="javascript:;" class="openbtn"></a>
  *    </div>
  *  </nav>
  * js调用：
- *   $('.m_nav').fixer();
+ *   $('.m_nav').mnav();
  */
 
 /**
@@ -46,6 +48,7 @@
 
 	var defaults = {
 		className: 'anchor',
+		id: 'navscroll',
 		iScrollJson: {
 			fixedScrollBar: true,
 			bindToWrapper: true,
@@ -57,17 +60,16 @@
 	};
 
 	function Naver(ele, opt){
+		this.opt = $.extend({}, defaults, opt);
 		this.ele = ele;
-		this.eleChild = this.ele.find('#navscroll');
+		this.eleChild = this.ele.find('#' + this.opt.id);
 		this.openbtn = this.ele.find('.openbtn');
 		this.$li = this.eleChild.find('li');
-		this.opt = $.extend({}, defaults, opt);
+		this.$body = $('body');
 		this.isFixed = 0;
 		this.arr_anchorID = [];
 		this.activeLI = null;
 		this.iCurTop = 0;
-		this.$body = $('body');
-		this.curHash = window.location.hash;
 
 		this.init();
 	}
@@ -78,7 +80,6 @@
 			var _this = this;
 
 			window.myScroll = new IScroll('#' + this.eleChild.attr('id'), this.opt.iScrollJson);
-
 
 			//如果导航li过多，显示更多按钮
 			if (this.isWrap()) {
@@ -91,15 +92,11 @@
 					hash = $li.find('a').attr('href');
 
 				if (hash.indexOf('#') > -1 && $(hash).length > 0) {
-					$(hash).addClass(_this.opt.className)
+					$(hash).addClass(_this.opt.className);
+					_this.arr_anchorID.push($(hash).attr('id'));	//创建真实锚点元素的id数组
 				};
 			});
-
-			//创建真实锚点元素的id数组
 			this.$anchor = $('.' + this.opt.className);
-			this.$anchor.each(function() {
-				_this.arr_anchorID.push($(this).attr('id'));
-			});
 
 			//获取导航距顶部的top值
 			this.offTop = this.ele.offset().top;  
@@ -213,10 +210,6 @@
 					}, 30);
 				}
 			});
-
-			window.addEventListener('hashchange', function(){
-				_this.curHash = window.location.hash;
-			},false)
 
 			//点击更多
 			this.openbtn.on('click', function() {
@@ -338,16 +331,8 @@
 			};
 			return false;
 		},
-		isOut: function(hash){
-			var baseHeight = $(window).height();
-			if ($(hash).height() >= baseHeight) {
-				return true;
-			}else{
-				return false;
-			}
-		},
-		getIndex: function(cur, arr){  //获取当前导航的curIndex状态
-			if (cur < this.arr_anchorPos[0]) {
+		getIndex: function(cur, arr){  //获取当前导航的curIndex状态，没有找到对应的楼层时返回-1
+			if (cur < this.arr_anchorPos[this.findMin(this.arr_anchorPos)]) {
 				return -1;
 			};
 			var temp,
