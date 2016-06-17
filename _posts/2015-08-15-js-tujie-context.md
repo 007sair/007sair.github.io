@@ -8,7 +8,7 @@ category: "javascript"
 
 本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
 
-###Execution context
+### Execution context
 
 执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（global context），全局上下文取决于执行环境，如Node中的global和Browser中的window：
 
@@ -20,7 +20,7 @@ category: "javascript"
 
 <img src="/static/images/img/js-context-stack.jpg" style="width:600px;" alt="">
 
-###this
+### this
 
 上文提到this被赋予function所属的Object，具体来说，当function是定义在global对中时，this指向global；当function作为Object的方法时，this指向该Object：
 
@@ -42,7 +42,7 @@ var o = {x: "o's x", f: f};
 o.f(); // "o's x"  
 ```
 
-###Scope chain
+### Scope chain
 
 上文提到，在function被执行时生成新的上下文时会先绑定当前上下文的变量对象，再创建作用域链。我们知道function的定义是可以嵌套在其他function所创建的上下文中，也可以并列地定义在同一个上下文中（如global）。作用域链实际上就是自下而上地将所有嵌套定义的上下文所绑定的变量对象串接到一起，使嵌套的function可以“继承”上层上下文的变量，而并列的function之间互不干扰：
 
@@ -71,7 +71,7 @@ x     // -> "global"
 y     // -> ReferenceError: y is not defined  
 ```
 
-###Closure
+### Closure
 
 如果理解了上文中提到的上下文与作用域链的机制，再来看闭包的概念就很清楚了。每个function在调用时会创建新的上下文及作用域链，而作用域链就是将外层（上层）上下文所绑定的变量对象逐一串连起来，使当前function可以获取外层上下文的变量、数据等。如果我们在function中定义新的function，同时将内层function作为值返回，那么内层function所包含的作用域链将会一起返回，即使内层function在其他上下文中执行，其内部的作用域链仍然保持着原有的数据，而当前的上下文可能无法获取原先外层function中的数据，使得function内部的作用域链被保护起来，从而形成“闭包”。看下面的例子：
 
@@ -99,7 +99,7 @@ x;       // -> 100
 
 <img src="/static/images/img/js-closure.jpg" style="width:600px;" alt="">
 
-###this in closure
+### this in closure
 
 我们已经反复提到执行上下文和作用域实际上是通过function创建、分割的，而function中的this与作用域链不同，它是由执行该function时当前所处的Object环境所决定的，这也是this最容易被混淆用错的一点。一般情况下的例子如下：
 
@@ -178,7 +178,7 @@ oo.getNameFunc()();  // -> "global"
 oo.getNameFunc().bind(oo)(); // -> "oo"  
 ```
 
-###总结
+### 总结
 
 Js是一门很有趣的语言，由于它的很多特性是针对HTML中DOM的操作，因而显得随意而略失严谨，但随着前端的不断繁荣发展和Node的兴起，Js已经不再是"toy language"或是jQuery时代的"CSS扩展"，本文提到的这些概念无论是对新手还是从传统Web开发中过度过来的Js开发人员来说，都很容易被混淆或误解，希望本文可以有所帮助。
 
