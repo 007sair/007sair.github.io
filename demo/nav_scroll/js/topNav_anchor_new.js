@@ -52,6 +52,7 @@
 	var defaults = {
 		className: 'anchor',
 		id: 'navscroll',
+		top: 0,
 		iScrollJson: {
 			fixedScrollBar: true,
 			bindToWrapper: true,
@@ -170,13 +171,13 @@
 				// console.log('scrolling')
 				_this.$body.addClass('disable-event');
 				_this.iCurTop = $(this).scrollTop();
-				if (_this.iCurTop > _this.offTop) {
+				if (_this.iCurTop + _this.opt.top > _this.offTop) {
 					_this.fixed();
 				} else {
 					_this.collapse();
 					_this.static();
 				}
-				stop();
+				stop()
 			}
 
 			//第一次打开页面时页面的scrollTop不一定为0且不一定没有锚点 需初始化一下当前导航切换
@@ -214,13 +215,36 @@
 
 			//点击更多
 			this.openbtn.on('click', function() {
-				if (_this.$ele.data('fixed') !== 1) {
-					$(window).scrollTop(_this.arr_anchorPos[0] - _this.iHeight + 2);
+				if (_this.isFixed !== 1) {
+					var first = _this.arr_anchorPos[_this.findMin(_this.arr_anchorPos)];
+					$(window).scrollTop(first - _this.iHeight + 2);
 				}
 				if (_this.$ele.data('open') == 1) {
 					_this.collapse();
 				}else{
 					_this.expand();
+				}
+			});
+
+
+			//滚动方向
+			var upflag = 1;
+			var downflag = 1;
+			//scroll滑动,上滑和下滑只执行一次！
+			this.scrollDirect(function(direction) {
+				if (direction == "down") {
+					if (downflag) {
+						console.log('down')
+						downflag = 0;
+						upflag = 1;
+					}
+				}
+				if (direction == "up") {
+					if (upflag) {
+						console.log('up')
+						downflag = 1;
+						upflag = 0;
+					}
 				}
 			});
 
@@ -264,7 +288,7 @@
 			this.showPlace();
 			this.$ele.css({
 				position: 'fixed',
-				top: 0
+				top: this.opt.top + 'px'
 			});
 			this.$ele.data('fixed', 1);
 			this.isFixed = 1;
@@ -274,7 +298,8 @@
 			if (this.isFixed == 0) return false;
 			this.hidePlace();
 			this.$ele.css({
-				position: 'relative'
+				position: 'relative',
+				top: 0
 			});
 			this.$ele.data('fixed', 0);
 			this.isFixed = 0;
@@ -282,8 +307,8 @@
 		},
 		scrollYTo: function(x, y){
 			if (typeof x === 'undefined' || typeof y === 'undefined') return false;
-			var rafID = null,
-				_this = this,
+			var _this = this, 
+				rafID = null,
 				target = y - this.iHeight + 2,	//需要移动到的目标位置
 				dis;
 
@@ -323,21 +348,17 @@
 			return false;
 		},
 		getIndex: function(cur, arr){  //获取当前导航的curIndex状态，没有找到对应的楼层时返回-1
-			if (cur < this.arr_anchorPos[this.findMin(this.arr_anchorPos)]) { //当前高度和pos数组中最小值对比，最小值始终为页面锚点元素第一个
-				return -1;
-			};
-			var temp,
-				newArr = [];
+			var temp = 0,
+				flag = -1;
 			for (var i = 0, len = arr.length; i < len; i++) {
-				temp = cur - arr[i];
-				if (temp < 0) {
+				if (arr[i] > temp && arr[i] < cur) {
 					temp = arr[i];
+					flag = i;
 				}
-				newArr.push(temp);
-			};
-			return this.findMin(newArr);
+			}
+			return flag;
 		},
-		findMin: function(arr) {
+		findMin: function(arr){
 			var iMin = arr[0],
 				index = 0;
 			for (var i = 1, len = arr.length; i < len; i++) {
@@ -388,6 +409,33 @@
 			this.$eleChild.removeClass('m_open');
 			this.$eleChild.find('ul').removeClass('mnavtransno');
 			this.$ele.data('open', 0);
+		},
+		scrollDirect: function(fn) {
+			var beforeScrollTop = document.body.scrollTop;
+			fn = fn || function() {};
+			window.addEventListener("scroll", function(event) {
+				event = event || window.event;
+
+				var afterScrollTop = document.body.scrollTop;
+				delta = afterScrollTop - beforeScrollTop;
+				beforeScrollTop = afterScrollTop;
+
+				var scrollTop = $(this).scrollTop();
+				var scrollHeight = $(document).height();
+				var windowHeight = $(this).height();
+				if (scrollTop + windowHeight > scrollHeight - 10) { //滚动到底部执行事件
+					fn('up');
+					return;
+				}
+				if (afterScrollTop < 10 || afterScrollTop > $(document.body).height - 10) {
+					fn('up');
+				} else {
+					if (Math.abs(delta) < 10) {
+						return false;
+					}
+					fn(delta > 0 ? "down" : "up");
+				}
+			}, false);
 		}
 	};
 
