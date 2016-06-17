@@ -27,7 +27,7 @@ console.log(c.prototype);  //=> undefined
 
 `prototype`是每个`function`定义时自带的属性，但是Js中`function`本身也是对象，我们先来看一下下面几个概念的差别：
 
-###1. function、Function、Object和{}
+### 1. function、Function、Object和{}
 
 function是Js的一个关键词，用于定义函数类型的变量，有两种语法形式：
 
@@ -65,7 +65,7 @@ typeof(o2);     //=> 'object'
 typeof(Object); //=> 'function'  
 ```
 
-###2. prototype VS [[proto]]
+### 2. prototype VS [[proto]]
 
 清楚了上面的概念之后再来看prototype：
 
@@ -102,7 +102,7 @@ console.log(p.prototype);                 //=> undefined
 
 `Person`是一个函数类型的变量，因此自带了`prototype`属性，`prototype`属性中的`constructor`又指向`Person`本身；通过`new`关键字生成的`Person`类的实例`p1`，通过`__proto__`属性指向了`Person`的原型。这里的`__proto__`只是为了说明实例`p1`在内部实现的时候与父类之间存在的关联（指向父类的原型），在实际操作过程中实例可以直接通过.获取父类原型中的属性，从而实现了继承的功能。
 
-###3. 原型链
+### 3. 原型链
 
 清楚了`prototype`与`__proto__`的概念与关系之后我们会对“Js中一切皆为对象”这句话有更加深刻的理解。进而我们会想到，既然`__proto__`是（几乎）所有对象都内置的属性，而且指向父类的原型，那是不是意味着我们可以“逆流而上”一直找到源头呢？我们来看下面的例子：
 
