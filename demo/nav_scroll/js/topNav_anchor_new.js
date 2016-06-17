@@ -226,21 +226,23 @@
 				}
 			});
 
-
 			//滚动方向
 			var upflag = 1;
 			var downflag = 1;
 			//scroll滑动,上滑和下滑只执行一次！
 			this.scrollDirect(function(direction) {
+				if (_this.isFixed !== 1) return false;
 				if (direction == "down") {
 					if (downflag) {
+						// _this.$ele.hide()
 						console.log('down')
 						downflag = 0;
 						upflag = 1;
 					}
 				}
-				if (direction == "up") {
+				if (direction == "up") { //到底部时会触发一次up
 					if (upflag) {
+						// _this.$ele.show()
 						console.log('up')
 						downflag = 1;
 						upflag = 0;
