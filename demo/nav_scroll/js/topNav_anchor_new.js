@@ -109,6 +109,11 @@
 			//更新导航li的data-anchors值
 			this.setCustomData();
 
+			//wap端header也是fixed
+			if ($('header').length > 0) {
+				this.opt.top += $('header').height();
+			};
+
 			this.bindEvent();
 
 		},
@@ -196,13 +201,12 @@
 				var $li = $(this),
 					index = $li.index(),
 					sData = $li.data('anchors'),
-					top = _this.getCustomData(sData).top;
+					top = _this.getCustomData(sData).top - _this.opt.top;
 
 				_this.activeLI = $li;
 
 				$li.addClass('active').siblings().removeClass('active');
-
-				if (typeof top !== 'undefined') {
+				if (typeof top !== 'undefined' && top) {
 					setTimeout(function() {
 						if (_this.$ele.data('open') == 1) {
 							//如果展开，点击后就收起
@@ -217,7 +221,7 @@
 			this.openbtn.on('click', function() {
 				if (_this.isFixed !== 1) {
 					var first = _this.arr_anchorPos[_this.findMin(_this.arr_anchorPos)];
-					$(window).scrollTop(first - _this.iHeight + 2);
+					$(window).scrollTop(first - _this.iHeight + 2 - _this.opt.top);
 				}
 				if (_this.$ele.data('open') == 1) {
 					_this.collapse();
@@ -235,7 +239,7 @@
 				if (direction == "down") {
 					if (downflag) {
 						// _this.$ele.hide()
-						console.log('down')
+						// console.log('down')
 						downflag = 0;
 						upflag = 1;
 					}
@@ -243,7 +247,7 @@
 				if (direction == "up") { //到底部时会触发一次up
 					if (upflag) {
 						// _this.$ele.show()
-						console.log('up')
+						// console.log('up')
 						downflag = 1;
 						upflag = 0;
 					}
