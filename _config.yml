@@ -22,8 +22,11 @@ future:       true
 unpublished:  false
 
 # Conversion
-markdown:     redcarpet
-highlighter:  pygments
+markdown:     kramdown
+kramdown:
+  input:         GFM  # 没有这个配置 代码块不会生效
+  syntax_highlighter: rouge
+highlighter:  rouge
 lsi:          false
 excerpt_separator: "\n\n"
 

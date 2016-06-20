@@ -7,7 +7,7 @@ category: "javascript"
 ---
 
 
-##对象
+## 对象
 
 对象分普通对象和函数对象，`Object`、`Function`是js自带的函数对象。
 
@@ -34,7 +34,7 @@ console.log(typeof f3); //function
 
 以上例子说明：**凡是通过 `new Function()` 创建的对象都是函数对象，其他的都是普通对象。** `Function`、`Object` 也都是通过`new Function()`创建的。
 
-##原型
+## 原型
 
 js中所有的_函数_都有一个`prototype`属性，这个属性引用了一个对象，即原型对象，也简称原型。<br>
 这个_函数_包括构造函数和普通函数，我们讲的更多是构造函数的原型，但是也不能否定普通函数也有原型。
@@ -59,7 +59,7 @@ function A(x){
 var a = new A(1);
 ```
 
-###new
+### new
 
 `new`也就是实例化对象，过程有如下几步：
 
@@ -107,7 +107,7 @@ o.getName(); // chan
 可以看到，通过给`Person.prototype`设置一个方法`getName`，实例后的对象`o`也会继承这个方法。具体怎么实现的继承，需讲到下面的原型链。
 
 
-##原型链
+## 原型链
 
 js在创建对象（无论是普通对象还是函数对象）的时候，都有一个叫做`__proto__`的内置属性，用于指向创建它的函数对象的原型对象`prototype`。
 
@@ -148,7 +148,7 @@ console.log(Object.prototype.__proto__) //null
 
 <img src="/static/images/img/js-prototype-lian.jpg" alt="">
 
-#####疑点解释：
+##### 疑点解释：
 
 ```js
 Object.__proto__ === Function.prototype // true     Object是函数对象，是通过new Function()创建，所以Object.__proto__指向Function.prototype。
@@ -162,7 +162,7 @@ js一切皆为对象，原型链的最顶层为null，即`Object.prototype.__pro
 
 
 
-###instanceof
+### instanceof
 
 ```js
 //demo
@@ -176,7 +176,7 @@ new Object() instanceof Array  //false
 
 原理：右侧函数的`prototype`属性是否出现在左侧对象的原型链上。即：左侧的原型链上是否有右侧的原型。
 
-###constructor
+### constructor
 
 原型对象`prototype`中都有预定义的`constructor`，用来指向它的构造函数。
 
@@ -187,7 +187,7 @@ Object.prototype.constructor === Object //true
 ```
 
 
-##继承
+## 继承
 
 因为ECMAscript的发明者为了简化这门语言，同时又保持继承性，采用了链式继承的方法。 <br>
 由构造函数创建的每个实例都有个`__proto__`属性，它指向构造函数的`prototype`。那么构造函数的`prototype`上定义的属性和方法都会被instance所继承.

@@ -6,10 +6,10 @@ keywords: css
 category: "css"
 ---
 
-####1、css重置
+####  1、css重置
 <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a>与传统的css Reset的区别：<a href="http://jerryzou.com/posts/aboutNormalizeCss/" target="_blank">http://jerryzou.com/posts/aboutNormalizeCss/</a>
 
-####2、clearfix
+####  2、clearfix
 
 ```css
 .clearfix:before, .container:after { content: ""; display: table; }
@@ -18,7 +18,7 @@ category: "css"
 ```
 <!-- more -->
 
-####3、css块引用模版
+####  3、css块引用模版
 
 ```css
 blockquote {
@@ -41,7 +41,7 @@ blockquote p {
 }
 ```
 
-####4、媒体查询
+####  4、媒体查询
 
 ```css
 /* Smartphones (portrait and landscape) ----------- */
@@ -83,7 +83,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 }
 ```
 
-####5、现代字体栈
+####  5、现代字体栈
 
 ```css
 /* Times New Roman-based serif */
@@ -111,7 +111,7 @@ font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvet
 font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 ```
 
-####6、自定义文本选择
+####  6、自定义文本选择
 
 ```css
 ::selection { background: #e2eae2; }
@@ -119,7 +119,7 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 ::-webkit-selection { background: #e2eae2; }
 ```
 
-####7、隐藏H1文本为Logo标志
+#### 7、隐藏H1文本为Logo标志
 
 ```css
 h1 {
@@ -131,7 +131,7 @@ h1 {
 }
 ```
 
-####8、polaroid图像边界
+#### 8、polaroid图像边界
 
 ```css
 img.polaroid {
@@ -146,7 +146,7 @@ img.polaroid {
 }
 ```
 
-####9、锚链接伪类
+#### 9、锚链接伪类
 
 ```css
 a:link { color: blue; }
@@ -155,7 +155,7 @@ a:hover { color: red; }
 a:active { color: yellow; }
 ```
 
-####10、花式CSS3 Pull-引文
+#### 10、花式CSS3 Pull-引文
 
 ```css
 .has-pullquote:before {
@@ -199,7 +199,7 @@ a:active { color: yellow; }
 }
 ```
 
-####11、全屏背景和CSS3
+#### 11、全屏背景和CSS3
 
 ```css
 html {
@@ -211,7 +211,7 @@ html {
 }
 ```
 
-####12、CSS3梯度模板
+#### 12、CSS3梯度模板
 
 ```css
 #colorbox {
@@ -225,7 +225,7 @@ html {
 }
 ```
 
-####13、@font-face模版
+#### 13、@font-face模版
 
 ```css
 @font-face {
@@ -241,7 +241,7 @@ body {
 }
 ```
 
-####14、字符美化
+#### 14、字符美化
 
 ```css
 .amp {
@@ -251,7 +251,7 @@ body {
 }
 ```
 
-####15、段落首字母
+#### 15、段落首字母
 
 ```css
 p:first-letter{
@@ -264,7 +264,7 @@ p:first-letter{
 }
 ```
 
-####16、三角形列表前缀
+#### 16、三角形列表前缀
 
 ```css
 ul {
@@ -286,7 +286,7 @@ li:before {
 }
 ```
 
-####17、CSS 固定的页脚
+#### 17、CSS 固定的页脚
 
 ```css
 #footer {
@@ -304,7 +304,7 @@ li:before {
 }
 ```
 
-####18、PNG 图片在 IE6下的透明度
+#### 18、PNG 图片在 IE6下的透明度
 
 ```css
 .bg {
@@ -325,7 +325,7 @@ img, .png {
 }
 ```
 
-####19、跨浏览器的最小高度
+#### 19、跨浏览器的最小高度
 
 ```css
 #container {
@@ -335,7 +335,7 @@ img, .png {
 }
 ```
 
-####20、CSS3发光输入框
+#### 20、CSS3发光输入框
 
 ```css
 input[type=text], textarea {
@@ -357,7 +357,7 @@ input[type=text]:focus, textarea:focus {
 }
 ```
 
-####21、基于文件类型的链接样式
+#### 21、基于文件类型的链接样式
 
 ```css
 /* external links */
@@ -379,7 +379,7 @@ a[href$=".pdf"] {
 }
 ```
 
-####22、强制代码包装
+#### 22、强制代码包装
 
 ```css
 pre {
@@ -391,7 +391,7 @@ pre {
 }
 ```
 
-####23、强制可点击条目上显示手型光标
+#### 23、强制可点击条目上显示手型光标
 
 ```
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
@@ -399,7 +399,7 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 }
 ```
 
-####24、网页顶端阴影
+#### 24、网页顶端阴影
 
 ```css
 body:before {
@@ -416,7 +416,7 @@ body:before {
 }
 ```
 
-####25、CSS3 对话气泡
+#### 25、CSS3 对话气泡
 
 ```css
 .chat-bubble {
@@ -457,7 +457,7 @@ body:before {
 }
 ```
 
-####26、默认的 H1-H5 题头
+#### 26、默认的 H1-H5 题头
 
 ```css
 h1,h2,h3,h4,h5{
@@ -485,7 +485,7 @@ h5{
 }
 ```
 
-####27、纯CSS背景噪声
+#### 27、纯CSS背景噪声
 
 ```css
 body {
@@ -494,7 +494,7 @@ body {
 }
 ```
 
-####28、继续列表排序
+#### 28、继续列表排序
 
 ```css
 ol.chapters {
@@ -523,7 +523,7 @@ ol.continue {
 }
 ```
 
-####29、CSS悬停工具提示
+#### 29、CSS悬停工具提示
 
 ```css
 a {
@@ -590,7 +590,7 @@ a[data-tooltip]:active:before {
 }
 ```
 
-####30、在一个打印页面显示URLS
+#### 30、在一个打印页面显示URLS
 
 ```css
 @media print   { 
@@ -600,7 +600,7 @@ a[data-tooltip]:active:before {
 }
 ```
 
-####31、禁用移动Webkit高亮
+#### 31、禁用移动Webkit高亮
 
 ```css
 body {
@@ -613,7 +613,7 @@ body {
 }
 ```
 
-####32、CSS3 带圆点的图案
+#### 32、CSS3 带圆点的图案
 
 ```css
 body {
@@ -623,7 +623,7 @@ body {
 }
 ```
 
-####33、CSS3 方格图案
+#### 33、CSS3 方格图案
 
 ```css
 body {
@@ -635,7 +635,7 @@ body {
 }
 ```
 
-####34、Github Fork 缎带
+#### 34、Github Fork 缎带
 
 ```css
 .ribbon {
@@ -666,7 +666,7 @@ body {
 }
 ```
 
-####35、压缩的 CSS 字体属性
+#### 35、压缩的 CSS 字体属性
 
 ```css
 p {
@@ -674,7 +674,7 @@ p {
 }
 ```
 
-####36、页面卷曲效果
+#### 36、页面卷曲效果
 
 ```css
 ul.box {
@@ -732,7 +732,7 @@ ul.box li:after {
 }
 ```
 
-####37、发光锚链接
+#### 37、发光锚链接
 
 ```css
 a {
@@ -761,7 +761,7 @@ a:hover, .glow {
 }
 ```
 
-####38、饶有特色的 CSS3 展示横条
+#### 38、饶有特色的 CSS3 展示横条
 
 ```css
 .featureBanner {
