@@ -42,7 +42,7 @@ paginate_path: /page:num
 timezone:      null
 
 #站点基础配置
-title: Chan Blog
+title: chan
 subTitle: Just a blog.
 description: 这是 Chan 的博客，它是基于 Jekyll 搭建起来的。
 url: http://007sair.github.io
