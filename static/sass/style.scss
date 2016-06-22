@@ -347,6 +347,7 @@ nav{
 
 // 回到顶部
 .backTop{
+	margin-right: 1em;
 	color: #474747;
 	opacity: 0.5;
 	&:hover{
@@ -355,7 +356,7 @@ nav{
 	}
 	i{
 		&:before{
-			font-size: 48px;
+			font-size: 72px;
 		}
 	}
 	.icon-circle-arrow-up:before { 

@@ -8,8 +8,6 @@ category: "css"
 
 在过去的几年中，CSS已经成为一大部分开发者和设计者的最爱，因为它提供了一系列功能和特性。每个月都有无数个围绕CSS的工具被开发者发布以简化WEB开发。像CSS 库，框架，应用这样的工具能够为开发者做很多事，而且可以使开发者创造出创新立异的WEB应用。
 
-<!-- more -->
-
 在这篇文件章中我们找到了一系列对开发者有用的CSS库，它们能帮助开发者在一定的期限内取得有创造性和创新性的成果。我们希望这个列表能有助于您的开发并为您提供方便。尽情享受吧！
 
 ## 1. [Kite](http://hiloki.github.io/kitecss/)
@@ -18,6 +16,7 @@ category: "css"
 
 Kite是一个灵活的布局助手CSS库。Kite使用inline-block而不是最新的CSS语法。它注重实际，易于理解且容易使用。Kite用法与flexbox相似：justify-content,等等。你可以很轻松地创建复杂的模块。Kite是基于OOCSS 与 MindBEMding，它可以帮助您快速构建自己的组件。Kite支持几乎所有浏览器，它属于MIT许可。
 
+<!-- more -->
 
 ## 2. [DynCSS](http://www.vittoriozaccaria.net/dyn-css/#what-is-it)
 

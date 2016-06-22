@@ -10,14 +10,14 @@ $(document).ready(function() {
     iLotus.goTop = {
         nodeName: "J-backTop",
         scrollHeight: "100",
-        linkBottom: "40px",
+        linkBottom: "20px",
         linkRight: 30,
         linkWidth: 32,
         contentWidth: 720,
         contenBigtWidth: 1024,
         _scrollTop: function() {
             if(jQuery.scrollTo) {
-                jQuery.scrollTo(0, 800, {queue:true});
+                jQuery.scrollTo(0, 300, {queue:true});
             }
         },
         _scrollScreen: function() {
