@@ -31,6 +31,10 @@ body{
 	};
 }
 
+h2, h3{
+	color: #1abc9c;
+}
+
 // 中间部分
 .lotus-article {
 	overflow: hidden;
@@ -343,6 +347,7 @@ nav{
 
 // 回到顶部
 .backTop{
+	margin-right: 1em;
 	color: #474747;
 	opacity: 0.5;
 	&:hover{
@@ -351,7 +356,7 @@ nav{
 	}
 	i{
 		&:before{
-			font-size: 48px;
+			font-size: 72px;
 		}
 	}
 	.icon-circle-arrow-up:before { 
@@ -394,6 +399,10 @@ nav{
 	.atv{color:#080}
 	.dec,.var{color:#606}
 	.fun{color:red}
+}
+
+.line-numbers{
+	display: none;
 }
 
 // 多说评论
