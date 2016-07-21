@@ -139,8 +139,7 @@
 				}
 			});
 		},
-		getCustomData: function($li){  // 1|2|3 -> obj.id=1, obj.index=2, obj.trueIndex=3
-			var str = $li.data('anchors');
+		getCustomData: function(str){  // 1|2|3 -> obj.id=1, obj.index=2, obj.trueIndex=3
 			if (typeof str !== 'string') return false;
 			//这个对象存放有效锚点的所有数据
 			var anchorData = {
@@ -181,7 +180,7 @@
 					_this.fixed();
 				} else {
 					_this.collapse();
-					_this.static();
+					_this._static();
 				}
 				stop()
 			}
@@ -201,7 +200,8 @@
 
 				var $li = $(this),
 					index = $li.index(),
-					top = _this.getCustomData($li).top - _this.opt.top;
+					sData = $li.data('anchors'),
+					top = _this.getCustomData(sData).top - _this.opt.top;
 
 				_this.activeLI = $li;
 
@@ -258,15 +258,16 @@
 		scrollStop: function() {
 			var _this = this,
 				aIndex = -1,	//真实锚点位置,++后第一个为0
-				curTop = _this.iCurTop + _this.iHeight,
+				curTop = _this.iCurTop + _this.iHeight + this.opt.top, //_this.iHeight+this.opt.top是为了校验wap的高度
 				floor = _this.getIndex(curTop, _this.arr_anchorPos),	//滚动到的楼层
 				curIndex = -1;	//滚动到的锚点元素（范围为所有li的index位置）
 
 			this.$li.each(function(index, el) {
 				var $li = $(this),
 					hash = $li.find('a').attr('href'),
-					top = _this.getCustomData($li).top,
-					trueIndex = _this.getCustomData($li).trueIndex;
+					data = $li.data('anchors'),
+					top = _this.getCustomData(data).top,
+					trueIndex = _this.getCustomData(data).trueIndex;
 
 				var oReg = /module\/index\/\d+/g;
 				if (floor == trueIndex || (floor === -1 && hash === '#') || window.location.href.indexOf(oReg.exec(hash)) > -1 ) {
@@ -299,7 +300,7 @@
 			this.isFixed = 1;
 			// console.log('fixed', this.isFixed);
 		},
-		static: function(){
+		_static: function(){
 			if (this.isFixed == 0) return false;
 			this.hidePlace();
 			this.$ele.css({
@@ -308,7 +309,7 @@
 			});
 			this.$ele.data('fixed', 0);
 			this.isFixed = 0;
-			// console.log('static', this.isFixed);
+			// console.log('_static', this.isFixed);
 		},
 		scrollYTo: function(x, y){
 			if (typeof x === 'undefined' || typeof y === 'undefined') return false;
@@ -333,10 +334,10 @@
 			var _this = this,
 				$li = this.$li.eq(index);
 
-			if (_this.activeLI && _this.iCurTop + _this.iHeight < _this.getCustomData(_this.activeLI).top) {
+			if (_this.activeLI && _this.iCurTop + _this.iHeight < _this.getCustomData(_this.activeLI.data('anchors')).top) {
 				//解决锚点元素高度不够高时选项卡切换问题
 				$li = _this.activeLI;
-				index = _this.getCustomData(_this.activeLI).index;
+				index = _this.getCustomData(_this.activeLI.data('anchors')).index;
 			}
 			$li.addClass('active').siblings().removeClass('active');
 			window.myScroll.scrollToElement("li:nth-child(" + (index+1) + ")", 200, true);
