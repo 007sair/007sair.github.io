@@ -157,6 +157,56 @@
 			}
 			return anchorData;
 		},
+		setCustomData: function(){
+			var _this = this,
+				anchorIndex = -1,
+				curTop = _this.iCurTop + _this.iHeight;
+
+			this.arr_anchorPos = [];
+			this.$li.each(function(index, el) {
+				var $li = $(this),
+					hash = $li.find('a').attr('href');
+
+				if (hash.indexOf('#') > -1 && _this.isAnchor(hash)) {  //是锚点链接 && 在当前页面内匹配到锚点id
+					anchorIndex++; //为trueIndex 真实锚点位置
+					var thisAnchor = $(hash),
+						top = thisAnchor.offset().top,
+						height = thisAnchor.height();
+
+					$li.data('anchors', _this.arr2str([hash, index, anchorIndex, top, height]));
+					_this.arr_anchorPos.push(top);
+
+					if (hash === _this.curHash) {
+						console.log('right hash')
+						_this.activeLI = $li;
+						_this.swipeTo(index);
+						window.location.hash = '#';
+						window.location.hash = hash;
+						_this.scrollYTo(0, top);
+					}
+				}
+			});
+		},
+		getCustomData: function(str){  //传入字符串，输出对象
+			if (typeof str !== 'string') return false;
+			//这个对象存放锚点和锚点元素相关的数据
+			var anchorData = {
+				id: null,			//锚点元素ID
+				index: null,		//所有li的index
+				trueIndex: null,	//正确锚点li的index
+				top: null,			//每个锚点元素距顶部的绝对值
+				height: null 		//每个锚点元素的高度
+			};
+			var arr = str.split('|'),
+				i = -1;
+
+			for(var key in anchorData){
+				i++;
+				anchorData[key] = +arr[i]; //+ string to number
+			}
+
+			return anchorData;
+		},
 		bindEvent: function(){
 			var _this = this;
 
