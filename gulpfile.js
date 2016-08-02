@@ -62,14 +62,6 @@
 			.pipe(gulp.dest(paths.css))
 			.pipe(filter(paths.css + '**/*.css')) // Filtering stream to only css files
 			.pipe(reload({stream:true})) //need browserSync
-			.pipe(gulp.dest(paths.css))
-			.pipe(cleanCSS({
-				keepBreaks: false,
-				compatibility: 'ie7'
-			}))
-			.pipe(rename({
-				basename : 'style.min'
-			}))
 			.pipe(gulp.dest(paths.css));  
 	});
 
