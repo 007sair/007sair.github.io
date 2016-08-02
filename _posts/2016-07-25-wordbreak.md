@@ -45,6 +45,7 @@ word-wrap: normal | break-word;
 | break-word       | 在长单词或 URL 地址内部进行换行。|
 |------------------+-------------------------------|
 
+<!-- more -->
 
 #### word-break
 
