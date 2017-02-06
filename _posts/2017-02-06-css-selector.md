@@ -75,6 +75,7 @@ td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
 |------------------+-----------------------+-------------------------------------------- -|------------|
 
 **CSS 2.1 selectors Known issues (6):**
+
 - IE6 does not properly support combinations of pseudo classes like `:link`, `:active` and `:visited`
 - IE8-11 does not update an element's :hover status when scrolling without moving the pointer.
 - Safari 5.1 and Android browsers do not support the adjacent selector if the adjacent element is a "nav" element.
@@ -142,6 +143,7 @@ td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
 
 
 **CSS 3 selectors Known issues (4):**
+
 - iOS 9 has a bug in WebViews (not Safari) with the CSS sibling selector
 - IE9-IE11 supports `:empty` but will not repaint/relayout the page if content is added/removed from an `:empty` selected element
 - iOS 8 Safari has issues with nth-child. 
