@@ -1,15 +1,18 @@
 $(function() {
 
 	//目录滚动悬浮
-	var srcTop = $('.block-catalog').offset().top;
-	$(window).scroll(function() {
-		var curTop = $(window).scrollTop();
-		if (curTop > srcTop) {
-			$('.block-catalog').addClass("fixed");
-		} else {
-			$('.block-catalog').removeClass("fixed");
-		}
-	});
+	if ($('.block-catalog').length) {
+		var srcTop = $('.block-catalog').offset().top;
+		$(window).scroll(function() {
+			var curTop = $(window).scrollTop();
+			if (curTop > srcTop) {
+				$('.block-catalog').addClass("fixed");
+			} else {
+				$('.block-catalog').removeClass("fixed");
+			}
+		});
+	};
+	
 
 	//目录链接加锚点
 	$('.block-catalog').find('a').each(function(index, el) {
