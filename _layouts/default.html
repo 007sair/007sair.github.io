@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 <meta name="generator" content="Jekyll" />
-<meta name="author" content="{{ site.author.name }} url: {{ page.url }}" />
+<meta name="author" content="{{ site.author.name }}" />
 <meta name="description" content="{{ page.description }}" />
 <meta name="keywords" content="{{ page.keywords | join: ',' }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
             {% for link in site.nav %}
 	            {% assign active = nil %}
 	            {% assign homeClass = nil %}
-	            {% if page.url == link.url %}
+	            {% if page.url == link.url or page.url == '/' %}
 	                {% assign active = 'current' %}
 	            {% endif %}
 	            {% if link.class == 'home' %}
