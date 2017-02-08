@@ -1,6 +1,6 @@
 #PPT讲解点：
 
-**时代的变化**无非就是HTML、CSS、Javascript的变化。
+时代的变化无非就是`HTML`、`CSS`、`Javascript`的变化。
 
 ### 远古时代 @1995
 
