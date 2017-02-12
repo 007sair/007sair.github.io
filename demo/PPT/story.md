@@ -32,4 +32,3 @@
 - Flux
 - 模板引擎 jTemplates jQote PURE Transparency JSRender MarkupJS KnockoutJS（支持双向数据绑定）
 - PlatesJS jQuery-tmpl Handlebars Mustache underscore lodash Jade DustJS DotJS EJS Nunjucks ECT
-- 
