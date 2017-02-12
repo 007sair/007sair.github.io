@@ -7,6 +7,15 @@
 - 移动时代
 - 自动化时代
 
+总结技术栈：
+
+- `H5`：本地存储、canvas、SVG、多媒体、通信API（web sockets）
+- `CSS3`：新选择器、盒模型、变形动画、响应式、Font-face
+- `prototype` / `__proto__`：原型、继承
+- `gulp` / `grunt` / `webpack` / `sass` / `requirejs` / `seajs`
+- `vue` / `react` / `angular` / `backbonejs`
+- `jquery` / `zepto` / `lodash`
+
 先来看看历史情况：
 
 - 脚本语言 弥补网页开发buzu

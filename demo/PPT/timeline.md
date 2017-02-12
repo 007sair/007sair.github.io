@@ -46,7 +46,7 @@ Webkit引擎在iPhone手机中得到部署，随着智能手机（i4）的普及
     - 重构
     - 开发
 - H5
-    - localstorage
+    - localStorage
     - canvas
     - SVG
     - 易企秀、MAKA
