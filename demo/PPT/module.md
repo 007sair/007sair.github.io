@@ -217,6 +217,13 @@ define(function(require, exports){
 - CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：
 
 ```
+// AMD 默认推荐的是
+define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
+    a.doSomething()
+    // 此处略去 100 行
+    b.doSomething()
+})
+
 // CMD
 define(function(require, exports, module) {
     var a = require('./a')
@@ -225,13 +232,31 @@ define(function(require, exports, module) {
     var b = require('./b') // 依赖可以就近书写
     b.doSomething()
 })
+```
 
-// AMD 默认推荐的是
-define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
-    a.doSomething()
-    // 此处略去 100 行
-    b.doSomething()
-}) 
+## UMD
+
+通用模块规范，介于AMD与CMD之间
+
+```
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node, CommonJS之类的
+    module.exports = factory(require('jquery'));
+  } else {
+    // 浏览器全局变量(root 即 window)
+    root.returnExports = factory(root.jQuery);
+  }
+}(this, function($) {
+  // 方法
+  function myFunc() {};
+
+  // 暴露公共方法
+  return myFunc;
+}));
 ```
 
 ## ECMAScript 6 Module

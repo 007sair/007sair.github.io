@@ -7,8 +7,6 @@
 问：js难道无法胜任现在的大型项目吗？
 
 
-### <a href="./index.html" target="_blank" title="">大事件</a>
-
 ### 原始时代 
 
 > @**2005年以前** <br>
