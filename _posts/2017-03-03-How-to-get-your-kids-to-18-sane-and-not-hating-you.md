@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Date（日期）对象在移动端的坑
-description: new Date()在pc和移动端的一些显示差异
-keywords: javascript date keng
-category: "javascript"
+title: 怎么把孩子养到18岁，神志正常还不恨你
+description: 怎么把孩子养到18岁，神志正常还不恨你
+keywords: children
+category: "杂谈"
 ---
 
 > 这篇文章是一篇译文，来自：[How to get your kids to 18, sane and not hating you](https://www.theguardian.com/lifeandstyle/2016/feb/06/how-to-get-your-kids-to-18-sane-and-not-hating-you?CMP=share_btn_link)
