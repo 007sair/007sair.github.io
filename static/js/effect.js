@@ -12,6 +12,15 @@ $(function() {
 			}
 		});
 	};
+
+	$(window).scroll(function() {
+		var curTop = $(window).scrollTop();
+		if (curTop > 100) {
+			$('nav').addClass('nav-out');
+		} else {
+			$('nav').removeClass('nav-out');
+		}
+	});
 	
 
 	//目录链接加锚点
@@ -60,5 +69,10 @@ $(function() {
 				break;
 		}
 	});
+
+
+
+
+	
 
 });
