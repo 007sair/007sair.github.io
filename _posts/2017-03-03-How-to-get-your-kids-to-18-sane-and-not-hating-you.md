@@ -6,7 +6,7 @@ keywords: children
 category: "life"
 ---
 
-> 这篇文章是一篇译文，来自：[How to get your kids to 18, sane and not hating you](https://www.theguardian.com/lifeandstyle/2016/feb/06/how-to-get-your-kids-to-18-sane-and-not-hating-you?CMP=share_btn_link)
+> 译文，来自：[How to get your kids to 18, sane and not hating you](https://www.theguardian.com/lifeandstyle/2016/feb/06/how-to-get-your-kids-to-18-sane-and-not-hating-you?CMP=share_btn_link)
 
 七位作者为大家讲述父母之道，都是他们希望在开始时就懂得的事
 
