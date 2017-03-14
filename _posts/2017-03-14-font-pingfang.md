@@ -12,17 +12,13 @@ category: "css"
 ### 苹方字体
 
 **苹方-简**
-<p style="font-family: 'PingFang SC', sans-serif">苹方-简</p>
+<p style="font-family: 'PingFang SC', sans-serif">测试字体 123456789 abcdefg ABCDEFG</p>
 
 **苹方-简 常规体**
-<p style="font-family: PingFangSC-Regular, sans-serif;">
-    测试字体 123456789 abcdefg ABCDEFG
-</p>
+<p style="font-family: PingFangSC-Regular, sans-serif;">测试字体 123456789 abcdefg ABCDEFG</p>
 
 **苹方-简 常规体**
-<p style="font-family: PingFangSC-Regular, sans-serif;">
-    测试字体 123456789 abcdefg ABCDEFG
-</p>
+<p style="font-family: PingFangSC-Regular, sans-serif;">测试字体 123456789 abcdefg ABCDEFG</p>
 
 **苹方-简 常规体**
 <p style="font-family: PingFangSC-Regular, sans-serif;">测试字体 123456789 abcdefg ABCDEFG</p>
