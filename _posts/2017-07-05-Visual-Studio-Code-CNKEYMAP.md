@@ -6,6 +6,8 @@ keywords: vscode
 category: "tool"
 ---
 
+> [官方版本](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+
 ## vscode快捷键有5种组合方式
 
 1. `Ctrl+Shift+?` 常规组合
