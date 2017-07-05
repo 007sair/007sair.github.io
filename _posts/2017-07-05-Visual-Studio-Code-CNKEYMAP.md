@@ -35,13 +35,13 @@ category: "tool"
 
 ## 编辑器 & 窗口
 
-### 打开多个窗口（多项目）
+#### 打开多个窗口（多项目）
 
 - 打开新编辑器窗口：`Ctrl+Shift+N`
 - 打开终端 `Ctrl+~`
 - 创建新的终端 `Ctrl+Shift+~`
 
-### 打开多个文件（多文件）
+#### 打开多个文件（多文件）
 
 - 新建文件 `Ctrl+N`
 - 打开的文件之间切换 `Ctrl+Tab`，`Alt+Left`，`Alt+Right`
@@ -53,7 +53,7 @@ category: "tool"
 
 ## 代码编辑
 
-### 格式调整
+#### 格式调整
 
 - 缩进 `Ctrl+[`，`Ctrl+]`
 - 折叠/展开代码块 `Ctrl+Shift+[`，`Ctrl+Shift+]`
