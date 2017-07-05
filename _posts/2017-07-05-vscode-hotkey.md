@@ -6,9 +6,6 @@ keywords: vscode
 category: "tool"
 ---
 
-
-# VSCODE 常用快捷键
-
 ## vscode快捷键有5种组合方式
 
 1. `Ctrl+Shift+?` 常规组合
