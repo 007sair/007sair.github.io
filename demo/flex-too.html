@@ -37,6 +37,7 @@ ul li {
 }
 .f-parent {
     display: flex;
+    flex-wrap: wrap;
 }
 .f-child {
     margin: 0 20px;
@@ -57,7 +58,7 @@ pre {
 }
 .parent {
     position: relative;
-    width: 500px;
+    min-width: 500px;
     min-height: 500px;
     border: 1px solid #ccc;
 }
@@ -95,7 +96,7 @@ pre {
 
     <div class="f-parent">
 
-        <div class="f-child" style="width: 20%;">
+        <div class="f-child" style="width: 15%;min-width:255px;">
             <div class="readme">
                 <h3>使用方法</h3>
                 <div class="area">
@@ -145,9 +146,9 @@ pre {
             </ul>
         </div>
 
-        <div class="f-child">
+        <div class="f-child" style="min-width:350px;">
             <div class="form">
-                <el-form label-width="150px">
+                <el-form label-width="130px">
                     <h3>父容器</h3>
                     <div class="area">
                         <template v-for="(form, index) in parentCss">
