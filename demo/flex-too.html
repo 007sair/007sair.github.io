@@ -461,7 +461,18 @@ pre {
         watch: {
             parentCss: {
                 handler: function (val, oldVal) {
-                    console.log(val, oldVal);
+                    if (this.childbox.childs.length == 0) {
+                        this.$message({
+                            showClose: true,
+                            message: '请在<左侧>创建<子项目>后再选择样式~',
+                            type: 'warning'
+                        });
+                    }
+                },
+                deep: true
+            },
+            childCss: {
+                handler: function (val, oldVal) {
                     if (this.childbox.childs.length == 0) {
                         this.$message({
                             showClose: true,
@@ -474,6 +485,7 @@ pre {
             }
         }
     });
+
     
 </script>
 
