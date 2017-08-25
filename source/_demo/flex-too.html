@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>flex样式预览工具</title>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    margin: 0 15px 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+h3 {
+    margin: 10px 0;
+}
+ul {
+    padding-left: 1.2em;
+}
+ul li {
+    line-height: 1.5;
+    font-size: 14px;
+}
+[v-cloak] { 
+    display: none;
+}
+.el-form-item {
+    margin-bottom: 10px;
+}
+.f-parent {
+    display: flex;
+    flex-wrap: wrap;
+}
+.f-child {
+    margin: 0 20px;
+}
+.area {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+pre {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    font-family: 'consolas', 'Source Code Pro Medium';
+    line-height: 1.5;
+    font-size: 12px;
+    min-width: 300px;
+}
+.parent {
+    position: relative;
+    min-width: 500px;
+    min-height: 500px;
+    border: 1px solid #ccc;
+}
+.parent:after {
+    position: absolute;
+    content: '父容器';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #ccc;
+}
+.child {
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 36px;
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+.createChild {
+    padding-bottom: 20px;
+}
+</style>
+<style id="created"></style>
+</head>
+<body>
+
+<h1>flex样式预览工具</h1>
+
+<div id="app" v-cloak>
+
+    <div class="f-parent">
+
+        <div class="f-child" style="width: 15%;min-width:255px;">
+            <div class="readme">
+                <h3>使用方法</h3>
+                <div class="area">
+                    <ul>
+                        <li>创建n个子项目</li>
+                        <li>在父容器、子项目内选择样式</li>
+                        <li>预览区查看最终效果</li>
+                        <li>复制代码区代码到实际项目中</li>
+                        <li>对flex有任何疑问请点下方传送门</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="createChild">
+                <h3>父容器内创建子项目</h3>
+                <div class="area">
+                <el-form label-width="60px">
+                    <el-form-item label="个数：">
+                        <el-input v-model="childbox.count" placeholder="子容器个数"></el-input>
+                    </el-form-item>
+                    <el-form-item label="宽高：">
+                        <el-col :span="10">
+                            <el-input v-model="childbox.minSize" placeholder="子容器最小宽高"></el-input>
+                        </el-col>
+                        <el-col class="line" :span="3" style="text-align:center;">-</el-col>
+                        <el-col :span="11">
+                            <el-input v-model="childbox.maxSize" placeholder="子容器最大宽高"></el-input>
+                        </el-col>
+                    </el-form-item>
+                    <el-form-item label="">
+                        <p style="font-size:12px;line-height:1.3;color:#999;">创建n个子容器，宽高在 50-150 的范围内随机生成</p>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="createChild">创 建</el-button>
+                        <el-button @click="resetChild">清 空</el-button>
+                    </el-form-item>
+                </el-form>
+                </div>
+            </div>
+            <h3>阮一峰教程</h3>
+            <ul>
+                <li>
+                    <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank">Flex 布局教程：语法篇</a>
+                </li>
+                <li>
+                    <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank">Flex 布局教程：实例篇</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="f-child" style="min-width:350px;">
+            <div class="form">
+                <el-form label-width="130px">
+                    <h3>父容器</h3>
+                    <div class="area">
+                        <template v-for="(form, index) in parentCss">
+                            <el-form-item :label="form.property" v-if="form.type == 'select'">
+                                <el-select v-model="form.value" clearable :placeholder="form.desc">
+                                    <el-option :label="item.value+' / '+item.label" :value="item.value" v-for="item in form.values" :key="item.value">
+                                        <span style="float: left">{{ item.value }}</span>
+                                        <span style="float: right; margin-left: 10px; color: #8492a6; font-size: 13px">{{ item.label }}</span>
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item :label="form.property" v-else="form.tyoe == 'text'">
+                                <el-input v-model="form.value"></el-input>
+                            </el-form-item>
+                        </template>
+                    </div>
+                    <h3>子项目</h3>
+                    <div class="area">
+                    <template v-for="(form, index) in childCss">
+                        <el-form-item :label="form.property" v-if="form.type == 'select'">
+                            <el-select v-model="form.value" clearable :placeholder="form.desc">
+                                <el-option :label="item.value+' / '+item.label" :value="item.value" v-for="item in form.values" :key="item.value">
+                                    <span style="float: left">{{ item.value }}</span>
+                                    <span style="float: right; margin-left: 10px;  color: #8492a6; font-size: 13px">{{ item.label }}</span>
+                                </el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item :label="form.property" v-else="form.tyoe == 'text'">
+                            <el-input v-model="form.value" :placeholder="form.desc"></el-input>
+                        </el-form-item>
+                    </template>
+                    </div>
+                </el-form>
+            </div>
+        </div>
+
+        <div class="f-child">
+            <h3>预览区</h3>
+            <div class="parent" style="width:500px;">
+                <div class="child" :style="{ width: item.width, height: item.height, lineHeight: item.height }" v-for="(item, index) in childbox.childs">{{ index+1 }}</div>
+            </div>
+        </div>
+
+        <div class="f-child">
+            <h3>代码区</h3>
+<pre>
+/* 父容器类 */
+{{ createParentCss('.parent') }}
+/* 子项目类 */
+{{ createChildCss('.child') }}
+/* 子项目数据 */
+{{ childbox }}
+</pre>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+
+    var parent = [
+        {
+            property: 'display',
+            desc: '盒模型属性',
+            values: [
+                {
+                    value: 'flex',
+                    label: '弹性布局'
+                },{
+                    value: 'block',
+                    label: '块'
+                },{
+                    value: 'inline-box',
+                    label: '内联块'
+                }
+            ],
+            value: '',
+            type: 'select'
+        },{
+            property: 'flex-direction',
+            desc: '主轴方向',
+            values: [
+                {
+                    value: 'row',
+                    label: '左到右（默认）'
+                },{
+                    value: 'row-reverse',
+                    label: '右到左'
+                },{
+                    value: 'column',
+                    label: '上到下'
+                },{
+                    value: 'column-reverse',
+                    label: '下到上'
+                }
+            ],
+            value: '',
+            type: 'select'
+        },{
+            property: 'flex-wrap',
+            desc: '换行',
+            values: [
+                {
+                    value: 'nowrap',
+                    label: '不换行（默认）'
+                },{
+                    value: 'wrap',
+                    label: '换行'
+                },{
+                    value: 'wrap-reverse',
+                    label: '换行并第一行在下方'
+                },{
+                    value: 'column-reverse',
+                    label: '下到上'
+                }
+            ],
+            value: '',
+            type: 'select'
+        },{
+            property: 'justify-content',
+            desc: '主轴对齐方式',
+            values: [
+                {
+                    value: 'flex-start',
+                    label: '左对齐（默认）'
+                },{
+                    value: 'flex-end',
+                    label: '右对齐'
+                },{
+                    value: 'center',
+                    label: '居中对齐'
+                },{
+                    value: 'space-between',
+                    label: '两端对齐'
+                },{
+                    value: 'space-around',
+                    label: '平均分布'
+                }
+            ],
+            value: '',
+            type: 'select'
+        },{
+            property: 'align-items',
+            desc: '交叉轴对齐方式',
+            values: [
+                {
+                    value: 'flex-start',
+                    label: '顶部对齐（默认）'
+                },{
+                    value: 'flex-end',
+                    label: '底部对齐'
+                },{
+                    value: 'center',
+                    label: '居中对齐'
+                },{
+                    value: 'baseline',
+                    label: '上下对齐并铺满'
+                },{
+                    value: 'stretch',
+                    label: '文本基线对齐'
+                }
+            ],
+            value: '',
+            type: 'select'
+        },{
+            property: 'align-content',
+            desc: '多主轴对齐',
+            values: [
+                {
+                    value: 'flex-start',
+                    label: '顶部对齐（默认）'
+                },{
+                    value: 'flex-end',
+                    label: '底部对齐'
+                },{
+                    value: 'center',
+                    label: '居中对齐'
+                },{
+                    value: 'space-between',
+                    label: '上下对齐平均分布'
+                },{
+                    value: 'space-around',
+                    label: '上下对齐并铺满'
+                },{
+                    value: 'stretch',
+                    label: '占满'
+                }
+            ],
+            value: '',
+            type: 'select'
+        }
+    ];
+    var child = [
+        {
+            property: 'order',
+            desc: '排列顺序，默认0',
+            value: '',
+            type: 'text'
+        },{
+            property: 'flex-grow',
+            desc: '缩放比例，默认0',
+            value: '',
+            type: 'text'
+        },{
+            property: 'flex-shrink',
+            desc: '缩小比例，默认1',
+            value: '',
+            type: 'text'
+        },{
+            property: 'flex-basis',
+            desc: '多余空间，默认auto',
+            value: '',
+            type: 'text'
+        },{
+            property: 'flex',
+            desc: '简写，默认：0 1 auto',
+            value: '',
+            type: 'text'
+        },{
+            property: 'align-self',
+            desc: '不一样的对齐方式',
+            values: [
+                {
+                    value: 'auto',
+                    label: '继承父级'
+                },{
+                    value: 'flex-start',
+                    label: '顶部对齐（默认）'
+                },{
+                    value: 'flex-end',
+                    label: '底部对齐'
+                },{
+                    value: 'center',
+                    label: '居中对齐'
+                },{
+                    value: 'baseline',
+                    label: ''
+                },{
+                    value: 'stretch',
+                    label: ''
+                }
+            ],
+            value: '',
+            type: 'select'
+        }
+    ];
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                p_css: '',
+                c_css: '',
+                parentCss: parent.slice(0),
+                childCss: child.slice(0),
+                childbox: {
+                    count: 3,
+                    minSize: 50,
+                    maxSize: 150,
+                    childs: []
+                }
+            }
+        },
+        methods: {
+            insertCss: function() {
+                document.getElementById('created').innerHTML = this.p_css + this.c_css;
+            },
+            createParentCss: function (sClassName) {
+                this.p_css = this.arr2css(sClassName, this.parentCss);
+                this.insertCss();
+                return this.arr2css(sClassName, this.parentCss)
+            },
+            createChildCss: function (sClassName) {
+                this.c_css = this.arr2css(sClassName, this.childCss);
+                this.insertCss();
+                return this.arr2css(sClassName, this.childCss);
+            },
+            createChild: function() {
+                var child = {};
+                for (var i = 0; i < this.childbox.count; i++) {
+                    var height = this.rndSize();
+                    this.childbox.childs.push({
+                        width: parseInt(this.rndSize()) + 'px',
+                        height: parseInt(height) + 'px'
+                    });
+                }
+            },
+            resetChild: function() {
+                this.childbox.childs = [];
+            },
+            rndSize: function() {
+                return Math.random() * (this.childbox.maxSize - this.childbox.minSize) + this.childbox.minSize;
+            },
+            arr2css: function(sClassName, arr) {
+                var css = '';
+                arr.forEach(function(item) {
+                    if (item.value) {
+                        css += '    ' + item.property +':'+ item.value + ';\n'
+                    }
+                })
+                return sClassName +' { \n' + css + '}\n';
+            }
+        },
+        watch: {
+            parentCss: {
+                handler: function (val, oldVal) {
+                    if (this.childbox.childs.length == 0) {
+                        this.$message({
+                            showClose: true,
+                            message: '请在<左侧>创建<子项目>后再选择样式~',
+                            type: 'warning'
+                        });
+                    }
+                },
+                deep: true
+            },
+            childCss: {
+                handler: function (val, oldVal) {
+                    if (this.childbox.childs.length == 0) {
+                        this.$message({
+                            showClose: true,
+                            message: '请在<左侧>创建<子项目>后再选择样式~',
+                            type: 'warning'
+                        });
+                    }
+                },
+                deep: true
+            }
+        }
+    });
+
+    
+</script>
+
+</html>

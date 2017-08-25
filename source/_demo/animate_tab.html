@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>选项卡切换 - 带动效</title>
+<style>
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f2f2f2;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.wrapper {
+	max-width: 540px;
+	margin: 0 auto;
+}
+
+/* 样式 */
+.atab-tabs {
+	position: relative;
+	background-color: #fff;
+	border-bottom: 1px solid #e9e9e9;
+}
+
+.atab-tabs ul {
+	display: flex;
+}
+
+.atab-tabs ul li {
+	flex: 1;
+
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.atab-tabs ul li.cur {
+	color: #ff4e88;
+}
+
+.atab-tabs i {
+	position: absolute;
+	width: 0; 
+	height: 2px; 
+	background-color: #ff4e88; 
+	left: 0; 
+	bottom: 0;
+	transition: all 0.3s ease;
+}
+
+.atab-conts {
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.atab-conts .cont {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+
+	padding: 50px 0;
+	text-align: center;
+}
+
+.atab-conts .atab-wrap {
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<div class="atab-tabs J_tabs">
+		<ul>
+			<li class="cur">选项卡1</li>
+			<li>选项卡2</li>
+			<li>选项卡3</li>
+		</ul>
+	</div>
+
+	<div class="atab-conts J_conts">
+		<div class="cont">1111</div>
+		<div class="cont">2222</div>
+		<div class="cont">3333</div>
+	</div>
+
+</div>
+
+
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script>
+$(function() {
+
+	function aTab(opt) {
+
+		this.defaults = {
+			tabWrap: '.J_tabs',		//tab按钮区最外层元素
+			contWrap: '.J_conts',	//tab内容区最外层容器
+			slider: 'atab-wrap',	//tab内容区滑动模块的classname
+			click: function($obj) { //暴露点击事件  $obj => 当前被点击的li元素，jq对象
+				//...
+			}
+		};
+
+		this.opt = $.extend({}, this.defaults, opt);
+
+		this.$tab = $(this.opt.tabWrap).find('li');
+		this.$cont = $(this.opt.contWrap).find('.cont');
+
+		this.$wrap = this.$cont.wrapAll('<div class="' + this.opt.slider + '">');
+
+		this.init();
+	}
+
+	aTab.prototype = {
+		constructor: aTab,
+		init: function() {
+			this.$line = $('<i></i>').appendTo($(this.opt.tabWrap));
+			this.$line.css('width', this.toPercent(1 / this.$tab.length));
+
+			this.bind()
+		},
+		swipe: function(index) {
+			var me = this;
+			this.$tab.eq(index).addClass('cur').siblings('li').removeClass('cur');
+			this.$line.css({
+				'transform' : 'translate3d('+ index * 100 +'%, 0, 0)'
+			});
+			this.$cont.parent().css({
+				'transform' : 'translate3d('+ -index * 100 +'%, 0, 0)'
+			});
+
+		},
+		bind: function() {
+			var me = this;
+
+			this.$tab.on('click', function() {
+				var index = $(this).index();
+				me.swipe(index);
+				me.opt.click($(this))
+			})
+		},
+		toPercent: function(num){
+			return num.toFixed(4) * 100 + '%';
+		}
+	};
+
+	new aTab({
+		click: function() {
+			console.log('click')
+		}
+	})
+	
+})
+</script>
+
+</body>
+</html>
