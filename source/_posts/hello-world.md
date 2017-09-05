@@ -5,6 +5,7 @@ tags:
  - web
 categories:
  - web
+comments: true
 ---
 
 博客顺利从jekyll转成了[Hexo](https://hexo.io/zh-cn/)，虽然也踩了很多坑，但很满意~~
@@ -24,8 +25,6 @@ $ hexo s -g
 ``` bash
 $ hexo d -g
 ```
-
-
 
 ### 创建新的页面
 
