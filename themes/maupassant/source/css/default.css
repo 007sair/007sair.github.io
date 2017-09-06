@@ -94,6 +94,7 @@ a.gitment-header-issue-link:visited {
 
 a.gitment-header-issue-link:hover {
   color: #666;
+  text-decoration: none;
 }
 
 .gitment-comments-loading,
@@ -104,9 +105,9 @@ a.gitment-header-issue-link:hover {
 }
 
 .gitment-comments-list {
-  list-style: none;
+  list-style: none !important;
   padding-left: 0;
-  margin: 0 0 38px;
+  margin: 0 0 38px !important;
 }
 
 .gitment-comment,
