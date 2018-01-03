@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rem转换</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.0/lib/theme-chalk/index.css">
+    <style>
+        h1 {
+            font-size: 24px;
+        }
+        aside {
+            color: #999;
+        }
+        h3 {
+            text-align: center;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item {
+            flex: 1;
+            width: 1px;
+        }
+        .btn {
+            padding: 0 20px;
+        }
+        .el-textarea__inner {
+            font-family: Monaco, 'Lucida Console', monospace, Consolas, Courier, 'Microsoft YaHei'
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <h1>rem转换工具</h1>
+    <aside>将以640为比例的rem单位转换为以750为比例的单位</aside>
+
+    <div class="wrapper">
+        <div class="item">
+            <h3>转换前</h3>
+            <el-input
+                type="textarea"
+                :rows="20"
+                placeholder="请输入内容"
+                v-model="from">
+            </el-input>
+        </div>
+
+        <div class="btn">
+            <el-button @click="transform" type="primary"> 640转750 </el-button>
+        </div>
+
+        <div class="item">
+            <h3>转换后</h3>
+            <el-input
+                type="textarea"
+                :rows="20"
+                placeholder="请输入内容"
+                v-model="to">
+            </el-input>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui@2.0.0/lib/index.js"></script>
+<script>
+new Vue({
+    el: '#app',
+    data: function () {
+        return {
+            from: '.div{width:1.4rem; height: 125px; margin: 10rem 5rem 8rem;}\n\
+.f10{font-size: 0.5rem}\n\
+.f12{font-size:.6rem}\n\
+.f14{font-size:  1.7rem}\n\
+.f16{font-size: .8rem}\n\
+.f18{font-size:.9rem}',
+            to: ''
+        }
+    },
+    methods: {
+        transform: function () {
+            this.to = this.rem2rem(this.from)
+        },
+        rem2rem: function (str) {
+            var me = this;
+            return str.replace(/(\d+(\.\d+)?)rem|(\.\d+)rem/gi, function ($0) {
+                return parseFloat((parseFloat($0) * 40 / 75).toFixed(5)) + 'rem'
+            })
+        }
+    }
+});
+</script>
+</body>
+</html>

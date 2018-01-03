@@ -1,6 +1,19 @@
 # 007sair.github.io
 my blog：http://007sair.github.io
 
+## 命令
+
+``` bash
+# 本地运行博客
+$ hexo s -g
+
+# 发布更新博客
+$ hexo d -g
+
+# 创建新的页面
+$ hexo new "页面名称"
+```
+
 ## 日常修改
 
 在`hexo`分支上写博客，执行命令，有了步骤 `6` 后会自动将博客内容生成到`master`分支
