@@ -5,6 +5,7 @@ description: Javascript执行效率小结
 keywords: javascript, 优化, 效率
 tags:
  - javascript
+ - 优化
 categories:
  - javascript
 ---
@@ -149,15 +150,15 @@ for(var i=1,j=lis.length ;i<j;i++){
 
 查找dom元素时尽量避免大面积遍历页面元素，尽量使用精准选择器，或者指定上下文以缩小查找范围，以jquery为例
 
-少用模糊匹配的选择器：例如$(“[name*=’_fix’]”)，多用诸如id以及逐步缩小范围的复合选择器$(“li.active”)等
-指定上下文：例如$(“#parent .class”)，$(“.class”,$el)等
+少用模糊匹配的选择器：例如`$("[name*='_fix']")`，多用诸如id以及逐步缩小范围的复合选择器`$("li.active")`等
+指定上下文：例如`$("#parent .class")`，`$(".class", $el)`等
 
 
 #### 4、使用事件委托
 
 使用场景：一个有大量记录的列表，每条记录都需要绑定点击事件，在鼠标点击后实现某些功能，我们通常的做法是给每条记录都绑定监听事件，这种做法会导致页面会有大量的事件监听器，效率比较低下。
 
-基本原理：我们都知道dom规范中事件是会冒泡的，也就是说在不主动阻止事件冒泡的情况下任何一个元素的事件都会按照dom树的结构逐级冒泡至顶端。而event对象中也提供了event.target（IE下是srcElement）指向事件源，因此我们即使在父级元素上监听该事件也可以找到触发该事件的最原始的元素，这就是委托的基本原理。废话不多说，上示例
+基本原理：我们都知道dom规范中事件是会冒泡的，也就是说在不主动阻止事件冒泡的情况下任何一个元素的事件都会按照dom树的结构逐级冒泡至顶端。而event对象中也提供了`event.target`（IE下是srcElement）指向事件源，因此我们即使在父级元素上监听该事件也可以找到触发该事件的最原始的元素，这就是委托的基本原理。废话不多说，上示例
 
 ```js
 $("ul li").bind("click",function(){
@@ -177,11 +178,11 @@ $("ul").bind("click",function(e){
 })
 ```
 
-这样一来，我们就可以只添加一个事件监听器去捕获所有li上触发的事件，并做出相应的操作。
+这样一来，我们就可以只添加一个事件监听器去捕获所有`li`上触发的事件，并做出相应的操作。
 
-当然，我们不必每次都做事件源的判断工作，可以将其抽象一下交给工具类来完成。jquery中的delegate()方法就实现了该功能
+当然，我们不必每次都做事件源的判断工作，可以将其抽象一下交给工具类来完成。`jquery`中的`delegate()`方法就实现了该功能
 
-语法是这样的$(selector).delegate(childSelector,event,data,function)，例如：
+语法是这样的`$(selector).delegate(childSelector,event,data,function)`，例如：
 
 ``` js
 $("div").delegate("button","click",function(){
@@ -192,6 +193,6 @@ $("div").delegate("button","click",function(){
 <table width="600"><tr><th width="100" style="text-align:center">参数</th><th style="text-align:center">描述</th></tr><tr><td>childSelector</td><td>必需。规定要附加事件处理程序的一个或多个子元素。</td></tr><tr><td>event</td><td>必需。规定附加到元素的一个或多个事件。由空格分隔多个事件值。必须是有效的事件。</td></tr><tr><td>data</td><td>可选。规定传递到函数的额外数据。</td></tr><tr><td>function</td><td>必需。规定当事件发生时运行的函数。</td></tr></table>
 
 
-Tips：事件委托还有一个好处就是，即使在事件绑定之后动态添加的元素上触发的事件同样可以监听到哦，这样就不用在每次动态加入元素到页面后都为其绑定事件了
+`Tips：`事件委托还有一个好处就是，即使在事件绑定之后动态添加的元素上触发的事件同样可以监听到哦，这样就不用在每次动态加入元素到页面后都为其绑定事件了
 
 转自：[http://www.cnblogs.com/gewei/archive/2013/03/29/2988180.html](http://www.cnblogs.com/gewei/archive/2013/03/29/2988180.html)

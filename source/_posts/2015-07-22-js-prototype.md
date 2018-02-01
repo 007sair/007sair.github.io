@@ -1,9 +1,11 @@
 ---
 layout: post
-title: js 对象、原型、继承详解
+title: Javascript中对象、原型、继承详解
 description: js 对象、原型、继承介绍
 tags:
  - javascript
+ - 原型
+ - study
 categories:
  - javascript
 ---
@@ -69,7 +71,7 @@ var a = new A(1);
 2. 将`o`内部的`__proto__`对象的引用指向`o`的构造函数`A`的原型对象（`A.prototype`）。
 3. 将`o`作为`this`去调用构造函数A，从而设置`o`的属性和方法并初始化。
 
-> 传送门：<a href="/javascript/2015/08/10/js-this.html#anchor3" target="_blank">模拟new操作符的内部处理过程</a>
+> 传送门：<a href="/2015/08/10/js-this/#new%E6%93%8D%E4%BD%9C%E7%AC%A6" target="_blank">模拟new操作符的内部处理过程</a>
 
 当这3步完成，这个`o`对象就与构造函数`A`再无联系，这个时候即使构造函数`A`再加任何成员，都不再影响已经实例化的`o`对象了。<br>
 此时，`o`对象具有了`x`属性，同时具有了构造函数`A`的原型对象的所有成员，当然，此时该原型对象是没有成员的。
@@ -152,7 +154,7 @@ console.log(Object.prototype.__proto__) //null
 
 <img src="/images/img/js-prototype-lian.jpg" alt="">
 
-##### 疑点解释：
+### 疑点解释：
 
 ```js
 Object.__proto__ === Function.prototype // true     Object是函数对象，是通过new Function()创建，所以Object.__proto__指向Function.prototype。

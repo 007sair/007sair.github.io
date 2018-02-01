@@ -89,10 +89,10 @@ div {
         bottom: 0;
         a {
             display: inline-block;
-            padding: 3px 20px 3px;
-            line-height: 30px;
+            padding: 5px 25px 5px;
+            line-height: 32px;
             color: #444;
-            font-size: 13px;
+            font-size: 16px;
             border: 1px solid transparent;
             &:hover {
                 border-bottom-color: #444;
@@ -819,7 +819,7 @@ figure.highlight,
 .codeblock {
     background:     #f7f8f8;
     margin:         10px 0;
-    line-height:    1.1em;
+    line-height:    1.35;
     color:          #333;
     padding-top:    10px;
     overflow:       hidden;
@@ -1926,7 +1926,7 @@ strong, b {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   color: #000;
   line-height: 1.35;
 }

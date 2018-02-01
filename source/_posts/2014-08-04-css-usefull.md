@@ -4,6 +4,7 @@ title: 有用的CSS代码片段
 description: 面对每年如此多的 新趋势 ,保持行业的领先是个很困难问题. 网站设计者和前端工程师都已经全面的使用 CSS3 properties, 决定这些的是 浏览器支持 和新的特性. 但是还是有些优秀的CSS2代码片段和CSS3一起运行中.
 tags:
  - css
+ - study
 categories:
  - css
 ---

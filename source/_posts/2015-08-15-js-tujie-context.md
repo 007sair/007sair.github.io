@@ -4,27 +4,28 @@ title: 图解Javascript上下文与作用域
 description: 图解Javascript上下文与作用域
 tags:
  - javascript
+ - study
 categories:
  - javascript
 ---
 
-本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
+本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（`execution context`）、作用域链（`scope chain`）、闭包（`closure`）、`this`等概念。
 
-### Execution context
+### `Execution context`
 
-执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（global context），全局上下文取决于执行环境，如Node中的global和Browser中的window：
+执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（`variable object`），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（`global context`），全局上下文取决于执行环境，如`Node`中的`global`和`Browser`中的`window`：
 
 <!-- more -->
 
 <img src="/images/img/js-global-context.jpg" style="width:600px;" alt="">
 
-需要注意的是，上下文与作用域（scope）是不同的概念。Js本身是单线程的，每当有function被执行时，就会产生一个新的上下文，这一上下文会被压入Js的上下文堆栈（context stack）中，function执行结束后则被弹出，因此Js解释器总是在栈顶上下文中执行。在生成新的上下文时，首先会绑定该上下文的变量对象，其中包括arguments和该函数中定义的变量；之后会创建属于该上下文的作用域链（scope chain），最后将this赋予这一function所属的Object，这一过程可以通过下图表示：
+需要注意的是，上下文与作用域（`scope`）是不同的概念。Js本身是单线程的，每当有`function`被执行时，就会产生一个新的上下文，这一上下文会被压入Js的上下文堆栈（`context stack`）中，`function`执行结束后则被弹出，因此Js解释器总是在栈顶上下文中执行。在生成新的上下文时，首先会绑定该上下文的变量对象，其中包括`arguments`和该函数中定义的变量；之后会创建属于该上下文的作用域链（`scope chain`），最后将`this`赋予这一`function`所属的`Object`，这一过程可以通过下图表示：
 
 <img src="/images/img/js-context-stack.jpg" style="width:600px;" alt="">
 
-### this
+### `this`
 
-上文提到this被赋予function所属的Object，具体来说，当function是定义在global对中时，this指向global；当function作为Object的方法时，this指向该Object：
+上文提到`this`被赋予`function`所属的`Object`，具体来说，当`function`是定义在`global`对中时，`this`指向`global`；当`function`作为`Object`的方法时，`this`指向该`Object`：
 
 ```js
 var x = 1;  
@@ -44,9 +45,9 @@ var o = {x: "o's x", f: f};
 o.f(); // "o's x"  
 ```
 
-### Scope chain
+### `Scope chain`
 
-上文提到，在function被执行时生成新的上下文时会先绑定当前上下文的变量对象，再创建作用域链。我们知道function的定义是可以嵌套在其他function所创建的上下文中，也可以并列地定义在同一个上下文中（如global）。作用域链实际上就是自下而上地将所有嵌套定义的上下文所绑定的变量对象串接到一起，使嵌套的function可以“继承”上层上下文的变量，而并列的function之间互不干扰：
+上文提到，在`function`被执行时生成新的上下文时会先绑定当前上下文的变量对象，再创建作用域链。我们知道`function`的定义是可以嵌套在其他`function`所创建的上下文中，也可以并列地定义在同一个上下文中（如`global`）。作用域链实际上就是自下而上地将所有嵌套定义的上下文所绑定的变量对象串接到一起，使嵌套的`function`可以“继承”上层上下文的变量，而并列的`function`之间互不干扰：
 
 <img src="/images/img/js-scope-chain.jpg" style="width:600px;" alt="">
 
@@ -73,9 +74,9 @@ x     // -> "global"
 y     // -> ReferenceError: y is not defined  
 ```
 
-### Closure
+### `Closure`
 
-如果理解了上文中提到的上下文与作用域链的机制，再来看闭包的概念就很清楚了。每个function在调用时会创建新的上下文及作用域链，而作用域链就是将外层（上层）上下文所绑定的变量对象逐一串连起来，使当前function可以获取外层上下文的变量、数据等。如果我们在function中定义新的function，同时将内层function作为值返回，那么内层function所包含的作用域链将会一起返回，即使内层function在其他上下文中执行，其内部的作用域链仍然保持着原有的数据，而当前的上下文可能无法获取原先外层function中的数据，使得function内部的作用域链被保护起来，从而形成“闭包”。看下面的例子：
+如果理解了上文中提到的上下文与作用域链的机制，再来看闭包的概念就很清楚了。每个`function`在调用时会创建新的上下文及作用域链，而作用域链就是将外层（上层）上下文所绑定的变量对象逐一串连起来，使当前`function`可以获取外层上下文的变量、数据等。如果我们在`function`中定义新的`function`，同时将内层`function`作为值返回，那么内层`function`所包含的作用域链将会一起返回，即使内层`function`在其他上下文中执行，其内部的作用域链仍然保持着原有的数据，而当前的上下文可能无法获取原先外层`function`中的数据，使得`function`内部的作用域链被保护起来，从而形成“闭包”。看下面的例子：
 
 ```js
 var x = 100;  
@@ -97,13 +98,13 @@ inc2();  // -> 1
 x;       // -> 100  
 ```
 
-执行过程如下图所示，inc内部返回的匿名function在创建时生成的作用域链包括了inc中的x，即使后来赋值给inc1和inc2之后，直接在global context下调用，它们的作用域链仍然是由定义中所处的上下文环境决定，而且由于x是在function inc中定义的，无法被外层的global context所改变，从而实现了闭包的效果：
+执行过程如下图所示，`inc`内部返回的匿名`function`在创建时生成的作用域链包括了`inc`中的`x`，即使后来赋值给`inc1`和`inc2`之后，直接在`global context`下调用，它们的作用域链仍然是由定义中所处的上下文环境决定，而且由于`x`是在`function inc`中定义的，无法被外层的`global context`所改变，从而实现了闭包的效果：
 
 <img src="/images/img/js-closure.jpg" style="width:600px;" alt="">
 
-### this in closure
+### `this in closure`
 
-我们已经反复提到执行上下文和作用域实际上是通过function创建、分割的，而function中的this与作用域链不同，它是由执行该function时当前所处的Object环境所决定的，这也是this最容易被混淆用错的一点。一般情况下的例子如下：
+我们已经反复提到执行上下文和作用域实际上是通过`function`创建、分割的，而`function`中的`this`与作用域链不同，它是由执行该`function`时当前所处的`Object`环境所决定的，这也是`this`最容易被混淆用错的一点。一般情况下的例子如下：
 
 ```js
 var name = "global";  
@@ -116,7 +117,7 @@ var o = {
 o.getName();  // -> "o"  
 ```
 
-由于执行o.getName()时getName所绑定的this是调用它的o，所以此时this == o；更容易搞混的是在closure条件下：
+由于执行`o.getName()`时`getName`所绑定的`this`是调用它的`o`，所以此时`this == o`；更容易搞混的是在`closure`条件下：
 
 ```js
 var name = "global";  
@@ -131,7 +132,7 @@ var oo = {
 oo.getNameFunc()();  // -> "global"  
 ```
 
-此时闭包函数被return后调用相当于：
+此时闭包函数被`return`后调用相当于：
 
 ```js
 getName = oo.getNameFunc();  
@@ -148,7 +149,7 @@ var ooo = {
 ooo.getName();  // -> "ooo"  
 ```
 
-当然，有时候为了避免闭包中的this在执行时被替换，可以采取下面的方法：
+当然，有时候为了避免闭包中的`this`在执行时被替换，可以采取下面的方法：
 
 ```js
 var name = "global";  
@@ -164,7 +165,7 @@ var oooo = {
 oooo.getNameFunc()(); // -> "ox4"  
 ```
 
-或者是在调用时强行定义执行的Object：
+或者是在调用时强行定义执行的`Object`：
 
 ```js
 var name = "global";  
@@ -182,9 +183,9 @@ oo.getNameFunc().bind(oo)(); // -> "oo"
 
 ### 总结
 
-Js是一门很有趣的语言，由于它的很多特性是针对HTML中DOM的操作，因而显得随意而略失严谨，但随着前端的不断繁荣发展和Node的兴起，Js已经不再是"toy language"或是jQuery时代的"CSS扩展"，本文提到的这些概念无论是对新手还是从传统Web开发中过度过来的Js开发人员来说，都很容易被混淆或误解，希望本文可以有所帮助。
+`Js`是一门很有趣的语言，由于它的很多特性是针对`HTML`中`DOM`的操作，因而显得随意而略失严谨，但随着前端的不断繁荣发展和`Node`的兴起，`Js`已经不再是`"toy language"`或是`jQuery`时代的"`CSS`扩展"，本文提到的这些概念无论是对新手还是从传统Web开发中过度过来的Js开发人员来说，都很容易被混淆或误解，希望本文可以有所帮助。
 
-写这篇总结的原因是我在Github上分享的<a href="https://github.com/coodict/javascript-in-one-pic" target="_blank">Learn javascript in one picture</a>，刚开始有人质疑这只能算是一张语法表（syntax cheat sheet），根本不会涉及更深层的闭包、作用域等内容，但是出乎意料的是这个项目竟然获得3000多个star，所以不能虎头蛇尾，以上。
+写这篇总结的原因是我在Github上分享的<a href="https://github.com/coodict/javascript-in-one-pic" target="_blank">Learn javascript in one picture</a>，刚开始有人质疑这只能算是一张语法表（`syntax cheat sheet`），根本不会涉及更深层的闭包、作用域等内容，但是出乎意料的是这个项目竟然获得3000多个star，所以不能虎头蛇尾，以上。
 
 <br>
 
