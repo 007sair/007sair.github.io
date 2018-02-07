@@ -1,5 +1,5 @@
 ---
-title: script标签属的defer和async区别
+title: script标签中的defer和async区别
 date: 2018-02-05 15:07:58
 tags:
  - javascript
@@ -10,6 +10,8 @@ categories:
 script标签的位置决定了页面何时渲染，浏览器解析页面时，碰到script标签会将脚本解析完后再解析后面的html、script。
 
 所以我们在往页面里写script标签时建议不要将script标签放在head内，而是尽量放在body之前，其他html标签之后。这样的好处是页面白屏时间会缩短，优先解析出html。
+
+<!-- more -->
 
 ## 定义
 
