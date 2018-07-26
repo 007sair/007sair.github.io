@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document123</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<div id="page">
+    <cp-menu></cp-menu>
+    <cp-sidebar></cp-sidebar>
+    <cp-crumbs-tab></cp-crumbs-tab>
+</div>
+
+<div class="dss-main">
+
+    <div class="dss-tab" id="js-home-list">
+        <ul class="title">
+            <li>专题ID</li>
+            <li>页面名称</li>
+            <li>更新时间</li>
+            <li class="state">
+                <div class="J_state" data-bind="click: toggleState">
+                    <span data-bind="text: data.isStateSelected() || '状态'"></span><i data-bind="css: { 'cur': data.isStateShow() }" class="J_arrow arrow-down"></i>
+                </div>
+                <div class="ask">
+                    <svg class="icon-svg J_iconask" aria-hidden="true"><use xlink:href="#icon-ask"></use></svg>
+                    <div class="state-content"><i class="arrow-up"></i>状态包括已发布、审核通过、待审核、被驳回、已下线六种状态；点击▼可筛选专题状态</div>
+                </div>
+
+                <div class="state-open" style="display:none" data-bind="style: { display: data.isStateShow() ? '' : 'none' }">
+                    <i class="arrow-up"></i>
+                    <div class="state-list" data-bind="foreach: data.states">
+                        <span data-bind="text: $data, click: $parent.selectState.bind($parent), css: {'cur': $parent.data.isStateSelected() == $data}"></span>
+                    </div>
+                </div>
+            </li>
+            <li>操作</li>
+            <li>驳回原因</li>
+        </ul>
+        <!-- ko foreach: list -->  
+        <ul>
+            <li data-bind="text: $data.sku"></li>
+            <li data-bind="text: $data.title"></li>
+            <li data-bind="text: $data.time"></li>
+            <li data-bind="text: $data.status"></li>
+            <li>
+                <a data-bind="click: $parent.edit.bind($parent)" href="javascript:void(0);">编辑</a>
+                <a data-bind="click: $parent.preview.bind($parent)" href="javascript:void(0);">预览</a>
+                <a data-bind="click: $parent.del.bind($parent)" href="javascript:void(0);">删除</a>
+            </li>
+            <li data-bind="text: $data.rr"></li>
+        </ul>
+        <!-- /ko -->  
+    </div>
+
+    <div id="ko-pagination"></div>
+
+</div>
+
+<script type="text/javascript" src="js/vendor.min.js"></script><script type="text/javascript" src="js/common.min.js?v=87933ed0b8"></script><script type="text/javascript" src="js/home.min.js?v=012e5400e8"></script></body>
+</html>

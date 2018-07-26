@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>滚动插件</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+header{
+	height: 44px;
+	line-height: 44px;
+	background-color: #ff4e88;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+.content{
+	padding: 20px 0;
+	font-weight: bold;
+	height: 3000px;
+	border: 1px solid blue;
+	background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#FFFFFF), to(#fff), color-stop(0.5,#FF0000));
+	text-align: center;
+}
+.banner{
+	font-weight: bold;
+	height:50px;
+	line-height: 50px;
+	border: 1px solid #000;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Banner</div>
+
+<header>
+	Header
+</header>
+
+<div class="content">
+	Content
+</div>
+
+<script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+<script>
+$(function(){
+
+	/**
+	 * Useage:
+	 *   new Fixer(id|class|selector);
+	 *   example: 
+	 *     1. id: new Fixer('#id');
+	 *     2. class: new Fixer('.class');
+	 *     3. selector: new Fixer('selector');
+	 */
+
+	var defaults = {
+
+	};
+
+	function Fixer(ele, opts){
+		this.$ele = $(ele);
+		this.opts = $.extend({}, defaults, opts);
+		this.isFixed = 0;
+		this.init();
+	}
+
+	Fixer.prototype = {
+		constructor: Fixer,
+		init: function(){
+			this._H = this.$ele.height();
+			this.offTop = this.$ele.offset().top;
+			this.bindEvent();
+		},
+		bindEvent: function(){
+			var _this = this;
+			//绑定滚动事件
+			window.addEventListener('scroll', function(){
+				var scrollTop = $(this).scrollTop();
+				if (scrollTop > _this.offTop) {
+					_this.fixed();
+				} else {
+					_this.static();
+				}
+			}, false);
+		},
+		showPlace: function(){
+			//设置header的占位
+			if (!this.$placeHolder) {
+				this.$placeHolder = $('<div style="height:'+ this._H +'px;">');
+				this.$ele.after(this.$placeHolder);
+			}else{
+				this.$placeHolder.show();
+			}
+		},
+		hidePlace: function(){
+			this.$placeHolder && this.$placeHolder.hide();
+		},
+		fixed: function(){
+			if (this.isFixed !== 0) {
+				return false;
+			};
+			this.showPlace();
+			this.$ele.css({
+				position: 'fixed',
+				width: '100%',
+				top: 0
+			});
+			this.$ele.data('fixed', 1);
+			this.isFixed = 1;
+			// console.log('fixed', this.isFixed);
+		},
+		static: function(){
+			if (this.isFixed == 0) {
+				return false;
+			};
+			this.hidePlace();
+			this.$ele.css({
+				position: 'static'
+			});
+			this.$ele.data('fixed', 0);
+			this.isFixed = 0;
+			// console.log('static', this.isFixed);
+		}
+	};
+
+	new Fixer('header');
+
+
+})
+</script>
+    	
+</body>
+</html>
