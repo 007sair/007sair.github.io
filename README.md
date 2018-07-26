@@ -5,16 +5,16 @@
 
 ## 日常操作
 
-> 在`hexo分支`上写博客，执行命令发布博客（步骤[`6`](#step6)后会自动将博客内容生成到`master分支`）
+> 在`hexo分支`上写博客，文章会被发布到`master分支`。
 
 ``` bash
-# 本地启动服务
+# 启动本地服务
 $ hexo s -g
 
-# 创建新的文章
+# 创建新文章
 $ hexo new "页面名称"
 
-# 发布更新博客
+# 发布博客
 $ hexo d -g
 ```
 
@@ -36,12 +36,12 @@ $ hexo d -g
 
 解决方法：先拷贝出`.git`文件夹，等第 `5` 步完成后，再粘贴`.git`文件进去。
 
-## 配置[git](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
+## 配置[Git](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
 
-让本地git项目与github账户建立联系，步骤如下：
+让本地`Git项目`与`Github账户`建立联系，步骤如下：
 
 ``` bash
-# 1. 设置Git的user name和email：(如果是第一次的话)
+# 1. 设置Git的user name和email(如果是第一次的话)
 $ git config --global user.name "your_name"
 $ git config --global user.email "your_email@163.com"
 
@@ -59,6 +59,6 @@ $ cat ~/.ssh/id_rsa.pub
 
 # 5. 测试
 $ ssh -T git@github.com
-# 成功将会看到 
+# 成功将会看到：
 # Hi 007sair! You've successfully authenticated, but GitHub does not provide shell access.
 ```
