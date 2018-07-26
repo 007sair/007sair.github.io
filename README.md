@@ -1,5 +1,5 @@
 # Blog
-[传送门：](http://007sair.github.io)
+[传送门](http://007sair.github.io)
 
 ## hexo命令
 
