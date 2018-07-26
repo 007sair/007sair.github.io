@@ -1,7 +1,7 @@
 ## 分支
 
-- `master`：展示分支，`hexo分支`发布的内容会展现在此分支；
-- `hexo`：数据分支，用于编辑更新博客，执行相关命令会将内容发布到`master分支`。
+- `hexo`：数据分支，用于编辑更新博客，执行相关命令会将内容发布到`master分支`；
+- `master`：展示分支，`hexo分支`发布的内容会展现在此分支。
 
 ## 日常操作
 
@@ -36,27 +36,29 @@ $ hexo d -g
 
 解决方法：先拷贝出`.git`文件夹，等第 `5` 步完成后，再粘贴`.git`文件进去。
 
-## 配置ssh keys
+## 配置[git](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
 
-让本地git项目与github账户建立联系
-
-### 生成新的SSH Key
+让本地git项目与github账户建立联系，步骤如下：
 
 ``` bash
-$ ssh-keygen -t rsa -C "邮件地址@youremail.com"
-```
+# 1. 设置Git的user name和email：(如果是第一次的话)
+$ git config --global user.name "your_name"
+$ git config --global user.email "your_email@163.com"
 
-### 添加SSH Key到GitHub 
+# 2. 检查是否已经有SSH Key。
+$ cd ~/.ssh  # Mac。 windows在 C:\Users\Administrator\.ssh 中查找
+$ ls  # 查看是否存在 id_isa 和 id_isa.pub 文件
 
-在本机设置SSH Key之后，需要添加到GitHub上，以完成`SSH`链接的设置。
+# 3. 如果步骤2没有文件
+$ ssh-keygen -t rsa -C "your_email@163.com"
 
-1. 打开本地`/Users/longchan/.ssh/id_rsa.pub`（Mac），`windows`系统在`C:\Users\user\.ssh\id_rsa.pub`文件。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功；
-2. 登陆`Github`，点击右上角的头像`Settings — SSH and GPG keys — New SSH key`；      
-3. 把你本地生成的密钥复制到里面（key文本框中）， 点击`add key`就ok了。
+# 4. 添加SSH Key到GitHub
+$ cat ~/.ssh/id_rsa.pub
+# 打开Github，点击右上角头像，依次打开`Settings — SSH and GPG keys — New SSH key`
+# 将上面命令显示的内容复制到key文本框中，点击`add key`即可。
 
-### 设置git身份信息
-
-``` bash
-$ git config --global user.name "你的用户名"
-$ git config --global user.email "你的邮箱"
+# 5. 测试
+$ ssh -T git@github.com
+# 成功将会看到 
+# Hi 007sair! You've successfully authenticated, but GitHub does not provide shell access.
 ```
