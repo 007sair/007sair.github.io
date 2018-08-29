@@ -9,16 +9,16 @@
   
   
   
-  <meta name="description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+  <meta name="description" content="simple technology, simple life">
 <meta property="og:type" content="website">
 <meta property="og:title" content="FE blog">
 <meta property="og:url" content="http://007sair.github.io/index.html">
 <meta property="og:site_name" content="FE blog">
-<meta property="og:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:description" content="simple technology, simple life">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FE blog">
-<meta name="twitter:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta name="twitter:description" content="simple technology, simple life">
   
     <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
   
@@ -51,13 +51,13 @@
   
 
   
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
-  
 
   
 
   
   
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -74,7 +74,21 @@
 	
 
     
-      <div id="intrologo" class="intro-logo">
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        <!-- Don't rolling -->
+        <script>
+            var imgUrls = "css/images/pose.jpg".split(",");
+            var random = Math.floor((Math.random() * imgUrls.length ));
+            if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+              document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
+            } else {
+              document.getElementById("intrologo").style.backgroundImage='url(/' + imgUrls[random] + ')';
+            }
+        </script>
+      
+
     
  
 
@@ -100,17 +114,6 @@
 
       <!-- 折线Polyline背景 -->
       
-		 function redraw(){
-		 	var pattern = Trianglify({
-				width: window.innerWidth,
-				height: window.innerHeight
-			});
-            pattern.canvas(c)
-        }
-        document.getElementById("intrologo").onclick = redraw
-        document.getElementById("intrologo").ontouchstart = redraw
-		redraw()
-      
     </script>
     
 
@@ -121,8 +124,8 @@
         
           <div class="homelogoback"  style="border: 1px solid #404040;" >
             <h1><a href="#content" id="logo">FE blog</a></h1>
-            <h3>The place to record FE-NOTE，simple technology, simple life, simple place</h3>
-            <h5>By Chan</h5>
+            <h3>simple technology, simple life</h3>
+            <h5>@chan</h5>
             <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
           </div>
         
@@ -132,6 +135,19 @@
 
   <!-- 自适应主页背景大图 -->
   
+    <script>
+        var img = new Image();
+        var intrologodiv = document.getElementById("intrologo");
+        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
+        img.onload=function(){
+          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
+            intrologodiv.style.backgroundSize = "100% auto";
+          } else {
+            intrologodiv.style.backgroundSize = "auto 100%";
+          }
+        };
+    </script>
+ 
 
  <!-- home_logo_image居中 -->
  
@@ -157,6 +173,8 @@
           <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
         
           <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
         
       </p>
   </div>
@@ -784,6 +802,8 @@ rem相对于根元素(html)的......  -->
   
     <a href="/tags" class="mobile-nav-link">Tags</a>
   
+    <a href="/about" class="mobile-nav-link">About</a>
+  
 </nav> -->
     
 
@@ -896,7 +916,7 @@ rem相对于根元素(html)的......  -->
             FE blog
           </div>
           <div class="panel-body">
-            Copyright © 2018 By Chan All Rights Reserved.
+            Copyright © 2018 @chan All Rights Reserved.
           </div>
         </div>
       </div>
