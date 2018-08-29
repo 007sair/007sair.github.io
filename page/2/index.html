@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FE blog">
+<meta property="og:url" content="http://007sair.github.io/page/2/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FE blog">
+<meta name="twitter:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+  
+
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo">
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+		 function redraw(){
+		 	var pattern = Trianglify({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+            pattern.canvas(c)
+        }
+        document.getElementById("intrologo").onclick = redraw
+        document.getElementById("intrologo").ontouchstart = redraw
+		redraw()
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">FE blog</a></h1>
+            <h3>The place to record FE-NOTE，simple technology, simple life, simple place</h3>
+            <h5>By Chan</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-sticky"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/05/sticky/">position:sticky的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/05/sticky/" class="article-date">
+	  <time datetime="2017-09-04T16:00:00.000Z" itemprop="datePublished">2017-09-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>position:sticky</code>，它是相对定位（<code>position:relative</code>）和固定定位（<code>position:fixed</code>）的混合。</p>
+<p>使用它，我们不再用监听scroll事件，即可实现导航栏滚动绝对定位的效果。</p>
+        <!-- 基本用法position:sticky，它是相对定位（position:relative）和固定定位（position:fixed）的混合。
+使用它，我们不再用监听scroll事件，即可实现导航栏滚动绝对定位的效果。
+
+12345.sticky &#123;    position: sticky;    position: -webkit-sticky;    top: 0;&#125;
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/09/05/sticky/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sticky/">sticky</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/08/22/hello-world/">我又回来啦！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/08/22/hello-world/" class="article-date">
+	  <time datetime="2017-08-22T04:05:22.000Z" itemprop="datePublished">2017-08-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>博客顺利从<code>jekyll</code>转为<code>Hexo</code>，记录如下</p>
+</blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动本地环境</span></span><br><span class="line">$ hexo s -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布更新博客</span></span><br><span class="line">$ hexo d -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新文章</span></span><br><span class="line">$ hexo new <span class="string">"pageName"</span></span><br></pre></td></tr></table></figure>
+<p>更多命令和技巧参考<strong><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo中文官网</a></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-flex-tool"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/07/07/flex-tool/">flex样式预览工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/07/07/flex-tool/" class="article-date">
+	  <time datetime="2017-07-06T16:00:00.000Z" itemprop="datePublished">2017-07-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做项目时老是觉得要不停的查flex属性用法，甚至不爽。一怒之下写了个工具。</p>
+<p>传送门：<a href="/demo/flex-tool.html" target="_blank">flex-tool</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Visual-Studio-Code-CNKEYMAP"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/07/05/Visual-Studio-Code-CNKEYMAP/">VSCODE 常用快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/07/05/Visual-Studio-Code-CNKEYMAP/" class="article-date">
+	  <time datetime="2017-07-04T16:00:00.000Z" itemprop="datePublished">2017-07-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank" rel="noopener">官方版本</a></p>
+</blockquote>
+<h2 id="vscode快捷键有5种组合方式"><a href="#vscode快捷键有5种组合方式" class="headerlink" title="vscode快捷键有5种组合方式"></a>vscode快捷键有5种组合方式</h2><ol>
+<li><code>Ctrl+Shift+?</code> 常规组合</li>
+<li><code>Ctrl+K F</code> 先组合后单键组合方式</li>
+<li><code>Ctrl+V Ctrl+V</code> 同时依赖一个按键的组合</li>
+<li><code>Alt+mouseClick</code> 按键+鼠标点击</li>
+<li><code>Alt+mouseDrag</code> 按键+鼠标拖拽</li>
+</ol>
+<h2 id="全局命令面板"><a href="#全局命令面板" class="headerlink" title="全局命令面板"></a>全局命令面板</h2><p><code>Ctrl+Shift+P/F1</code> 展示全局命令面板</p>
+<h2 id="Ctrl-P-模式"><a href="#Ctrl-P-模式" class="headerlink" title="Ctrl+P 模式"></a>Ctrl+P 模式</h2><p>在<code>Ctrl+P</code>下输入<code>&gt;</code>又可以回到主命令框<code>Ctrl+Shift+P/F1</code>模式。</p>
+        <!-- 
+官方版本
+
+vscode快捷键有5种组合方式
+Ctrl+Shift+? 常规组合
+Ctrl+K F 先组合后单键组合方式
+Ctrl+V Ctrl+V 同时依赖一个按键的组合
+Alt+mouseClick 按键+鼠标点击
+Alt+mouseDrag 按键+鼠标拖拽
+
+全局命令面板Ctrl+Shift+P/F1 展示全局命令面板
+Ctrl+P 模式在Ctrl+P下输入&gt;又可以回到主命令框......  -->
+        <p class="article-more-link">
+          <a href="/2017/07/05/Visual-Studio-Code-CNKEYMAP/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">tool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-font-pingfang"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/14/font-pingfang/">苹方字体在H5的应用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/14/font-pingfang/" class="article-date">
+	  <time datetime="2017-03-13T16:00:00.000Z" itemprop="datePublished">2017-03-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/test/">test</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.apple.com/cn/macos/sierra/#international-fonts" target="_blank" rel="noopener">苹方字体</a>在手机端的展示效果如下：</p>
+<h3 id="苹方字体"><a href="#苹方字体" class="headerlink" title="苹方字体"></a>苹方字体</h3><p><strong>苹方-简</strong></p>
+<p style="font-family: 'PingFang SC', sans-serif">测试字体 123456789 abcdefg ABCDEFG</p>
+
+<p><strong>苹方-简 常规体</strong></p>
+<p style="font-family: PingFangSC-Regular, sans-serif;">测试字体 123456789 abcdefg ABCDEFG</p>
+        <!-- 苹方字体在手机端的展示效果如下：
+苹方字体苹方-简
+测试字体 123456789 abcdefg ABCDEFG
+
+苹方-简 常规体
+测试字体 123456789 abcdefg ABCDEFG
+
+
+苹方-简 常规体
+测试字体 123456789 abcdefg ABCDEFG
+
+苹方-简 常规体
+测试字体 123456789 abcdefg ABCDEFG
+
+苹方-简 极细体
+测试字体 1......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/14/font-pingfang/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/font/">font</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-How-to-get-your-kids-to-18-sane-and-not-hating-you"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/03/How-to-get-your-kids-to-18-sane-and-not-hating-you/">怎么把孩子养到18岁，神志正常还不恨你</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/03/How-to-get-your-kids-to-18-sane-and-not-hating-you/" class="article-date">
+	  <time datetime="2017-03-02T16:00:00.000Z" itemprop="datePublished">2017-03-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/life/">life</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>译文，来自：<a href="https://www.theguardian.com/lifeandstyle/2016/feb/06/how-to-get-your-kids-to-18-sane-and-not-hating-you?CMP=share_btn_link" target="_blank" rel="noopener">How to get your kids to 18, sane and not hating you</a></p>
+</blockquote>
+<p>七位作者为大家讲述父母之道，都是他们希望在开始时就懂得的事</p>
+<h3 id="最艰难的客户"><a href="#最艰难的客户" class="headerlink" title="最艰难的客户"></a>最艰难的客户</h3><p>我第一次怀孕的时候，还是一个装逼的公司律师，习惯于自作主张。我真正需要的就是那时有人告诉我：“了解你最坏的客户吧？就那个半夜两点给你打电话，只为告诉你你多差劲的那家伙；或者那个突然就需要什么莫名的表格的混蛋，你只好翻天翻地给他找，找到了他又发火说那不是他想要的东西，虽然这确实是他要的。恭喜啊，现在你就同一个小小版的客户生活在一起了。悲哀的是，你学过的一切对这个新客户都还没有一点用处。”</p>
+        <!-- 
+译文，来自：How to get your kids to 18, sane and not hating you
+
+七位作者为大家讲述父母之道，都是他们希望在开始时就懂得的事
+最艰难的客户我第一次怀孕的时候，还是一个装逼的公司律师，习惯于自作主张。我真正需要的就是那时有人告诉我：“了解你最坏的客户吧？就那个半夜两点给你打电话，只为告诉你你多差劲的那家伙；或者那个突然就需要什么莫名的表格的......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/03/How-to-get-your-kids-to-18-sane-and-not-hating-you/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-date-keng"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/01/date-keng/">Date对象在移动端的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/01/date-keng/" class="article-date">
+	  <time datetime="2017-02-28T16:00:00.000Z" itemprop="datePublished">2017-03-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文描述了工作中涉及<code>Date</code>对象都是一些坑的写法。</p>
+<p>涉及移动端，测试时<code>userAgent</code>如下：</p>
+<p><strong>PC</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Chrome</span></span><br><span class="line">Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">10.0</span>; WOW64) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) </span><br><span class="line">Chrome/<span class="number">49.0</span><span class="number">.2623</span><span class="number">.87</span> Safari/<span class="number">537.36</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Safari</span></span><br><span class="line">Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">6.2</span>; WOW64) AppleWebKit/<span class="number">534.57</span><span class="number">.2</span> (KHTML, like Gecko) </span><br><span class="line">Version/<span class="number">5.1</span><span class="number">.7</span> Safari/<span class="number">534.57</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
+<p><strong>Mobile</strong></p>
+        <!-- 本文描述了工作中涉及Date对象都是一些坑的写法。
+涉及移动端，测试时userAgent如下：
+PC
+1234567// ChromeMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36// SafariMozilla/5.0 ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/01/date-keng/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date对象/">Date对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-css-selector"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/06/css-selector/">css选择器总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/06/css-selector/" class="article-date">
+	  <time datetime="2017-02-05T16:00:00.000Z" itemprop="datePublished">2017-02-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+</style>
+
+<blockquote>
+<p>约定：IE7+ 意思为大于（含IE7）的浏览器</p>
+</blockquote>
+<h2 id="CSS1-amp-CSS2-1-选择器"><a href="#CSS1-amp-CSS2-1-选择器" class="headerlink" title="CSS1 &amp; CSS2.1 选择器"></a>CSS1 &amp; CSS2.1 选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>例子</th>
+<th>例子描述</th>
+<th>兼容性   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> *</td>
+<td>*</td>
+<td>选择所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> E</td>
+<td>p</td>
+<td>选择所有 <code>&lt;p&gt;</code> 元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> #id</td>
+<td>#firstname</td>
+<td>选择 <code>id=&quot;firstname&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> .class</td>
+<td>.intro</td>
+<td>选择 <code>class=&quot;intro&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+
+
+
+约定：IE7+ 意思为大于（含IE7）的浏览器
+
+CSS1 &amp; CSS2.1 选择器基础选择器
+
+
+选择器
+例子
+例子描述
+兼容性   
+
+
+
+
+ *
+*
+选择所有元素。
+all   
+
+
+ E
+p
+选择所有 &lt;p&gt; 元素。
+all   
+
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/06/css-selector/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css选择器/">css选择器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-wordbreak"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/07/25/wordbreak/">word-wrap与word-break的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/07/25/wordbreak/" class="article-date">
+	  <time datetime="2016-07-24T16:00:00.000Z" itemprop="datePublished">2016-07-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/html/">html</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+div{
+    word-break: normal;
+    word-wrap: normal;
+}
+.test{
+    margin-bottom: 2px;
+    width: 230px;
+    border: 1px solid red;
+}
+.c1{}
+.c2{ word-wrap:break-word;}
+.c3{ word-wrap:break-word;word-break:break-all;}
+.c4{ word-wrap:break-word;word-break:keep-all;}
+.c5{ word-break:break-all;}
+.c6{ word-break:keep-all;}
+</style>
+
+<p>换行问题自古以来就是一个难题，写了几个例子，先来看看，没有耐心的可以直接<a href="#result">点这里</a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h4 id="word-wrap"><a href="#word-wrap" class="headerlink" title="word-wrap"></a>word-wrap</h4><p>word-wrap 属性允许长单词或 URL 地址换行到下一行。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word-wrap: normal | break-word;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>只在允许的断字点换行（浏览器保持默认处理）。</td>
+</tr>
+<tr>
+<td>break-word</td>
+<td>在长单词或 URL 地址内部进行换行。</td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+div{
+    word-break: normal;
+    word-wrap: normal;
+}
+.test{
+    margin-bottom: 2px;
+    width: 230px;
+    border: 1px solid red;
+}
+.c1{}
+.c2{ word-wrap:break-word;}
+.c3{ word-wrap:break-word;word......  -->
+        <p class="article-more-link">
+          <a href="/2016/07/25/wordbreak/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/换行/">换行</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-UNICODE"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/07/04/UNICODE/">HTML字符转义、特殊字符笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/07/04/UNICODE/" class="article-date">
+	  <time datetime="2016-07-03T16:00:00.000Z" itemprop="datePublished">2016-07-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/html/">html</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="转义字符串的由来"><a href="#转义字符串的由来" class="headerlink" title="转义字符串的由来"></a>转义字符串的由来</h3><p>HTML中<code>&lt;</code>，<code>&gt;</code>，<code>&amp;</code>等有特殊含义（<code>&lt;</code>，<code>&gt;</code>，用于链接签，<code>&amp;</code>用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到<strong>转义字符串</strong>了。</p>
+<h3 id="转义字符串的组成"><a href="#转义字符串的组成" class="headerlink" title="转义字符串的组成"></a>转义字符串的组成</h3><p>一个完整的转义字符串，分为三个部分：</p>
+<ol>
+<li>一个<code>&amp;</code>符号，英文为ampersand；</li>
+<li>是实体名字或为<code>#</code>+实体编号；</li>
+<li>一个<code>;</code>号；</li>
+</ol>
+<p>例如，常用的大于号<code>&gt;</code>，使用转义字符串后的写法为<code>&amp;gt;</code>或<code>&amp;#62;</code></p>
+<p>我们注意到，上面的大于号使用了2种方式的转义，第一种称为<code>实体名称</code>，第二种为<code>实体编号</code>，区别在于实体名称的优点为便于记忆，但兼容性不完美，实体编号则反之。</p>
+        <!-- 转义字符串的由来HTML中&lt;，&gt;，&amp;等有特殊含义（&lt;，&gt;，用于链接签，&amp;用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到转义字符串了。
+转义字符串的组成一个完整的转义字符串，分为三个部分：
+
+一个&amp;符号，英文为ampersand；
+是实体名字或为#+实体编号；
+一个;号；
+
+例如，......  -->
+        <p class="article-more-link">
+          <a href="/2016/07/04/UNICODE/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unicode/">unicode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

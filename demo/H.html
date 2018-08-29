@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>Examples</title>
+<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<ul class="tree">
+    	<li>
+    		<p>111</p>
+    		<ul>
+    			<li>
+    				<p>111aaa</p>
+    				<ul>
+    					<li>
+    						<p>111aaa111</p>
+    					</li>
+    					<li>
+    						<p>111aaa222</p>
+    					</li>
+    				</ul>
+    			</li>
+    			<li>
+    				222aaa
+    			</li>
+    		</ul>
+    	</li>
+    	<li>
+    		<p>2222</p>
+    	</li>
+    </ul>
+	
+	<h2>标题2</h2>
+	<h3>标题3</h3>
+	<h3>标题3</h3>
+    <h4>444444444444444</h4>
+    <h2>标题2</h2>
+    <h3>标题3</h3>
+    <h3>标题3</h3>
+    <h2>2222222222222</h2>
+    <h5>5555555555555555</h5>
+    <h5>5555555555555555</h5>
+    <h4>444444444444</h4>
+    <h3>标题3</h3>
+    <h3>标题3</h3>
+    <h2>22222222222222222222222221</h2>
+    <h3>标题3</h3>
+
+
+    
+<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+$(function(){
+
+	var $title = $('h2,h3,h4,h5,h6');
+
+	var tags = [];
+	$title.each(function(index, el) {
+		tags.push(el.tagName)
+	});
+
+	function unique(arr) {
+		var result = [],
+			hash = {};
+		for (var i = 0, elem;
+			(elem = arr[i]) != null; i++) {
+			if (!hash[elem]) {
+				result.push(elem);
+				hash[elem] = true;
+			}
+		}
+		return result;
+	}
+
+	var node = unique(tags);
+
+	var tempTree = [];
+	for (var i = 0; i < tags.length; i++) {
+		for (var k = 0; k < node.length; k++) {
+			if (tags[i] == node[k]) {
+				tempTree.push({
+					tag: tags[i],
+					level: k + 1,
+					child: []
+				})
+			};
+		};
+	};
+
+
+	var trueTree = [];
+
+	var first = 0;
+	for (var j = 0; j < tempTree.length; j++) {
+		console.log(tempTree[j])
+		if (tempTree[j].level > tempTree[first].level) {
+			first = j;
+		}
+	};
+
+	//给某个node设置child
+	function setChild(node, childNode) {
+		node.child.push(childNode);
+	}
+
+	
+
+	// var tree = [];
+
+	// function unique(arr) {
+	// 	var result = [],
+	// 		hash = {};
+	// 	for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+	// 		if (!hash[elem]) {
+	// 			result.push(elem);
+	// 			hash[elem] = true;
+	// 		}
+	// 	}
+	// 	return result;
+	// }
+
+	// $('h2,h3,h4,h5,h6').each(function() {
+	// 	var tag = $(this)[0].tagName;
+	// 	tree.push(tag);
+	// });
+
+	// tree.sort();
+	// tree = unique(tree);
+
+	// $('h2,h3,h4,h5,h6').each(function() {
+	// 	var tag = $(this)[0].tagName;
+	// 	switch(tag){
+	// 		case tree[0] :
+	// 			$('.tree').append('<dt>' + $(this).html() + '</dt>');
+	// 			break;
+	// 		case tree[1] :
+	// 			$('.tree').append('<dd>' + $(this).html() + '</dd>');
+	// 			break;
+	// 	}
+	// });
+
+});
+</script>
+</body>
+</html>

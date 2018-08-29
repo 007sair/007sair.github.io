@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FE blog">
+<meta property="og:url" content="http://007sair.github.io/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FE blog">
+<meta name="twitter:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+  
+
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo">
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+		 function redraw(){
+		 	var pattern = Trianglify({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+            pattern.canvas(c)
+        }
+        document.getElementById("intrologo").onclick = redraw
+        document.getElementById("intrologo").ontouchstart = redraw
+		redraw()
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">FE blog</a></h1>
+            <h3>The place to record FE-NOTE，simple technology, simple life, simple place</h3>
+            <h5>By Chan</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-移动端File和Base64的坑"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/08/29/移动端File和Base64的坑/">移动端File和Base64的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/29/移动端File和Base64的坑/" class="article-date">
+	  <time datetime="2018-08-29T06:16:50.000Z" itemprop="datePublished">2018-08-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近在做移动端的图片操作项目，会涉及到上传图片、Canvas、转换base64等操作，被坑得不能自理，不过好在都解决了~ 记录如下：</p>
+</blockquote>
+<h3 id="一、TypeError-FileConstructor-is-not-a-constructor"><a href="#一、TypeError-FileConstructor-is-not-a-constructor" class="headerlink" title="一、TypeError: FileConstructor is not a constructor"></a>一、<code>TypeError: FileConstructor is not a constructor</code></h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>这个错误是我在微信浏览器中点击上传图片按钮时发生的，具体逻辑为依次调用微信JSSDK中的<code>wx.chooseImage</code>和<code>wx.getLocalImgData</code>，第二个接口会返回<code>base64</code>数据。</p>
+<p>此时我们需要将<code>base64</code>转换为<code>File对象</code>，再通过<code>FormData</code>传给服务端来处理其他业务。所以我预先写了一个<code>dataURL2file</code>函数，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将base64转换为file对象</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; dataURL    base64数据</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; filename   文件名</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataURL2file</span>(<span class="params">dataURL, filename = <span class="string">'custom_file'</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = dataURL.split(<span class="string">','</span>),</span><br><span class="line">        mime = arr[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>],</span><br><span class="line">        bstr = atob(arr[<span class="number">1</span>]),</span><br><span class="line">        n = bstr.length,</span><br><span class="line">        u8arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.charCodeAt(n);</span><br><span class="line">    &#125;</span><br><span class="line">    filename += <span class="string">'.'</span> + mime.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> File([u8arr], filename, &#123; <span class="attr">type</span>: mime &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码在部分手机中直接报错：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Reference to: new File()</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">TypeError</span>: FileConstructor is not a <span class="keyword">constructor</span> (evaluating 'new File')</span><br></pre></td></tr></table></figure>
+<p>原因是部分手机系统版本还不支持File，ios低于<code>9.3(含)</code>、安卓低于<code>4.4(含)</code>都不支持，见：<a href="https://caniuse.com/#search=File" target="_blank" rel="noopener">caniuse</a></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>将<code>Base64</code>转换为<code>Blob对象</code>，blob的兼容性相对File会更好一些，参考<a href="https://caniuse.com/#search=blob" target="_blank" rel="noopener">caniuse</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * dataURL 转成 blob</span></span><br><span class="line"><span class="comment"> * @param dataURL</span></span><br><span class="line"><span class="comment"> * @return blob</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataURL2blob</span>(<span class="params">dataURL</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> binaryString = atob(dataURL.split(<span class="string">','</span>)[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">let</span> arrayBuffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(binaryString.length);</span><br><span class="line">    <span class="keyword">let</span> intArray = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(arrayBuffer);</span><br><span class="line">    <span class="keyword">let</span> mime = dataURL.split(<span class="string">','</span>)[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, j = binaryString.length; i &lt; j; i++) &#123;</span><br><span class="line">        intArray[i] = binaryString.charCodeAt(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> data = [intArray];</span><br><span class="line">    <span class="keyword">let</span> result;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        result = <span class="keyword">new</span> Blob(data, &#123; <span class="attr">type</span>: mime &#125;);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="built_in">window</span>.BlobBuilder = <span class="built_in">window</span>.BlobBuilder ||</span><br><span class="line">            <span class="built_in">window</span>.WebKitBlobBuilder ||</span><br><span class="line">            <span class="built_in">window</span>.MozBlobBuilder ||</span><br><span class="line">            <span class="built_in">window</span>.MSBlobBuilder;</span><br><span class="line">        <span class="keyword">if</span> (error.name === <span class="string">'TypeError'</span> &amp;&amp; <span class="built_in">window</span>.BlobBuilder) &#123;</span><br><span class="line">            <span class="keyword">var</span> builder = <span class="keyword">new</span> BlobBuilder();</span><br><span class="line">            builder.append(arrayBuffer);</span><br><span class="line">            result = builder.getBlob(type);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'没救了'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，放不下<code>dataURL2file</code>这个函数，我们也可以做兼容处理：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataURL2file</span>(<span class="params">dataURL, filename = <span class="string">'custom_file'</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> arr = dataURL.split(<span class="string">','</span>),</span><br><span class="line">            mime = arr[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>],</span><br><span class="line">            bstr = atob(arr[<span class="number">1</span>]),</span><br><span class="line">            n = bstr.length,</span><br><span class="line">            u8arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">        <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">            u8arr[n] = bstr.charCodeAt(n);</span><br><span class="line">        &#125;</span><br><span class="line">        filename += <span class="string">'.'</span> + mime.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> File([u8arr], filename, &#123;</span><br><span class="line">            type: mime</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.warn(<span class="string">'Browser does not support the File constructor,Will use blob instead of file'</span>)</span><br><span class="line">        <span class="keyword">return</span> dataURL2blob(dataURL)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、使用img-onload事件加载base64图片时，触发了onerror"><a href="#二、使用img-onload事件加载base64图片时，触发了onerror" class="headerlink" title="二、使用img.onload事件加载base64图片时，触发了onerror"></a>二、使用<code>img.onload</code>事件加载<code>base64</code>图片时，触发了<code>onerror</code></h3><h4 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h4><p>有时我们需要将本地的<code>base64</code>绘制到<code>canvas</code>中，如果直接调用<code>canvas</code>的<code>drawImage</code>方法，可能图片还没加载就触发了绘制，从而导致绘制失败。所以，我们需要保证图片已经加载完成再触发绘制：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">let</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">img.src = <span class="string">'data:image/png;base64,iVBORw0KGgoAAAANS...'</span></span><br></pre></td></tr></table></figure>
+<p>以上代码只在<code>ios v10.3</code>以下的版本会触发<code>onerror</code>错误，安卓尚未发现问题。</p>
+<p>翻越各种文档都没有相关资料，只找到一个类似的问题：<a href="https://stackoverflow.com/questions/21728604/ie10-base64-encoded-image-load-error" target="_blank" rel="noopener">ie10-base64-encoded-image-load-error</a></p>
+<p>猜测是<code>base64</code>的长度限制，导致加载失败。</p>
+<h4 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h4><p>既然是长度问题，有两种方案：</p>
+<p>方案一：将<code>base64</code>转成<code>file对象</code>，让服务端返回一个<code>http</code>的图片链接</p>
+<ul>
+<li>优点：无兼容性问题；</li>
+<li>缺点：多一次请求，且图片加载依赖网速</li>
+</ul>
+<p>方案二：将<code>base64</code>转成<code>objectUrl</code>，见：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL" target="_blank" rel="noopener">createObjectURL - MDN</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建新的URL 对象表示指定的 File 对象或 Blob 对象。</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; dataURL  base64</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataURL2ObjUrl</span>(<span class="params">dataURL</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.URL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.URL &amp;&amp; URL.createObjectURL) &#123;</span><br><span class="line">        <span class="comment">// dataURL2blob 此方法需额外定义</span></span><br><span class="line">        <span class="keyword">var</span> blob = dataURL2blob(dataURL)</span><br><span class="line">        <span class="keyword">return</span> URL.createObjectURL(blob)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dataURL</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：无网络请求；</li>
+<li>缺点：兼容性，PC端慎用，移动端比较完美，见：<a href="https://caniuse.com/#search=createObjectURL" target="_blank" rel="noopener">caniuse</a></li>
+</ul>
+<p>综上述，使用<code>objectUrl</code>是个不错的选择~</p>
+<p>由于上述错误只发生在图片加载时，所以我重新封装了一下工具库的<code>loadImage</code>函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 异步加载图片</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125;   url        图片地址</span></span><br><span class="line"><span class="comment"> * @param &#123;boolean&#125;  is_cors    是否对此元素的CORS请求设置凭据标志</span></span><br><span class="line"><span class="comment"> * @return &#123;imageObject&#125;        img对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImage</span>(<span class="params">url, is_cors = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">        <span class="keyword">if</span> (is_cors) img.crossOrigin = <span class="string">'Anonymous'</span>;</span><br><span class="line">        <span class="keyword">var</span> objectURL = <span class="literal">null</span></span><br><span class="line">        <span class="keyword">if</span> (url.match(<span class="regexp">/^data:(.*);base64,/</span>) &amp;&amp; <span class="built_in">window</span>.URL &amp;&amp; URL.createObjectURL) &#123;</span><br><span class="line">            objectURL = URL.createObjectURL(<span class="keyword">this</span>.dataURL2blob(url))</span><br><span class="line">            url = objectURL</span><br><span class="line">        &#125;</span><br><span class="line">        img.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            objectURL &amp;&amp; URL.revokeObjectURL(objectURL)</span><br><span class="line">            resolve(img)</span><br><span class="line">        &#125;</span><br><span class="line">        img.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'That image was not found.:'</span> + url.length))</span><br><span class="line">        &#125;</span><br><span class="line">        img.src = url</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://github.com/Esri/offline-editor-js/issues/357" target="_blank" rel="noopener">File constructor is not supported in iOS Safari 8 (or 9)</a></li>
+<li><a href="https://juejin.im/entry/5937c98eac502e0068cf31ae" target="_blank" rel="noopener">JavaScript 中 Blob 对象</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-本地调试微信JSSDK"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/26/本地调试微信JSSDK/">本地调试微信JSSDK</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/26/本地调试微信JSSDK/" class="article-date">
+	  <time datetime="2018-07-26T07:21:42.000Z" itemprop="datePublished">2018-07-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="调试微信jssdk"><a href="#调试微信jssdk" class="headerlink" title="调试微信jssdk"></a>调试微信jssdk</h1><blockquote>
+<p>最近在做一个h5的项目，需要用到微信jssdk的图片上传功能。踩坑记录~</p>
+</blockquote>
+<h2 id="一、配置"><a href="#一、配置" class="headerlink" title="一、配置"></a>一、配置</h2><ol>
+<li><p>进入微信公众号，找到<code>基本配置</code>，获取到<code>AppID</code>、<code>AppSecret</code>，后端需要使用这两个数据生成对应的<code>tooken</code>和<code>tiket</code>，此处省略。然后填写好<code>IP白名单</code>（重要）；</p>
+</li>
+<li><p>在<code>公众号设置 - 功能设置 - JS接口安全域名</code> 处设置需要访问页面的域名（注：有坑，见后文），如：<code>sair.example.com</code>。</p>
+</li>
+</ol>
+<h2 id="二、调试"><a href="#二、调试" class="headerlink" title="二、调试"></a>二、调试</h2><p>填好配置，接下来就是调试。微信要求前端传入的url必须为动态线上的url，且端口必须为<code>80</code>、<code>443</code>，这样一来，我们在本地进行调试时就会涉及如何将本地url变成线上url的问题了。</p>
+<p>本地调试环境除了电脑端的<code>微信开发者工具</code>，就是真机的微信环境调试。但电脑端无法调试某些接口，如<code>chooseImage</code>、<code>getLocalImgData</code>，所以，真机调试就变得尤为重要了。现将思路整理如下:</p>
+<h3 id="思路1，代理变更url地址"><a href="#思路1，代理变更url地址" class="headerlink" title="思路1，代理变更url地址"></a>思路1，代理变更url地址</h3><p>前提：有<code>Apache</code>环境，项目能通过<code>127.0.0.1</code>被访问到。然后通过<code>charles</code>代理，使手机也能访问电脑端的域名。</p>
+<p><strong>工具：</strong></p>
+<ol>
+<li>一台<code>Mac</code>、一个<code>iPhone</code>；</li>
+<li>开启代理和抓包的工具<a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a>；</li>
+<li>修改<code>Hosts</code>工具<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="noopener">SwitchHosts</a>或者<a href="https://github.com/2ndalpha/gasmask" target="_blank" rel="noopener">Gas Mask</a>。</li>
+</ol>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><code>Mac</code>与<code>iPhone</code>需在同一个局域网内；</li>
+<li>打开<code>charles</code>设置代理服务；</li>
+<li>iPhone上打开<code>设置 - 无线局域网 - 选中当前网络 - HTTP代理 - 配置代理</code>，在<code>服务器</code>一栏输入Mac的ip地址，端口填写charles上的端口号（默认为<code>8888</code>）；</li>
+<li>修改Mac的hosts，如：<code>127.0.0.1  sair.example.com</code>；</li>
+<li>在手机上访问<code>sair.example.com</code>即可进行调试。</li>
+</ol>
+<h3 id="思路2，代理变更-端口转发"><a href="#思路2，代理变更-端口转发" class="headerlink" title="思路2，代理变更+端口转发"></a>思路2，代理变更+端口转发</h3><p>另类场景，由于本人一直在开发环境使用<code>webpack</code>，本地访问地址一般都是<code>localhost:8080</code>，而微信仅支持<code>80</code>、<code>443</code>端口，方案如下：</p>
+<blockquote>
+<p>提前了解：Mac禁止了普通用户访问1024以下的端口，包括80端口，因为Mac会用这些端口来提供文件共享等等很多服务。</p>
+</blockquote>
+<p>停掉Mac自带的占用<code>80</code>端口的程序(其实就是一个<code>apache</code>)，然后再设置端口转发，将<code>80端口</code>的请求转发到<code>8080</code>或<code>9090</code>端口。</p>
+<p>具体操作：</p>
+<ol>
+<li><p>关闭占用80端口的apache：<code>sudo apachectl stop</code>；</p>
+</li>
+<li><p>修改<code>/etc/pf.conf</code>，设置端口转发，操作如下：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/pf.conf</span><br><span class="line"><span class="comment"># 在 rdr-anchor "com.apple/*" 后添加 </span></span><br><span class="line">rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -&gt; 127.0.0.1 port 8080</span><br></pre></td></tr></table></figure>
+<p>修改后的效果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Default PF configuration file.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file contains the main ruleset, which gets automatically loaded</span></span><br><span class="line"><span class="comment"># at startup.  PF will not be automatically enabled, however.  Instead,</span></span><br><span class="line"><span class="comment"># each component which utilizes PF is responsible for enabling and disabling</span></span><br><span class="line"><span class="comment"># PF via -E and -X as documented in pfctl(8).  That will ensure that PF</span></span><br><span class="line"><span class="comment"># is disabled only when the last enable reference is released.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Care must be taken to ensure that the main ruleset does not get flushed,</span></span><br><span class="line"><span class="comment"># as the nested anchors rely on the anchor point defined here. In addition,</span></span><br><span class="line"><span class="comment"># to the anchors loaded by this file, some system services would dynamically</span></span><br><span class="line"><span class="comment"># insert anchors into the main ruleset. These anchors will be added only when</span></span><br><span class="line"><span class="comment"># the system service is used and would removed on termination of the service.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># See pf.conf(5) for syntax.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># com.apple anchor point</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">scrub-anchor <span class="string">"com.apple/*"</span></span><br><span class="line">nat-anchor <span class="string">"com.apple/*"</span></span><br><span class="line">rdr-anchor <span class="string">"com.apple/*"</span></span><br><span class="line">rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -&gt; 127.0.0.1 port 9090</span><br><span class="line">dummynet-anchor <span class="string">"com.apple/*"</span></span><br><span class="line">anchor <span class="string">"com.apple/*"</span></span><br><span class="line">load anchor <span class="string">"com.apple"</span> from <span class="string">"/etc/pf.anchors/com.apple"</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使修改生效，依次执行以下命令：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pfctl -d</span><br><span class="line">$ sudo pfctl -f /etc/pf.conf  </span><br><span class="line">$ sudo pfctl -e</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>设置<code>hosts</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1  sair.example.com</span><br></pre></td></tr></table></figure>
+<p>ok，启动<code>webpack</code>后，访问<code>sair.example.com</code>时我们实际访问的是<code>127.0.0.1:80</code>，而由于设置了转发，所以我们最后访问的实际是<code>127.0.0.1:8080</code>。</p>
+<h3 id="思路3，内网穿透"><a href="#思路3，内网穿透" class="headerlink" title="思路3，内网穿透"></a>思路3，内网穿透</h3><p>以上两种方案均通过代理的方式实现，过程比较绕，但也能解决问题。本人在开发中遇到了<code>http</code>强行重定向到<code>https</code>的坑，所以有内网穿透这个方法：通过<code>ngrok</code>将内网ip映射到外网，然后手机直接访问外网地址即可~简单粗暴直接了当。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>下载<a href="https://ngrok.cc/" target="_blank" rel="noopener">Sunny-Ngrok</a> 或者 <a href="https://natapp.cn/" target="_blank" rel="noopener">natapp</a></li>
+</ol>
+<p>这两个工具都适合在国内使用，对比如下：</p>
+<pre><code>sunny-ngrok：
+
+a. 完全免费 
+b. 可以定义多条隧道 
+c. 可以完全自定义域名 
+d. 需要自己申请域名并备案（算是一个缺点吧）
+
+natapp：
+
+a. 基本免费，高级功能收费（如自定义域名） 
+b. 免费版每个协议只能申请一条隧道 
+c. 域名随机生成，不能完全自定义域名。收费版也只能修改域名的前缀 
+d. 不需要单独申请域名（优点） 
+e. 运行简单，下载执行程序直接运行即可，默认监听80端口。如果要监听其它端口，没有注册帐号的前提下，需要用web服务器做反向代理
+</code></pre><ol start="2">
+<li><p>运行软件，获取到外网映射地址直接访问</p>
+</li>
+<li><p>填入安全域名，分两种情况：</p>
+</li>
+</ol>
+<p>a. 有<a href="https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index" target="_blank" rel="noopener">公众平台测试账号</a></p>
+<p>此时只需要填入<code>接口配置信息</code>的URL（后端根据此页面提供的appid，appsecret写好的接口）、约定好的token、<code>JS接口安全域名</code>处填写<code>ngrok</code>生成的外网地址。</p>
+<p>前端调取接口获取config信息时也需要根据测试和线上环境获取不同的信息。</p>
+<p>此方法适合使用<code>natapp</code>，生成的外网地址不固定，可随时更改使用。</p>
+<p>b. 没有公众平台测试账号</p>
+<p>我们可以在<code>公众号设置 - 功能设置 - JS接口安全域名</code>处填入使用<code>sunny-ngrok</code>生成的固定的外网域名，将验证的配置文件<code>xxxx.txt</code>文件放入本地服务器，保证<code>外网地址/xxx.txt</code>能被访问到即可。</p>
+<p>推荐使用a方法，稳定，但需要最开始做一些配置。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://mp.weixin.qq.com/wiki?action=doc&amp;id=mp1421141115&amp;t=0.6318919454950129" target="_blank" rel="noopener">微信JS-SDK说明文档</a></li>
+<li><a href="https://blog.csdn.net/toocruel/article/details/79987388" target="_blank" rel="noopener">解决Mac 80端口被占用</a></li>
+<li><a href="https://www.cnblogs.com/vipstone/p/6732660.html" target="_blank" rel="noopener">微信分享JSSDK-invalid signature签名错误的解决方案</a></li>
+<li><a href="https://blog.gavinzh.com/2016/11/05/ngrok/" target="_blank" rel="noopener">ngrok 内网穿透，实现微信开发本地化</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-script标签中的defer和async区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/02/05/script标签中的defer和async区别/">script标签中的defer和async区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/02/05/script标签中的defer和async区别/" class="article-date">
+	  <time datetime="2018-02-05T07:07:58.000Z" itemprop="datePublished">2018-02-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>script标签的位置决定了页面何时渲染，浏览器解析页面时，碰到script标签会将脚本解析完后再解析后面的html、script。</p>
+<p>所以我们在往页面里写script标签时建议不要将script标签放在head内，而是尽量放在body之前，其他html标签之后。这样的好处是页面白屏时间会缩短，优先解析出html。</p>
+        <!-- script标签的位置决定了页面何时渲染，浏览器解析页面时，碰到script标签会将脚本解析完后再解析后面的html、script。
+所以我们在往页面里写script标签时建议不要将script标签放在head内，而是尽量放在body之前，其他html标签之后。这样的好处是页面白屏时间会缩短，优先解析出html。
+
+定义红宝书对这两个属性的解释如下：
+defer这个属性的用途是表明脚本在执行......  -->
+        <p class="article-more-link">
+          <a href="/2018/02/05/script标签中的defer和async区别/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-javascript开发的45个技巧"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/02/02/javascript开发的45个技巧/">JavaScript开发的45个技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/02/02/javascript开发的45个技巧/" class="article-date">
+	  <time datetime="2018-02-02T09:34:35.000Z" itemprop="datePublished">2018-02-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript是一个绝冠全球的编程语言，可用于Web开发、移动应用开发（PhoneGap、Appcelerator）、服务器端开发（Node.js和Wakanda）等等。JavaScript还是很多新手踏入编程世界的第一个语言。既可以用来显示浏览器中的简单提示框，也可以通过nodebot或nodruino来控制机器人。能够编写结构清晰、性能高效的JavaScript代码的开发人员，现如今已成了招聘市场最受追捧的人。</p>
+<p>在这篇文章里，我将分享一些JavaScript的技巧、秘诀和最佳实践，除了少数几个外，不管是浏览器的JavaScript引擎，还是服务器端JavaScript解释器，均适用。</p>
+<p>本文中的示例代码，通过了在Google Chrome 30最新版（V8 3.20.17.15）上的测试。</p>
+        <!-- JavaScript是一个绝冠全球的编程语言，可用于Web开发、移动应用开发（PhoneGap、Appcelerator）、服务器端开发（Node.js和Wakanda）等等。JavaScript还是很多新手踏入编程世界的第一个语言。既可以用来显示浏览器中的简单提示框，也可以通过nodebot或nodruino来控制机器人。能够编写结构清晰、性能高效的JavaScript代码的开发人员，现如......  -->
+        <p class="article-more-link">
+          <a href="/2018/02/02/javascript开发的45个技巧/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-如何在Mac OS中启动IPv6"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/02/01/如何在Mac OS中启动IPv6/">如何在Mac OS中启动IPv6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/02/01/如何在Mac OS中启动IPv6/" class="article-date">
+	  <time datetime="2018-02-01T15:56:23.000Z" itemprop="datePublished">2018-02-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用<code>xx-net</code>时，遇到一个瓶颈问题：开启<code>IPv6</code>，记录如下~</p>
+<h2 id="一、安装miredo和tuntaposx"><a href="#一、安装miredo和tuntaposx" class="headerlink" title="一、安装miredo和tuntaposx"></a>一、安装<code>miredo</code>和<code>tuntaposx</code></h2><p>进入<a href="https://github.com/XX-net/XX-Net/wiki/IPv6-Mac" target="_blank" rel="noopener">IPv6 Mac</a>，使用的第一种方法<code>teredo</code>。</p>
+        <!-- 在使用xx-net时，遇到一个瓶颈问题：开启IPv6，记录如下~
+一、安装miredo和tuntaposx进入IPv6 Mac，使用的第一种方法teredo。
+
+先安装miredo，但是我的mac版本是10.13.1，提示软件与系统不兼容，处理方法：
+
+重启mac，进入恢复模式（重启后长按Command + R）,x掉中间的弹层；
+在顶部bar中打开终端打开，输入csrutil disabl......  -->
+        <p class="article-more-link">
+          <a href="/2018/02/01/如何在Mac OS中启动IPv6/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xx-net/">xx-net</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-git命令集"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/01/24/git命令集/">git命令集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/01/24/git命令集/" class="article-date">
+	  <time datetime="2018-01-24T06:04:23.000Z" itemprop="datePublished">2018-01-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="查看git当前用户名"><a href="#查看git当前用户名" class="headerlink" title="查看git当前用户名"></a>查看git当前用户名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --get user.name</span><br></pre></td></tr></table></figure>
+<h3 id="查看git上个人代码量"><a href="#查看git上个人代码量" class="headerlink" title="查看git上个人代码量"></a>查看git上个人代码量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --author=<span class="string">"<span class="variable">$(git config --get user.name)</span>"</span> --pretty=tformat: --numstat | awk <span class="string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span></span><br></pre></td></tr></table></figure>
+        <!-- 查看git当前用户名1git config --get user.name
+查看git上个人代码量1git log --author="$(git config --get user.name)" --pretty=tformat: --numstat | awk '&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; ......  -->
+        <p class="article-more-link">
+          <a href="/2018/01/24/git命令集/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Charles-备忘"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/01/17/Charles-备忘/">charles使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/01/17/Charles-备忘/" class="article-date">
+	  <time datetime="2018-01-17T08:36:17.000Z" itemprop="datePublished">2018-01-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录使用charles的过程与遇到的一些坑。</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在<code>Charles</code> <a href="http://www.charlesproxy.com" target="_blank" rel="noopener">官方网站</a>下载最新版的<code>Charles</code>安装包，是一个 dmg 后缀的文件。打开后将<code>Charles</code>拖到 Application 目录下即完成安装。本人版本是<code>4.0.2</code>。</p>
+        <!-- 
+记录使用charles的过程与遇到的一些坑。
+
+准备工作在Charles 官方网站下载最新版的Charles安装包，是一个 dmg 后缀的文件。打开后将Charles拖到 Application 目录下即完成安装。本人版本是4.0.2。
+
+开始抓包将Charles设置成系统代理之前提到，Charles 是通过将自己设置成代理服务器来完成封包截取的，所以使用Charles的第一步是将其设置成......  -->
+        <p class="article-more-link">
+          <a href="/2018/01/17/Charles-备忘/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charles/">charles</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-gulp-rev"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/14/gulp-rev/">gulp-rev版本替换插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/14/gulp-rev/" class="article-date">
+	  <time datetime="2017-09-13T16:00:00.000Z" itemprop="datePublished">2017-09-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>脚手架中运行<code>gulp build</code>命令时会用到版本号插件，插件使用方法如下：</p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
+<li>解析<code>js</code>和<code>css</code>文件；</li>
+<li>通过对<code>js</code>,<code>css</code>文件内容进行<code>hash</code>运算，生成一个文件的唯一<code>hash</code>字符串(如果文件修改则<code>hash</code>号会发生变化)；</li>
+<li>替换<code>html</code>中的<code>js</code>,<code>css</code>文件名，生成一个带版本号的文件名。</li>
+</ol>
+        <!-- 脚手架中运行gulp build命令时会用到版本号插件，插件使用方法如下：
+实现原理
+解析js和css文件；
+通过对js,css文件内容进行hash运算，生成一个文件的唯一hash字符串(如果文件修改则hash号会发生变化)；
+替换html中的js,css文件名，生成一个带版本号的文件名。
+
+
+gulp-rev将资源文件（css、js、images等）解析，生成一个rev.json，大致如下......  -->
+        <p class="article-more-link">
+          <a href="/2017/09/14/gulp-rev/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建/">构建</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-jsonp-fun"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/14/jsonp-fun/">另辟蹊径之jsonp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/14/jsonp-fun/" class="article-date">
+	  <time datetime="2017-09-13T16:00:00.000Z" itemprop="datePublished">2017-09-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一段请求jsonp的接口返回的数据，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'callback(&#123;"name":"sair","data":"2017/09/14 14:31:00"&#125;)'</span></span><br></pre></td></tr></table></figure>
+        <!-- 一段请求jsonp的接口返回的数据，如下：
+1'callback(&#123;"name":"sair","data":"2017/09/14 14:31:00"&#125;)'
+
+这段数据在jq中直接被处理成了json对象，如：
+123456789101112131415161718$.ajax(&#123;    type: "get",    url: "http://x.xxx.xx......  -->
+        <p class="article-more-link">
+          <a href="/2017/09/14/jsonp-fun/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsonp/">jsonp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-rem-em"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/06/rem-em/">em与rem笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/06/rem-em/" class="article-date">
+	  <time datetime="2017-09-05T16:00:00.000Z" itemprop="datePublished">2017-09-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>相对于父元素的<code>font-size</code></p>
+<p>计算公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 父元素的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
+<p>如果元素设置了字体大小，此元素的其他属性，如：<code>border</code>、<code>width</code>、<code>height</code>、<code>padding</code>、<code>margin</code>、<code>line-height</code>计算就需要安装这个公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 元素自身的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
+        <!-- em相对于父元素的font-size
+计算公式：
+11 ÷ 父元素的font-size × 需要转换的像素值 = em值
+如果元素设置了字体大小，此元素的其他属性，如：border、width、height、padding、margin、line-height计算就需要安装这个公式：
+11 ÷ 元素自身的font-size × 需要转换的像素值 = em值
+
+rem相对于根元素(html)的......  -->
+        <p class="article-more-link">
+          <a href="/2017/09/06/rem-em/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/em/">em</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/">rem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

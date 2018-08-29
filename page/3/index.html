@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FE blog">
+<meta property="og:url" content="http://007sair.github.io/page/3/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FE blog">
+<meta name="twitter:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+  
+
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo">
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+		 function redraw(){
+		 	var pattern = Trianglify({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+            pattern.canvas(c)
+        }
+        document.getElementById("intrologo").onclick = redraw
+        document.getElementById("intrologo").ontouchstart = redraw
+		redraw()
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">FE blog</a></h1>
+            <h3>The place to record FE-NOTE，simple technology, simple life, simple place</h3>
+            <h5>By Chan</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-js-tricks"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/06/22/js-tricks/">Javascript Tricks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/06/22/js-tricks/" class="article-date">
+	  <time datetime="2016-06-21T16:00:00.000Z" itemprop="datePublished">2016-06-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这篇文章中将整理一些平时用到的js小技巧。这些小技巧可能在你的实际工作中或许能帮助你解决一些问题。</p>
+<h3 id="使用-操作符转换布尔值"><a href="#使用-操作符转换布尔值" class="headerlink" title="使用!!操作符转换布尔值"></a>使用<code>!!</code>操作符转换布尔值</h3><p>有时候我们需要对一个变量检查其是否存在或者检查值是否有一个有效值，如果存在就返回<code>true</code>值。为了做这样的验证，我们可以使用<code>!!</code>操作符来实现是非常的方便与简单。对于变量可以使用<code>!!variable</code>做检测，只要变量的值为:<code>0</code>、<code>null</code>、<code>&quot; &quot;</code>、<code>undefined</code>或者<code>NaN</code>都将返回的是<code>false</code>，反之返回的是<code>true</code>。比如下面的示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Account</span>(<span class="params">cash</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cash = cash;</span><br><span class="line">    <span class="keyword">this</span>.hasMoney = !!cash;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> account = <span class="keyword">new</span> Account(<span class="number">100.50</span>);</span><br><span class="line"><span class="built_in">console</span>.log(account.cash); <span class="comment">// 100.50</span></span><br><span class="line"><span class="built_in">console</span>.log(account.hasMoney); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emptyAccount = <span class="keyword">new</span> Account(<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(emptyAccount.cash); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(emptyAccount.hasMoney); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>在这个示例中，只要<code>account.cash</code>的值大于<code>0</code>，那么<code>account.hasMoney</code>返回的值就是<code>true</code>。</p>
+        <!-- 在这篇文章中将整理一些平时用到的js小技巧。这些小技巧可能在你的实际工作中或许能帮助你解决一些问题。
+使用!!操作符转换布尔值有时候我们需要对一个变量检查其是否存在或者检查值是否有一个有效值，如果存在就返回true值。为了做这样的验证，我们可以使用!!操作符来实现是非常的方便与简单。对于变量可以使用!!variable做检测，只要变量的值为:0、null、&quot; &quot;、unde......  -->
+        <p class="article-more-link">
+          <a href="/2016/06/22/js-tricks/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-raf"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/03/28/js-raf/">web动画新选择：requestAnimationFrame</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/03/28/js-raf/" class="article-date">
+	  <time datetime="2016-03-27T16:00:00.000Z" itemprop="datePublished">2016-03-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>作者：If you’ve never written code to animate inside the browser, you can stop reading :)</p>
+</blockquote>
+<h3 id="requestAnimationFrame是什么？"><a href="#requestAnimationFrame是什么？" class="headerlink" title="requestAnimationFrame是什么？"></a>requestAnimationFrame是什么？</h3><p>在浏览器中，我们通常使用一个定时器（<code>setInterval</code> &amp; <code>setTimeout</code>）来循环每隔几毫秒移动目标物体一次，来让它动起来。 <br><br>如今有一个好消息，浏览器开发商们决定：“嗨，为什么我们不在浏览器里提供这样一个API呢，这样一来我们可以为用户优化他们的动画。”所以，这个<code>requestAnimationFrame()</code>函数就是针对动画效果的API，你可以把它用在DOM上的风格变化或<code>canvas</code>或<code>webGL</code>中。</p>
+<h4 id="为什么我们要用它？"><a href="#为什么我们要用它？" class="headerlink" title="为什么我们要用它？"></a>为什么我们要用它？</h4><ul>
+<li>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。比如，通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。</li>
+<li>另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。</li>
+</ul>
+        <!-- 
+作者：If you’ve never written code to animate inside the browser, you can stop reading :)
+
+requestAnimationFrame是什么？在浏览器中，我们通常使用一个定时器（setInterval &amp; setTimeout）来循环每隔几毫秒移动目标物体一次，来让它动起来。 如今有一个好消息，浏览......  -->
+        <p class="article-more-link">
+          <a href="/2016/03/28/js-raf/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requestAnimationFrame/">requestAnimationFrame</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-h5-web-keng"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/02/29/h5-web-keng/">移动web开发笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/02/29/h5-web-keng/" class="article-date">
+	  <time datetime="2016-02-28T16:00:00.000Z" itemprop="datePublished">2016-02-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+dd{
+    margin-left: 1em;
+}
+dd:before{
+    content: '·';
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+</style>
+
+<h2 id="Meta标签"><a href="#Meta标签" class="headerlink" title="Meta标签"></a>Meta标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--让页面强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"</span> <span class="attr">name</span>=<span class="string">"viewport"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--是否添加至主屏幕的页面允许全屏模式浏览；--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"yes"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--指定的iphone中safari顶端的状态条的样式；--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"black"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--关闭数字自动识别为电话号码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="触摸并按住触摸目标时候，禁止或显示系统默认菜单"><a href="#触摸并按住触摸目标时候，禁止或显示系统默认菜单" class="headerlink" title="触摸并按住触摸目标时候，禁止或显示系统默认菜单"></a>触摸并按住触摸目标时候，禁止或显示系统默认菜单</h2><p>在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。<br>参考自：<a href="http://www.css88.com/book/css/webkit/behavior/touch-callout.htm" target="_blank">http://www.css88.com/book/css/webkit/behavior/touch-callout.htm</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-touch-callout</span>: none</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <!-- 
+dd{
+    margin-left: 1em;
+}
+dd:before{
+    content: '·';
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+
+Meta标签1234567891011&lt;!--让页面强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。--&gt;&......  -->
+        <p class="article-more-link">
+          <a href="/2016/02/29/h5-web-keng/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-sass-note"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/12/sass-note/">SASS编译中文出现错误的解决方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/12/sass-note/" class="article-date">
+	  <time datetime="2016-01-11T16:00:00.000Z" itemprop="datePublished">2016-01-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/sass/">sass</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>sass文件编译时候使用ruby环境，在使用koala或者命令行时，会因为中文注释产生如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax error: Invalid GBK character &quot;\xE5&quot;</span><br><span class="line">     on line 8 of E:\work\sass\sass\_big_box.scss </span><br><span class="line">     from line 16 of E:\work\sass\sass\main.scss </span><br><span class="line">Use --trace for backtrace.</span><br></pre></td></tr></table></figure>
+<p>or：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Syntax error: Invalid GBK character &quot;\xE5&quot; </span><br><span class="line">     on line 2 of E:\work\sass\sass\main.scss </span><br><span class="line">Use --trace for backtrace.</span><br></pre></td></tr></table></figure>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="koala可视化编译工具"><a href="#koala可视化编译工具" class="headerlink" title="koala可视化编译工具"></a>koala可视化编译工具</h4><p>找到安装目录里面sass-3.3.7模块下面的engine.rb文件，例如下面路径：</p>
+<p>C:\Program Files (x86)\Koala\rubygems\gems\sass-3.3.7\lib\sass</p>
+<p>在这个文件里面engine.rb，添加一行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Encoding.default_external = Encoding.find(&apos;utf-8&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>放在所有的require XXXX 之后即可。</p>
+        <!-- 背景sass文件编译时候使用ruby环境，在使用koala或者命令行时，会因为中文注释产生如下错误：
+1234Syntax error: Invalid GBK character &quot;\xE5&quot;     on line 8 of E:\work\sass\sass\_big_box.scss      from line 16 of E:\work\sass\sass\m......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/12/sass-note/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-css-library"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/11/01/css-library/">Web 开发中 20 个很有用的 CSS 库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/11/01/css-library/" class="article-date">
+	  <time datetime="2015-10-31T16:00:00.000Z" itemprop="datePublished">2015-11-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在过去的几年中，CSS已经成为一大部分开发者和设计者的最爱，因为它提供了一系列功能和特性。每个月都有无数个围绕CSS的工具被开发者发布以简化WEB开发。像CSS 库，框架，应用这样的工具能够为开发者做很多事，而且可以使开发者创造出创新立异的WEB应用。</p>
+<p>在这篇文件章中我们找到了一系列对开发者有用的CSS库，它们能帮助开发者在一定的期限内取得有创造性和创新性的成果。我们希望这个列表能有助于您的开发并为您提供方便。尽情享受吧！</p>
+<h2 id="Kite"><a href="#Kite" class="headerlink" title="Kite"></a><a href="http://hiloki.github.io/kitecss/" target="_blank" rel="noopener">Kite</a></h2><p><img src="/images/img/css-library-kite.jpg" alt=""></p>
+<p>Kite是一个灵活的布局助手CSS库。Kite使用inline-block而不是最新的CSS语法。它注重实际，易于理解且容易使用。Kite用法与flexbox相似：justify-content,等等。你可以很轻松地创建复杂的模块。Kite是基于OOCSS 与 MindBEMding，它可以帮助您快速构建自己的组件。Kite支持几乎所有浏览器，它属于MIT许可。</p>
+        <!-- 在过去的几年中，CSS已经成为一大部分开发者和设计者的最爱，因为它提供了一系列功能和特性。每个月都有无数个围绕CSS的工具被开发者发布以简化WEB开发。像CSS 库，框架，应用这样的工具能够为开发者做很多事，而且可以使开发者创造出创新立异的WEB应用。
+在这篇文件章中我们找到了一系列对开发者有用的CSS库，它们能帮助开发者在一定的期限内取得有创造性和创新性的成果。我们希望这个列表能有助于您的......  -->
+        <p class="article-more-link">
+          <a href="/2015/11/01/css-library/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/库/">库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-bubble"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/10/27/js-bubble/">Javascript常用排序和算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/10/27/js-bubble/" class="article-date">
+	  <time datetime="2015-10-26T16:00:00.000Z" itemprop="datePublished">2015-10-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>核心思想：每次比较相邻的两个值，若后面的值比前面的值小，则交换位置，重复此操作，直到数据从小到大排列看起来像水泡一样冒上去了！</p>
+<h4 id="如何交换数据位置？"><a href="#如何交换数据位置？" class="headerlink" title="如何交换数据位置？"></a>如何交换数据位置？</h4><h5 id="使用临时变量"><a href="#使用临时变量" class="headerlink" title="使用临时变量"></a>使用临时变量</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">15</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> tmp;</span><br><span class="line">tmp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=tmp;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a是:'</span>+a+<span class="string">', b是:'</span>+b);</span><br></pre></td></tr></table></figure>
+        <!-- 冒泡排序核心思想：每次比较相邻的两个值，若后面的值比前面的值小，则交换位置，重复此操作，直到数据从小到大排列看起来像水泡一样冒上去了！
+如何交换数据位置？使用临时变量123456789var a=15;var b=7;var tmp;tmp=a;a=b;b=tmp;console.log('a是:'+a+', b是:'+b);
+
+求和再相减12345678var a=19;var b=10;......  -->
+        <p class="article-more-link">
+          <a href="/2015/10/27/js-bubble/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-execution-efficiency"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/10/20/js-execution-efficiency/">Javascript执行效率小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/10/20/js-execution-efficiency/" class="article-date">
+	  <time datetime="2015-10-19T16:00:00.000Z" itemprop="datePublished">2015-10-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Javascript是一门非常灵活的语言，我们可以随心所欲的书写各种风格的代码，不同风格的代码也必然也会导致执行效率的差异，开发过程中零零散散地接触到许多提高代码性能的方法，整理一下平时比较常见并且容易规避的问题</p>
+<h3 id="JS自身执行效率"><a href="#JS自身执行效率" class="headerlink" title="JS自身执行效率"></a>JS自身执行效率</h3><p>Javascript中的作用域链、闭包、原型继承、eval等特性，在提供各种神奇功能的同时也带来了各种效率问题，用之不慎就会导致执行效率低下。</p>
+        <!-- Javascript是一门非常灵活的语言，我们可以随心所欲的书写各种风格的代码，不同风格的代码也必然也会导致执行效率的差异，开发过程中零零散散地接触到许多提高代码性能的方法，整理一下平时比较常见并且容易规避的问题
+JS自身执行效率Javascript中的作用域链、闭包、原型继承、eval等特性，在提供各种神奇功能的同时也带来了各种效率问题，用之不慎就会导致执行效率低下。
+
+1、全局导入我们在......  -->
+        <p class="article-more-link">
+          <a href="/2015/10/20/js-execution-efficiency/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-encode"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/28/js-encode/">escape、encodeURI和encodeURIComponent的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/28/js-encode/" class="article-date">
+	  <time datetime="2015-09-27T16:00:00.000Z" itemprop="datePublished">2015-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在项目中用到对一段url进行编码，因此整理如下：</p>
+<p><code>javascript</code>中对文字的编码有3组函数：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/escape" target="_blank" rel="noopener">escape</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/unescape" target="_blank" rel="noopener">unescape</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURI" target="_blank" rel="noopener">encodeURI</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURI" target="_blank" rel="noopener">decodeURI</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent" target="_blank" rel="noopener">encodeURIComponent</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener">decodeURIComponent</a></li>
+</ul>
+        <!-- 最近在项目中用到对一段url进行编码，因此整理如下：
+javascript中对文字的编码有3组函数：
+
+escape / unescape
+encodeURI / decodeURI
+encodeURIComponent / decodeURIComponent
+
+
+escape()该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _......  -->
+        <p class="article-more-link">
+          <a href="/2015/09/28/js-encode/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-web-note"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/25/web-note/">前端资源整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/25/web-note/" class="article-date">
+	  <time datetime="2015-09-24T16:00:00.000Z" itemprop="datePublished">2015-09-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+.lotus-post h2{}
+.lotus-post h3{ font-size: 1.3em;}
+.lotus-post h4{ margin-left: 2em; font-size: 1.1em;}
+.lotus-post ul{ margin-left: 5.5em; margin-bottom: 5px;}
+.lotus-post li{ font-size: 0.9em;}
+.lotus-post p{ margin-bottom: 0.2em;}
+</style>
+
+<script>
+$(document).ready(function() {
+    //为超链接加上target='_blank'属性
+    $('a[href^="http"]').each(function() {
+        $(this).attr({
+            'target' : '_blank',
+            'rel' : 'nofollow'
+        });
+    });
+});
+</script>
+
+<h3 id="专业类"><a href="#专业类" class="headerlink" title="专业类"></a>专业类</h3><h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><ul>
+<li><a href="http://ued.sina.com.cn/?p=726" target="_blank" rel="noopener">HTML5标签使用的常见误区</a></li>
+<li><a href="http://stylechen.com/22-html5-tips.html" target="_blank" rel="noopener">22个HTML5的初级技巧</a> </li>
+<li><a href="http://www.html5jscss.com/html5-semantics-section.html" target="_blank" rel="noopener">HTML5的革新——语义化标签(一)</a></li>
+<li><a href="http://mrthink.net/html5-simple-structure/" target="_blank" rel="noopener">HTML5的革新：结构之美</a></li>
+</ul>
+<h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><ul>
+<li><a href="http://www.w3cplus.com/solution/index/index.html" target="_blank" rel="noopener">css解决方案_W3cplus</a></li>
+<li><a href="http://labs.qianduan.net/css-selector/" target="_blank" rel="noopener">css选择器的浏览器支持</a></li>
+<li><a href="http://www.uisdc.com/css-selector" target="_blank" rel="noopener">css选择器详解</a></li>
+<li><a href="http://www.cnblogs.com/leejersey/p/3662612.html" target="_blank" rel="noopener">css中单位px和em,rem的区别 </a></li>
+<li><a href="http://www.w3cplus.com/blog/tags/250.html" target="_blank" rel="noopener">css3属性详解</a></li>
+<li><a href="http://www.ituring.com.cn/article/49353" target="_blank" rel="noopener">css Reset 详细分析</a></li>
+<li><a href="http://www.w3cplus.com/solution/css3content/css3content.html" target="_blank" rel="noopener">css3 content 生成内容</a></li>
+<li><a href="http://www.w3.org/html/ig/zh/wiki/Css3-flexbox/zh-hans#.E4.BC.B8.E7.BC.A9.E8.A1.8C.E6.8D.A2.E8.A1.8C_.E2.80.95.E3.80.8Cflex-wrap.E3.80.8D.E5.B1.9E.E6.80.A7" target="_blank" rel="noopener">css3-flexbox/zh-hans</a></li>
+</ul>
+<h4 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h4><ul>
+<li><a href="http://www.planabc.net/2008/01/30/javascript_books_recommend/" target="_blank" rel="noopener">javaScript入门学习书籍的阶段选择</a></li>
+<li><a href="http://weizhifeng.net/javascript-the-core.html" target="_blank" rel="noopener">javascript核心</a></li>
+</ul>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><ul>
+<li><a href="http://browserdiet.com/zh/" target="_blank" rel="noopener">HOW TO LOSE WEIGHT in the browser</a></li>
+<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="noopener">移动H5前端性能优化指南</a></li>
+<li><a href="https://perishablepress.com/cssresetr/" target="_blank" rel="noopener">cssReset</a></li>
+<li><a href="http://necolas.github.io/normalize.css/" target="_blank" rel="noopener">normalize.css</a></li>
+</ul>
+<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><ul>
+<li><a href="https://cnodejs.org/topic/55dec742c61f30df2e65ebda" target="_blank" rel="noopener">Web前端开发规范文档</a></li>
+<li><a href="http://www.w3cfuns.com/blog-5440229-5402622.html" target="_blank" rel="noopener">百度，淘宝，腾讯三大巨头HTML页面规范分解</a></li>
+<li><a href="http://www.css88.com/doc/codeguide/" target="_blank" rel="noopener">编码规范 by @mdo</a></li>
+<li><a href="https://github.com/ecomfe/spec" target="_blank" rel="noopener">编码规范 from github</a></li>
+</ul>
+<h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><ul>
+<li><a href="http://html5ify.com/fks/" target="_blank" rel="noopener">Frontend Knowledge Structure</a></li>
+<li><a href="http://siberiawolf.com/free_programming/index.html" target="_blank" rel="noopener">免费的编程中文书籍索引</a></li>
+<li><a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li>
+<li><a href="http://www.gbtags.com/gb/gblibrary.htm" target="_blank" rel="noopener">课程库 - 极客标签</a></li>
+<li><a href="http://www.miaov.com/2013/download/video_download.html" target="_blank" rel="noopener">妙味课堂 - 需购买才能看</a></li>
+<li><a href="http://my.oschina.net/smile622/blog/217889" target="_blank" rel="noopener">一步步学会使用SeaJS 2.0</a></li>
+</ul>
+<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><h4 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h4><ul>
+<li><a href="http://docs.emmet.io/" target="_blank" rel="noopener">英文文档</a></li>
+<li><a href="http://yanxyz.github.io/emmet-docs/" target="_blank" rel="noopener">中文文档</a></li>
+</ul>
+<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><ul>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git教程</a>（本文由 @廖雪峰 创作，如果觉得本教程对您有帮助，可以去 iTunes 购买）</li>
+<li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">git简明指南</a></li>
+<li><a href="http://backlogtool.com/git-guide/cn/" target="_blank" rel="noopener">猴子都能懂的GIT入门</a></li>
+<li><a href="http://gitref.justjavac.com/" target="_blank" rel="noopener">Git 参考手册</a></li>
+<li><a href="https://www.gitbook.com/book/0532/progit/details" target="_blank" rel="noopener">Pro Git 中文版</a></li>
+<li><a href="https://github.com/flyhigher139/Git-Cheat-Sheet" target="_blank" rel="noopener">Git-Cheat-Sheet</a></li>
+</ul>
+<h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><ul>
+<li><a href="http://www.apjs.net/" target="_blank" rel="noopener">AngularJS中文网</a></li>
+<li><a href="http://segmentfault.com/a/1190000000693651" target="_blank" rel="noopener">React概览</a></li>
+<li><a href="http://www.bootcss.com/" target="_blank" rel="noopener">Bootstrap中文网</a></li>
+<li><a href="http://amazeui.org/" target="_blank" rel="noopener">Amaze UI</a></li>
+<li><a href="http://www.foundcss.com/" target="_blank" rel="noopener">Foundation中文网</a></li>
+<li><a href="http://nej.netease.com/" target="_blank" rel="noopener">Nice Easy Javascript</a></li>
+<li><a href="http://nec.netease.com/" target="_blank" rel="noopener">NEC：更好的css样式解决方案</a></li>
+</ul>
+<h4 id="压缩工具"><a href="#压缩工具" class="headerlink" title="压缩工具"></a>压缩工具</h4><ul>
+<li><a href="http://tool.css-js.com/" target="_blank" rel="noopener">http://tool.css-js.com/</a></li>
+<li><a href="http://tool.oschina.net/" target="_blank" rel="noopener">在线工具集合</a></li>
+<li><a href="http://code.ciaoca.com/" target="_blank" rel="noopener">前端开发仓库</a></li>
+<li><a href="http://www.wufangbo.com/web-development-tools-list/" target="_blank" rel="noopener">前端开发工具大全-武方博收集整理</a></li>
+<li><a href="http://www.w3cfuns.com/tools.php" target="_blank" rel="noopener">前端开发神器-w3cfuns</a></li>
+</ul>
+<h3 id="资源类"><a href="#资源类" class="headerlink" title="资源类"></a>资源类</h3><h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><ul>
+<li><a href="http://wiki.blueidea.com/index.php?title=%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">蓝色理想wiki</a></li>
+<li><a href="http://www.w3cfuns.com/forum.php?gid=126" target="_blank" rel="noopener">前端技术专栏 - w3cfuns</a></li>
+<li><a href="http://bbs.miaov.com/forum.php" target="_blank" rel="noopener">妙味</a></li>
+<li><a href="http://techbrood.com/" target="_blank" rel="noopener">领先的HTML5动效搜索和分享引擎 - 踏得网</a></li>
+</ul>
+<h4 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h4><ul>
+<li><a href="http://browserhacks.com/#browserhacks" target="_blank" rel="noopener">Browserhacks - 一个针对hack的网站！！</a></li>
+<li><a href="http://www.w3.org/html/ig/zh/wiki/Css3-fonts" target="_blank" rel="noopener">CSS3字体模块</a></li>
+<li><a href="http://www.qiuziti.com/" target="_blank" rel="noopener">字体下载-求字体网</a></li>
+</ul>
+<h3 id="自动化构建"><a href="#自动化构建" class="headerlink" title="自动化构建"></a>自动化构建</h3><h4 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h4><ul>
+<li><a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">Gulp 中文网</a></li>
+<li><a href="http://segmentfault.com/a/1190000000372547" target="_blank" rel="noopener">前端构建工具gulp入门教程</a></li>
+<li><a href="http://gulpjs.com/plugins/" target="_blank" rel="noopener">plugin registry</a></li>
+<li><a href="https://www.npmjs.com/search?q=gulpplugin" target="_blank" rel="noopener">npm</a></li>
+<li><a href="http://zhuanlan.zhihu.com/TLA42/19691575" target="_blank" rel="noopener">Gulp —— 另一种自动化流水线</a></li>
+</ul>
+<h4 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h4><ul>
+<li><a href="http://www.w3cplus.com/sassguide/" target="_blank" rel="noopener">sass入门</a></li>
+<li><a href="http://www.sass.hk/" target="_blank" rel="noopener">sass中国</a></li>
+<li><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="noopener">sass参考手册</a></li>
+<li><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" rel="noopener">sass Functions</a></li>
+</ul>
+<h3 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h3><ul>
+<li><a href="http://ziren.org/hobby/the-programmer-loaded-b-guidebook.html" target="_blank" rel="noopener">程序员装B指南手册</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-oop"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/21/js-oop/">JS 面向对象的程序设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/21/js-oop/" class="article-date">
+	  <time datetime="2015-09-20T16:00:00.000Z" itemprop="datePublished">2015-09-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。<code>ECMAScript</code>中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。</p>
+        <!-- 面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。
+
+ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数”。可以简单理解为JS的对象是一组无序的值，其中的属性或方法都有一个名字，根据这个名字可以访问相映射的值（值可以是基本值/对象/方法......  -->
+        <p class="article-more-link">
+          <a href="/2015/09/21/js-oop/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

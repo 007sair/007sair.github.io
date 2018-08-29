@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>array方法: indexof、filter、foreach、map、reduce详解 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="studyjavascriptarray" />
+  
+  
+  
+  
+  <meta name="description" content="Array方法: indexOf/filter/forEach/map/reduce详解">
+<meta name="keywords" content="study,javascript,array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array方法: indexOf、filter、forEach、map、reduce详解">
+<meta property="og:url" content="http://007sair.github.io/2015/08/17/js-Extras/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="Array方法: indexOf/filter/forEach/map/reduce详解">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.510Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array方法: indexOf、filter、forEach、map、reduce详解">
+<meta name="twitter:description" content="Array方法: indexOf/filter/forEach/map/reduce详解">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-js-Extras" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Array方法: indexOf、filter、forEach、map、reduce详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/17/js-Extras/" class="article-date">
+	  <time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>ECMAScript5</code>标准新增了几个数组操作的方法，让我们来看看都是什么：</p>
+<ul>
+<li><code>Array.prototype.indexOf</code></li>
+<li><code>Array.prototype.lastIndexOf</code></li>
+<li><code>Array.prototype.every</code></li>
+<li><code>Array.prototype.some</code></li>
+<li><code>Array.prototype.forEach</code></li>
+<li><code>Array.prototype.map</code></li>
+<li><code>Array.prototype.filter</code></li>
+<li><code>Array.prototype.reduce</code></li>
+<li><code>Array.prototype.reduceRight</code></li>
+</ul>
+<p>只介绍其中5个方法：<code>indexOf</code>、<code>filter</code>、<code>map</code>、<code>forEach</code>、<code>reduce</code>，其余请参考：<a href="http://kangax.github.io/compat-table/es5/" target="_blank" title="">http://kangax.github.io/compat-table/es5/</a></p>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a><code>indexOf</code></h2><p><code>indexOf()</code>方法返回在该数组中第一个找到的元素位置，如果它不存在则返回-1。</p>
+<p>没有实现这个方法时，我们这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIndexOf</span>(<span class="params">arr, src</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i] == src)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(getIndexOf(arr, <span class="string">'b'</span>));</span><br></pre></td></tr></table></figure>
+<p>现在可以这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">'b'</span>));</span><br></pre></td></tr></table></figure>
+<p>一般在写老版本的兼容时，我们会这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(arr[x] + <span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码本身没有问题，但在IE8以下（含IE8）的浏览器上结果是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a</span></span><br><span class="line"><span class="comment">//b</span></span><br><span class="line"><span class="comment">//c</span></span><br><span class="line"><span class="comment">//d</span></span><br><span class="line"><span class="comment">//function(n)&#123; for (var i = 0; i &lt; this.length; i++) &#123; if(this[i] == n)&#123; return i + '-indexOf'; &#125; &#125;; return -1; &#125;</span></span><br></pre></td></tr></table></figure>
+<p>为什么会这样？得先知道一个原理：<strong>预定义的属性不是可枚举的，而用户定义的属性总是可枚举的</strong>。</p>
+<p>在<code>IE8</code>以上的浏览器中，<code>indexOf</code>会被认为是预定义属性，使用<code>for in</code>时自然不会被枚举到。而ie8以下的js版本中并没有预定义<code>indexOf</code>，是我们自定义的方法，所以就被枚举到了。</p>
+<p>关于<code>for in</code>：可用来遍历一个对象中的所有属性名，该枚举过程将会列出所有的属性，包括函数和你可能不关心的原型中的属性。</p>
+<p>所以上面的例子想得到正确的结果，需做如下修改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.hasOwnProperty(x)) &#123;</span><br><span class="line">        <span class="built_in">document</span>.write(arr[x] + <span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>hasOwnProperty</code>：是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员。</li>
+<li><code>isPrototypeOf</code>：是用来判断要检查其原型链的对象是否存在于指定对象实例中，是则返回<code>true</code>，否则返回<code>false</code>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个demo解释hasOwnProperty和isPrototypeOf</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello, my name is '</span> + <span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayFrom = <span class="function"><span class="keyword">function</span>(<span class="params">from</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.from = <span class="keyword">from</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hi, i come from '</span> + <span class="keyword">this</span>.from);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Person(<span class="string">'xiaomin'</span>, <span class="string">'24'</span>);</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Person(<span class="string">'xiaohua'</span>, <span class="string">'28'</span>);</span><br><span class="line"></span><br><span class="line">s1.grade = <span class="string">'30'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'grade'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'sayHello'</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'from'</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">"sayHello"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">"from"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(s1))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(s2))<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>关于枚举，可参考：</p>
+<ul>
+<li><a rel="nofollow" href="http://segmentfault.com/a/1190000002953364" target="_blank" title="">js对象中什么是可枚举性(enumerable)？</a></li>
+<li><a rel="nofollow" href="http://www.365mini.com/page/javascript-propertyisenumerable.htm" target="_blank" title="">JavaScript propertyIsEnumerable() 函数详解</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/dolphinX/p/3348467.html" target="_blank" title="">ECMAScript5 Object的新属性方法 </a></li>
+<li><a rel="nofollow" href="http://blog.csdn.net/haojianfeng11/article/details/16331963" target="_blank" title="">JS 对象属性”可枚举”</a></li>
+</ul>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a><code>filter</code></h2><p>该<code>filter()</code>方法创建一个新的匹配过滤条件的数组。</p>
+<p>没有实现这个方法时，我们这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"apple"</span>, <span class="string">"count"</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"pear"</span>, <span class="string">"count"</span>: <span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">16</span>&#125;,</span><br><span class="line">];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> newArr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i].name === <span class="string">"orange"</span> )&#123;</span><br><span class="line">        newArr.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Filter results:"</span>,newArr);</span><br></pre></td></tr></table></figure>
+<p>现在可以这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"apple"</span>, <span class="string">"count"</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"pear"</span>, <span class="string">"count"</span>: <span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">16</span>&#125;,</span><br><span class="line">];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item.name === <span class="string">"orange"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Filter results:"</span>,newArr);</span><br></pre></td></tr></table></figure>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a><code>forEach</code></h2><p><code>forEach()</code>为每个元素执行对应的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the usual "for" loop to iterate</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"========================"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Uses forEach to iterate</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a><code>map</code></h2><p>该<code>map()</code>对数组的每个元素进行一定操作（映射）后，会返回一个新的数组，</p>
+<p>以前这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArr = [&#123;<span class="attr">first_name</span>:<span class="string">"Colin"</span>,<span class="attr">last_name</span>:<span class="string">"Toh"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Addy"</span>,<span class="attr">last_name</span>:<span class="string">"Osmani"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Yehuda"</span>,<span class="attr">last_name</span>:<span class="string">"Katz"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewArr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newArr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = oldArr.length; i&lt; l; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> item = oldArr[i];</span><br><span class="line">        item.full_name = [item.first_name,item.last_name].join(<span class="string">" "</span>);</span><br><span class="line">        newArr[i] = item;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getNewArr());</span><br></pre></td></tr></table></figure>
+<p>现在这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArr = [&#123;<span class="attr">first_name</span>:<span class="string">"Colin"</span>,<span class="attr">last_name</span>:<span class="string">"Toh"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Addy"</span>,<span class="attr">last_name</span>:<span class="string">"Osmani"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Yehuda"</span>,<span class="attr">last_name</span>:<span class="string">"Katz"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewArr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> oldArr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</span><br><span class="line">        item.full_name = [item.first_name,item.last_name].join(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getNewArr());</span><br></pre></td></tr></table></figure>
+<p><code>map()</code>是处理服务器返回数据时是一个非常实用的函数。</p>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a><code>reduce</code></h2><p><code>reduce()</code>可以实现一个累加器的功能，将数组的每个值（从左到右）将其降低到一个值。</p>
+<p>场景： 统计一个数组中有多少个不重复的单词</p>
+<p>befroe:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"pear"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWordCnt</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> item = arr[i];</span><br><span class="line">        obj[item] = (obj[item] +<span class="number">1</span> ) || <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getWordCnt());</span><br></pre></td></tr></table></figure>
+<p>now:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"pear"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWordCnt</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        prev[next] = (prev[next] + <span class="number">1</span>) || <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;,&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getWordCnt());</span><br></pre></td></tr></table></figure>
+<p><code>reduce(callback, initialValue)</code>会传入两个变量。回调函数<code>callback</code>和初始值<code>initialValue</code>。假设函数它有个传入参数，<code>prev</code>和<code>next</code>,<code>index</code>和<code>array</code>。<code>prev</code>和<code>next</code>你是必须要了解的。</p>
+<p>一般来讲<code>prev</code>是从数组中第一个元素开始的，<code>next</code>是第二个元素。但是当你传入初始值<code>initialValue</code>后，第一个<code>prev</code>将是<code>initivalValue</code>，<code>next</code>将是数组中的第一个元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二者的区别，在console中运行一下即可知晓</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">noPassValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"prev:"</span>,prev);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"next:"</span>,next);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> prev + <span class="string">" "</span> +next;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">passValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"prev:"</span>,prev);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"next:"</span>,next);</span><br><span class="line">        </span><br><span class="line">        prev[next] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;,&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"No Additional parameter:"</span>,noPassValue());</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"----------------"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"With &#123;&#125; as an additional parameter:"</span>,passValue());</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/17/js-for-in/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Javascript中如何遍历属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/15/js-tujie-context/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">图解Javascript上下文与作用域</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#indexOf"><span class="nav-text">indexOf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter"><span class="nav-text">filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce"><span class="nav-text">reduce</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

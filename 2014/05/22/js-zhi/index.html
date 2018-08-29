@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript传值和传址 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="studyjavascript" />
+  
+  
+  
+  
+  <meta name="description" content="javascript 传值和传址的区别">
+<meta name="keywords" content="study,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript传值和传址">
+<meta property="og:url" content="http://007sair.github.io/2014/05/22/js-zhi/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="javascript 传值和传址的区别">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://007sair.github.io/images/js_type.png">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript传值和传址">
+<meta name="twitter:description" content="javascript 传值和传址的区别">
+<meta name="twitter:image" content="http://007sair.github.io/images/js_type.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-js-zhi" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      javascript传值和传址
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2014/05/22/js-zhi/" class="article-date">
+	  <time datetime="2014-05-21T16:00:00.000Z" itemprop="datePublished">2014-05-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>关于传值和传址，权威指南有这么一些话：</p>
+<p>在js中和在所有编程语言中一样，可以有三种重要的方式来操作一个数据值：</p>
+<ul>
+<li>首先，可以复制它。例如：把它赋给一个新的变量；</li>
+<li>其次，可以把它作为参数传递给一个函数或方法。</li>
+<li>再次，可以把它和另外一个值进行比较看两个值是否相等。</li>
+</ul>
+<a id="more"></a>
+<h4 id="传值："><a href="#传值：" class="headerlink" title="传值："></a>传值：</h4><p>当一个数据是通过值被操作，那么所关系到的是数据的值。在赋值过程中，对实际的值制作了一份拷贝，这份拷贝存储到一个变量、对象属性或数组中。拷贝的值和原始的值是分别存储的两份完全独立的值。当一份数据通过值传递给一个函数，数据的一份拷贝被传递给了这个函数；如果函数修改了这个值，修改只会影响到函数所拥有的该数据的拷贝，而不会影响到原始数据。最后，当一个数据通过值和另一个数据作比较，两份继而不同的数据片段必须确实代表相同的值（意味着要进行逐个字节比较后发现是否相同）。</p>
+<h4 id="传址："><a href="#传址：" class="headerlink" title="传址："></a>传址：</h4><p>使用这种方式，数据值有一份真实的拷贝，被操作的是对该值的引用（地址）。如果以传址方式操作一个值，变量并不会直接存储该值，它们只是存储该值的地址，被复制、传递和比较的都是这个地址。因此，在传址的赋值操作中，只是这个值的地址被赋值，而不是这个值的一份拷贝，更不是值本身。在赋值后，新的变量所指向的值和原始变量所指向的值相同，两个地址都有效，都可以用来操作这个值。如果值通过一个地址发生了变化，这个改变也会影响原始变量。</p>
+<h4 id="表格："><a href="#表格：" class="headerlink" title="表格："></a>表格：</h4><table style="width:800px;" class="table"><br>    <tr><br>        <td width="50"></td><br>        <td align="center" width="200">传值</td><br>        <td align="center">传址</td><br>    </tr><br>    <tr><br>        <td align="center">复制</td><br>        <td>实际复制的是值，存在两个不同的、独立的拷贝</td><br>        <td>复制的值是对数值的引用。如果通过这个新的引用修改了数值，这个改变对最初的引用来说也可见。</td><br>    </tr><br>    <tr><br>        <td align="center">传递</td><br>        <td>传递给函数的是值的一个独立拷贝，对它的改变在函数外部没有影响</td><br>        <td>传递给函数的是对数值的一个引用。如果函数通过传递给它的引用修改了数值，这个改变在函数外部也可见。</td><br>    </tr><br>    <tr><br>        <td align="center">比较</td><br>        <td>比较的是两个独立的值（通常逐字节比较），以判断它们是否相等</td><br>        <td>比较的是两个引用，以判断它们引用的是否是同一个数值。对两个不同的数值的引用不相等，即使这两个数值是由相同的字节构成的</td><br>    </tr><br></table>
+
+<h4 id="js基本规则："><a href="#js基本规则：" class="headerlink" title="js基本规则："></a>js基本规则：</h4><p>基本数据类型（数字、布尔）通过传值来操作；引用类型（对象、数组和函数）通过传址操作。字符串通常被当作基本类型，因为它们不是对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Array</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>     <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>看下面的demo：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span> == <span class="keyword">new</span> <span class="built_in">Object</span>    <span class="comment">//false</span></span><br><span class="line">[] == []    <span class="comment">//false</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>] == [<span class="number">1</span>,<span class="number">2</span>]      <span class="comment">//false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">null</span>    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>[] 和 [] 两个值看似一样，为什么不相等，这个设计到js的传值和传址。</p>
+<p>用以下代码演示传值和传址的区别：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传值</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n = m;</span><br><span class="line">n = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(m);     <span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(n);     <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(m == n);    <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//传址</span></span><br><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line">o1.x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> o3 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o4 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(o1 == o2);  <span class="comment">//true  o1的引用地址赋值给o2，所以有相同地址，即相等</span></span><br><span class="line"><span class="built_in">console</span>.log(o3 == o4);  <span class="comment">//false 看起来是空对象,其实是两个不相同的引用地址，即不相等</span></span><br><span class="line"><span class="built_in">console</span>.log(o1.x);  <span class="comment">//5</span></span><br><span class="line"><span class="built_in">console</span>.log(o2.x);  <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h2 id="javascript类型总览图"><a href="#javascript类型总览图" class="headerlink" title="javascript类型总览图"></a>javascript类型总览图</h2><p><img src="/images/js_type.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/01/sublime-plugin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          sublime常用插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/05/01/sublime-cad/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">sublime常用快捷键</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传值："><span class="nav-text">传值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传址："><span class="nav-text">传址：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格："><span class="nav-text">表格：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js基本规则："><span class="nav-text">js基本规则：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript类型总览图"><span class="nav-text">javascript类型总览图</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

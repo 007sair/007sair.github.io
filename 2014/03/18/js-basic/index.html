@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>7个javascript的基础点 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="studyjavascript" />
+  
+  
+  
+  
+  <meta name="description" content="7个javascript的基础点">
+<meta name="keywords" content="study,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7个javascript的基础点">
+<meta property="og:url" content="http://007sair.github.io/2014/03/18/js-basic/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="7个javascript的基础点">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7个javascript的基础点">
+<meta name="twitter:description" content="7个javascript的基础点">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-js-basic" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      7个javascript的基础点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2014/03/18/js-basic/" class="article-date">
+	  <time datetime="2014-03-17T16:00:00.000Z" itemprop="datePublished">2014-03-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-在-String-prototype-replace-方法中使用-g-和-i-标志位"><a href="#1-在-String-prototype-replace-方法中使用-g-和-i-标志位" class="headerlink" title="1. 在 String.prototype.replace 方法中使用 /g 和 /i 标志位"></a>1. 在 String.prototype.replace 方法中使用 /g 和 /i 标志位</h4><p>令很多 JavaScript 初学者意外的是，字符串的 replace 方法并不会 替换所有匹配的子串——而仅仅替换第一次匹配。当然 JavaScript 老手们都知道这里可以使用正则表达式，并且需要加上一个全局标志位（/g）：</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Mistake </span></span><br><span class="line"><span class="comment">// 踩到坑了 </span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"David is an Arsenal fan, which means David is great"</span>; </span><br><span class="line">str.replace(<span class="string">"David"</span>, <span class="string">"Darren"</span>); <span class="comment">// "Darren is an Arsenal fan, which means David is great" </span></span><br><span class="line"><span class="comment">// Desired </span></span><br><span class="line"><span class="comment">// 符合预期 </span></span><br><span class="line">str.replace(<span class="regexp">/David/g</span>, <span class="string">"Darren"</span>); <span class="comment">// "Darren is an Arsenal fan, which means Darren is great"</span></span><br></pre></td></tr></table></figure>
+<p>另一个基本的逻辑错误就是在大小写不敏感的校验场合（字母可大写可小写）没有忽略大小写，此时 /i 标志位就很实用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/david/gi</span>, <span class="string">"Darren"</span>); <span class="comment">// "Darren will always be an Arsenal fan, which means Darren will always be great"</span></span><br></pre></td></tr></table></figure>
+<p>（译注：上面这段例程我没有看懂用意，可能是注释有误吧……）<br><br>每个 JavaScript 开发者都曾踩过这两个标志位的坑——因此别忘了在适当的时候用上它们！</p>
+<h4 id="2-类数组对象和-Array-prototype-slice-方法"><a href="#2-类数组对象和-Array-prototype-slice-方法" class="headerlink" title="2. 类数组对象和 Array.prototype.slice 方法"></a>2. 类数组对象和 Array.prototype.slice 方法</h4><p>数组的 slice 方法通常用来从一个数组中抽取片断。但很多开发者不了解的是，这个方法还可以用来将“类数组”元素（比如 arguments 参数列表、节点列表和属性列表）转换成真正的数组：（译注：DOM 元素的属性列表通过 attributes 属性获取，比如 document.body.attributes。）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodesArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>));</span><br><span class="line"><span class="comment">// "true" array of DIVs</span></span><br><span class="line"><span class="comment">// 得到一个由 div 元素组成的“真正的”数组</span></span><br><span class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"><span class="comment">// changes arguments to "true" array</span></span><br><span class="line"><span class="comment">// 把 arguments 转换成一个“真正的”数组 你还可以使用一次简单的 slice 调用来克隆一个数组：</span></span><br><span class="line"><span class="keyword">var</span> clone = myArray.slice(<span class="number">0</span>); <span class="comment">// naive clone // 浅克隆</span></span><br></pre></td></tr></table></figure>
+<p>（译注：这里的参数 0 也可以省略，我估计 undefined 被 slice 方法自动转换为 0 了吧。）<br><br>Array.prototype.slice 绝对是 JavaScript 世界中的一玫珍宝，但 JavaScript 初学者们显然还没有意识到它的全部潜力。</p>
+<h4 id="3-Array-prototype-sort-方法"><a href="#3-Array-prototype-sort-方法" class="headerlink" title="3. Array.prototype.sort 方法"></a>3. Array.prototype.sort 方法</h4><p><a href="http://davidwalsh.name/array-sort" target="_blank" rel="noopener">数组的 sort 方法</a> 远远没有被充分利用，而且可能比开发者们想像的更加强大。很多开发者可能觉得 sort 方法可以用来做这种事情：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">2</span>].sort();</span><br><span class="line"><span class="comment">// 返回 [1, 2, 3, 9]</span></span><br></pre></td></tr></table></figure>
+<p>……这没错，但它还有更强大的用法，比如这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[ </span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Robin Van PurseStrings"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;, </span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Theo Walcott"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;, </span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Bacary Sagna"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125; </span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span>(<span class="params">obj1, obj2</span>) </span>&#123;  </span><br><span class="line">    <span class="comment">// Ascending: first age less than the previous  </span></span><br><span class="line">    <span class="comment">// 实现增序排列：前者的 age 小于后者  </span></span><br><span class="line">    <span class="keyword">return</span> obj1.age - obj2.age;  </span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">// Returns: </span></span><br><span class="line"><span class="comment">// [ </span></span><br><span class="line"><span class="comment">//    &#123; name: "Theo Walcott", age: 24 &#125;, </span></span><br><span class="line"><span class="comment">//    &#123; name: "Bacary Sagna", age: 28  &#125;, </span></span><br><span class="line"><span class="comment">//    &#123; name: "Robin Van PurseStrings", age: 30 &#125; </span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<p>你不仅可以对简单类型的数组项进行排序，可以通过属性来排序对象。如果哪天服务器端发来一段 JSON 数据，而且其中的对象需要排序，你可别忘了这一招！</p>
+<h4 id="4-用-length-属性来截断数组"><a href="#4-用-length-属性来截断数组" class="headerlink" title="4. 用 length 属性来截断数组"></a>4. 用 length 属性来截断数组</h4><p>几乎所有开发者都踩过 JavaScript 的这个坑——“传对象只是传引用”。开发者们经常会试图 <a href="http://davidwalsh.name/empty-array" target="_blank" rel="noopener">把一个数组清空</a>，但实际上却错误地创建了一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = yourArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; </span><br><span class="line"><span class="comment">// :( </span></span><br><span class="line"><span class="comment">// 囧 </span></span><br><span class="line">myArray = []; <span class="comment">// `yourArray` is still [1, 2, 3] </span></span><br><span class="line">              <span class="comment">// `yourArray` 仍然是 [1, 2, 3] </span></span><br><span class="line"><span class="comment">// The right way, keeping reference </span></span><br><span class="line"><span class="comment">// 正确的方法是保持引用 </span></span><br><span class="line">myArray.length = <span class="number">0</span>; <span class="comment">// `yourArray` and `myArray` both [ ] </span></span><br><span class="line">                    <span class="comment">// `yourArray` 和 `myArray`（以及其它所有对这个数组的引用）都变成 [ ] 了</span></span><br></pre></td></tr></table></figure>
+<p>坑里的人们终于明白，原来传对象只是在传引用。因此当我把 myArray 重新赋值为 [] 时，确实会创建出一个新的空数组，但其它对老数组的引用仍然没变！大坑啊！还是换用截断的方法吧，少年。</p>
+<h4 id="5-使用-push-来合并数组"><a href="#5-使用-push-来合并数组" class="headerlink" title="5. 使用 push 来合并数组"></a>5. 使用 push 来合并数组</h4><p>在上面的第 2 节里，我展示了数组的 slice 和 apply 方法所能组合出的几个小妙招，所以对于数组方法的其它技巧，你应该已经做好心理准备了吧。这次我们使用 push 方法来合并数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mergeTo = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]; </span><br><span class="line"><span class="keyword">var</span> mergeFrom = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]; </span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(mergeTo, mergeFrom); </span><br><span class="line">mergeTo; <span class="comment">// is: [4, 5, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
+<p>这是一项不为人知的小技巧，简单的原生方法就可以实现数组合并这样的常见任务。（译注：这个方法的巧妙之外不仅在于 push 方法可以接收多个参数，还涉及到 apply 方法的第二个参数的用法。）</p>
+<h4 id="6-高效探测功能特性和对象属性"><a href="#6-高效探测功能特性和对象属性" class="headerlink" title="6. 高效探测功能特性和对象属性"></a>6. 高效探测功能特性和对象属性</h4><p>很多时候开发者们会像下面这样来探测浏览器的某个特性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(navigator.geolocation) &#123;  </span><br><span class="line">    <span class="comment">// Do some stuff  </span></span><br><span class="line">    <span class="comment">// 在这里干点事情  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然这可以正常工作，但它并不一定有很好的效率。因为这个对象探测方法会在浏览器中初始化资源。在过去，上面的代码片断可能会在某些浏览器下导致内存泄露。更好、更快的方法是检查对象是否包含某个键名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">"geolocation"</span> <span class="keyword">in</span> navigator) &#123;  </span><br><span class="line">    <span class="comment">// Do some stuff  </span></span><br><span class="line">    <span class="comment">// 在这里干点事情  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>键名检查十分简单，而且可以避免内存泄露。另外请注意，如果这个属性的值是假值，那么前一种探测方式将会得到“否”的结果，并不能真正探测出这个键名是否存在。</p>
+<h4 id="7-事件对象的-preventDefault-和-stopPropagation-方法"><a href="#7-事件对象的-preventDefault-和-stopPropagation-方法" class="headerlink" title="7. 事件对象的 preventDefault 和 stopPropagation 方法"></a>7. 事件对象的 preventDefault 和 stopPropagation 方法</h4><p>很多时候，当一个动作元素（比如链接）被点击时，会触发某个功能。显然我们并不希望点击链接时浏览器顺着这个链接跳转，于是我们会习惯性地使用 JavaScript 类库的 Event.stop 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"a.trigger"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line">    e.stop();        </span><br><span class="line">    <span class="comment">// Do more stuff  </span></span><br><span class="line">    <span class="comment">// 在这里干点事情  </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>（译注：不知道哪个类库有这个方法，估计其作用相当于 return false; 吧。语法看起来像 jQuery，但 jQuery 并没有这个方法，而且 jQuery 是支持 e.preventDefault 和 e.stopPropagation 方法的。）</p>
+<p>这个懒方法有一个问题，它不仅阻止了浏览器的默认动作，同时也阻止了事件继续冒泡。这意味着元素上绑定的其它事件监听器将不会被触发，因为它们根本就不知道有事件发生。此时不妨使用 preventDefault 吧！</p>
+<p>JavaScript 老鸟们看到这篇文章可能会说“我早知道了”，但说不定什么时候，他们就会在某一点上栽跟头。提醒大家留意 JavaScript 中的各种小细节，失之毫厘谬以千里啊！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/05/01/sublime-cad/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          sublime常用快捷键
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/07/21/css-bug/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">css常见bug</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在-String-prototype-replace-方法中使用-g-和-i-标志位"><span class="nav-text">1. 在 String.prototype.replace 方法中使用 /g 和 /i 标志位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-类数组对象和-Array-prototype-slice-方法"><span class="nav-text">2. 类数组对象和 Array.prototype.slice 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Array-prototype-sort-方法"><span class="nav-text">3. Array.prototype.sort 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-用-length-属性来截断数组"><span class="nav-text">4. 用 length 属性来截断数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-使用-push-来合并数组"><span class="nav-text">5. 使用 push 来合并数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-高效探测功能特性和对象属性"><span class="nav-text">6. 高效探测功能特性和对象属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-事件对象的-preventDefault-和-stopPropagation-方法"><span class="nav-text">7. 事件对象的 preventDefault 和 stopPropagation 方法</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图解javascript上下文与作用域 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="studyjavascript" />
+  
+  
+  
+  
+  <meta name="description" content="图解Javascript上下文与作用域">
+<meta name="keywords" content="study,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解Javascript上下文与作用域">
+<meta property="og:url" content="http://007sair.github.io/2015/08/15/js-tujie-context/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="图解Javascript上下文与作用域">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://007sair.github.io/images/img/js-global-context.jpg">
+<meta property="og:image" content="http://007sair.github.io/images/img/js-context-stack.jpg">
+<meta property="og:image" content="http://007sair.github.io/images/img/js-scope-chain.jpg">
+<meta property="og:image" content="http://007sair.github.io/images/img/js-closure.jpg">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.510Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图解Javascript上下文与作用域">
+<meta name="twitter:description" content="图解Javascript上下文与作用域">
+<meta name="twitter:image" content="http://007sair.github.io/images/img/js-global-context.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-js-tujie-context" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      图解Javascript上下文与作用域
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/15/js-tujie-context/" class="article-date">
+	  <time datetime="2015-08-14T16:00:00.000Z" itemprop="datePublished">2015-08-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（<code>execution context</code>）、作用域链（<code>scope chain</code>）、闭包（<code>closure</code>）、<code>this</code>等概念。</p>
+<h3 id="Execution-context"><a href="#Execution-context" class="headerlink" title="Execution context"></a><code>Execution context</code></h3><p>执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（<code>variable object</code>），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（<code>global context</code>），全局上下文取决于执行环境，如<code>Node</code>中的<code>global</code>和<code>Browser</code>中的<code>window</code>：</p>
+<a id="more"></a>
+<p><img src="/images/img/js-global-context.jpg" style="width:600px;" alt=""></p>
+<p>需要注意的是，上下文与作用域（<code>scope</code>）是不同的概念。Js本身是单线程的，每当有<code>function</code>被执行时，就会产生一个新的上下文，这一上下文会被压入Js的上下文堆栈（<code>context stack</code>）中，<code>function</code>执行结束后则被弹出，因此Js解释器总是在栈顶上下文中执行。在生成新的上下文时，首先会绑定该上下文的变量对象，其中包括<code>arguments</code>和该函数中定义的变量；之后会创建属于该上下文的作用域链（<code>scope chain</code>），最后将<code>this</code>赋予这一<code>function</code>所属的<code>Object</code>，这一过程可以通过下图表示：</p>
+<p><img src="/images/img/js-context-stack.jpg" style="width:600px;" alt=""></p>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a><code>this</code></h3><p>上文提到<code>this</code>被赋予<code>function</code>所属的<code>Object</code>，具体来说，当<code>function</code>是定义在<code>global</code>对中时，<code>this</code>指向<code>global</code>；当<code>function</code>作为<code>Object</code>的方法时，<code>this</code>指向该<code>Object</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;  </span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">f();  <span class="comment">// -&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ff = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="keyword">this</span>.x = <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">ff(); <span class="comment">// -&gt; 2  </span></span><br><span class="line">x     <span class="comment">// -&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>: <span class="string">"o's x"</span>, <span class="attr">f</span>: f&#125;;  </span><br><span class="line">o.f(); <span class="comment">// "o's x"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Scope-chain"><a href="#Scope-chain" class="headerlink" title="Scope chain"></a><code>Scope chain</code></h3><p>上文提到，在<code>function</code>被执行时生成新的上下文时会先绑定当前上下文的变量对象，再创建作用域链。我们知道<code>function</code>的定义是可以嵌套在其他<code>function</code>所创建的上下文中，也可以并列地定义在同一个上下文中（如<code>global</code>）。作用域链实际上就是自下而上地将所有嵌套定义的上下文所绑定的变量对象串接到一起，使嵌套的<code>function</code>可以“继承”上层上下文的变量，而并列的<code>function</code>之间互不干扰：</p>
+<p><img src="/images/img/js-scope-chain.jpg" style="width:600px;" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">'global'</span>;  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> x = <span class="string">"a's x"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="string">"b's y"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">  &#125;;</span><br><span class="line">  b();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> x = <span class="string">"c's x"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(y);</span><br><span class="line">  &#125;;</span><br><span class="line">  d();</span><br><span class="line">&#125;</span><br><span class="line">a();  <span class="comment">// -&gt; "a's x"  </span></span><br><span class="line">c();  <span class="comment">// -&gt; ReferenceError: y is not defined  </span></span><br><span class="line">x     <span class="comment">// -&gt; "global"  </span></span><br><span class="line">y     <span class="comment">// -&gt; ReferenceError: y is not defined</span></span><br></pre></td></tr></table></figure>
+<h3 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a><code>Closure</code></h3><p>如果理解了上文中提到的上下文与作用域链的机制，再来看闭包的概念就很清楚了。每个<code>function</code>在调用时会创建新的上下文及作用域链，而作用域链就是将外层（上层）上下文所绑定的变量对象逐一串连起来，使当前<code>function</code>可以获取外层上下文的变量、数据等。如果我们在<code>function</code>中定义新的<code>function</code>，同时将内层<code>function</code>作为值返回，那么内层<code>function</code>所包含的作用域链将会一起返回，即使内层<code>function</code>在其他上下文中执行，其内部的作用域链仍然保持着原有的数据，而当前的上下文可能无法获取原先外层<code>function</code>中的数据，使得<code>function</code>内部的作用域链被保护起来，从而形成“闭包”。看下面的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;  </span><br><span class="line"><span class="keyword">var</span> inc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x++);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> inc1 = inc();  </span><br><span class="line"><span class="keyword">var</span> inc2 = inc();</span><br><span class="line"></span><br><span class="line">inc1();  <span class="comment">// -&gt; 0  </span></span><br><span class="line">inc1();  <span class="comment">// -&gt; 1  </span></span><br><span class="line">inc2();  <span class="comment">// -&gt; 0  </span></span><br><span class="line">inc1();  <span class="comment">// -&gt; 2  </span></span><br><span class="line">inc2();  <span class="comment">// -&gt; 1  </span></span><br><span class="line">x;       <span class="comment">// -&gt; 100</span></span><br></pre></td></tr></table></figure>
+<p>执行过程如下图所示，<code>inc</code>内部返回的匿名<code>function</code>在创建时生成的作用域链包括了<code>inc</code>中的<code>x</code>，即使后来赋值给<code>inc1</code>和<code>inc2</code>之后，直接在<code>global context</code>下调用，它们的作用域链仍然是由定义中所处的上下文环境决定，而且由于<code>x</code>是在<code>function inc</code>中定义的，无法被外层的<code>global context</code>所改变，从而实现了闭包的效果：</p>
+<p><img src="/images/img/js-closure.jpg" style="width:600px;" alt=""></p>
+<h3 id="this-in-closure"><a href="#this-in-closure" class="headerlink" title="this in closure"></a><code>this in closure</code></h3><p>我们已经反复提到执行上下文和作用域实际上是通过<code>function</code>创建、分割的，而<code>function</code>中的<code>this</code>与作用域链不同，它是由执行该<code>function</code>时当前所处的<code>Object</code>环境所决定的，这也是<code>this</code>最容易被混淆用错的一点。一般情况下的例子如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;  </span><br><span class="line"><span class="keyword">var</span> o = &#123;  </span><br><span class="line">  name: <span class="string">"o"</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">o.getName();  <span class="comment">// -&gt; "o"</span></span><br></pre></td></tr></table></figure>
+<p>由于执行<code>o.getName()</code>时<code>getName</code>所绑定的<code>this</code>是调用它的<code>o</code>，所以此时<code>this == o</code>；更容易搞混的是在<code>closure</code>条件下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;  </span><br><span class="line"><span class="keyword">var</span> oo = &#123;  </span><br><span class="line">  name: <span class="string">"oo"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">oo.getNameFunc()();  <span class="comment">// -&gt; "global"</span></span><br></pre></td></tr></table></figure>
+<p>此时闭包函数被<code>return</code>后调用相当于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName = oo.getNameFunc();  </span><br><span class="line">getName();  <span class="comment">// -&gt; "global"</span></span><br></pre></td></tr></table></figure>
+<p>换一个更明显的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ooo = &#123;  </span><br><span class="line">  name: <span class="string">"ooo"</span>,</span><br><span class="line">  getName: oo.getNameFunc() <span class="comment">// 此时闭包函数的this被绑定到新的Object</span></span><br><span class="line">&#125;;</span><br><span class="line">ooo.getName();  <span class="comment">// -&gt; "ooo"</span></span><br></pre></td></tr></table></figure>
+<p>当然，有时候为了避免闭包中的<code>this</code>在执行时被替换，可以采取下面的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;  </span><br><span class="line"><span class="keyword">var</span> oooo = &#123;  </span><br><span class="line">  name: <span class="string">"ox4"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> self.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">oooo.getNameFunc()(); <span class="comment">// -&gt; "ox4"</span></span><br></pre></td></tr></table></figure>
+<p>或者是在调用时强行定义执行的<code>Object</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;  </span><br><span class="line"><span class="keyword">var</span> oo = &#123;  </span><br><span class="line">  name: <span class="string">"oo"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">oo.getNameFunc()();  <span class="comment">// -&gt; "global"  </span></span><br><span class="line">oo.getNameFunc().bind(oo)(); <span class="comment">// -&gt; "oo"</span></span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Js</code>是一门很有趣的语言，由于它的很多特性是针对<code>HTML</code>中<code>DOM</code>的操作，因而显得随意而略失严谨，但随着前端的不断繁荣发展和<code>Node</code>的兴起，<code>Js</code>已经不再是<code>&quot;toy language&quot;</code>或是<code>jQuery</code>时代的”<code>CSS</code>扩展”，本文提到的这些概念无论是对新手还是从传统Web开发中过度过来的Js开发人员来说，都很容易被混淆或误解，希望本文可以有所帮助。</p>
+<p>写这篇总结的原因是我在Github上分享的<a href="https://github.com/coodict/javascript-in-one-pic" target="_blank">Learn javascript in one picture</a>，刚开始有人质疑这只能算是一张语法表（<code>syntax cheat sheet</code>），根本不会涉及更深层的闭包、作用域等内容，但是出乎意料的是这个项目竟然获得3000多个star，所以不能虎头蛇尾，以上。</p>
+<p><br></p>
+<blockquote>
+<p>转自：<a href="http://blog.rainy.im/2015/07/04/scope-chain-and-prototype-chain-in-js/" target="_blank" title="">图解Javascript上下文与作用域</a></p>
+</blockquote>
+<p><strong>参考自：</strong></p>
+<ul>
+<li><a rel="nofollow" href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" title="">Understanding Scope and Context in JavaScript</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" title="">this - JavaScript | MDN</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" title="">闭包 - JavaScript | MDN</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/17/js-Extras/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Array方法: indexOf、filter、forEach、map、reduce详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/15/js-tujie-proto/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">图解Javascript原型链</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Execution-context"><span class="nav-text">Execution context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this"><span class="nav-text">this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-chain"><span class="nav-text">Scope chain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Closure"><span class="nav-text">Closure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-in-closure"><span class="nav-text">this in closure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

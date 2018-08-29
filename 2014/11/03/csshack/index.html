@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css的兼容解决方法 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="cssstudy" />
+  
+  
+  
+  
+  <meta name="description" content="cssHack的一些兼容方法">
+<meta name="keywords" content="css,study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css的兼容解决方法">
+<meta property="og:url" content="http://007sair.github.io/2014/11/03/csshack/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="cssHack的一些兼容方法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.509Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css的兼容解决方法">
+<meta name="twitter:description" content="cssHack的一些兼容方法">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-csshack" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      css的兼容解决方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2014/11/03/csshack/" class="article-date">
+	  <time datetime="2014-11-02T16:00:00.000Z" itemprop="datePublished">2014-11-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>推荐几种css兼容的方法，一般用在IE中。</p>
+</blockquote>
+<h3 id="第一种-不推荐-："><a href="#第一种-不推荐-：" class="headerlink" title="第一种(不推荐)："></a>第一种(不推荐)：</h3><p>将当前页面使用<code>IE7</code>进行渲染 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"x-ua-compatible"</span> <span class="attr">content</span>=<span class="string">"ie=7"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 或者 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span><span class="attr">content</span>=<span class="string">"IE=EmulateIE7"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>前提：页面头部加<code>meta</code>的时候请注意<code>w3c</code>的标准，如下为示范:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法:"></a>第二种方法:</h3><p>不添加头部代码，只通过修改<code>css</code>的样式解决兼容问题。<br>以下顺序不能颠倒！</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin-bottom</span>: 40<span class="selector-tag">px</span>;                    <span class="comment">/* all属性 */</span></span><br><span class="line">[color: #000000;color: #00FF00;          /* SF,CH支持 */</span><br><span class="line"><span class="selector-tag">margin-bottom</span>: 140<span class="selector-tag">px</span>\9;                 <span class="comment">/* IE6-10    11未测试 */</span></span><br><span class="line"><span class="selector-tag">margin-bottom</span>: 140<span class="selector-tag">px</span>\0;                 <span class="comment">/* IE8-10    11未测试 */</span></span><br><span class="line">*<span class="selector-tag">margin-bottom</span>: 450<span class="selector-tag">px</span>;                  <span class="comment">/* IE6/7的属性*/</span>  </span><br><span class="line">_<span class="selector-tag">margin-bottom</span>: 450<span class="selector-tag">px</span>;                  <span class="comment">/* IE6的属性 */</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PS：值和识别符(\0、\9等)之间不能有空格</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* All IE */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">property</span>:value\<span class="number">9</span>; &#125;    <span class="comment">/*所有的IE都支持*/</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">/* IE9（含IE9）以上的浏览器支持 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-class">.a</span> &#123; <span class="attribute">background</span>: <span class="number">#f00</span>;&#125;</span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-class">.a</span> &#123; <span class="attribute">background</span>: <span class="number">#f00</span>\<span class="number">9</span>;&#125;</span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-class">.a</span> &#123; <span class="attribute">background</span>: <span class="number">#f00</span>\<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-class">.a</span> &#123; <span class="attribute">background</span>: <span class="number">#f00</span>\<span class="number">0</span>\<span class="number">9</span>;&#125;</span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-class">.a</span> &#123; <span class="attribute">background</span>: <span class="number">#f00</span>\<span class="number">9</span>\<span class="number">0</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* IE8（含IE8）以上的浏览器支持*/</span></span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">property</span>:value\<span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">property</span>:value\<span class="number">0</span>\<span class="number">9</span>; &#125;</span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">property</span>:value\<span class="number">9</span>\<span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 仅IE8 */</span></span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">property</span>:value\<span class="number">0</span>/; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* IE7（含IE7）以下的浏览器支持*/</span></span><br><span class="line">.test &#123; *property:value; &#125; </span><br><span class="line">.test &#123; +property:value; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* IE6 */</span></span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">_property</span>:value; &#125;</span><br><span class="line"><span class="selector-class">.test</span> &#123; <span class="attribute">-property</span>:value; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 非 IE */</span></span><br><span class="line">.test &#123; property//:value; &#125;</span><br></pre></td></tr></table></figure>
+<p><code>IE9-CSSHACK</code>另外写法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#element</span> &#123; <span class="attribute">color</span>:orange;&#125;</span><br><span class="line">#element &#123; *color: white;&#125;              /* IE6+7, doesn't work in IE8/9 as IE7 */</span><br><span class="line"><span class="selector-id">#element</span> &#123; <span class="attribute">_color</span>: red; &#125;               <span class="comment">/* IE6 */</span></span><br><span class="line"><span class="selector-id">#element</span> &#123; <span class="attribute">color</span>: green\<span class="number">0</span>/;&#125;            <span class="comment">/* IE8 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> <span class="selector-id">#element</span> &#123;  <span class="attribute">color</span>:pink\<span class="number">0</span>/;&#125;       <span class="comment">/* IE9 */</span></span><br></pre></td></tr></table></figure>
+<p>注释使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE 6]&gt;</span></span><br><span class="line"><span class="comment">     .....</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>if IE</code>起着非常大的作用！ <br><br><code>if IE</code>什么意思呢？下面就列举了一些在CSS常见的HACK控制语句。 <br><br>作为IE的IF条件注释使用备忘，有些时候试用if IE而不是在css中使用hack，就能通过w3c验证。 <br><br>一些常用注释：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if !IE]&gt;除IE外都可识别&lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if IE]&gt; 所有的IE可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if IE 5.0]&gt; 只有IE5.0可以识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if IE 5]&gt; 仅IE5.0与IE5.5可以识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if gt IE 5.0]&gt; IE5.0以及IE5.0以上版本都可以识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if IE 6]&gt; 仅IE6可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 6]&gt; IE6以及IE6以下版本可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if gte IE 6]&gt; IE6以及IE6以上版本可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if IE 7]&gt; 仅IE7可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 7]&gt; IE7以及IE7以下版本可识别 &lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if gte IE 7]&gt; IE7以及IE7以上版本可识别 &lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>lte</code>：就是<code>Less than or equal to</code>的简写，也就是小于或等于的意思。</li>
+<li><code>lt</code> ：就是<code>Less than</code>的简写，也就是小于的意思。</li>
+<li><code>gte</code>：就是<code>Greater than or equal to</code>的简写，也就是大于或等于的意思。</li>
+<li><code>gt</code>：就是<code>Greater than</code>的简写，也就是大于的意思。</li>
+<li><code>!?</code>：就是不等于的意思，跟<code>javascript</code>里的不等于判断符相同</li>
+</ul>
+<p>需要注意的是：<code>IE7</code>对样式的解释跟<code>DTD</code>是有关，在没有<code>DTD</code>的时候，<code>IE7</code>是能读取<code>IE6</code>的<code>hack</code>的。</p>
+<p>注：</p>
+<ul>
+<li><code>IE6</code>能识别<code>*</code>，但不能识别<code>!important</code>,</li>
+<li><code>IE7</code>能识别<code>*</code>，也能识别<code>!important</code>;</li>
+<li><code>FF</code>不能识别<code>*</code>，但能识别<code>!important</code>;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE6</th>
+<th>IE7</th>
+<th>FF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>√</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>!important</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>_</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>另外再补充一个，下划线”_”,IE6支持下划线，IE7和firefox均不支持下划线。(推荐) 于是大家还可以这样来区分IE6，IE7，firefox  : background:orange; *background:green; _background:blue;</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/08/css-hr/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          css巧妙实现分隔线
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/04/css-usefull/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">有用的CSS代码片段</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种-不推荐-："><span class="nav-text">第一种(不推荐)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种方法"><span class="nav-text">第二种方法:</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

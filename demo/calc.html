@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>Examples</title>
+<style>
+*{ margin: 0; padding: 0;}
+.calc1 .left{ float: left; width: calc(60% - 40px); background: red; padding: 20px;}
+.calc1 .right{ float: right; width: 40%; background: blue; padding: 20px 0;}
+
+.calc2 .left{ float: left; width: -webkit-calc(30% - 40px); background: red; padding: 20px;}
+.calc2 .right{ float: right; width: 70%; background: blue; padding: 20px 0;}
+
+.flex{ display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;}
+.flex div{ line-height: 50px; -webkit-box-flex: 1; -moz-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;}
+.flex .f1{ background-color: red;}
+.flex .f2{ background-color: blue;}
+.flex .f3{ background-color: yellow;}
+
+</style>
+</head>
+<body>
+    <div class="calc1">
+    	<div class="left">1111111</div>
+    	<div class="right">222222222222</div>
+    </div>
+
+    <div class="calc2">
+    	<div class="left">1111111</div>
+    	<div class="right">222222222222</div>
+    </div>
+
+    <div style="clear:both"></div>
+
+    <div class="flex">
+    	<div class="f1">11</div>
+    	<div class="f2">222</div>
+    	<div class="f3">333</div>
+    </div>
+
+</body>
+</html>

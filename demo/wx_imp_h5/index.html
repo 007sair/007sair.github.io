@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+<title>达芬奇智能营销平台</title>
+<style>
+[v-cloak] { display: none;}
+</style>
+<link href="/demo/wx_imp_h5/css/style.css?v=ae2d5a00eb" rel="stylesheet"></head>
+<body>
+
+    <div id="app" class="wrapper fullpage-container" v-cloak>
+        <div class="preload" v-if="!is_preload">
+            <div class="center">
+                <svg class="divi" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+                    <g>
+                        <circle class="outer" cx="100" cy="100" r="95"></circle>
+                        <path class="outer" d="M100.2,6C47.8,6,5.4,48.5,5.4,100.8s42.5,94.8,94.8,94.8s94.8-42.5,94.8-94.8S152.5,6,100.2,6z M100.2,185.7 		c-46.9,0-84.8-38-84.8-84.8S53.3,16,100.2,16S185,54,185,100.8S147,185.7,100.2,185.7z"></path>
+                        <path class="inner" d="M101.7,51.7H74.9c-1,0-1.7,0.8-1.7,1.7V148c0,1,0.8,1.7,1.7,1.7l27.3,0c27.1,0,44.7-22.1,44.6-49.2 		C146.8,73.4,130,51.7,101.7,51.7z M101.7,139.8l-19.7,0V61.7l19.7,0.1c21.5,0,34.6,17.5,34.6,39S123.3,139.8,101.7,139.8z"></path>
+                    </g>
+                </svg>
+                <p class="text">加载中..</p>
+            </div>
+        </div>
+        <div class="fullpage-wp fullpage-wp-h anim" ref="pages" v-else>
+            <div class="page-1 page" :style="{backgroundImage:'url('+ cover +')'}">
+                <div class="cover-front">
+                    <p class="slogan">达芬奇智能营销平台出品</p>
+                    <div class="bg"></div>
+                </div>
+                <a href="javascript:;" :class="{'btn-upload':true, disabled:locked}">马上参加
+                    <input :disabled="locked" @change="uploadFile" name="upload" type="file" accept="image/*" />
+                </a>
+            </div>
+            <div class="page-2 page">
+                <div class="area-canvas">
+                    <div ref="stage" class="stage" :style="{backgroundImage:'url('+ selected_bg +')'}">
+                        <div  @click="selectCell(index, cell)" v-for="(cell, index) in cells" :id="cell.id" :class="{cell:cell.config.cls, selected:cell.isSelected}"
+                            :style="{top: cell.offsetX + 'px', left: cell.offsetY + 'px'}" :data-index="cell.index">
+                            <i v-if="cell.config.showClose" class="btn-close"></i>
+                            <i class="btn-scalerotate"></i>
+                            <img :src="cell.src">
+                        </div>
+                    </div>
+                </div>
+                <div class="area-actions" ref="actions">
+                    <div class="action-bgs js-bgs_small">
+                        <ul>
+                            <li v-for="(bg, index) in compress_bgs" @click="selectBg(index)" :class="{active: bgs[index] == selected_bg}">
+                                <img :src="bg">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="action-btns">
+                        <div>
+                            <a class="btn-reupload" href="javascript:;" :class="{'btn-reupload':true, disabled:locked}">
+                                重新拍照
+                                <input :disabled="locked" @change="uploadFile" name="upload" type="file" accept="image/*" />
+                            </a>
+                            <a class="btn-createposter" href="javascript:;" @click="createPoster">生成图片</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-3 page">
+                <div class="area-result">
+                    <div class="poster" ref="poster">
+                        <img :class="{'stop-callout': isWeiXin}" :src="poster">
+                    </div>
+                    <div class="btns" ref="page3btns">
+                        <a class="btn-replay" href="javascript:;" @click.self="reUpload">再做一张</a>
+                        <a class="btn-save" href="javascript:;" @click="saveToAlbum">保存相册</a>
+                    </div>
+                    <a @click="jump_ad" href="javascript:;" class="ad_img hide">
+                        <img :src="ad_img" width="100%" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+<script type="text/javascript" src="/demo/wx_imp_h5/js/index.min.js?v=ae2d5a00eb"></script></body>
+</html>

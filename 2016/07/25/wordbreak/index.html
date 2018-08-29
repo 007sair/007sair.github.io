@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>word-wrap与word-break的区别 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="css word-wrap word-break" />
+  
+  
+  
+  
+  <meta name="description" content="word-wrap与word-break的区别">
+<meta name="keywords" content="css word-wrap word-break">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word-wrap与word-break的区别">
+<meta property="og:url" content="http://007sair.github.io/2016/07/25/wordbreak/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="word-wrap与word-break的区别">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="word-wrap与word-break的区别">
+<meta name="twitter:description" content="word-wrap与word-break的区别">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-wordbreak" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      word-wrap与word-break的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/07/25/wordbreak/" class="article-date">
+	  <time datetime="2016-07-24T16:00:00.000Z" itemprop="datePublished">2016-07-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/html/">html</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+div{
+    word-break: normal;
+    word-wrap: normal;
+}
+.test{
+    margin-bottom: 2px;
+    width: 230px;
+    border: 1px solid red;
+}
+.c1{}
+.c2{ word-wrap:break-word;}
+.c3{ word-wrap:break-word;word-break:break-all;}
+.c4{ word-wrap:break-word;word-break:keep-all;}
+.c5{ word-break:break-all;}
+.c6{ word-break:keep-all;}
+</style>
+
+<p>换行问题自古以来就是一个难题，写了几个例子，先来看看，没有耐心的可以直接<a href="#result">点这里</a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h4 id="word-wrap"><a href="#word-wrap" class="headerlink" title="word-wrap"></a>word-wrap</h4><p>word-wrap 属性允许长单词或 URL 地址换行到下一行。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word-wrap: normal | break-word;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>只在允许的断字点换行（浏览器保持默认处理）。</td>
+</tr>
+<tr>
+<td>break-word</td>
+<td>在长单词或 URL 地址内部进行换行。</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h4><p>word-break 属性规定自动换行的处理方法。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word-break: normal | break-all | keep-all;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>使用浏览器默认的换行规则。</td>
+</tr>
+<tr>
+<td>break-all</td>
+<td>允许在单词内换行。</td>
+</tr>
+<tr>
+<td>keep-all</td>
+<td>只能在半角空格或连字符处换行。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="开始测试"><a href="#开始测试" class="headerlink" title="开始测试"></a>开始测试</h3><p>为了方便测试，先将<code>div</code>的<code>word-break</code>与<code>word-wrap</code>改成<code>normal</code>，<br>以下测试均为数字、字母、单词、汉字、汉字+单词混排在<code>div</code>中的表现情况</p>
+<h4 id="默认无任何换行样式"><a href="#默认无任何换行样式" class="headerlink" title="默认无任何换行样式"></a>默认无任何换行样式</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c1</span> &#123; </span><br><span class="line">    <span class="comment">/* 无任何样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c1">11111111111111111111111111111111111111111111111111111</div><br><div class="test c1">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div><br><div class="test c1">This is all English. This is all English. This is all English. </div><br><div class="test c1">全是中文的情况。全是中文的情况。全是中文的情况。 </div><br><div class="test c1">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+<h4 id="word-wrap-break-word"><a href="#word-wrap-break-word" class="headerlink" title="word-wrap: break-word"></a>word-wrap: break-word</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c2</span> &#123;</span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c2">111111111111111111111111111111111111111111111111111111111 </div><br><div class="test c2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </div><br><div class="test c2">This is all English. This is all English. This is all English. </div><br><div class="test c2">全是中文的情况。全是中文的情况。全是中文的情况。</div><br><div class="test c2">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+<h4 id="word-break-break-all"><a href="#word-break-break-all" class="headerlink" title="word-break: break-all;"></a>word-break: break-all;</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c5</span> &#123; </span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c5">111111111111111111111111111111111111111111111111111111111 </div><br><div class="test c5">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </div><br><div class="test c5">This is all English. This is all English. This is all English. </div><br><div class="test c5">全是中文的情况。全是中文的情况。全是中文的情况。</div><br><div class="test c5">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+<h4 id="word-wrap-break-word-word-break-break-all"><a href="#word-wrap-break-word-word-break-break-all" class="headerlink" title="word-wrap: break-word; word-break: break-all;"></a>word-wrap: break-word; word-break: break-all;</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c3</span> &#123; </span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c3">111111111111111111111111111111111111111111111111111111111 </div><br><div class="test c3">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </div><br><div class="test c3">This is all English. This is all English. This is all English. </div><br><div class="test c3">全是中文的情况。全是中文的情况。全是中文的情况。</div><br><div class="test c3">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+<h4 id="word-wrap-break-word-word-break-keep-all"><a href="#word-wrap-break-word-word-break-keep-all" class="headerlink" title="word-wrap: break-word; word-break: keep-all;"></a>word-wrap: break-word; word-break: keep-all;</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c4</span> &#123; </span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="attribute">word-break</span>: keep-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c4">111111111111111111111111111111111111111111111111111111111 </div><br><div class="test c4">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </div><br><div class="test c4">This is all English. This is all English. This is all English. </div><br><div class="test c4">全是中文的情况。全是中文的情况。全是中文的情况。</div><br><div class="test c4">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+<h4 id="word-break-keep-all"><a href="#word-break-keep-all" class="headerlink" title="word-break: keep-all;"></a>word-break: keep-all;</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c6</span> &#123; </span><br><span class="line">    <span class="attribute">word-break</span>: keep-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="test c6">111111111111111111111111111111111111111111111111111111111 </div><br><div class="test c6">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </div><br><div class="test c6">This is all English. This is all English. This is all English. </div><br><div class="test c6">全是中文的情况。全是中文的情况。全是中文的情况。</div><br><div class="test c6">中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English. </div>
+
+
+<h3><span id="result">结论</span></h3>
+
+<ul>
+<li>word-wrap 强调的是是否允许单词内断句。<ul>
+<li>normal: 单词太长，换行显示，再超过一行就溢出显示。 </li>
+<li>break-word: 当单词太长时，先尝试换行，换行后还是太长，单词内还可以换行。</li>
+</ul>
+</li>
+<li>word-break 强调的则是怎么样来进行单词内的断句。 <ul>
+<li>break-all: 强行上，挤不下的话剩下的就换下一行显示呗。霸道型。 </li>
+<li>keep-all: 放不下我了，那我就另起一行展示，再放不下，我也不退缩。傲骄型。</li>
+</ul>
+</li>
+</ul>
+<p>事实上，<code>word-wrap:break-word</code>与<code>word-break:break-all</code>共同点是都能把长单词强行断句，不同点是<code>word-wrap:break-word</code>会首先起一个新行来放置长单词，新的行还是放不下这个长单词则会对长单词进行强制断句；而<code>word-break:break-all</code>则不会把长单词放在一个新行里，当这一行放不下的时候就直接强制断句了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/换行/">换行</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/06/css-selector/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          css选择器总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/04/UNICODE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">HTML字符转义、特殊字符笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#word-wrap"><span class="nav-text">word-wrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-break"><span class="nav-text">word-break</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始测试"><span class="nav-text">开始测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认无任何换行样式"><span class="nav-text">默认无任何换行样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-wrap-break-word"><span class="nav-text">word-wrap: break-word</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-break-break-all"><span class="nav-text">word-break: break-all;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-wrap-break-word-word-break-break-all"><span class="nav-text">word-wrap: break-word; word-break: break-all;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-wrap-break-word-word-break-keep-all"><span class="nav-text">word-wrap: break-word; word-break: keep-all;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-break-keep-all"><span class="nav-text">word-break: keep-all;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">结论</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

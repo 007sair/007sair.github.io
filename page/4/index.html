@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FE blog">
+<meta property="og:url" content="http://007sair.github.io/page/4/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FE blog">
+<meta name="twitter:description" content="The place to record FE-NOTE，simple technology, simple life, simple place">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+  
+
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo">
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+		 function redraw(){
+		 	var pattern = Trianglify({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+            pattern.canvas(c)
+        }
+        document.getElementById("intrologo").onclick = redraw
+        document.getElementById("intrologo").ontouchstart = redraw
+		redraw()
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">FE blog</a></h1>
+            <h3>The place to record FE-NOTE，simple technology, simple life, simple place</h3>
+            <h5>By Chan</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-font-size"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/15/font-size/">font-size</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/15/font-size/" class="article-date">
+	  <time datetime="2015-09-14T16:00:00.000Z" itemprop="datePublished">2015-09-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/test/">test</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>汉字，¥10.123456789,font-family:默认</p><br><p style="font-family:'Helvetica Neue'">汉字，¥10.123456789,font-family:”Helvetica Neue”</p><br><p style="font-family:Helvetica">汉字，¥10.123456789,font-family:Helvetica</p><br><p style="font-family:STHeiTi">汉字，¥10.123456789,font-family:STHeiTi</p><br><p style="font-family:Arial">汉字，¥10.123456789,font-family:Arial</p><br><p style="font-family:'微软雅黑'">汉字，¥10.123456789,font-family:’微软雅黑’</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-flex-test"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/05/flex-test/">flex test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/05/flex-test/" class="article-date">
+	  <time datetime="2015-09-04T16:00:00.000Z" itemprop="datePublished">2015-09-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/test/">test</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>测试flex-flow在移动端的兼容问题，用手机打开此页面查看效果。尤其最后一个demo：</p>
+<style>
+ul,li{ list-style: none;}
+.box{
+    display:-webkit-flex;
+    display:flex;
+    width:220px;margin:0;padding:10px;list-style:none;background-color:#eee;}
+.box li{width:100px;height:100px;border:1px solid #f00;text-align:center;}
+#box{
+    -webkit-flex-wrap:nowrap;
+    flex-wrap:nowrap;
+}
+#box2{
+    -webkit-flex-wrap:wrap;
+    flex-wrap:wrap;
+}
+#box3{
+    -webkit-flex-wrap:wrap-reverse;
+    flex-wrap:wrap-reverse;
+}
+#box4{
+    -webkit-flex-wrap:wrap;
+    flex-wrap:wrap;
+}
+#box4 li{
+    min-width: 40%;
+    width: auto;
+
+    -webkit-box-flex: 1;    
+    -moz-box-flex: 1;       
+    -webkit-flex: 1;        
+    -ms-flex: 1;            
+    flex: 1;            
+}
+</style>
+
+<p></p><h2>flex-wrap:nowrap</h2><p></p>
+<ul id="box" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap</h2><br><ul id="box2" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap-reverse</h2><br><ul id="box3" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap &amp; flex</h2><br><ul id="box4" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-for-in"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/17/js-for-in/">Javascript中如何遍历属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/17/js-for-in/" class="article-date">
+	  <time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遍历属性，我们首先要搞清楚<code>for in</code>，再来谈遍历：</p>
+<h2 id="关于for-in"><a href="#关于for-in" class="headerlink" title="关于for in"></a>关于<code>for in</code></h2><h3 id="for-in-声明用于对数组或者对象的属性进行循环-迭代操作。"><a href="#for-in-声明用于对数组或者对象的属性进行循环-迭代操作。" class="headerlink" title="for...in 声明用于对数组或者对象的属性进行循环/迭代操作。"></a><code>for...in</code> 声明用于对数组或者对象的属性进行循环/迭代操作。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于数组：迭代出来的是数组元素</span></span><br><span class="line"><span class="keyword">var</span> mycars = [<span class="string">'Saab'</span>,<span class="string">'Volvo'</span>,<span class="string">'BMW'</span>]; </span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> mycars) &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(x); <span class="comment">// 0 1 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(mycars[x]); <span class="comment">// Saab Volvo BMW</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象 ，迭代出来的是对象的属性</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;  </span><br><span class="line">    w: <span class="string">"wen"</span>,</span><br><span class="line">    j: <span class="string">"jian"</span>,</span><br><span class="line">    b: <span class="string">"bao"</span>  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> v <span class="keyword">in</span> obj)&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">// w j b</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[v]); <span class="comment">// wen jian bao</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断对象是否为-数组-对象-的-元素-属性："><a href="#判断对象是否为-数组-对象-的-元素-属性：" class="headerlink" title="判断对象是否为 数组/对象 的 元素/属性："></a>判断对象是否为 数组/对象 的 元素/属性：</h3><p>语法为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量 <span class="keyword">in</span> 对象) &#123;</span><br><span class="line">    在此执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当“对象”为数组时，变量指的是数组的下标（索引）；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"str"</span>]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = (<span class="string">"b"</span> <span class="keyword">in</span> arr);  </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="number">4</span> <span class="keyword">in</span> arr);  </span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>当“对象”为对象时，变量指的是对象的属性；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">     w:<span class="string">"wen"</span>,  </span><br><span class="line">     j:<span class="string">"jian"</span>,  </span><br><span class="line">     b:<span class="string">"bao"</span>  </span><br><span class="line">&#125;;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> result = (<span class="number">2</span> <span class="keyword">in</span> obj);      </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"j"</span> <span class="keyword">in</span> obj);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>关于<code>for in</code>的其他参考：</p>
+<ul>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html" target="_blank" title="">for in的缺陷</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/29/1998714.html" target="_blank" title="">各浏览器中for in顺序的差异</a></li>
+</ul>
+<h2 id="关于遍历"><a href="#关于遍历" class="headerlink" title="关于遍历"></a>关于遍历</h2><p>在<code>JavaScript</code>中，遍历一个对象的属性往往没有在其他语言中遍历一个哈希(有些语言称为字典)的键那么简单，这主要有两个方面的原因： </p>
+<ul>
+<li><code>JavaScript</code>中的对象通常都处在某个原型链中,它会从一个或多个的上层原型上继承一些属性；</li>
+<li><code>JavaScript</code>中的属性不光有值,它还有一些除了值以外的其他特性,其中一个影响属性遍历的特性就是<code>[[Enumerable]]</code>,如果该值为<code>true</code>,则称这个属性是可枚举的,否则反之。</li>
+</ul>
+<p>知道了这些,我们就可以把属性的遍历分为四种情况：</p>
+<blockquote>
+<p><em>注：</em>示例代码中,我们要遍历的对象是浏览器中的window,环境为Chrome43.0.2357.134,代码运行在空白页面中的script标签里.没有Firebug或者其他调试工具的影响(会导入一些全局变量,console等)。</p>
+</blockquote>
+<h3 id="遍历可枚举的自身属性"><a href="#遍历可枚举的自身属性" class="headerlink" title="遍历可枚举的自身属性"></a>遍历可枚举的自身属性</h3><p>可枚举的意思就是该属性的<code>[[Enumerable]]</code>（可枚举性）特性为<code>true</code>，自身属性的意思就是该属性不是从原型链上继承下来的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.keys(<span class="built_in">window</span>); <span class="comment">//获得对象上所有可枚举的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为7 ["top", "location", "document", "window", "external", "chrome", "propertys"]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys); <span class="comment">//window,document,InstallTrigger,除了最后一个是火狐私有的属性,原来window对象只有两个可枚举的自身属性.window属性指向window对象自身,一般没什么用.</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历所有的自身属性"><a href="#遍历所有的自身属性" class="headerlink" title="遍历所有的自身属性"></a>遍历所有的自身属性</h3><p>特性为不可枚举的属性也并不是遍历不到,ES5给我们提供了<code>getOwnPropertyNames</code>方法,可以获取到一个对象的所有自身属性.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.getOwnPropertyNames(<span class="built_in">window</span>); <span class="comment">//获得对象上所有的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为571</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">//Object,Function,eval等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历可枚举的自身属性和继承属性"><a href="#遍历可枚举的自身属性和继承属性" class="headerlink" title="遍历可枚举的自身属性和继承属性"></a>遍历可枚举的自身属性和继承属性</h3><p>继承属性怎么遍历,你应该知道,就是最常用的<code>for in</code>遍历</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getEnumPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">for</span> (prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            props.push(prop);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getEnumPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为186</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// addEventListener,onload等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历所有的自身属性和继承属性"><a href="#遍历所有的自身属性和继承属性" class="headerlink" title="遍历所有的自身属性和继承属性"></a>遍历所有的自身属性和继承属性</h3><p>这种遍历主要用在各种<code>js</code>调试工具的代码补全功能上.比如<code>Firebug</code>的.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getAllPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            props = props.concat(<span class="built_in">Object</span>.getOwnPropertyNames(obj));</span><br><span class="line">        &#125; <span class="keyword">while</span> (obj = <span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getAllPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为719</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// toString等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-Extras"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/17/js-Extras/">Array方法: indexOf、filter、forEach、map、reduce详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/17/js-Extras/" class="article-date">
+	  <time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>ECMAScript5</code>标准新增了几个数组操作的方法，让我们来看看都是什么：</p>
+<ul>
+<li><code>Array.prototype.indexOf</code></li>
+<li><code>Array.prototype.lastIndexOf</code></li>
+<li><code>Array.prototype.every</code></li>
+<li><code>Array.prototype.some</code></li>
+<li><code>Array.prototype.forEach</code></li>
+<li><code>Array.prototype.map</code></li>
+<li><code>Array.prototype.filter</code></li>
+<li><code>Array.prototype.reduce</code></li>
+<li><code>Array.prototype.reduceRight</code></li>
+</ul>
+<p>只介绍其中5个方法：<code>indexOf</code>、<code>filter</code>、<code>map</code>、<code>forEach</code>、<code>reduce</code>，其余请参考：<a href="http://kangax.github.io/compat-table/es5/" target="_blank" title="">http://kangax.github.io/compat-table/es5/</a></p>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a><code>indexOf</code></h2><p><code>indexOf()</code>方法返回在该数组中第一个找到的元素位置，如果它不存在则返回-1。</p>
+<p>没有实现这个方法时，我们这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIndexOf</span>(<span class="params">arr, src</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i] == src)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(getIndexOf(arr, <span class="string">'b'</span>));</span><br></pre></td></tr></table></figure>
+<p>现在可以这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">'b'</span>));</span><br></pre></td></tr></table></figure>
+<p>一般在写老版本的兼容时，我们会这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(arr[x] + <span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码本身没有问题，但在IE8以下（含IE8）的浏览器上结果是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a</span></span><br><span class="line"><span class="comment">//b</span></span><br><span class="line"><span class="comment">//c</span></span><br><span class="line"><span class="comment">//d</span></span><br><span class="line"><span class="comment">//function(n)&#123; for (var i = 0; i &lt; this.length; i++) &#123; if(this[i] == n)&#123; return i + '-indexOf'; &#125; &#125;; return -1; &#125;</span></span><br></pre></td></tr></table></figure>
+<p>为什么会这样？得先知道一个原理：<strong>预定义的属性不是可枚举的，而用户定义的属性总是可枚举的</strong>。</p>
+<p>在<code>IE8</code>以上的浏览器中，<code>indexOf</code>会被认为是预定义属性，使用<code>for in</code>时自然不会被枚举到。而ie8以下的js版本中并没有预定义<code>indexOf</code>，是我们自定义的方法，所以就被枚举到了。</p>
+<p>关于<code>for in</code>：可用来遍历一个对象中的所有属性名，该枚举过程将会列出所有的属性，包括函数和你可能不关心的原型中的属性。</p>
+<p>所以上面的例子想得到正确的结果，需做如下修改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.hasOwnProperty(x)) &#123;</span><br><span class="line">        <span class="built_in">document</span>.write(arr[x] + <span class="string">'&lt;br&gt;'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>hasOwnProperty</code>：是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员。</li>
+<li><code>isPrototypeOf</code>：是用来判断要检查其原型链的对象是否存在于指定对象实例中，是则返回<code>true</code>，否则返回<code>false</code>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个demo解释hasOwnProperty和isPrototypeOf</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello, my name is '</span> + <span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayFrom = <span class="function"><span class="keyword">function</span>(<span class="params">from</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.from = <span class="keyword">from</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hi, i come from '</span> + <span class="keyword">this</span>.from);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Person(<span class="string">'xiaomin'</span>, <span class="string">'24'</span>);</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Person(<span class="string">'xiaohua'</span>, <span class="string">'28'</span>);</span><br><span class="line"></span><br><span class="line">s1.grade = <span class="string">'30'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'grade'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'sayHello'</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'from'</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">"sayHello"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">"from"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(s1))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(s2))<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>关于枚举，可参考：</p>
+<ul>
+<li><a rel="nofollow" href="http://segmentfault.com/a/1190000002953364" target="_blank" title="">js对象中什么是可枚举性(enumerable)？</a></li>
+<li><a rel="nofollow" href="http://www.365mini.com/page/javascript-propertyisenumerable.htm" target="_blank" title="">JavaScript propertyIsEnumerable() 函数详解</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/dolphinX/p/3348467.html" target="_blank" title="">ECMAScript5 Object的新属性方法 </a></li>
+<li><a rel="nofollow" href="http://blog.csdn.net/haojianfeng11/article/details/16331963" target="_blank" title="">JS 对象属性”可枚举”</a></li>
+</ul>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a><code>filter</code></h2><p>该<code>filter()</code>方法创建一个新的匹配过滤条件的数组。</p>
+<p>没有实现这个方法时，我们这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"apple"</span>, <span class="string">"count"</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"pear"</span>, <span class="string">"count"</span>: <span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">16</span>&#125;,</span><br><span class="line">];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> newArr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i].name === <span class="string">"orange"</span> )&#123;</span><br><span class="line">        newArr.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Filter results:"</span>,newArr);</span><br></pre></td></tr></table></figure>
+<p>现在可以这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"apple"</span>, <span class="string">"count"</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"pear"</span>, <span class="string">"count"</span>: <span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"orange"</span>, <span class="string">"count"</span>: <span class="number">16</span>&#125;,</span><br><span class="line">];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item.name === <span class="string">"orange"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Filter results:"</span>,newArr);</span><br></pre></td></tr></table></figure>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a><code>forEach</code></h2><p><code>forEach()</code>为每个元素执行对应的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the usual "for" loop to iterate</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"========================"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Uses forEach to iterate</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a><code>map</code></h2><p>该<code>map()</code>对数组的每个元素进行一定操作（映射）后，会返回一个新的数组，</p>
+<p>以前这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArr = [&#123;<span class="attr">first_name</span>:<span class="string">"Colin"</span>,<span class="attr">last_name</span>:<span class="string">"Toh"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Addy"</span>,<span class="attr">last_name</span>:<span class="string">"Osmani"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Yehuda"</span>,<span class="attr">last_name</span>:<span class="string">"Katz"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewArr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newArr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = oldArr.length; i&lt; l; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> item = oldArr[i];</span><br><span class="line">        item.full_name = [item.first_name,item.last_name].join(<span class="string">" "</span>);</span><br><span class="line">        newArr[i] = item;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getNewArr());</span><br></pre></td></tr></table></figure>
+<p>现在这么玩：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArr = [&#123;<span class="attr">first_name</span>:<span class="string">"Colin"</span>,<span class="attr">last_name</span>:<span class="string">"Toh"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Addy"</span>,<span class="attr">last_name</span>:<span class="string">"Osmani"</span>&#125;,&#123;<span class="attr">first_name</span>:<span class="string">"Yehuda"</span>,<span class="attr">last_name</span>:<span class="string">"Katz"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewArr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> oldArr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</span><br><span class="line">        item.full_name = [item.first_name,item.last_name].join(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getNewArr());</span><br></pre></td></tr></table></figure>
+<p><code>map()</code>是处理服务器返回数据时是一个非常实用的函数。</p>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a><code>reduce</code></h2><p><code>reduce()</code>可以实现一个累加器的功能，将数组的每个值（从左到右）将其降低到一个值。</p>
+<p>场景： 统计一个数组中有多少个不重复的单词</p>
+<p>befroe:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"pear"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWordCnt</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>, l = arr.length; i&lt; l; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> item = arr[i];</span><br><span class="line">        obj[item] = (obj[item] +<span class="number">1</span> ) || <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getWordCnt());</span><br></pre></td></tr></table></figure>
+<p>now:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"apple"</span>,<span class="string">"orange"</span>,<span class="string">"pear"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWordCnt</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        prev[next] = (prev[next] + <span class="number">1</span>) || <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;,&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getWordCnt());</span><br></pre></td></tr></table></figure>
+<p><code>reduce(callback, initialValue)</code>会传入两个变量。回调函数<code>callback</code>和初始值<code>initialValue</code>。假设函数它有个传入参数，<code>prev</code>和<code>next</code>,<code>index</code>和<code>array</code>。<code>prev</code>和<code>next</code>你是必须要了解的。</p>
+<p>一般来讲<code>prev</code>是从数组中第一个元素开始的，<code>next</code>是第二个元素。但是当你传入初始值<code>initialValue</code>后，第一个<code>prev</code>将是<code>initivalValue</code>，<code>next</code>将是数组中的第一个元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二者的区别，在console中运行一下即可知晓</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"orange"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">noPassValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"prev:"</span>,prev);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"next:"</span>,next);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> prev + <span class="string">" "</span> +next;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">passValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,next</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"prev:"</span>,prev);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"next:"</span>,next);</span><br><span class="line">        </span><br><span class="line">        prev[next] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;,&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"No Additional parameter:"</span>,noPassValue());</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"----------------"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"With &#123;&#125; as an additional parameter:"</span>,passValue());</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-tujie-context"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/15/js-tujie-context/">图解Javascript上下文与作用域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/15/js-tujie-context/" class="article-date">
+	  <time datetime="2015-08-14T16:00:00.000Z" itemprop="datePublished">2015-08-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（<code>execution context</code>）、作用域链（<code>scope chain</code>）、闭包（<code>closure</code>）、<code>this</code>等概念。</p>
+<h3 id="Execution-context"><a href="#Execution-context" class="headerlink" title="Execution context"></a><code>Execution context</code></h3><p>执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（<code>variable object</code>），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（<code>global context</code>），全局上下文取决于执行环境，如<code>Node</code>中的<code>global</code>和<code>Browser</code>中的<code>window</code>：</p>
+        <!-- 本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
+Execution context执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object......  -->
+        <p class="article-more-link">
+          <a href="/2015/08/15/js-tujie-context/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-tujie-proto"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/15/js-tujie-proto/">图解Javascript原型链</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/15/js-tujie-proto/" class="article-date">
+	  <time datetime="2015-08-14T16:00:00.000Z" itemprop="datePublished">2015-08-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天翻微信订阅号，无意间看到这篇关于原型和原型链的文章，觉得其中有很多值得学习的地方，整理如下：</p>
+<p>本文尝试阐述<code>Js</code>中原型（<code>prototype</code>）、原型链（<code>prototype chain</code>）等概念及其作用机制。上一篇文章（<a href="/2015/08/15/js-tujie-context/" target="_blank" title="">图解Javascript上下文与作用域</a>）介绍了<code>Js</code>中变量作用域的相关概念，实际上关注的一个核心问题是：“在执行当前这行代码时<code>Js</code>解释器可以获取哪些变量”，而原型与原型链实际上还是关于这一问题。</p>
+<p>我们知道，在Js中一切皆为对象（<code>Object</code>），但是Js中并没有类（<code>class</code>）；Js是基于原型（<code>prototype-based</code>）来实现的面向对象（<code>OOP</code>）的编程范式的，但并不是所有的对象都拥有<code>prototype</code>这一属性：</p>
+        <!-- 昨天翻微信订阅号，无意间看到这篇关于原型和原型链的文章，觉得其中有很多值得学习的地方，整理如下：
+本文尝试阐述Js中原型（prototype）、原型链（prototype chain）等概念及其作用机制。上一篇文章（图解Javascript上下文与作用域）介绍了Js中变量作用域的相关概念，实际上关注的一个核心问题是：“在执行当前这行代码时Js解释器可以获取哪些变量”，而原型与原型链实际上还是......  -->
+        <p class="article-more-link">
+          <a href="/2015/08/15/js-tujie-proto/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-this"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/10/js-this/">js 中 this 关键字详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/10/js-this/" class="article-date">
+	  <time datetime="2015-08-09T16:00:00.000Z" itemprop="datePublished">2015-08-10</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要解释在JS里面this关键字的指向问题(在浏览器环境下)。</p>
+<p>首先，必须搞清楚在JS里面，函数的几种调用方式:</p>
+<ul>
+<li>普通函数调用</li>
+<li>作为方法来调用</li>
+<li>作为构造函数来调用</li>
+<li>使用apply/call方法来调用</li>
+<li>Function.prototype.bind方法</li>
+</ul>
+        <!-- 本文主要解释在JS里面this关键字的指向问题(在浏览器环境下)。
+首先，必须搞清楚在JS里面，函数的几种调用方式:
+
+普通函数调用
+作为方法来调用
+作为构造函数来调用
+使用apply/call方法来调用
+Function.prototype.bind方法
+
+
+但是不管函数是按哪种方法来调用的，请记住一点：谁调用这个函数或方法，this关键字就指向谁。
+接下来就分情况来讨论下这些不同的情况：......  -->
+        <p class="article-more-link">
+          <a href="/2015/08/10/js-this/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-prototype"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/07/22/js-prototype/">Javascript中对象、原型、继承详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/07/22/js-prototype/" class="article-date">
+	  <time datetime="2015-07-21T16:00:00.000Z" itemprop="datePublished">2015-07-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象分普通对象和函数对象，<code>Object</code>、<code>Function</code>是js自带的函数对象。</p>
+        <!-- 对象对象分普通对象和函数对象，Object、Function是js自带的函数对象。
+
+12345678910111213141516function f1()&#123;&#125;;var f2 = function()&#123;&#125;;var f3 = new Function('str','console.log(str)');var o3 = new f1();var o1 ......  -->
+        <p class="article-more-link">
+          <a href="/2015/07/22/js-prototype/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-sass-study"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2014/12/11/sass-study/">SASS笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2014/12/11/sass-study/" class="article-date">
+	  <time datetime="2014-12-10T16:00:00.000Z" itemprop="datePublished">2014-12-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/sass/">sass</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量通过<code>$</code>命名，属性和值中间用<code>:</code>赋值。</p>
+<h3 id="规则："><a href="#规则：" class="headerlink" title="规则："></a>规则：</h3><ul>
+<li>作用域：作用域同<code>javascript</code>，想调用局部变量可在值后使用 <code>!global</code> </li>
+<li>默认值：变量没有设置具体值时，使用 <code>!default</code></li>
+</ul>
+        <!-- 变量变量通过$命名，属性和值中间用:赋值。
+规则：
+作用域：作用域同javascript，想调用局部变量可在值后使用 !global 
+默认值：变量没有设置具体值时，使用 !default
+
+
+12345678910111213//demo$primaryColor: #eeccff;$firstValue: 62.5%;$firstValue: 24px !default;body &#1......  -->
+        <p class="article-more-link">
+          <a href="/2014/12/11/sass-study/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-css-hr"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2014/12/08/css-hr/">css巧妙实现分隔线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2014/12/08/css-hr/" class="article-date">
+	  <time datetime="2014-12-07T16:00:00.000Z" itemprop="datePublished">2014-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单个标签实现分隔线"><a href="#单个标签实现分隔线" class="headerlink" title="单个标签实现分隔线"></a>单个标签实现分隔线</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo_line_01</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">200px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">200px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <!-- 单个标签实现分隔线12345678.demo_line_01&#123;    padding: 0 20px 0;    margin: 20px 0;    line-height: 1px;    border-left: 200px solid #ddd;    border-right: 200px solid #ddd;    text-align: center;&#125;
+......  -->
+        <p class="article-more-link">
+          <a href="/2014/12/08/css-hr/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

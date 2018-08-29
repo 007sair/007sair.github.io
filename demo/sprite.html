@@ -1,0 +1,73 @@
+<h1 id="拼团topbar雪碧图"><a href="#拼团topbar雪碧图" class="headerlink" title="拼团topbar雪碧图"></a>拼团topbar雪碧图</h1><blockquote>
+<p>项目：拼团v5.6 <br><br>描述：拼团首页、详情页tab图标合成图规则与流程 <br><br>目的：解决wap端图片请求过多，图片过大的问题</p>
+</blockquote>
+<p>此文档将分为三个部分：UI、产品运营、FE。各部门人员只需关注对应部分内容。</p>
+<h2 id="【UI】看这边"><a href="#【UI】看这边" class="headerlink" title="【UI】看这边"></a>【UI】看这边</h2><p>psd共享地址：\172.16.96.210\设计部\96.209\设计部资料库\UI设计组\客户端\5.4\拼团\一级导航图标</p>
+<p><strong>示例图</strong></p>
+<p><img src="http://img.miyabaobei.com/d1/p5/2017/05/09/2f/97/2f970607e4b8220febc428bd53e15ac0147844586.png" width="60%" alt=""></p>
+<p><strong>上图说明</strong></p>
+<p>左侧黑底、右侧白底、红色白字序列号仅供方便查看，实际设计产出图为：<strong>无背景色，无参考线、无序列号</strong>的 <strong>png-24</strong> 图片。</p>
+<p><strong>注意：上图左侧黑底、右侧白底、红色白字序列号仅供方便查看，实际设计出的为透明底，无参考线、无序列号图片。</strong></p>
+<p><strong>对应位置</strong></p>
+<pre><code>-----------------------------------------------------------------
+|     1.百货     |    2.进口      |    3.美食    |     4.母婴     |
+-----------------------------------------------------------------
+|     5.美妆     |    6.首页      |    7.童装    |     8.玩具     |
+-----------------------------------------------------------------
+|     9.孕产     |   10.猜你喜欢  |   11.热销榜   |       -       |
+-----------------------------------------------------------------
+|        -       |        -      |        -     |       -       |
+-----------------------------------------------------------------
+</code></pre><p><strong>设计须知</strong></p>
+<ul>
+<li>此图宽度固定，不可随意修改，每个格子为50像素，图片居中放置</li>
+<li>左侧白色图标，用于wap拼团首页</li>
+<li>右侧灰色图标，用于wap拼团详情页</li>
+<li>左右为一一对应关系。若对应的右侧灰色图标为空，请保留空格，如序号6</li>
+</ul>
+<h2 id="【产品运营】看这边"><a href="#【产品运营】看这边" class="headerlink" title="【产品运营】看这边"></a>【产品运营】看这边</h2><p>此项目的图标基于后台管理，所以前提是有后台且有最新的图片，流程如下：</p>
+<p><strong>修改图标</strong></p>
+<ol>
+<li>UI修改图片，存为png24，能压缩最好（<a href="https://tinypng.com/">压缩工具</a>）</li>
+<li>上传最新图片并获取图片链接</li>
+<li>在后台分类下填入图片链接</li>
+</ol>
+<p><strong>修改图标</strong></p>
+<ol>
+<li>UI在上图结构 <code>-</code> 内增加图标（注意左右对应关系）</li>
+<li>找到新图标对应的序列号，（序列号目前只支持1-20，后续新增请找前端FE组）</li>
+<li>将修改后的雪碧图上传至服务器</li>
+<li>在后台分类下填入图片链接、序列号</li>
+</ol>
+<h2 id="【前端FE】看这边"><a href="#【前端FE】看这边" class="headerlink" title="【前端FE】看这边"></a>【前端FE】看这边</h2><p><strong>序列号</strong></p>
+<p>上图结构中对应的序列号需与样式名对应上。</p>
+<p>雪碧图样式来自sass，示例如下（仅供参考，实际开发请以线上代码为准）：</p>
+<pre><code class="scss"><span class="comment">//此变量即为上传的图片地址，</span>
+<span class="variable">$url-icons</span>: <span class="string">'../images/icons.png'</span>;
+
+<span class="selector-class">.sprite-icon</span> {
+    <span class="attribute">width</span>: rem(<span class="number">50</span>);
+    <span class="attribute">height</span>: rem(<span class="number">50</span>);
+    <span class="attribute">background</span>: url(<span class="variable">$url-icons</span>) no-repeat;
+    <span class="attribute">background-size</span>: rem(<span class="number">400</span>) auto;
+}
+
+<span class="variable">$count</span>: <span class="number">0</span>;
+<span class="variable">$area</span>: <span class="number">50</span>;
+@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 20 {
+    <span class="selector-class">.sprite-icon-</span>#{<span class="variable">$i</span>} {
+        <span class="variable">$x</span>: (<span class="variable">$i</span> - <span class="number">1</span>) % <span class="number">4</span> * <span class="variable">$area</span>;
+        <span class="variable">$y</span>: <span class="variable">$count</span> * <span class="variable">$area</span>;
+        <span class="attribute">background-position</span>: rem(-<span class="variable">$x</span>) rem(-<span class="variable">$y</span>);
+        &amp;<span class="selector-class">._gray_</span> {
+            <span class="variable">$x</span>: ((<span class="variable">$i</span> - <span class="number">1</span>) % <span class="number">4</span> + <span class="number">4</span>) * <span class="variable">$area</span>;
+            <span class="variable">$y</span>: <span class="variable">$count</span> * <span class="variable">$area</span>;
+            <span class="attribute">background-position</span>: rem(-<span class="variable">$x</span>) rem(-<span class="variable">$y</span>);
+        }
+    }
+    @<span class="keyword">if</span> <span class="variable">$i</span> % 4 == 0 {
+        <span class="variable">$count</span>: <span class="variable">$count</span> + <span class="number">1</span>
+    }
+}
+</code></pre>
+<p>从以上代码得知，目前只支持1-20的序列号，后续若有添加修改循环值即可。</p>

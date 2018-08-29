@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>charles使用笔记 | FE blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="charles" />
+  
+  
+  
+  
+  <meta name="description" content="记录使用charles的过程与遇到的一些坑。  准备工作在Charles 官方网站下载最新版的Charles安装包，是一个 dmg 后缀的文件。打开后将Charles拖到 Application 目录下即完成安装。本人版本是4.0.2。">
+<meta name="keywords" content="charles">
+<meta property="og:type" content="article">
+<meta property="og:title" content="charles使用笔记">
+<meta property="og:url" content="http://007sair.github.io/2018/01/17/Charles-备忘/index.html">
+<meta property="og:site_name" content="FE blog">
+<meta property="og:description" content="记录使用charles的过程与遇到的一些坑。  准备工作在Charles 官方网站下载最新版的Charles安装包，是一个 dmg 后缀的文件。打开后将Charles拖到 Application 目录下即完成安装。本人版本是4.0.2。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://007sair.github.io/images/charles/1.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/2.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/3.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/4.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/5.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/6.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/7.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/8.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/9.png">
+<meta property="og:image" content="http://007sair.github.io/images/charles/10.jpg">
+<meta property="og:updated_time" content="2018-07-26T07:08:26.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="charles使用笔记">
+<meta name="twitter:description" content="记录使用charles的过程与遇到的一些坑。  准备工作在Charles 官方网站下载最新版的Charles安装包，是一个 dmg 后缀的文件。打开后将Charles拖到 Application 目录下即完成安装。本人版本是4.0.2。">
+<meta name="twitter:image" content="http://007sair.github.io/images/charles/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/head.jpg">
+  <link rel="apple-touch-icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Charles-备忘" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      charles使用笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/01/17/Charles-备忘/" class="article-date">
+	  <time datetime="2018-01-17T08:36:17.000Z" itemprop="datePublished">2018-01-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/tool/">tool</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录使用charles的过程与遇到的一些坑。</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在<code>Charles</code> <a href="http://www.charlesproxy.com" target="_blank" rel="noopener">官方网站</a>下载最新版的<code>Charles</code>安装包，是一个 dmg 后缀的文件。打开后将<code>Charles</code>拖到 Application 目录下即完成安装。本人版本是<code>4.0.2</code>。</p>
+<a id="more"></a>
+<h2 id="开始抓包"><a href="#开始抓包" class="headerlink" title="开始抓包"></a>开始抓包</h2><h3 id="将Charles设置成系统代理"><a href="#将Charles设置成系统代理" class="headerlink" title="将Charles设置成系统代理"></a>将<code>Charles</code>设置成系统代理</h3><p>之前提到，<code>Charles</code> 是通过将自己设置成代理服务器来完成封包截取的，所以使用<code>Charles</code>的第一步是将其设置成系统的代理服务器。</p>
+<p>启动<code>Charles</code>后，第一次<code>Charles</code>会请求你给它设置系统代理的权限。你可以输入登录密码授予<code>Charles</code>该权限。你也可以忽略该请求，然后在需要将<code>Charles</code>设置成系统代理时，选择菜单中的 <code>&quot;Proxy&quot; -&gt; &quot;Mac OS X Proxy&quot;</code> 来将<code>Charles</code>设置成系统代理。如下所示：</p>
+<p><img src="/images/charles/1.png" alt="图1" width="260"></p>
+<p>之后，你就可以看到源源不断的网络请求出现在<code>Charles</code>的界面中。</p>
+<p>需要注意的是，<code>Chrome</code> 和 <code>Firefox</code> 浏览器默认并不使用系统的代理服务器设置，而<code>Charles</code>是通过将自己设置成代理服务器来完成封包截取的，所以在默认情况下无法截取 <code>Chrome</code> 和 <code>Firefox</code> 浏览器的网络通讯内容。如果你需要截取的话，在 <code>Chrome</code> 中设置成使用系统的代理服务器设置即可，或者直接将代理服务器设置成 <code>127.0.0.1:8888</code> 也可达到相同效果。</p>
+<blockquote>
+<p>本人使用的<a href="https://github.com/XX-net/XX-Net/wiki/%E4%BD%BF%E7%94%A8Chrome%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" rel="noopener">XX-net</a>代理，可在chrome下通过此插件设置系统代理</p>
+</blockquote>
+<h3 id="抓取手机数据包"><a href="#抓取手机数据包" class="headerlink" title="抓取手机数据包"></a>抓取手机数据包</h3><p><code>Charles</code> 通常用来截取本地网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。下面我就以 <code>iPhone</code> 为例，讲解如何进行相应操作。</p>
+<h4 id="charles上的设置"><a href="#charles上的设置" class="headerlink" title="charles上的设置"></a><code>charles</code>上的设置</h4><p>要截取 <code>iPhone</code> 上的网络请求，我们首先需要将<code>Charles</code>的代理功能打开。在<code>Charles</code>的菜单栏上选择<code>&quot;Proxy&quot;-&gt;&quot;Proxy Settings&quot;</code>，填入代理端口 <code>8888</code>，并且勾上 <code>&quot;Enable transparent HTTP proxying&quot;</code> 就完成了在<code>Charles</code>上的设置。如下图所示:</p>
+<p><img src="/images/charles/2.png" alt="图2" width="500"></p>
+<h4 id="手机上的设置"><a href="#手机上的设置" class="headerlink" title="手机上的设置"></a>手机上的设置</h4><p>首先我们需要获取<code>Charles</code>运行所在电脑的<code>IP</code>地址，<code>Charles</code>的顶部菜单的 <code>&quot;Help&quot;-&gt;&quot;Local IP Address&quot;</code>，即可在弹出的对话框中看到 <code>IP</code> 地址，如下图所示：</p>
+<p><img src="/images/charles/3.png" alt="图3" width="500"></p>
+<p>在 <code>iPhone</code> 的 <code>&quot;设置&quot; -&gt; &quot;无线局域网&quot;</code> 中，可以看到当前连接的<code>wifi</code>名，通过点击右边的详情键，可以看到当前连接上的<code>wifi</code>的详细信息，包括 <code>IP</code> 地址，子网掩码等信息。在其最底部有<code>「HTTP 代理」</code>一项，我们将其切换成手动，然后填上<code>Charles</code>运行所在的电脑的 <code>IP</code>，以及端口号 <code>8888</code>，如下图所示：</p>
+<p><img src="/images/charles/4.png" alt="图4" width="300"></p>
+<p>设置好之后，我们打开<code>iPhone</code>上的任意需要网络通讯的程序，就可以看到<code>Charles</code>弹出<code>iPhone</code>请求连接的确认菜单（如下图所示），点击 <code>&quot;Allow&quot;</code> 即可完成设置。</p>
+<p><img src="/images/charles/5.png" alt="图5" width="500"></p>
+<h2 id="截取https"><a href="#截取https" class="headerlink" title="截取https"></a>截取<code>https</code></h2><h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h3><p>如果你需要截取分析<code>Https</code>协议相关的内容。那么需要安装<code>Charles</code>的 <code>CA</code> 证书。具体步骤如下。</p>
+<p>首先我们需要在 <code>Mac</code> 电脑上安装证书。点击<code>Charles</code>的顶部菜单，选择 <code>&quot;Help&quot; -&gt; &quot;SSL Proxying&quot; -&gt; &quot;Install</code>Charles<code>Root Certificate&quot;</code>，然后输入系统的帐号密码，即可在 <code>KeyChain</code> 看到添加好的证书。如下图所示：</p>
+<p><img src="/images/charles/6.png" alt="图6" width="100%"></p>
+<h4 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h4><p>选择_图6_ <strong>红框部分</strong>，然后需要对证书信任，之后会弹出钥匙串，如果不弹出，请自行打开钥匙串，如下图：</p>
+<p><img src="/images/charles/7.png" alt="图7" width=""></p>
+<p>双击证书，选择始终信任</p>
+<p><img src="/images/charles/8.png" alt="图8" width=""></p>
+<h4 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h4><p>选择_图6_ <strong>绿框部分</strong>，在手机上输入弹出框中的链接地址进行安装</p>
+<p><img src="/images/charles/9.png" alt="图9" width=""></p>
+<h3 id="添加SSL-Proxying"><a href="#添加SSL-Proxying" class="headerlink" title="添加SSL Proxying"></a>添加<code>SSL Proxying</code></h3><p>证书安装完毕后，还需要对SSL做以下处理：</p>
+<ol>
+<li>进入<code>&quot;Proxy&quot; -&gt; &quot;SSL Proxying Settings&quot;</code></li>
+<li>勾选<code>&quot;Enable SSL Proxying&quot;</code>，并点击下方的<code>Add</code></li>
+<li>在弹出的<code>&quot;Edit Location&quot;</code>中，输入<code>Host</code>和<code>Port</code>都为<code>&quot;＊&quot;</code>（看提示这样配置可以抓到所有<code>https</code>的包），然后进行添加</li>
+</ol>
+<p>以上设置完毕后就可以正常抓取数据了。</p>
+<h2 id="代理本地文件"><a href="#代理本地文件" class="headerlink" title="代理本地文件"></a>代理本地文件</h2><p>我们在查找线上bug时，由于文件是压缩版或请求数据不可控，导致无法直接调试，此时一般会选择在本地环境模拟线上数据进行调试。</p>
+<p>现在有了charles的<code>Map Local</code>功能，可以将线上文件代理成本地文件，达到修改本地文件，访问线上地址即可查看效果，步骤如下图：</p>
+<p><img src="/images/charles/10.jpg" alt="点击查看大图" width=""></p>
+<p>window中的Fiddler设置参考这篇<a href="https://www.jianshu.com/p/3e3aa1cf4850" target="_blank" rel="noopener">文章</a></p>
+<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="电脑端无法抓包"><a href="#电脑端无法抓包" class="headerlink" title="电脑端无法抓包"></a>电脑端无法抓包</h3><p><strong>问题原因：</strong></p>
+<p>确认两个代理设置是否正确，一是<code>charles</code>设置为系统代理：<code>Mac OS X Proxy</code>，二是浏览器也使用的<code>系统代理</code>。</p>
+<p>若以上确认无误。分析为本地开启了vpn等翻墙工具。</p>
+<p><strong>解决方法：</strong></p>
+<ol>
+<li>关闭vpn翻墙工具</li>
+<li>打开<code>wifi</code>中的<code>网络偏好设置</code>-&gt;<code>高级</code>-&gt;<code>代理</code>-&gt;不勾选 <code>自动代理配置</code></li>
+<li>重启charles</li>
+</ol>
+<h3 id="手机上安装了证书，仍然无法抓包？"><a href="#手机上安装了证书，仍然无法抓包？" class="headerlink" title="手机上安装了证书，仍然无法抓包？"></a>手机上安装了证书，仍然无法抓包？</h3><p><code>iphone</code>系统更新到<code>iOS 10.3</code>后，https的请求都会失败，提示错误信息为<code>Failure SSLHandshake: Received fatal alert: unknown_ca</code>和<code>You may need to configure your browser or application to trust the Charles Root Certificate.</code></p>
+<p>然而之前任何问题都没有，并且相关设置都正确：Mac上安装了Charles的根证书，并且设置了始终信任，然后手机上也登录了<code>http://chls.pro/ssl</code>安装了描述文件,一切都按正常程序走的,但是错误始终无法解决。</p>
+<p><strong>问题原因：</strong></p>
+<p>虽然charles的根证书已经在安装列表中显示,但它是被关闭的。在iOS 10.3之前,当你将安装一个自定义证书,iOS会默认信任,不需要进一步的设置。而iOS 10.3之后,安装新的自定义证书默认是不受信任的。如果要信任已安装的自定义证书,需要手动打开开关以信任证书。</p>
+<p><strong>解决方法：</strong></p>
+<p>设置-&gt;通用-&gt;关于本机-&gt;证书信任设置-&gt;找到<code>charles proxy custom root certificate</code>然后信任该证书即可。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://blog.devtang.com/2015/11/14/charles-introduction/#%E6%88%AA%E5%8F%96-iPhone-%E4%B8%8A%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85" target="_blank" rel="noopener">Charles从入门到精通</a></li>
+<li><a href="http://blog.csdn.net/zhouzhoujianquan/article/details/52585077" target="_blank" rel="noopener">Charles使用详解</a></li>
+<li><a href="http://blog.csdn.net/songzhuo1991/article/details/70157407" target="_blank" rel="noopener">Mac下使用charles遇到的问题以及解决办法</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charles/">charles</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/24/git命令集/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          git命令集
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/14/gulp-rev/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">gulp-rev版本替换插件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始抓包"><span class="nav-text">开始抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将Charles设置成系统代理"><span class="nav-text">将Charles设置成系统代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓取手机数据包"><span class="nav-text">抓取手机数据包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#charles上的设置"><span class="nav-text">charles上的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手机上的设置"><span class="nav-text">手机上的设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截取https"><span class="nav-text">截取https</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装证书"><span class="nav-text">安装证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电脑端"><span class="nav-text">电脑端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手机端"><span class="nav-text">手机端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSL-Proxying"><span class="nav-text">添加SSL Proxying</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理本地文件"><span class="nav-text">代理本地文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#踩过的坑"><span class="nav-text">踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑端无法抓包"><span class="nav-text">电脑端无法抓包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机上安装了证书，仍然无法抓包？"><span class="nav-text">手机上安装了证书，仍然无法抓包？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            FE blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 By Chan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
