@@ -2,13 +2,203 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>mixin pic</title>
-<link href="/demo/mixin_pic/css/style.css?v=48edd30039" rel="stylesheet"></head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+<title></title>
+<style>
+[v-cloak] {
+    display: none;
+}
+</style>
+<link href="css/style.css?v=f0277258b1" rel="stylesheet"></head>
 <body>
+<div id="app" class="wrapper fullpage-container" v-cloak>
+    <div class="preload" v-if="!is_preload">
+        <div class="center">
+            <svg class="divi" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+                <g>
+                    <circle class="outer" cx="100" cy="100" r="95"></circle>
+                    <path class="outer" d="M100.2,6C47.8,6,5.4,48.5,5.4,100.8s42.5,94.8,94.8,94.8s94.8-42.5,94.8-94.8S152.5,6,100.2,6z M100.2,185.7 		c-46.9,0-84.8-38-84.8-84.8S53.3,16,100.2,16S185,54,185,100.8S147,185.7,100.2,185.7z"></path>
+                    <path class="inner" d="M101.7,51.7H74.9c-1,0-1.7,0.8-1.7,1.7V148c0,1,0.8,1.7,1.7,1.7l27.3,0c27.1,0,44.7-22.1,44.6-49.2 		C146.8,73.4,130,51.7,101.7,51.7z M101.7,139.8l-19.7,0V61.7l19.7,0.1c21.5,0,34.6,17.5,34.6,39S123.3,139.8,101.7,139.8z"></path>
+                </g>
+            </svg>
+            <p class="text">加载中..</p>
+        </div>
+    </div>
+    <div class="fullpage-wp fullpage-wp-h anim" ref="pages" v-else>
+        <div class="page-1 page" :style="{backgroundImage:'url('+ cover +')'}">
+            <uploader :disabled="isLoading" class="btn-upload" @upload="invokeUpload"></uploader>
+        </div>
+        <div class="page-2 page">
+            <div class="area-canvas" ref="canvasBox">
+                <div ref="stage" class="stage" :style="{backgroundImage:'url('+ selected_bg +')'}">
+                    <v-touch 
+                        v-for="(cell, index) in cells" 
+                        :id="cell.id" 
+                        :class="['cell', cell.config.cls, {selected:cell.isSelected}]"
+                        :data-index="cell.index"
+                        :style="{
+                            transform:'translate('+ cell.translate.sx +'px, '+ cell.translate.sy +'px)  scale(' + cell.translate.scale + ')' + 'rotate(' + cell.translate.rotation + 'deg)',
+                            zIndex: cell.config.z_index
+                        }" 
 
-<div id="app"></div>
+                        @tap="selectCell($event, cell)"
 
-<script type="text/javascript" src="/demo/mixin_pic/js/vendor.min.js?0aa1351aac82320223a3"></script><script type="text/javascript" src="/demo/mixin_pic/js/index.min.js?v=48edd30039"></script></body>
+                        @pinch="cell.pan($event)"
+                        @pinchstart="cell.pan($event)"
+                        @pinchend="cell.pan($event)"
+                        @rotate="cell.pan($event)"
+                        @rotatestart="cell.pan($event)"
+                        @rotateend="cell.pan($event)"
+                        @pan="cell.pan($event)"
+                        @panend="cell.pan($event)"
+
+                        :enabled="{ 
+                            pinch: cell.config.enable_pinch,
+                            rotate: cell.config.enable_rotate,
+                            pan: cell.config.enable_pan
+                        }"
+                    >
+                        <v-touch 
+                            tag="i" 
+                            class="btn-edit" 
+                            @tap="openTextBoard('edit', cell)"
+                            v-if="cell.config.enable_edit"
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                        ></v-touch>
+                        <v-touch 
+                            tag="i" 
+                            class="btn-flip" 
+                            @tap="cell.flip()"
+                            v-if="cell.config.enable_flip"
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                        ></v-touch>
+                        <v-touch 
+                            tag="i" 
+                            class="btn-close" 
+                            v-if="cell.config.enable_del" 
+                            @tap="delCell(index)"
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                        ></v-touch>
+                        <v-touch 
+                            tag="i"
+                            class="btn-drag"
+                            @panstart="cell.drag($event)"
+                            @pan="cell.drag($event)"
+                            @panend="cell.drag($event)"
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                            v-if="cell.config.enable_pinch || cell.config.enable_rotate"
+                        ></v-touch>
+                        <v-touch 
+                            tag="i" 
+                            class="btn-close" 
+                            v-if="cell.config.enable_del" 
+                            @tap="delCell(index)"
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                        ></v-touch>
+                        <v-touch 
+                            tag="i" 
+                            class="btn-copy" 
+                            @tap="copyCell(cell)"
+                            v-if="cell.config.enable_copy" 
+                            :style="{transform:'scale('+ (1 / cell.translate.scale) +')'}"
+                        ></v-touch>
+                        <img v-if="cell.oImg" :src="cell.oImg.src" :style="{ transform:`scale(${cell.translate.flip_x ? -1 : 1}, 1)`}" >
+                        <p 
+                            v-if="cell.config.type == 4"
+                            class="txt" 
+                            v-html="_n2br(cell.stickerText.text)"
+                            :style="{
+                                fontSize: cell.stickerText.font_size + 'px',
+                                color: cell.stickerText.color,
+                                lineHeight: 1.2,
+                                padding: cell.stickerText.padding + 'px'
+                            }"
+                        >
+                        </p>
+                    </v-touch>
+                </div>
+            </div>
+            <div class="area-actions" ref="actions">
+                <div class="action-tab" v-if="tabs.length > 1">
+                    <a 
+                        v-for="(tab, index) in tabs" 
+                        @click="toggle(index)"
+                        :class="{active:tab.is_selected}" 
+                        href="javascript:;"
+                    ><span>{{tab.name}}</span></a>
+                    <a @click="openTextBoard('add')" href="javascript:;"><span>文字</span></a>
+                </div>
+                <div class="action-images">
+                    <ul :class="tab.cont_cls" v-for="(tab, idx) in tabs" v-show="tab.is_selected">
+                        <template v-if="idx == 0">
+                            <li v-for="(bg, index) in bgs" @click="selectBg(index)" :class="{active: bgs[index].back == selected_bg}">
+                                <img :src="bg.thumb_back">
+                                <img v-if="bg.thumb_front" :src="bg.thumb_front">
+                            </li>
+                        </template>
+                        <template v-if="idx == 1">
+                            <li v-for="(sticker, index) in stickers" @click="createSticker(index)">
+                                <img :src="sticker">
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div class="action-btns">
+                    <div>
+                        <uploader button-text="重新上传" :disabled="isLoading" class="btn-reupload" @upload="invokeUpload"></uploader>
+                        <button class="btn-createposter" @click="createPoster" :disabled="isLoading">生成图片</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-3 page">
+            <div class="area-result">
+                <div class="poster" ref="poster">
+                    <img v-if="poster" :class="{'stop-callout': isWeiXin}" :src="poster">
+                </div>
+                <div class="btns" ref="page3btns">
+                    <a class="btn-replay" href="javascript:;" @click.self="pagePrev">上一页</a>
+                    <a class="btn-replay" href="javascript:;" @click.self="reUpload">再做一张</a>
+                    <a class="btn-save" href="javascript:;" @click="saveToAlbum">保存相册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-area" :class="{active: edit_board.is_show}">
+        <a @click="edit_board.is_show = false" class="btn-cancel" href="javascript:;">取消</a>
+        <a @click="saveTextBoard" class="btn-save" href="javascript:;">完成</a>
+        <div 
+            class="text" 
+            :style="{color:edit_board.selected_color}"
+        >
+            <textarea ref="textarea" v-model="edit_board.text" id=""></textarea>
+        </div>
+        <div class="actions">
+            <!-- <span 
+                @click="edit_board.is_selected_bg = !edit_board.is_selected_bg" 
+                :class="{active:edit_board.is_selected_bg}" 
+                class="bg"
+            >
+                <i>T</i>
+            </span> -->
+            <span 
+                class="color" 
+                v-for="(color, idx) in edit_board.colors"
+                @click="edit_board.selected_color = color" 
+                :class="{active: edit_board.selected_color == color}"
+            >
+                <i :style="{backgroundColor:color}"></i>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+<script type="text/javascript" src="js/index.min.js?v=82dd72205a"></script></body>
 </html>
