@@ -189,6 +189,56 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-js-oop"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/21/js-oop/">JS 面向对象的程序设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/21/js-oop/" class="article-date">
+	  <time datetime="2015-09-20T16:00:00.000Z" itemprop="datePublished">2015-09-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。<code>ECMAScript</code>中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。</p>
+        <!-- 面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。
+
+ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数”。可以简单理解为JS的对象是一组无序的值，其中的属性或方法都有一个名字，根据这个名字可以访问相映射的值（值可以是基本值/对象/方法......  -->
+        <p class="article-more-link">
+          <a href="/2015/09/21/js-oop/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-font-size"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
@@ -317,79 +367,6 @@ ul,li{ list-style: none;}
 <!-- Table of Contents -->
 
   
-    <article id="post-js-for-in"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/08/17/js-for-in/">Javascript中如何遍历属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/08/17/js-for-in/" class="article-date">
-	  <time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>遍历属性，我们首先要搞清楚<code>for in</code>，再来谈遍历：</p>
-<h2 id="关于for-in"><a href="#关于for-in" class="headerlink" title="关于for in"></a>关于<code>for in</code></h2><h3 id="for-in-声明用于对数组或者对象的属性进行循环-迭代操作。"><a href="#for-in-声明用于对数组或者对象的属性进行循环-迭代操作。" class="headerlink" title="for...in 声明用于对数组或者对象的属性进行循环/迭代操作。"></a><code>for...in</code> 声明用于对数组或者对象的属性进行循环/迭代操作。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于数组：迭代出来的是数组元素</span></span><br><span class="line"><span class="keyword">var</span> mycars = [<span class="string">'Saab'</span>,<span class="string">'Volvo'</span>,<span class="string">'BMW'</span>]; </span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> mycars) &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(x); <span class="comment">// 0 1 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(mycars[x]); <span class="comment">// Saab Volvo BMW</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象 ，迭代出来的是对象的属性</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;  </span><br><span class="line">    w: <span class="string">"wen"</span>,</span><br><span class="line">    j: <span class="string">"jian"</span>,</span><br><span class="line">    b: <span class="string">"bao"</span>  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> v <span class="keyword">in</span> obj)&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">// w j b</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[v]); <span class="comment">// wen jian bao</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="判断对象是否为-数组-对象-的-元素-属性："><a href="#判断对象是否为-数组-对象-的-元素-属性：" class="headerlink" title="判断对象是否为 数组/对象 的 元素/属性："></a>判断对象是否为 数组/对象 的 元素/属性：</h3><p>语法为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量 <span class="keyword">in</span> 对象) &#123;</span><br><span class="line">    在此执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当“对象”为数组时，变量指的是数组的下标（索引）；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"str"</span>]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = (<span class="string">"b"</span> <span class="keyword">in</span> arr);  </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="number">4</span> <span class="keyword">in</span> arr);  </span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>当“对象”为对象时，变量指的是对象的属性；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">     w:<span class="string">"wen"</span>,  </span><br><span class="line">     j:<span class="string">"jian"</span>,  </span><br><span class="line">     b:<span class="string">"bao"</span>  </span><br><span class="line">&#125;;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> result = (<span class="number">2</span> <span class="keyword">in</span> obj);      </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"j"</span> <span class="keyword">in</span> obj);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>关于<code>for in</code>的其他参考：</p>
-<ul>
-<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html" target="_blank" title="">for in的缺陷</a></li>
-<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/29/1998714.html" target="_blank" title="">各浏览器中for in顺序的差异</a></li>
-</ul>
-<h2 id="关于遍历"><a href="#关于遍历" class="headerlink" title="关于遍历"></a>关于遍历</h2><p>在<code>JavaScript</code>中，遍历一个对象的属性往往没有在其他语言中遍历一个哈希(有些语言称为字典)的键那么简单，这主要有两个方面的原因： </p>
-<ul>
-<li><code>JavaScript</code>中的对象通常都处在某个原型链中,它会从一个或多个的上层原型上继承一些属性；</li>
-<li><code>JavaScript</code>中的属性不光有值,它还有一些除了值以外的其他特性,其中一个影响属性遍历的特性就是<code>[[Enumerable]]</code>,如果该值为<code>true</code>,则称这个属性是可枚举的,否则反之。</li>
-</ul>
-<p>知道了这些,我们就可以把属性的遍历分为四种情况：</p>
-<blockquote>
-<p><em>注：</em>示例代码中,我们要遍历的对象是浏览器中的window,环境为Chrome43.0.2357.134,代码运行在空白页面中的script标签里.没有Firebug或者其他调试工具的影响(会导入一些全局变量,console等)。</p>
-</blockquote>
-<h3 id="遍历可枚举的自身属性"><a href="#遍历可枚举的自身属性" class="headerlink" title="遍历可枚举的自身属性"></a>遍历可枚举的自身属性</h3><p>可枚举的意思就是该属性的<code>[[Enumerable]]</code>（可枚举性）特性为<code>true</code>，自身属性的意思就是该属性不是从原型链上继承下来的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.keys(<span class="built_in">window</span>); <span class="comment">//获得对象上所有可枚举的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为7 ["top", "location", "document", "window", "external", "chrome", "propertys"]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys); <span class="comment">//window,document,InstallTrigger,除了最后一个是火狐私有的属性,原来window对象只有两个可枚举的自身属性.window属性指向window对象自身,一般没什么用.</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<h3 id="遍历所有的自身属性"><a href="#遍历所有的自身属性" class="headerlink" title="遍历所有的自身属性"></a>遍历所有的自身属性</h3><p>特性为不可枚举的属性也并不是遍历不到,ES5给我们提供了<code>getOwnPropertyNames</code>方法,可以获取到一个对象的所有自身属性.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.getOwnPropertyNames(<span class="built_in">window</span>); <span class="comment">//获得对象上所有的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为571</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">//Object,Function,eval等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<h3 id="遍历可枚举的自身属性和继承属性"><a href="#遍历可枚举的自身属性和继承属性" class="headerlink" title="遍历可枚举的自身属性和继承属性"></a>遍历可枚举的自身属性和继承属性</h3><p>继承属性怎么遍历,你应该知道,就是最常用的<code>for in</code>遍历</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getEnumPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">for</span> (prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            props.push(prop);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getEnumPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为186</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// addEventListener,onload等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<h3 id="遍历所有的自身属性和继承属性"><a href="#遍历所有的自身属性和继承属性" class="headerlink" title="遍历所有的自身属性和继承属性"></a>遍历所有的自身属性和继承属性</h3><p>这种遍历主要用在各种<code>js</code>调试工具的代码补全功能上.比如<code>Firebug</code>的.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getAllPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            props = props.concat(<span class="built_in">Object</span>.getOwnPropertyNames(obj));</span><br><span class="line">        &#125; <span class="keyword">while</span> (obj = <span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getAllPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为719</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// toString等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-js-Extras"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
@@ -494,7 +471,7 @@ ul,li{ list-style: none;}
 <!-- Table of Contents -->
 
   
-    <article id="post-js-tujie-context"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-js-for-in"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
     
@@ -502,7 +479,7 @@ ul,li{ list-style: none;}
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/08/15/js-tujie-context/">图解Javascript上下文与作用域</a>
+      <a class="article-title" href="/2015/08/17/js-for-in/">Javascript中如何遍历属性</a>
     </h1>
   
 
@@ -510,8 +487,8 @@ ul,li{ list-style: none;}
     
     <div class="article-meta">
       
-	<a href="/2015/08/15/js-tujie-context/" class="article-date">
-	  <time datetime="2015-08-14T16:00:00.000Z" itemprop="datePublished">2015-08-15</time>
+	<a href="/2015/08/17/js-for-in/" class="article-date">
+	  <time datetime="2015-08-16T16:00:00.000Z" itemprop="datePublished">2015-08-17</time>
 	</a>
 
       
@@ -521,13 +498,36 @@ ul,li{ list-style: none;}
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（<code>execution context</code>）、作用域链（<code>scope chain</code>）、闭包（<code>closure</code>）、<code>this</code>等概念。</p>
-<h3 id="Execution-context"><a href="#Execution-context" class="headerlink" title="Execution context"></a><code>Execution context</code></h3><p>执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（<code>variable object</code>），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（<code>global context</code>），全局上下文取决于执行环境，如<code>Node</code>中的<code>global</code>和<code>Browser</code>中的<code>window</code>：</p>
-        <!-- 本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
-Execution context执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object......  -->
-        <p class="article-more-link">
-          <a href="/2015/08/15/js-tujie-context/#more">阅读全文</a>
-        </p>
+        <p>遍历属性，我们首先要搞清楚<code>for in</code>，再来谈遍历：</p>
+<h2 id="关于for-in"><a href="#关于for-in" class="headerlink" title="关于for in"></a>关于<code>for in</code></h2><h3 id="for-in-声明用于对数组或者对象的属性进行循环-迭代操作。"><a href="#for-in-声明用于对数组或者对象的属性进行循环-迭代操作。" class="headerlink" title="for...in 声明用于对数组或者对象的属性进行循环/迭代操作。"></a><code>for...in</code> 声明用于对数组或者对象的属性进行循环/迭代操作。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于数组：迭代出来的是数组元素</span></span><br><span class="line"><span class="keyword">var</span> mycars = [<span class="string">'Saab'</span>,<span class="string">'Volvo'</span>,<span class="string">'BMW'</span>]; </span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> mycars) &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(x); <span class="comment">// 0 1 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(mycars[x]); <span class="comment">// Saab Volvo BMW</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象 ，迭代出来的是对象的属性</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;  </span><br><span class="line">    w: <span class="string">"wen"</span>,</span><br><span class="line">    j: <span class="string">"jian"</span>,</span><br><span class="line">    b: <span class="string">"bao"</span>  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> v <span class="keyword">in</span> obj)&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">// w j b</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[v]); <span class="comment">// wen jian bao</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断对象是否为-数组-对象-的-元素-属性："><a href="#判断对象是否为-数组-对象-的-元素-属性：" class="headerlink" title="判断对象是否为 数组/对象 的 元素/属性："></a>判断对象是否为 数组/对象 的 元素/属性：</h3><p>语法为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量 <span class="keyword">in</span> 对象) &#123;</span><br><span class="line">    在此执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当“对象”为数组时，变量指的是数组的下标（索引）；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"str"</span>]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = (<span class="string">"b"</span> <span class="keyword">in</span> arr);  </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="number">4</span> <span class="keyword">in</span> arr);  </span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>当“对象”为对象时，变量指的是对象的属性；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">     w:<span class="string">"wen"</span>,  </span><br><span class="line">     j:<span class="string">"jian"</span>,  </span><br><span class="line">     b:<span class="string">"bao"</span>  </span><br><span class="line">&#125;;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> result = (<span class="number">2</span> <span class="keyword">in</span> obj);      </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"j"</span> <span class="keyword">in</span> obj);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>关于<code>for in</code>的其他参考：</p>
+<ul>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html" target="_blank" title="">for in的缺陷</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/29/1998714.html" target="_blank" title="">各浏览器中for in顺序的差异</a></li>
+</ul>
+<h2 id="关于遍历"><a href="#关于遍历" class="headerlink" title="关于遍历"></a>关于遍历</h2><p>在<code>JavaScript</code>中，遍历一个对象的属性往往没有在其他语言中遍历一个哈希(有些语言称为字典)的键那么简单，这主要有两个方面的原因： </p>
+<ul>
+<li><code>JavaScript</code>中的对象通常都处在某个原型链中,它会从一个或多个的上层原型上继承一些属性；</li>
+<li><code>JavaScript</code>中的属性不光有值,它还有一些除了值以外的其他特性,其中一个影响属性遍历的特性就是<code>[[Enumerable]]</code>,如果该值为<code>true</code>,则称这个属性是可枚举的,否则反之。</li>
+</ul>
+<p>知道了这些,我们就可以把属性的遍历分为四种情况：</p>
+<blockquote>
+<p><em>注：</em>示例代码中,我们要遍历的对象是浏览器中的window,环境为Chrome43.0.2357.134,代码运行在空白页面中的script标签里.没有Firebug或者其他调试工具的影响(会导入一些全局变量,console等)。</p>
+</blockquote>
+<h3 id="遍历可枚举的自身属性"><a href="#遍历可枚举的自身属性" class="headerlink" title="遍历可枚举的自身属性"></a>遍历可枚举的自身属性</h3><p>可枚举的意思就是该属性的<code>[[Enumerable]]</code>（可枚举性）特性为<code>true</code>，自身属性的意思就是该属性不是从原型链上继承下来的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.keys(<span class="built_in">window</span>); <span class="comment">//获得对象上所有可枚举的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为7 ["top", "location", "document", "window", "external", "chrome", "propertys"]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys); <span class="comment">//window,document,InstallTrigger,除了最后一个是火狐私有的属性,原来window对象只有两个可枚举的自身属性.window属性指向window对象自身,一般没什么用.</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历所有的自身属性"><a href="#遍历所有的自身属性" class="headerlink" title="遍历所有的自身属性"></a>遍历所有的自身属性</h3><p>特性为不可枚举的属性也并不是遍历不到,ES5给我们提供了<code>getOwnPropertyNames</code>方法,可以获取到一个对象的所有自身属性.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> propertys = <span class="built_in">Object</span>.getOwnPropertyNames(<span class="built_in">window</span>); <span class="comment">//获得对象上所有的“实例属性”</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">//chrome为571</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">//Object,Function,eval等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历可枚举的自身属性和继承属性"><a href="#遍历可枚举的自身属性和继承属性" class="headerlink" title="遍历可枚举的自身属性和继承属性"></a>遍历可枚举的自身属性和继承属性</h3><p>继承属性怎么遍历,你应该知道,就是最常用的<code>for in</code>遍历</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getEnumPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">for</span> (prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            props.push(prop);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getEnumPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为186</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// addEventListener,onload等等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="遍历所有的自身属性和继承属性"><a href="#遍历所有的自身属性和继承属性" class="headerlink" title="遍历所有的自身属性和继承属性"></a>遍历所有的自身属性和继承属性</h3><p>这种遍历主要用在各种<code>js</code>调试工具的代码补全功能上.比如<code>Firebug</code>的.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getAllPropertyNames = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> props = [];</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            props = props.concat(<span class="built_in">Object</span>.getOwnPropertyNames(obj));</span><br><span class="line">        &#125; <span class="keyword">while</span> (obj = <span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> propertys = getAllPropertyNames(<span class="built_in">window</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(propertys.length); <span class="comment">// chrome为719</span></span><br><span class="line">    <span class="built_in">console</span>.log(propertys.join(<span class="string">"\n"</span>)); <span class="comment">// toString等</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -586,6 +586,56 @@ Execution context执行上下文（简称上下文）决定了Js执行过程中�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-js-tujie-context"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/15/js-tujie-context/">图解Javascript上下文与作用域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/15/js-tujie-context/" class="article-date">
+	  <time datetime="2015-08-14T16:00:00.000Z" itemprop="datePublished">2015-08-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（<code>execution context</code>）、作用域链（<code>scope chain</code>）、闭包（<code>closure</code>）、<code>this</code>等概念。</p>
+<h3 id="Execution-context"><a href="#Execution-context" class="headerlink" title="Execution context"></a><code>Execution context</code></h3><p>执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（<code>variable object</code>），它就像一个容器，用来存储当前上下文中所有已定义或可获取的变量、函数等。位于最顶端或最外层的上下文称为全局上下文（<code>global context</code>），全局上下文取决于执行环境，如<code>Node</code>中的<code>global</code>和<code>Browser</code>中的<code>window</code>：</p>
+        <!-- 本文尝试阐述Js中的上下文与作用域背后的机制，主要涉及到执行上下文（execution context）、作用域链（scope chain）、闭包（closure）、this等概念。
+Execution context执行上下文（简称上下文）决定了Js执行过程中可以获取哪些变量、函数、数据，一段程序可能被分割成许多不同的上下文，每一个上下文都会绑定一个变量对象（variable object......  -->
+        <p class="article-more-link">
+          <a href="/2015/08/15/js-tujie-context/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
 
     </footer>
   </div>
@@ -761,55 +811,6 @@ Function.prototype.bind方法
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-css-hr"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2014/12/08/css-hr/">css巧妙实现分隔线</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2014/12/08/css-hr/" class="article-date">
-	  <time datetime="2014-12-07T16:00:00.000Z" itemprop="datePublished">2014-12-08</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/css/">css</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单个标签实现分隔线"><a href="#单个标签实现分隔线" class="headerlink" title="单个标签实现分隔线"></a>单个标签实现分隔线</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo_line_01</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">200px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">200px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        <!-- 单个标签实现分隔线12345678.demo_line_01&#123;    padding: 0 20px 0;    margin: 20px 0;    line-height: 1px;    border-left: 200px solid #ddd;    border-right: 200px solid #ddd;    text-align: center;&#125;
-......  -->
-        <p class="article-more-link">
-          <a href="/2014/12/08/css-hr/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
 
     </footer>
   </div>

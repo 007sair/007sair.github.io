@@ -189,6 +189,55 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Date对象在ios中的坑"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/10/18/Date对象在ios中的坑/">Date对象在ios中的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/10/18/Date对象在ios中的坑/" class="article-date">
+	  <time datetime="2018-10-18T01:23:26.000Z" itemprop="datePublished">2018-10-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平时需要对日期进行操作时，服务端都会返回这样的日期格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    start_time: <span class="string">"2017-08-11 12:00:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回<code>valid Date</code></p>
+<p>最后得出原因：ios中不支持<code>-</code>连接的日期</p>
+<p>所以，我们需要将日期替换成<code>/</code>连接方式，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"2017-08-11 12:00:00"</span>.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>) <span class="comment">// =&gt; "2017/08/11 12:00:00"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-移动端File和Base64的坑"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
@@ -676,64 +725,6 @@ gulp-rev将资源文件（css、js、images等）解析，生成一个rev.json�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsonp/">jsonp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-rem-em"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/09/06/rem-em/">em与rem笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/09/06/rem-em/" class="article-date">
-	  <time datetime="2017-09-05T16:00:00.000Z" itemprop="datePublished">2017-09-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/css/">css</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>相对于父元素的<code>font-size</code></p>
-<p>计算公式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 父元素的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
-<p>如果元素设置了字体大小，此元素的其他属性，如：<code>border</code>、<code>width</code>、<code>height</code>、<code>padding</code>、<code>margin</code>、<code>line-height</code>计算就需要安装这个公式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 元素自身的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
-        <!-- em相对于父元素的font-size
-计算公式：
-11 ÷ 父元素的font-size × 需要转换的像素值 = em值
-如果元素设置了字体大小，此元素的其他属性，如：border、width、height、padding、margin、line-height计算就需要安装这个公式：
-11 ÷ 元素自身的font-size × 需要转换的像素值 = em值
-
-rem相对于根元素(html)的......  -->
-        <p class="article-more-link">
-          <a href="/2017/09/06/rem-em/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/em/">em</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/">rem</a></li></ul>
 
     </footer>
   </div>

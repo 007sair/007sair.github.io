@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>flex test | FE blog</title>
+  <title>date对象在ios中的坑 | FE blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="csstestflex" />
+  <meta name="keywords" content="javascript" />
   
   
   
   
-  <meta name="description" content="测试flex盒模型中的flex-flow在移动端的兼容问题">
-<meta name="keywords" content="css,test,flex">
+  <meta name="description" content="平时需要对日期进行操作时，服务端都会返回这样的日期格式 123&amp;#123;    start_time: &quot;2017-08-11 12:00:00&quot;&amp;#125; 当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回valid Date 最后得出原因：ios中不支持-连接的日期 所以，我们需要将日期替换成/连接方式，如下： 1&quot;2017-08-11 12:00:00&quot;.re">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex test">
-<meta property="og:url" content="http://007sair.github.io/2015/09/05/flex-test/index.html">
+<meta property="og:title" content="Date对象在ios中的坑">
+<meta property="og:url" content="http://007sair.github.io/2018/10/18/Date对象在ios中的坑/index.html">
 <meta property="og:site_name" content="FE blog">
-<meta property="og:description" content="测试flex盒模型中的flex-flow在移动端的兼容问题">
+<meta property="og:description" content="平时需要对日期进行操作时，服务端都会返回这样的日期格式 123&amp;#123;    start_time: &quot;2017-08-11 12:00:00&quot;&amp;#125; 当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回valid Date 最后得出原因：ios中不支持-连接的日期 所以，我们需要将日期替换成/连接方式，如下： 1&quot;2017-08-11 12:00:00&quot;.re">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-26T07:08:26.511Z">
+<meta property="og:updated_time" content="2018-10-18T01:27:56.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex test">
-<meta name="twitter:description" content="测试flex盒模型中的flex-flow在移动端的兼容问题">
+<meta name="twitter:title" content="Date对象在ios中的坑">
+<meta name="twitter:description" content="平时需要对日期进行操作时，服务端都会返回这样的日期格式 123&amp;#123;    start_time: &quot;2017-08-11 12:00:00&quot;&amp;#125; 当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回valid Date 最后得出原因：ios中不支持-连接的日期 所以，我们需要将日期替换成/连接方式，如下： 1&quot;2017-08-11 12:00:00&quot;.re">
   
     <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
   
@@ -162,7 +162,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-flex-test" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Date对象在ios中的坑" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
     
@@ -170,7 +170,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      flex test
+      Date对象在ios中的坑
     </h1>
   
 
@@ -178,12 +178,12 @@
     
     <div class="article-meta">
       
-	<a href="/2015/09/05/flex-test/" class="article-date">
-	  <time datetime="2015-09-04T16:00:00.000Z" itemprop="datePublished">2015-09-05</time>
+	<a href="/2018/10/18/Date对象在ios中的坑/" class="article-date">
+	  <time datetime="2018-10-18T01:23:26.000Z" itemprop="datePublished">2018-10-18</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/test/">test</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
 
       
 	<a class="article-views">
@@ -195,47 +195,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试flex-flow在移动端的兼容问题，用手机打开此页面查看效果。尤其最后一个demo：</p>
-<style>
-ul,li{ list-style: none;}
-.box{
-    display:-webkit-flex;
-    display:flex;
-    width:220px;margin:0;padding:10px;list-style:none;background-color:#eee;}
-.box li{width:100px;height:100px;border:1px solid #f00;text-align:center;}
-#box{
-    -webkit-flex-wrap:nowrap;
-    flex-wrap:nowrap;
-}
-#box2{
-    -webkit-flex-wrap:wrap;
-    flex-wrap:wrap;
-}
-#box3{
-    -webkit-flex-wrap:wrap-reverse;
-    flex-wrap:wrap-reverse;
-}
-#box4{
-    -webkit-flex-wrap:wrap;
-    flex-wrap:wrap;
-}
-#box4 li{
-    min-width: 40%;
-    width: auto;
-
-    -webkit-box-flex: 1;    
-    -moz-box-flex: 1;       
-    -webkit-flex: 1;        
-    -ms-flex: 1;            
-    flex: 1;            
-}
-</style>
-
-<p></p><h2>flex-wrap:nowrap</h2><p></p>
-<ul id="box" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap</h2><br><ul id="box2" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap-reverse</h2><br><ul id="box3" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul><br><h2>flex-wrap:wrap &amp; flex</h2><br><ul id="box4" class="box"><br>    <li>a</li><br>    <li>b</li><br>    <li>c</li><br></ul>
-
-
-
+        <p>平时需要对日期进行操作时，服务端都会返回这样的日期格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    start_time: <span class="string">"2017-08-11 12:00:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回<code>valid Date</code></p>
+<p>最后得出原因：ios中不支持<code>-</code>连接的日期</p>
+<p>所以，我们需要将日期替换成<code>/</code>连接方式，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"2017-08-11 12:00:00"</span>.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>) <span class="comment">// =&gt; "2017/08/11 12:00:00"</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -280,7 +245,7 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -288,19 +253,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2015/09/15/font-size/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          font-size
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/17/js-Extras/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/08/29/移动端File和Base64的坑/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Array方法: indexOf、filter、forEach、map、reduce详解</div>
+      <div class="article-nav-title">移动端File和Base64的坑</div>
     </a>
   
 </nav>
@@ -314,7 +270,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">flex-wrap:nowrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">flex-wrap:wrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">flex-wrap:wrap-reverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">flex-wrap:wrap &amp; flex</span></a></li></ol>
+        <ol class="nav">无</ol>
     
     </div>
   </aside>

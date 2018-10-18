@@ -189,6 +189,69 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-UNICODE"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/07/04/UNICODE/">HTML字符转义、特殊字符笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/07/04/UNICODE/" class="article-date">
+	  <time datetime="2016-07-03T16:00:00.000Z" itemprop="datePublished">2016-07-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/html/">html</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="转义字符串的由来"><a href="#转义字符串的由来" class="headerlink" title="转义字符串的由来"></a>转义字符串的由来</h3><p>HTML中<code>&lt;</code>，<code>&gt;</code>，<code>&amp;</code>等有特殊含义（<code>&lt;</code>，<code>&gt;</code>，用于链接签，<code>&amp;</code>用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到<strong>转义字符串</strong>了。</p>
+<h3 id="转义字符串的组成"><a href="#转义字符串的组成" class="headerlink" title="转义字符串的组成"></a>转义字符串的组成</h3><p>一个完整的转义字符串，分为三个部分：</p>
+<ol>
+<li>一个<code>&amp;</code>符号，英文为ampersand；</li>
+<li>是实体名字或为<code>#</code>+实体编号；</li>
+<li>一个<code>;</code>号；</li>
+</ol>
+<p>例如，常用的大于号<code>&gt;</code>，使用转义字符串后的写法为<code>&amp;gt;</code>或<code>&amp;#62;</code></p>
+<p>我们注意到，上面的大于号使用了2种方式的转义，第一种称为<code>实体名称</code>，第二种为<code>实体编号</code>，区别在于实体名称的优点为便于记忆，但兼容性不完美，实体编号则反之。</p>
+        <!-- 转义字符串的由来HTML中&lt;，&gt;，&amp;等有特殊含义（&lt;，&gt;，用于链接签，&amp;用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到转义字符串了。
+转义字符串的组成一个完整的转义字符串，分为三个部分：
+
+一个&amp;符号，英文为ampersand；
+是实体名字或为#+实体编号；
+一个;号；
+
+例如，......  -->
+        <p class="article-more-link">
+          <a href="/2016/07/04/UNICODE/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unicode/">unicode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-js-tricks"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
@@ -796,56 +859,6 @@ $(document).ready(function() {
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-js-oop"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/09/21/js-oop/">JS 面向对象的程序设计</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/09/21/js-oop/" class="article-date">
-	  <time datetime="2015-09-20T16:00:00.000Z" itemprop="datePublished">2015-09-21</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。<code>ECMAScript</code>中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。</p>
-        <!-- 面向对象的语言有一个标志，那就是都有类的概念。通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此它的对象与纯面向对象语言中的对象是不同的。
-
-ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数”。可以简单理解为JS的对象是一组无序的值，其中的属性或方法都有一个名字，根据这个名字可以访问相映射的值（值可以是基本值/对象/方法......  -->
-        <p class="article-more-link">
-          <a href="/2015/09/21/js-oop/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
 
     </footer>
   </div>

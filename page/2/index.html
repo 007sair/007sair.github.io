@@ -189,6 +189,64 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-rem-em"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/06/rem-em/">em与rem笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/06/rem-em/" class="article-date">
+	  <time datetime="2017-09-05T16:00:00.000Z" itemprop="datePublished">2017-09-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>相对于父元素的<code>font-size</code></p>
+<p>计算公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 父元素的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
+<p>如果元素设置了字体大小，此元素的其他属性，如：<code>border</code>、<code>width</code>、<code>height</code>、<code>padding</code>、<code>margin</code>、<code>line-height</code>计算就需要安装这个公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ÷ 元素自身的font-size × 需要转换的像素值 = em值</span><br></pre></td></tr></table></figure>
+        <!-- em相对于父元素的font-size
+计算公式：
+11 ÷ 父元素的font-size × 需要转换的像素值 = em值
+如果元素设置了字体大小，此元素的其他属性，如：border、width、height、padding、margin、line-height计算就需要安装这个公式：
+11 ÷ 元素自身的font-size × 需要转换的像素值 = em值
+
+rem相对于根元素(html)的......  -->
+        <p class="article-more-link">
+          <a href="/2017/09/06/rem-em/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/em/">em</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/">rem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-sticky"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner typo">
     
@@ -795,69 +853,6 @@ div{
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/换行/">换行</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-UNICODE"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/07/04/UNICODE/">HTML字符转义、特殊字符笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/07/04/UNICODE/" class="article-date">
-	  <time datetime="2016-07-03T16:00:00.000Z" itemprop="datePublished">2016-07-04</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/html/">html</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="转义字符串的由来"><a href="#转义字符串的由来" class="headerlink" title="转义字符串的由来"></a>转义字符串的由来</h3><p>HTML中<code>&lt;</code>，<code>&gt;</code>，<code>&amp;</code>等有特殊含义（<code>&lt;</code>，<code>&gt;</code>，用于链接签，<code>&amp;</code>用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到<strong>转义字符串</strong>了。</p>
-<h3 id="转义字符串的组成"><a href="#转义字符串的组成" class="headerlink" title="转义字符串的组成"></a>转义字符串的组成</h3><p>一个完整的转义字符串，分为三个部分：</p>
-<ol>
-<li>一个<code>&amp;</code>符号，英文为ampersand；</li>
-<li>是实体名字或为<code>#</code>+实体编号；</li>
-<li>一个<code>;</code>号；</li>
-</ol>
-<p>例如，常用的大于号<code>&gt;</code>，使用转义字符串后的写法为<code>&amp;gt;</code>或<code>&amp;#62;</code></p>
-<p>我们注意到，上面的大于号使用了2种方式的转义，第一种称为<code>实体名称</code>，第二种为<code>实体编号</code>，区别在于实体名称的优点为便于记忆，但兼容性不完美，实体编号则反之。</p>
-        <!-- 转义字符串的由来HTML中&lt;，&gt;，&amp;等有特殊含义（&lt;，&gt;，用于链接签，&amp;用于转义），不能直接使用。这些符号是不显示在我们最终看到的网页里的，倘若我们需要在页面中显示这些字符，就需要用到转义字符串了。
-转义字符串的组成一个完整的转义字符串，分为三个部分：
-
-一个&amp;符号，英文为ampersand；
-是实体名字或为#+实体编号；
-一个;号；
-
-例如，......  -->
-        <p class="article-more-link">
-          <a href="/2016/07/04/UNICODE/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unicode/">unicode</a></li></ul>
 
     </footer>
   </div>
