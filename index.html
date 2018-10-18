@@ -217,11 +217,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>平时需要对日期进行操作时，服务端都会返回这样的日期格式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    start_time: <span class="string">"2017-08-11 12:00:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回<code>valid Date</code></p>
-<p>最后得出原因：ios中不支持<code>-</code>连接的日期</p>
-<p>所以，我们需要将日期替换成<code>/</code>连接方式，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"2017-08-11 12:00:00"</span>.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>) <span class="comment">// =&gt; "2017/08/11 12:00:00"</span></span><br></pre></td></tr></table></figure>
+        <!-- 平时需要对日期进行操作时，服务端都会返回这样的日期格式
+
+123&#123;    start_time: "2017-08-11 12:00:00"&#125;
+当我们把这种格式放入Date对象中时，在ios的safari中会出现错误，返回valid Date
+最后得出原因：ios中不支持-连接的日期
+所以，我们需要将日期替换成/连接方式，如下：
+1"2017-08-11 12:00:00......  -->
+        <p class="article-more-link">
+          <a href="/2018/10/18/Date对象在ios中的坑/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
