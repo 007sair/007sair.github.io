@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="FE blog">
 <meta property="og:description" content="最近为mac新弄了一个4k的外接屏，由于平时操作仅限于触控板，无鼠标人士。每次想把鼠标切换到外接屏上就得滑好几次触控板，甚是伤手！ 通过不断的google，终于发现一款神器：Hammerspoon">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T03:37:58.283Z">
+<meta property="og:updated_time" content="2019-02-28T03:40:35.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hammerspoon多屏焦点切换">
 <meta name="twitter:description" content="最近为mac新弄了一个4k的外接屏，由于平时操作仅限于触控板，无鼠标人士。每次想把鼠标切换到外接屏上就得滑好几次触控板，甚是伤手！ 通过不断的google，终于发现一款神器：Hammerspoon">
@@ -229,7 +229,17 @@
 <p><a href="https://github.com/007sair/hammerspoon/blob/master/modules/hotkey.lua" target="_blank" rel="noopener">链接</a></p>
 <p><strong>windows.lua</strong>  </p>
 <p><a href="https://github.com/007sair/hammerspoon/blob/master/modules/windows.lua" target="_blank" rel="noopener">链接</a></p>
-<h3 id="快捷键操作"><a href="#快捷键操作" class="headerlink" title="快捷键操作"></a>快捷键操作</h3><p><a href="https://github.com/007sair/hammerspoon/blob/master/README_zh-CN.md" target="_blank" rel="noopener">链接</a></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><h5 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h5><ul>
+<li><kbd>⌃</kbd><kbd>⌥</kbd> + <kbd>←</kbd> 把光标移动到下一个显示器</li>
+<li><kbd>⌃</kbd><kbd>⌥</kbd> + <kbd>→</kbd> 把光标移动到上一个显示器</li>
+</ul>
+<h5 id="移动窗口"><a href="#移动窗口" class="headerlink" title="移动窗口"></a>移动窗口</h5><ul>
+<li><kbd>⇧</kbd><kbd>⌥</kbd> + <kbd>←</kbd> 将当前活动窗口移动到上一个显示器</li>
+<li><kbd>⇧</kbd><kbd>⌥</kbd> + <kbd>→</kbd> 将当前活动窗口移动到下一个显示器</li>
+<li><kbd>⇧</kbd><kbd>⌥</kbd> + <kbd>1</kbd> 将当前活动窗口移动到第一个显示器并窗口最大化</li>
+<li><kbd>⇧</kbd><kbd>⌥</kbd> + <kbd>2</kbd> 将当前活动窗口移动到第二个显示器并窗口最大化</li>
+</ul>
+<p><a href="https://github.com/007sair/hammerspoon/blob/master/README_zh-CN.md" target="_blank" rel="noopener">其他快捷键</a></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.jianshu.com/p/e9d0e82d901d" target="_blank" rel="noopener">HammerSpoon - 不止是窗口管理</a></li>
 <li><a href="https://xiking.win/2018/07/18/desktop-automation-tools-for-mac/" target="_blank" rel="noopener">Mac osx让工作更有效率的桌面控制管理工具</a></li>
@@ -310,7 +320,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键操作"><span class="nav-text">快捷键操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶"><span class="nav-text">进阶</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#移动光标"><span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动窗口"><span class="nav-text">移动窗口</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶"><span class="nav-text">进阶</span></a></li>
     
     </div>
   </aside>
