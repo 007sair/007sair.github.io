@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>charles使用笔记 | FE blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="charles" />
+  <meta name="keywords" content="charles">
   
   
   
@@ -59,7 +59,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -68,17 +68,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -103,8 +103,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
               </a>
             
@@ -125,14 +124,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -159,7 +158,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -173,14 +172,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Charles-备忘" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Charles-备忘" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       charles使用笔记
     </h1>
   
@@ -232,11 +231,11 @@
 <p>首先我们需要在 <code>Mac</code> 电脑上安装证书。点击<code>Charles</code>的顶部菜单，选择 <code>&quot;Help&quot; -&gt; &quot;SSL Proxying&quot; -&gt; &quot;Install</code>Charles<code>Root Certificate&quot;</code>，然后输入系统的帐号密码，即可在 <code>KeyChain</code> 看到添加好的证书。如下图所示：</p>
 <p><img src="/images/charles/6.png" alt="图6" width="100%"></p>
 <h4 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h4><p>选择_图6_ <strong>红框部分</strong>，然后需要对证书信任，之后会弹出钥匙串，如果不弹出，请自行打开钥匙串，如下图：</p>
-<p><img src="/images/charles/7.png" alt="图7" width=""></p>
+<p><img src="/images/charles/7.png" alt="图7" width></p>
 <p>双击证书，选择始终信任</p>
-<p><img src="/images/charles/8.png" alt="图8" width=""></p>
+<p><img src="/images/charles/8.png" alt="图8" width></p>
 <h4 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h4><p>选择_图6_ <strong>绿框部分</strong>，在手机上输入弹出框中的链接地址进行安装</p>
-<p><img src="/images/charles/9.png" alt="图9" width=""></p>
+<p><img src="/images/charles/9.png" alt="图9" width></p>
 <h3 id="添加SSL-Proxying"><a href="#添加SSL-Proxying" class="headerlink" title="添加SSL Proxying"></a>添加<code>SSL Proxying</code></h3><p>证书安装完毕后，还需要对SSL做以下处理：</p>
 <ol>
 <li>进入<code>&quot;Proxy&quot; -&gt; &quot;SSL Proxying Settings&quot;</code></li>
@@ -246,7 +245,7 @@
 <p>以上设置完毕后就可以正常抓取数据了。</p>
 <h2 id="代理本地文件"><a href="#代理本地文件" class="headerlink" title="代理本地文件"></a>代理本地文件</h2><p>我们在查找线上bug时，由于文件是压缩版或请求数据不可控，导致无法直接调试，此时一般会选择在本地环境模拟线上数据进行调试。</p>
 <p>现在有了charles的<code>Map Local</code>功能，可以将线上文件代理成本地文件，达到修改本地文件，访问线上地址即可查看效果，步骤如下图：</p>
-<p><img src="/images/charles/10.jpg" alt="点击查看大图" width=""></p>
+<p><img src="/images/charles/10.jpg" alt="点击查看大图" width></p>
 <p>window中的Fiddler设置参考这篇<a href="https://www.jianshu.com/p/3e3aa1cf4850" target="_blank" rel="noopener">文章</a></p>
 <h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="电脑端无法抓包"><a href="#电脑端无法抓包" class="headerlink" title="电脑端无法抓包"></a>电脑端无法抓包</h3><p><strong>问题原因：</strong></p>
 <p>确认两个代理设置是否正确，一是<code>charles</code>设置为系统代理：<code>Mac OS X Proxy</code>，二是浏览器也使用的<code>系统代理</code>。</p>
@@ -361,7 +360,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 FE blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -515,7 +514,7 @@ var a = new Donate({
             FE blog
           </div>
           <div class="panel-body">
-            Copyright © 2018 @chan All Rights Reserved.
+            Copyright © 2019 @chan All Rights Reserved.
           </div>
         </div>
       </div>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>css常见bug | FE blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="css坑" />
+  <meta name="keywords" content="css坑">
   
   
   
@@ -48,7 +48,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -57,17 +57,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -92,8 +92,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
               </a>
             
@@ -114,14 +113,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -148,7 +147,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -162,14 +161,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-css-bug" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-css-bug" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       css常见bug
     </h1>
   
@@ -223,7 +222,7 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hh</span> <span class="selector-tag">li</span>&#123; <span class="attribute">line-height</span>:<span class="number">50px</span>; &#125;</span><br><span class="line"><span class="selector-class">.hh</span> <span class="selector-tag">li</span> <span class="selector-tag">img</span>&#123;<span class="attribute">margin</span>:<span class="number">20px</span> <span class="number">0</span>;<span class="attribute">vertical-align</span>:middle; &#125; <span class="comment">/*所属line-height-自身img,input,select,object高度)/2px */</span></span><br></pre></td></tr></table></figure>
 <h4 id="IE6-7-8下input、button的padding兼容问题"><a href="#IE6-7-8下input、button的padding兼容问题" class="headerlink" title="IE6/7/8下input、button的padding兼容问题"></a>IE6/7/8下input、button的padding兼容问题</h4><p>解决办法：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span>,<span class="selector-tag">button</span>&#123;<span class="attribute">overflow</span>:visible;&#125;</span><br><span class="line"><span class="comment">/*or*/</span></span><br><span class="line"><span class="selector-tag">input</span>&#123; <span class="attribute">padding</span>: <span class="number">0</span> .<span class="number">25em</span>; <span class="attribute">width</span>: auto; <span class="attribute">_width</span>: <span class="number">0</span>; <span class="attribute">overflow</span>:visible !ie;&#125;</span><br></pre></td></tr></table></figure>
-<p>摘自：<a href="http://www.planabc.net/2008/11/12/the_stretched_buttons_bug/ " target="_blank" title="">http://www.planabc.net/2008/11/12/the_stretched_buttons_bug/ </a> </p>
+<p>摘自：<a href="http://www.planabc.net/2008/11/12/the_stretched_buttons_bug/ " target="_blank" title>http://www.planabc.net/2008/11/12/the_stretched_buttons_bug/ </a> </p>
 <p>这个对于FF和IE下对input按钮设置padding大小不一，可以很好的解决 <br><br>火狐：<code>input::-moz-focus-inner {border: 0; padding: 0; margin-top: -1px; margin-bottom: -2px;}</code></p>
 <h4 id="a标签使用绝对定位后无法点击"><a href="#a标签使用绝对定位后无法点击" class="headerlink" title="a标签使用绝对定位后无法点击"></a>a标签使用绝对定位后无法点击</h4><p>设置一张背景图后，需要此背景图可点击，于是在背景图的上层绝对定位一个有宽高的a标签，但a标签无法被点击！</p>
 <p>解决办法为：给a标签增加 <code>background:url(about:blank)</code> 或 <code>background-color:white;opacity:0;filter:alpha(opacity=0)</code></p>
@@ -309,9 +308,9 @@ var a = new Donate({
     </a>
   
   
-    <a href="/2012/12/22/TYPO/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2012/12/22/markdown/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">中文网页重设与排版：TYPO.CSS</div>
+      <div class="article-nav-title">markdown基本语法</div>
     </a>
   
 </nav>
@@ -339,7 +338,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 FE blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -493,7 +492,7 @@ var a = new Donate({
             FE blog
           </div>
           <div class="panel-body">
-            Copyright © 2018 @chan All Rights Reserved.
+            Copyright © 2019 @chan All Rights Reserved.
           </div>
         </div>
       </div>

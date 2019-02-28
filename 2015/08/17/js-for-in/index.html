@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>javascript中如何遍历属性 | FE blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="studyjavascript" />
+  <meta name="keywords" content="javascriptstudy">
   
   
   
   
   <meta name="description" content="javascript中遍历属性">
-<meta name="keywords" content="study,javascript">
+<meta name="keywords" content="javascript,study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript中如何遍历属性">
 <meta property="og:url" content="http://007sair.github.io/2015/08/17/js-for-in/index.html">
@@ -48,7 +48,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -57,17 +57,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -92,8 +92,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/head.jpg">
               </a>
             
@@ -114,14 +113,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -148,7 +147,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -162,14 +161,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-js-for-in" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-js-for-in" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       Javascript中如何遍历属性
     </h1>
   
@@ -205,8 +204,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">     w:<span class="string">"wen"</span>,  </span><br><span class="line">     j:<span class="string">"jian"</span>,  </span><br><span class="line">     b:<span class="string">"bao"</span>  </span><br><span class="line">&#125;;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> result = (<span class="number">2</span> <span class="keyword">in</span> obj);      </span><br><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"j"</span> <span class="keyword">in</span> obj);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>关于<code>for in</code>的其他参考：</p>
 <ul>
-<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html" target="_blank" title="">for in的缺陷</a></li>
-<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/29/1998714.html" target="_blank" title="">各浏览器中for in顺序的差异</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html" target="_blank" title>for in的缺陷</a></li>
+<li><a rel="nofollow" href="http://www.cnblogs.com/snandy/archive/2011/03/29/1998714.html" target="_blank" title>各浏览器中for in顺序的差异</a></li>
 </ul>
 <h2 id="关于遍历"><a href="#关于遍历" class="headerlink" title="关于遍历"></a>关于遍历</h2><p>在<code>JavaScript</code>中，遍历一个对象的属性往往没有在其他语言中遍历一个哈希(有些语言称为字典)的键那么简单，这主要有两个方面的原因： </p>
 <ul>
@@ -277,19 +276,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2015/08/17/js-Extras/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/05/flex-test/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Array方法: indexOf、filter、forEach、map、reduce详解
+          flex test
         
       </div>
     </a>
   
   
-    <a href="/2015/08/15/js-tujie-proto/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/08/17/js-Extras/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">图解Javascript原型链</div>
+      <div class="article-nav-title">Array方法: indexOf、filter、forEach、map、reduce详解</div>
     </a>
   
 </nav>
@@ -317,7 +316,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 FE blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 FE blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -471,7 +470,7 @@ var a = new Donate({
             FE blog
           </div>
           <div class="panel-body">
-            Copyright © 2018 @chan All Rights Reserved.
+            Copyright © 2019 @chan All Rights Reserved.
           </div>
         </div>
       </div>
