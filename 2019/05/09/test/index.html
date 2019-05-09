@@ -3,26 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>如何在mac os中启动ipv6 | FE blog</title>
+  <title>test | FE blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Macxx-netgoogle">
   
   
   
-  
-  <meta name="description" content="在使用xx-net时，遇到一个瓶颈问题：开启IPv6，记录如下~ 一、安装miredo和tuntaposx进入IPv6 Mac，使用的第一种方法teredo。">
-<meta name="keywords" content="Mac,xx-net,google">
+  <meta name="description" content="test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在Mac OS中启动IPv6">
-<meta property="og:url" content="http://007sair.github.io/2018/02/01/如何在Mac OS中启动IPv6/index.html">
+<meta property="og:title" content="test">
+<meta property="og:url" content="http://007sair.github.io/2019/05/09/test/index.html">
 <meta property="og:site_name" content="FE blog">
-<meta property="og:description" content="在使用xx-net时，遇到一个瓶颈问题：开启IPv6，记录如下~ 一、安装miredo和tuntaposx进入IPv6 Mac，使用的第一种方法teredo。">
+<meta property="og:description" content="test">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T02:15:50.426Z">
+<meta property="og:updated_time" content="2019-05-09T02:59:57.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在Mac OS中启动IPv6">
-<meta name="twitter:description" content="在使用xx-net时，遇到一个瓶颈问题：开启IPv6，记录如下~ 一、安装miredo和tuntaposx进入IPv6 Mac，使用的第一种方法teredo。">
+<meta name="twitter:title" content="test">
+<meta name="twitter:description" content="test">
   
     <link rel="alternate" href="/atom.xml" title="FE blog" type="application/atom+xml">
   
@@ -161,7 +158,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-如何在Mac OS中启动IPv6" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
+          <section id="main" style="float:none;"><article id="post-test" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
     
@@ -169,7 +166,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      如何在Mac OS中启动IPv6
+      test
     </h1>
   
 
@@ -177,13 +174,11 @@
     
     <div class="article-meta">
       
-	<a href="/2018/02/01/如何在Mac OS中启动IPv6/" class="article-date">
-	  <time datetime="2018-02-01T15:56:23.000Z" itemprop="datePublished">2018-02-01</time>
+	<a href="/2019/05/09/test/" class="article-date">
+	  <time datetime="2019-05-09T02:59:51.000Z" itemprop="datePublished">2019-05-09</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/tool/">tool</a>
-
       
 	<a class="article-views">
 	<span id="busuanzi_container_page_pv">
@@ -194,31 +189,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用<code>xx-net</code>时，遇到一个瓶颈问题：开启<code>IPv6</code>，记录如下~</p>
-<h2 id="一、安装miredo和tuntaposx"><a href="#一、安装miredo和tuntaposx" class="headerlink" title="一、安装miredo和tuntaposx"></a>一、安装<code>miredo</code>和<code>tuntaposx</code></h2><p>进入<a href="https://github.com/XX-net/XX-Net/wiki/IPv6-Mac" target="_blank" rel="noopener">IPv6 Mac</a>，使用的第一种方法<code>teredo</code>。</p>
-<a id="more"></a>
-<p>先安装<code>miredo</code>，但是我的mac版本是<code>10.13.1</code>，提示软件与系统不兼容，处理方法：</p>
-<ol>
-<li>重启<code>mac</code>，进入恢复模式（重启后长按<code>Command + R</code>）,<code>x</code>掉中间的弹层；</li>
-<li>在<code>顶部bar</code>中打开<code>终端</code>打开，输入<code>csrutil disable</code>；</li>
-<li>重启<code>mac</code>。</li>
-</ol>
-<p>再安装<code>tuntaposx</code>，然后在系统偏好设置最下面有个<code>Miredo</code>，打开后是绿灯就b表示安装成功。</p>
-<h2 id="二、安装chrome扩展程序"><a href="#二、安装chrome扩展程序" class="headerlink" title="二、安装chrome扩展程序"></a>二、安装<code>chrome</code>扩展程序</h2><ol>
-<li>在chrome浏览器中输入<code>chrome://extensions</code>；</li>
-<li>打开<code>XX-Net/SwitchyOmega/</code>目录，把<code>SwitchyOmega.crx</code>拖入第1步的页面内；</li>
-<li>安装好后在地址栏的右侧会出现SwitchyOmega图标，点<code>选项</code>；</li>
-<li>打开后左侧选择<code>导入/导出</code>，在右侧选项中选择<code>从备份文件中恢复</code>，选择<code>XX-Net/SwitchyOmega/OmegaOptions.bak</code>；</li>
-<li>左侧选择<code>GAE-Proxy自动切换</code>，点<code>立即更新情景模式</code>。</li>
-</ol>
-<blockquote>
-<p><a href="https://github.com/XX-net/XX-Net/wiki/%E4%BD%BF%E7%94%A8Chrome%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" rel="noopener">点这里进入详细文档</a></p>
-</blockquote>
-<h2 id="三、启动xx-net"><a href="#三、启动xx-net" class="headerlink" title="三、启动xx-net"></a>三、启动<code>xx-net</code></h2><p><code>XX-Net</code>目录下双击<code>start</code>或者命令行输入<code>./start</code>，启动后会弹出本地页面<code>http://localhost:8085/?module=gae_proxy&amp;menu=status</code></p>
-<p>点开<code>顶部bar</code>任务图标，选择<code>Enabel Auto GAEProxy</code>或者<code>Enable Global GAEProxy</code>，一个是自动代理，一个是全局代理。</p>
-<p>然后点开地址栏右侧的<code>SwitchyOmega</code>，选择<code>GAE-Proxy自动切换</code>即可。</p>
-<p>在本地页面中出现<code>XX-Net 3.9.6，一切正常，你可以访问真正的互联网了。</code>，就表示可以科学上网了~</p>
-<p><strong>注意</strong>，如果合上电脑再打开，发现程序失效，请重启<code>XX-Net</code></p>
+        <p>test</p>
 
       
     </div>
@@ -264,27 +235,16 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xx-net/">xx-net</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/02/02/javascript开发的45个技巧/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          JavaScript开发的45个技巧
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/24/git命令集/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/28/Hammerspoon多屏焦点切换/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">git命令集</div>
+      <div class="article-nav-title">Hammerspoon多屏焦点切换</div>
     </a>
   
 </nav>
@@ -298,7 +258,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装miredo和tuntaposx"><span class="nav-text">一、安装miredo和tuntaposx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装chrome扩展程序"><span class="nav-text">二、安装chrome扩展程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、启动xx-net"><span class="nav-text">三、启动xx-net</span></a></li></ol>
+        <ol class="nav">无</ol>
     
     </div>
   </aside>

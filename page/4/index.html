@@ -189,6 +189,68 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-js-encode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/28/js-encode/">escape、encodeURI和encodeURIComponent的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/09/28/js-encode/" class="article-date">
+	  <time datetime="2015-09-27T16:00:00.000Z" itemprop="datePublished">2015-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在项目中用到对一段url进行编码，因此整理如下：</p>
+<p><code>javascript</code>中对文字的编码有3组函数：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/escape" target="_blank" rel="noopener">escape</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/unescape" target="_blank" rel="noopener">unescape</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURI" target="_blank" rel="noopener">encodeURI</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURI" target="_blank" rel="noopener">decodeURI</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent" target="_blank" rel="noopener">encodeURIComponent</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener">decodeURIComponent</a></li>
+</ul>
+        <!-- 最近在项目中用到对一段url进行编码，因此整理如下：
+javascript中对文字的编码有3组函数：
+
+escape / unescape
+encodeURI / decodeURI
+encodeURIComponent / decodeURIComponent
+
+
+escape()该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _......  -->
+        <p class="article-more-link">
+          <a href="/2015/09/28/js-encode/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-web-note" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
@@ -863,56 +925,6 @@ Function.prototype.bind方法
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-js-prototype" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/07/22/js-prototype/">Javascript中对象、原型、继承详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/07/22/js-prototype/" class="article-date">
-	  <time datetime="2015-07-21T16:00:00.000Z" itemprop="datePublished">2015-07-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象分普通对象和函数对象，<code>Object</code>、<code>Function</code>是js自带的函数对象。</p>
-        <!-- 对象对象分普通对象和函数对象，Object、Function是js自带的函数对象。
-
-12345678910111213141516function f1()&#123;&#125;;var f2 = function()&#123;&#125;;var f3 = new Function('str','console.log(str)');var o3 = new f1();var o1 ......  -->
-        <p class="article-more-link">
-          <a href="/2015/07/22/js-prototype/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li></ul>
 
     </footer>
   </div>

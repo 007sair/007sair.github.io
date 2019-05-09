@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,39 +16,19 @@
 		<mt-field label="文案" placeholder="文案" v-model="canvas_data.text"></mt-field>
 		<mt-field label="字号" placeholder="字号，单位:px" v-model="canvas_data.font_size"></mt-field>
 		<mt-cell class="page-range" :label="'value:' + canvas_data.sx" title="X坐标">
-			<mt-range
-				v-model="canvas_data.sx"
-				:min="sx_range[0]"
-				:max="sx_range[1]"
-				:step="1"
-				:bar-height="2">
+			<mt-range v-model="canvas_data.sx" :min="sx_range[0]" :max="sx_range[1]" :step="1" :bar-height="2">
 			</mt-range>
 		</mt-cell>
 		<mt-cell class="page-range" :label="'value:' + canvas_data.sy" title="Y坐标">
-			<mt-range
-				v-model="canvas_data.sy"
-				:min="sy_range[0]"
-				:max="sy_range[1]"
-				:step="1"
-				:bar-height="2">
+			<mt-range v-model="canvas_data.sy" :min="sy_range[0]" :max="sy_range[1]" :step="1" :bar-height="2">
 			</mt-range>
 		</mt-cell>
 		<mt-cell class="page-range" :label="'value:' + canvas_data.angle" title="角度">
-			<mt-range
-				v-model="canvas_data.angle"
-				:min="-180"
-				:max="180"
-				:step="1"
-				:bar-height="2">
+			<mt-range v-model="canvas_data.angle" :min="-180" :max="180" :step="1" :bar-height="2">
 			</mt-range>
 		</mt-cell>
 		<mt-cell class="page-range" :label="'value:' + canvas_data.fake_scale / 100" title="缩放">
-			<mt-range
-				v-model="canvas_data.fake_scale"
-				:min="0"
-				:max="200"
-				:step="10"
-				:bar-height="2">
+			<mt-range v-model="canvas_data.fake_scale" :min="0" :max="200" :step="10" :bar-height="2">
 			</mt-range>
 		</mt-cell>
 
@@ -57,12 +37,9 @@
 			<mt-button class="btn-createposter" @click="createPoster" size="large" type="primary">生成海报</mt-button>
 		</div>
 
-		<mt-popup
-			class="poster"
-			v-model="is_show_poster"
-		>
+		<mt-popup class="poster" v-model="is_show_poster">
 			<h2>海报</h2>
-			<img v-if="poster" :src="poster" alt="">
+			<img v-if="poster" :src="poster" alt>
 			<p class="tips">注：此处生成的海报宽为2000，高度按照原始比例计算获得。</p>
 			<mt-button @click="is_show_poster = false" size="normal" type="primary">关闭</mt-button>
 		</mt-popup>

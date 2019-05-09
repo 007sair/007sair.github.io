@@ -189,6 +189,125 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-css-selector" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/06/css-selector/">css选择器总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/06/css-selector/" class="article-date">
+	  <time datetime="2017-02-05T16:00:00.000Z" itemprop="datePublished">2017-02-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+</style>
+
+<blockquote>
+<p>约定：IE7+ 意思为大于（含IE7）的浏览器</p>
+</blockquote>
+<h2 id="CSS1-amp-CSS2-1-选择器"><a href="#CSS1-amp-CSS2-1-选择器" class="headerlink" title="CSS1 &amp; CSS2.1 选择器"></a>CSS1 &amp; CSS2.1 选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>例子</th>
+<th>例子描述</th>
+<th>兼容性   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> *</td>
+<td>*</td>
+<td>选择所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> E</td>
+<td>p</td>
+<td>选择所有 <code>&lt;p&gt;</code> 元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> #id</td>
+<td>#firstname</td>
+<td>选择 <code>id=&quot;firstname&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> .class</td>
+<td>.intro</td>
+<td>选择 <code>class=&quot;intro&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+
+
+
+约定：IE7+ 意思为大于（含IE7）的浏览器
+
+CSS1 &amp; CSS2.1 选择器基础选择器
+
+
+选择器
+例子
+例子描述
+兼容性   
+
+
+
+
+ *
+*
+选择所有元素。
+all   
+
+
+ E
+p
+选择所有 &lt;p&gt; 元素。
+all   
+
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/06/css-selector/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css选择器/">css选择器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-wordbreak" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
@@ -736,68 +855,6 @@ JS自身执行效率Javascript中的作用域链、闭包、原型继承、eval�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-js-encode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/09/28/js-encode/">escape、encodeURI和encodeURIComponent的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/09/28/js-encode/" class="article-date">
-	  <time datetime="2015-09-27T16:00:00.000Z" itemprop="datePublished">2015-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在项目中用到对一段url进行编码，因此整理如下：</p>
-<p><code>javascript</code>中对文字的编码有3组函数：</p>
-<ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/escape" target="_blank" rel="noopener">escape</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/unescape" target="_blank" rel="noopener">unescape</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURI" target="_blank" rel="noopener">encodeURI</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURI" target="_blank" rel="noopener">decodeURI</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent" target="_blank" rel="noopener">encodeURIComponent</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener">decodeURIComponent</a></li>
-</ul>
-        <!-- 最近在项目中用到对一段url进行编码，因此整理如下：
-javascript中对文字的编码有3组函数：
-
-escape / unescape
-encodeURI / decodeURI
-encodeURIComponent / decodeURIComponent
-
-
-escape()该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： * @ - _......  -->
-        <p class="article-more-link">
-          <a href="/2015/09/28/js-encode/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
 
     </footer>
   </div>

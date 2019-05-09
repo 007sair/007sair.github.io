@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://007sair.github.io/"/>
-  <updated>2019-03-22T09:59:06.304Z</updated>
+  <updated>2019-05-09T02:59:57.367Z</updated>
   <id>http://007sair.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://007sair.github.io/2019/05/09/test/"/>
+    <id>http://007sair.github.io/2019/05/09/test/</id>
+    <published>2019-05-09T02:59:51.000Z</published>
+    <updated>2019-05-09T02:59:57.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>test</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;test&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hammerspoon多屏焦点切换</title>
@@ -189,11 +211,11 @@
       <category term="tool" scheme="http://007sair.github.io/categories/tool/"/>
     
     
+      <category term="Mac" scheme="http://007sair.github.io/tags/Mac/"/>
+    
       <category term="xx-net" scheme="http://007sair.github.io/tags/xx-net/"/>
     
       <category term="google" scheme="http://007sair.github.io/tags/google/"/>
-    
-      <category term="Mac" scheme="http://007sair.github.io/tags/Mac/"/>
     
   </entry>
   
@@ -507,30 +529,6 @@
       <category term="javascript" scheme="http://007sair.github.io/tags/javascript/"/>
     
       <category term="Date对象" scheme="http://007sair.github.io/tags/Date%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css选择器总结</title>
-    <link href="http://007sair.github.io/2017/02/06/css-selector/"/>
-    <id>http://007sair.github.io/2017/02/06/css-selector/</id>
-    <published>2017-02-05T16:00:00.000Z</published>
-    <updated>2018-07-26T07:08:26.517Z</updated>
-    
-    <content type="html"><![CDATA[<style>td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}</style><blockquote><p>约定：IE7+ 意思为大于（含IE7）的浏览器</p></blockquote><h2 id="CSS1-amp-CSS2-1-选择器"><a href="#CSS1-amp-CSS2-1-选择器" class="headerlink" title="CSS1 &amp; CSS2.1 选择器"></a>CSS1 &amp; CSS2.1 选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性   </th></tr></thead><tbody><tr><td> *</td><td>*</td><td>选择所有元素。</td><td>all   </td></tr><tr><td> E</td><td>p</td><td>选择所有 <code>&lt;p&gt;</code> 元素。</td><td>all   </td></tr><tr><td> #id</td><td>#firstname</td><td>选择 <code>id=&quot;firstname&quot;</code> 的所有元素。</td><td>all   </td></tr><tr><td> .class</td><td>.intro</td><td>选择 <code>class=&quot;intro&quot;</code> 的所有元素。</td><td>all   </td></tr></tbody></table><a id="more"></a><h3 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性   </th></tr></thead><tbody><tr><td> E,F</td><td>div,p</td><td>选择所有 <code>&lt;div&gt;</code> 元素和所有 <code>&lt;p&gt;</code> 元素。</td><td>all     </td></tr><tr><td> E F</td><td>div p</td><td>选择 <code>&lt;div&gt;</code> 元素内部的所有 <code>&lt;p&gt;</code> 元素。</td><td>all      </td></tr><tr><td> E &gt; F</td><td>div&gt;p</td><td>选择父元素为 <code>&lt;div&gt;</code> 元素的所有 <code>&lt;p&gt;</code> 元素。</td><td>IE7+    </td></tr><tr><td> E + F</td><td>div+p</td><td>选择紧接在 <code>&lt;div&gt;</code> 元素之后的所有 <code>&lt;p&gt;</code> 元素。</td><td>IE7+    </td></tr></tbody></table><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性  </th></tr></thead><tbody><tr><td> <code>E[att]</code></td><td><code>[target]</code></td><td>选择带有 <code>target</code> 属性所有元素。</td><td>IE7+    </td></tr><tr><td> <code>E[att=val]</code></td><td><code>[target=_blank]</code></td><td>选择 <code>target=&quot;_blank&quot;</code> 的所有元素。</td><td>IE7+     </td></tr><tr><td> <code>E[att~=val]</code></td><td><code>[title~=flower]</code></td><td>选择 <code>title</code> 属性包含单词 <code>&quot;flower&quot;</code> 的所有元素。</td><td>IE7+   </td></tr><tr><td> <code>E[att=val]</code></td><td><code>[lang=en]</code></td><td>选择 <code>lang</code> 属性值以 <code>&quot;en&quot;</code> 开头的所有元素。</td><td>IE7+   </td></tr></tbody></table><h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性  </th></tr></thead><tbody><tr><td> E:first-line</td><td>p:first-line</td><td>选择每个 <code>&lt;p&gt;</code> 元素的首行。</td><td>IE7+   </td></tr><tr><td> E:first-letter</td><td>p:first-letter</td><td>选择每个 <code>&lt;p&gt;</code> 元素的首字母。</td><td>IE7+   </td></tr><tr><td> E:before</td><td>p:before</td><td>在每个 <code>&lt;p&gt;</code> 元素的内容之前插入内容。</td><td>IE8+   </td></tr><tr><td> E:after</td><td>p:after</td><td>在每个 <code>&lt;p&gt;</code> 元素的内容之后插入内容。</td><td>IE8+   </td></tr></tbody></table><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性   </th></tr></thead><tbody><tr><td> E:first-child</td><td>p:first-child</td><td>选择属于父元素的第一个子元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE7+    </td></tr><tr><td> E:link</td><td>a:link</td><td>选择所有未被访问的链接。</td><td>all    </td></tr><tr><td> E:visited</td><td>a:visited</td><td>选择所有已被访问的链接。</td><td>all    </td></tr><tr><td> E:active</td><td>a:active</td><td>选择活动链接。</td><td>all    </td></tr><tr><td> E:hover</td><td>a:hover</td><td>选择鼠标指针位于其上的链接。</td><td>IE6+(?)    </td></tr><tr><td> E:focus</td><td>input:focu</td><td>选择获得焦点的 input 元素。</td><td>IE8+    </td></tr><tr><td> E:lang(c)</td><td>p:lang(it)</td><td>选择带有以 “it” 开头的 lang 属性值的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE7+    </td></tr></tbody></table><p><strong>CSS 2.1 selectors Known issues (6):</strong></p><ul><li>IE6 does not properly support combinations of pseudo classes like <code>:link</code>, <code>:active</code> and <code>:visited</code></li><li>IE8-11 does not update an element’s :hover status when scrolling without moving the pointer.</li><li>Safari 5.1 and Android browsers do not support the adjacent selector if the adjacent element is a “nav” element.</li><li>:first-child fails in IE7 if the first child is a comment.</li><li>IE7 doesn’t support all pseudo classes (like :focus) or pseudo elements (like :before and :after)</li><li>In IE10 adjacent sibling selector doesn’t work with pseudo-class in case of <code>E:active F</code>.</li></ul><h2 id="CSS3选择器"><a href="#CSS3选择器" class="headerlink" title="CSS3选择器"></a>CSS3选择器</h2><h3 id="同级元素通用选择器"><a href="#同级元素通用选择器" class="headerlink" title="同级元素通用选择器"></a>同级元素通用选择器</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性   </th></tr></thead><tbody><tr><td> E ~ F</td><td>p~ul</td><td>选择前面有 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;ul&gt;</code> 元素。</td><td>IE7+    </td></tr></tbody></table><h3 id="属性选择器-1"><a href="#属性选择器-1" class="headerlink" title="属性选择器"></a>属性选择器</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性   </th></tr></thead><tbody><tr><td> <code>E[att^=&quot;val&quot;]</code></td><td><code>a[src^=&quot;https&quot;]</code></td><td>选择其 <code>src</code> 属性值以 <code>&quot;https&quot;</code> 开头的每个 <code>&lt;a&gt;</code> 元素。</td><td>IE7+    </td></tr><tr><td> <code>E[att$=&quot;val&quot;]</code></td><td><code>a[src$=&quot;.pdf&quot;]</code></td><td>选择其 <code>src</code> 属性以 <code>&quot;.pdf&quot;</code> 结尾的所有 <code>&lt;a&gt;</code> 元素。</td><td>IE7+    </td></tr><tr><td> <code>E[att*=&quot;val&quot;]</code></td><td><code>a[src*=&quot;abc&quot;]</code></td><td>选择其 <code>src</code> 属性中包含 <code>&quot;abc&quot;</code> 子串的每个 <code>&lt;a&gt;</code> 元素。</td><td>IE7+    </td></tr></tbody></table><h3 id="与用户界面有关的伪类"><a href="#与用户界面有关的伪类" class="headerlink" title="与用户界面有关的伪类"></a>与用户界面有关的伪类</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性</th></tr></thead><tbody><tr><td><code>E:enabled</code></td><td><code>input:enabled</code></td><td>选择每个启用的 <code>&lt;input&gt;</code> 元素。</td><td>IE9+</td></tr><tr><td><code>E:disabled</code></td><td><code>input:disabled</code></td><td>选择每个禁用的 <code>&lt;input&gt;</code> 元素</td><td>IE9+</td></tr><tr><td><code>E:checked</code></td><td><code>input:checked</code></td><td>选择每个被选中的 <code>&lt;input&gt;</code> 元素。</td><td>IE9+</td></tr><tr><td><code>E::selection</code></td><td><code>::selection</code></td><td>选择被用户选取的元素部分。</td><td>IE9+</td></tr></tbody></table><h3 id="结构性伪类"><a href="#结构性伪类" class="headerlink" title="结构性伪类"></a>结构性伪类</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性  </th></tr></thead><tbody><tr><td> <code>E:root</code></td><td><code>:root</code></td><td>选择文档的根元素。</td><td>IE9+   </td></tr><tr><td> <code>E:nth-child(n)</code></td><td><code>p:nth-child(2)</code></td><td>选择属于其父元素的第二个子元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:nth-last-child(n)</code></td><td><code>p:nth-last-child(2)</code></td><td>同上，从最后一个子元素开始计数。</td><td>IE9+   </td></tr><tr><td> <code>E:nth-of-type(n)</code></td><td><code>p:nth-of-type(2)</code></td><td>选择属于其父元素第二个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:nth-last-of-type(n)</code></td><td><code>p:nth-last-of-type(2)</code></td><td>同上，但是从最后一个子元素开始计数。</td><td>IE9+   </td></tr><tr><td> <code>E:last-child</code></td><td><code>p:last-child</code></td><td>选择属于其父元素最后一个子元素每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:first-of-type</code></td><td><code>p:first-of-type</code></td><td>选择属于其父元素的首个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:last-of-type</code></td><td><code>p:last-of-type</code></td><td>选择属于其父元素的最后 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:only-child</code></td><td><code>p:only-child</code></td><td>选择属于其父元素的唯一子元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:only-of-type</code></td><td><code>p:only-of-type</code></td><td>选择属于其父元素唯一的 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。</td><td>IE9+   </td></tr><tr><td> <code>E:empty</code></td><td><code>p:empty</code></td><td>选择没有子元素的每个 <code>&lt;p&gt;</code> 元素（包括文本节点）。</td><td>IE9+   </td></tr></tbody></table><h3 id="其他伪类"><a href="#其他伪类" class="headerlink" title="其他伪类"></a>其他伪类</h3><table><thead><tr><th>选择器</th><th>例子</th><th>例子描述</th><th>兼容性</th></tr></thead><tbody><tr><td><code>E:not(s)</code></td><td><code>:not(p)</code></td><td>选择非 <code>&lt;p&gt;</code> 元素的每个元素。</td><td>IE9+</td></tr><tr><td><code>E:target</code></td><td><code>#news:target</code></td><td>选择当前活动的 <code>#news</code> 元素。</td><td>IE9+</td></tr></tbody></table><p><strong>CSS 3 selectors Known issues (4):</strong></p><ul><li>iOS 9 has a bug in WebViews (not Safari) with the CSS sibling selector</li><li>IE9-IE11 supports <code>:empty</code> but will not repaint/relayout the page if content is added/removed from an <code>:empty</code> selected element</li><li>iOS 8 Safari has issues with nth-child. </li><li>Android 4.3 and lower (together with older WebKit browsers) have issues when combining pseudo classes with adjacent or general sibling selectors.</li></ul><h2 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h2><ul><li>css1少数选择器不支持ie6，其他全支持</li><li>css2.1不支持ie6</li><li>css3不支持ie6，少数在ie7 8上也不支持</li></ul><p><strong>参考：</strong></p><ul><li><a href="http://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="noopener">CSS 选择器参考手册</a></li><li><a href="http://caniuse.com/#search=css%20sel" target="_blank" rel="noopener">Can i use</a></li><li><a href="https://labs.qianduan.net/css-selector/" target="_blank" rel="noopener">CSS选择器的浏览器支持</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      css选择器的使用与兼容情况
-    
-    </summary>
-    
-      <category term="css" scheme="http://007sair.github.io/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://007sair.github.io/tags/css/"/>
-    
-      <category term="css选择器" scheme="http://007sair.github.io/tags/css%E9%80%89%E6%8B%A9%E5%99%A8/"/>
     
   </entry>
   
