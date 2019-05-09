@@ -189,66 +189,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-gulp-rev" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner typo">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/09/14/gulp-rev/">gulp-rev版本替换插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/09/14/gulp-rev/" class="article-date">
-	  <time datetime="2017-09-13T16:00:00.000Z" itemprop="datePublished">2017-09-14</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/tool/">tool</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>脚手架中运行<code>gulp build</code>命令时会用到版本号插件，插件使用方法如下：</p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
-<li>解析<code>js</code>和<code>css</code>文件；</li>
-<li>通过对<code>js</code>,<code>css</code>文件内容进行<code>hash</code>运算，生成一个文件的唯一<code>hash</code>字符串(如果文件修改则<code>hash</code>号会发生变化)；</li>
-<li>替换<code>html</code>中的<code>js</code>,<code>css</code>文件名，生成一个带版本号的文件名。</li>
-</ol>
-        <!-- 脚手架中运行gulp build命令时会用到版本号插件，插件使用方法如下：
-实现原理
-解析js和css文件；
-通过对js,css文件内容进行hash运算，生成一个文件的唯一hash字符串(如果文件修改则hash号会发生变化)；
-替换html中的js,css文件名，生成一个带版本号的文件名。
-
-
-gulp-rev将资源文件（css、js、images等）解析，生成一个rev.json，大致如下......  -->
-        <p class="article-more-link">
-          <a href="/2017/09/14/gulp-rev/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建/">构建</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-jsonp-fun" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner typo">
     
@@ -748,6 +688,125 @@ PC
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date对象/">Date对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-css-selector" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner typo">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/06/css-selector/">css选择器总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/06/css-selector/" class="article-date">
+	  <time datetime="2017-02-05T16:00:00.000Z" itemprop="datePublished">2017-02-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/css/">css</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+</style>
+
+<blockquote>
+<p>约定：IE7+ 意思为大于（含IE7）的浏览器</p>
+</blockquote>
+<h2 id="CSS1-amp-CSS2-1-选择器"><a href="#CSS1-amp-CSS2-1-选择器" class="headerlink" title="CSS1 &amp; CSS2.1 选择器"></a>CSS1 &amp; CSS2.1 选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>例子</th>
+<th>例子描述</th>
+<th>兼容性   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> *</td>
+<td>*</td>
+<td>选择所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> E</td>
+<td>p</td>
+<td>选择所有 <code>&lt;p&gt;</code> 元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> #id</td>
+<td>#firstname</td>
+<td>选择 <code>id=&quot;firstname&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+<tr>
+<td> .class</td>
+<td>.intro</td>
+<td>选择 <code>class=&quot;intro&quot;</code> 的所有元素。</td>
+<td>all   </td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+td{font-family: Verdana, Geneva, sans-serif;font-size: 13px;}
+
+
+
+约定：IE7+ 意思为大于（含IE7）的浏览器
+
+CSS1 &amp; CSS2.1 选择器基础选择器
+
+
+选择器
+例子
+例子描述
+兼容性   
+
+
+
+
+ *
+*
+选择所有元素。
+all   
+
+
+ E
+p
+选择所有 &lt;p&gt; 元素。
+all   
+
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/06/css-selector/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css选择器/">css选择器</a></li></ul>
 
     </footer>
   </div>
